@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad9c89485b93da4d8c6366f575bff17, type: 3}
+  m_Name: TestRoomDeck
+  m_EditorClassIdentifier: 
+  id: 0
+  name: TestRoomDeck
+  description: 
+  artwork: {fileID: 0}
+  cards:
+  - {fileID: 11400000, guid: 60358d3e6f39a9e4c8af3113a82fd3ea, type: 2}
+  - {fileID: 11400000, guid: c91ffa10c4282a1419efbbd422070d7c, type: 2}
+  - {fileID: 11400000, guid: f010c905af109b34fa385803359d15df, type: 2}
+  - {fileID: 11400000, guid: 4927819fdade8f94ca883c795c053952, type: 2}
+  - {fileID: 11400000, guid: 5544ee2d25306704ea80818478e64cb9, type: 2}
+  - {fileID: 11400000, guid: c91ffa10c4282a1419efbbd422070d7c, type: 2}
+  - {fileID: 11400000, guid: 5544ee2d25306704ea80818478e64cb9, type: 2}
+  - {fileID: 11400000, guid: 5544ee2d25306704ea80818478e64cb9, type: 2}
+  - {fileID: 11400000, guid: 5544ee2d25306704ea80818478e64cb9, type: 2}
+  - {fileID: 11400000, guid: 5544ee2d25306704ea80818478e64cb9, type: 2}
+  - {fileID: 11400000, guid: 5544ee2d25306704ea80818478e64cb9, type: 2}
+  - {fileID: 11400000, guid: 5544ee2d25306704ea80818478e64cb9, type: 2}
+  - {fileID: 11400000, guid: 5544ee2d25306704ea80818478e64cb9, type: 2}
+  - {fileID: 11400000, guid: 5544ee2d25306704ea80818478e64cb9, type: 2}
+  - {fileID: 11400000, guid: 5544ee2d25306704ea80818478e64cb9, type: 2}
