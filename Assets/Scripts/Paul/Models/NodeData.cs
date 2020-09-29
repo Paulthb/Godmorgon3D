@@ -9,5 +9,6 @@ public class NodeData : MonoBehaviour
     public Texture2D nodePreview;
 
     public RoadType roadType;
-}
 
+    public Tiles[,] tiles = new Tiles[3,3];
+}
