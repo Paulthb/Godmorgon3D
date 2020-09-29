@@ -18,17 +18,15 @@ namespace GodMorgon.Timeline
         [SerializeField]
         private TimelineSettings settings = null;
 
+        //liste des actions de la timeline
+        [SerializeField]
+        private List<GameObject> actionObjectList = null;
+
         /**
          * The action image on the timeline;
          */
         [SerializeField]
         private List<Image> actionLogoList = null;
-
-        /**
-         * ActionCursor script manage the animation of the cursor
-         */
-        [SerializeField]
-        private ActionCursor cursorAction = null;
 
         //text indiquant le nombre de d'action restantes
         [SerializeField]
@@ -103,9 +101,9 @@ namespace GodMorgon.Timeline
 
             //launche the first gear anmation
             //actionGearAnimations[0].Play();
-            gearParticle.transform.position = actionGearAnimations[0].transform.position;
+            gearParticle.transform.position = actionObjectList[0].transform.position;
 
-            particulePos.localPosition = actionGearAnimations[0].transform.localPosition;
+            //particulePos.localPosition = actionGearAnimations[0].transform.localPosition;
 
             //particulePos.gameObject.SetActive(false);
             particulePos.gameObject.GetComponent<ParticleSystem>().Stop();
@@ -129,7 +127,7 @@ namespace GodMorgon.Timeline
 
             //actionGearAnimations[3].Stop();
             //actionGearAnimations[0].Play();
-            gearParticle.transform.position = actionGearAnimations[0].transform.position;
+            gearParticle.transform.position = actionObjectList[0].transform.position;
 
             int idx = indexCurrentAction;
             idx = SetNextActions(actionLogoList[0], idx);
@@ -214,15 +212,12 @@ namespace GodMorgon.Timeline
             else
             {
                 //actionGearAnimations[nbActualAction - 1].Play();
-                gearParticle.transform.position = actionGearAnimations[nbActualAction - 1].transform.position;
+                gearParticle.transform.position = actionObjectList[nbActualAction - 1].transform.position;
 
-                particulePos.localPosition = actionGearAnimations[nbActualAction - 1].transform.localPosition;
+                //particulePos.localPosition = actionGearAnimations[nbActualAction - 1].transform.localPosition;
 
                 actionGearAnimations[nbActualAction - 2].Stop();
             }
-
-            //at the end of the action, we set the cursor
-            cursorAction.RunCursorAnim();
 
             nbRingmasterActionRemain--;
             //si il reste des action pour le ringmaster, on relance son tour
@@ -280,6 +275,32 @@ namespace GodMorgon.Timeline
                 actionLogoList[nbActualAction - 1].transform.localScale = Vector3.Lerp(destinationScale, originalScale, currentTime);
                 currentTime += Time.deltaTime * 4;
                 yield return null;
+            }
+        }
+
+        /**
+         * affiche les prochaines actions du ringmaster
+         * dépend de la carte en hover
+        */
+        public void ShowNextAction(int nbAction)
+        {
+            for (int i = 0; i < nbAction; i++)
+            {
+                if ((i + nbActualAction) > 3)
+                    actionObjectList[0].GetComponent<Animator>().SetBool("cardHover", true);
+                else
+                    actionObjectList[i + (nbActualAction - 1)].GetComponent<Animator>().SetBool("cardHover", true);
+            }
+        }
+        // désaffiche les prochaines actions du ringmaster
+        public void HideNextAction(int nbAction)
+        {
+            for (int i = 0; i < nbAction; i++)
+            {
+                if ((i + nbActualAction) > 3)
+                    actionObjectList[0].GetComponent<Animator>().SetBool("cardHover", false);
+                else
+                    actionObjectList[i + (nbActualAction - 1)].GetComponent<Animator>().SetBool("cardHover", false);
             }
         }
     }

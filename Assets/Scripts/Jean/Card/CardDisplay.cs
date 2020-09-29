@@ -8,7 +8,7 @@ using TMPro;
 
 using GodMorgon.Models;
 using GodMorgon.StateMachine;
-
+using GodMorgon.Timeline;
 
 /**
  * Présent sur chaque carte
@@ -106,7 +106,9 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     /**
+     * Quand on passe la souris sur l'élément
      * doit activer l'animation de l'agrandissement de la carte
+     * afficher les prochaines action du ringmaster
      */
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
@@ -114,6 +116,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             isHover = true;
             StartCoroutine(ScaleCardIn());
+            TimelineManager.Instance.ShowNextAction(card.actionCost);
         }
     }
 
@@ -124,6 +127,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             isHover = false;
             StartCoroutine(ScaleCardOut());
+            TimelineManager.Instance.HideNextAction(card.actionCost);
         }
     }
 
