@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeName: 
   nodePreview: {fileID: 2800000, guid: 3525f9208c8a16c43b62aceff059fad8, type: 3}
-  roadType: 0
+  roadType: 1
 --- !u!1 &1342960659825325115
 GameObject:
   m_ObjectHideFlags: 0

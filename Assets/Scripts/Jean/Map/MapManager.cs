@@ -16,6 +16,12 @@ public class Node
     public bool isRoomCleared = false;
 }
 
+public class Tiles
+{
+    public Vector3Int tilePosition;
+    public bool walkable;
+}
+
 public enum RoadType
 {
     Cross,
@@ -38,9 +44,12 @@ public class MapManager : MonoBehaviour
     public List<Node> nodesList = new List<Node>();
 
     [Header("Tiles")]
-    public Vector3Int[,] tiles;
-
+    public Vector3Int[,] grid;
     private List<Vector3Int> tilesList;
+    private Tiles[,] tilesMap;
+
+    public Astar astar;
+    public List<Spot> roadPath = new List<Spot>();
 
     #region Singleton Pattern
     private static MapManager _instance;
@@ -158,9 +167,75 @@ public class MapManager : MonoBehaviour
 
     #endregion
 
+    void Start()
+    {
+        tilesMap = new Tiles[map.mapSize.x * 3, map.mapSize.y * 3];
+        CreateGrid();
+        astar = new Astar(grid, map.mapSize.x, map.mapSize.y);
+    }
+
     public void CreateGrid()
     {
-        //spots = new Vector3Int;
+        grid = new Vector3Int[map.mapSize.x*3, map.mapSize.y*3];
+
+        foreach (Node node in nodesList)
+        {
+            for (int i = node.nodePosition.x;
+                i < node.nodePosition.x + 3;
+                i++)
+            {
+                for (int j = node.nodePosition.z;
+                    j < node.nodePosition.z + 3;
+                    j++)
+                {
+                    //Fill the grid with tile positions
+                    grid[i, j] = new Vector3Int(i, 0, j);
+
+                    //Fill the grid of walkable tiles depending on road type of node
+                    switch (node.roadType)
+                    {
+                        case RoadType.Cross:
+
+                            break;
+                        case RoadType.Horizontal:
+
+                            break;
+                        case RoadType.Vertical:
+
+                            break;
+                    }
+                }
+            }
+            
+        }
+
+        for (int x = 0, i = 0; i < map.mapSize.x *3; x++, i++)
+        {
+            for (int z = 0, j = 0; j < map.mapSize.y*3; z++, j++)
+            {
+                Node currentNode = GetNodeOfTile(new Vector3Int(x, 0, z));
+                
+            }
+        }
+
+    }
+
+    //Get the node associated to a tile
+    public Node GetNodeOfTile(Vector3Int tilePos)
+    {
+        //For each node of the map
+        foreach (Node node in nodesList)
+        {
+            //Check if the tile position /3 is equal to node position /3, casting to int allowing to have the same integer as result
+            if ((int)(tilePos.x / 3) == (int)(node.nodePosition.x / 3) && (int)(tilePos.z / 3) == (int)(node.nodePosition.z / 3))
+            {
+                print(tilePos + " is in node " + node.nodePosition);
+                return node;
+            }
+        }
+
+        return null;
     }
     
+
 }
