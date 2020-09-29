@@ -286,7 +286,7 @@ namespace GodMorgon.Timeline
         {
             for (int i = 0; i < nbAction; i++)
             {
-                if ((i + nbActualAction) > 3)
+                if ((i + nbActualAction) > 4)
                     actionObjectList[0].GetComponent<Animator>().SetBool("cardHover", true);
                 else
                     actionObjectList[i + (nbActualAction - 1)].GetComponent<Animator>().SetBool("cardHover", true);
@@ -297,7 +297,7 @@ namespace GodMorgon.Timeline
         {
             for (int i = 0; i < nbAction; i++)
             {
-                if ((i + nbActualAction) > 3)
+                if ((i + nbActualAction) > 4)
                     actionObjectList[0].GetComponent<Animator>().SetBool("cardHover", false);
                 else
                     actionObjectList[i + (nbActualAction - 1)].GetComponent<Animator>().SetBool("cardHover", false);

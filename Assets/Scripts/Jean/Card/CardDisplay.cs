@@ -183,6 +183,8 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             StopCoroutine(ScaleCardIn());
             StopCoroutine(ScaleCardOut());
 
+            TimelineManager.Instance.HideNextAction(card.actionCost);
+
             display.transform.localScale = new Vector3(1, 1, 1);
             display.transform.localPosition = new Vector3(0, 0, 0);
         }
