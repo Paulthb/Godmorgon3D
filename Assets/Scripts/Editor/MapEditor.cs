@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEditor.SceneManagement;
 
 public class MapEditor : EditorWindow
 {
@@ -46,6 +47,12 @@ public class MapEditor : EditorWindow
 
         showMapSettings = EditorGUILayout.BeginFoldoutHeaderGroup(showMapSettings, "Modify map size");
 
+        if (!showMapSettings)
+        {
+            _tempMapSizeX = _mapManager.map.mapSize.x;
+            _tempMapSizeZ = _mapManager.map.mapSize.y;
+        }
+
         if (showMapSettings)
         {
             EditorGUILayout.BeginHorizontal();
@@ -54,6 +61,9 @@ public class MapEditor : EditorWindow
             {
                 _mapManager.map.mapSize.x = mapSizeX;
                 _mapManager.UpdateMap("X", _lastMapSizeX);
+
+                EditorUtility.SetDirty(_mapManager.map);
+                EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
             }
             EditorGUILayout.EndHorizontal();
 
@@ -63,6 +73,9 @@ public class MapEditor : EditorWindow
             {
                 _mapManager.map.mapSize.y = mapSizeZ;
                 _mapManager.UpdateMap("Z", _lastMapSizeZ);
+
+                EditorUtility.SetDirty(_mapManager.map);
+                EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
             }
             EditorGUILayout.EndHorizontal();
             
@@ -101,6 +114,9 @@ public class MapEditor : EditorWindow
                         if (GUILayout.Button(nodePrefab.GetComponent<NodeData>().nodePreview, GUILayout.Width(80), GUILayout.Height(80)))
                         {
                             _mapManager.UpdateNode(Selection.activeGameObject, nodePrefab);
+
+                            EditorUtility.SetDirty(_mapManager.map);
+                            EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
                         }
                     }
                     EditorGUILayout.EndHorizontal();
@@ -114,6 +130,9 @@ public class MapEditor : EditorWindow
                         if (GUILayout.Button(nodePrefab.GetComponent<NodeData>().nodePreview, GUILayout.Width(80), GUILayout.Height(80)))
                         {
                             _mapManager.UpdateNode(Selection.activeGameObject, nodePrefab);
+
+                            EditorUtility.SetDirty(_mapManager.map);
+                            EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
                         }
                     }
                     EditorGUILayout.EndHorizontal();
@@ -126,6 +145,9 @@ public class MapEditor : EditorWindow
                         if (GUILayout.Button(nodePrefab.GetComponent<NodeData>().nodePreview, GUILayout.Width(80), GUILayout.Height(80)))
                         {
                             _mapManager.UpdateNode(Selection.activeGameObject, nodePrefab);
+
+                            EditorUtility.SetDirty(_mapManager.map);
+                            EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
                         }
                     }
                     EditorGUILayout.EndHorizontal();
@@ -138,6 +160,9 @@ public class MapEditor : EditorWindow
                         if (GUILayout.Button(nodePrefab.GetComponent<NodeData>().nodePreview, GUILayout.Width(80), GUILayout.Height(80)))
                         {
                             _mapManager.UpdateNode(Selection.activeGameObject, nodePrefab);
+
+                            EditorUtility.SetDirty(_mapManager.map);
+                            EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
                         }
                     }
                     EditorGUILayout.EndHorizontal();

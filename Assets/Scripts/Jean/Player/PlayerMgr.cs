@@ -10,13 +10,17 @@ public class PlayerMgr : MonoBehaviour
     public float playerSpeed = 1f;
     public AnimationCurve playerMoveCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-    private bool playerCanMove = false;
-    private bool playerHasMoved = false;
+    //
     [NonSerialized]
     public bool isMoving = false;
+    private bool playerCanMove = false;
+    private bool playerHasMoved = false;
 
-    //DONNEES RECUP DE LA CARTE MOVE
-    private CardEffectData[] _cardEffectDatas;
+    [NonSerialized]
+    public Vector3Int supposedPos; // = centrer of node if in node of an enemy (used for movements cards)
+
+    
+    private CardEffectData[] _cardEffectDatas; //Move card datas
 
     private int nbMoveIterationCounter = 0; //nb d'iterations de move effectuées
     private bool accessibleShown = false;
@@ -52,4 +56,28 @@ public class PlayerMgr : MonoBehaviour
     {
         
     }
+
+    #region PLAYER POSITIONS
+
+    /**
+     * Return player's tile position
+     */
+    public Vector3Int GetTilePosOfPlayer()
+    {
+        Tiles currentTile = MapManager.Instance.GetTileFromPos(new Vector3Int((int) transform.position.x,
+            (int) transform.position.y, (int) transform.position.z));
+        return currentTile.tilePosition;
+    }
+
+    /**
+     * Return player's node position
+     */
+    public Vector3Int GetNodePosOfPlayer()
+    {
+        Transform currentNode = MapManager.Instance.GetNodeFromPos(new Vector3Int((int)transform.position.x, (int)transform.position.y, (int)transform.position.z));
+        return currentNode.GetComponent<NodeScript>().node.nodePosition;
+    }
+
+    #endregion
+
 }
