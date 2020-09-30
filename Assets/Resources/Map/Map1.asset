@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Map1
   m_EditorClassIdentifier: 
   mapName: Map1
-  mapSize: {x: 0, y: 0}
+  mapSize: {x: 4, y: 4}
   nodeList: []
