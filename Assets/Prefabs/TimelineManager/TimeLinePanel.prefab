@@ -776,6 +776,7 @@ MonoBehaviour:
   particulePos: {fileID: 94621678514618339}
   gearsTranslateValue: 100
   gearPrefab: {fileID: 0}
+  newGearPos: {fileID: 0}
 --- !u!1 &8808992978115600089
 GameObject:
   m_ObjectHideFlags: 0

@@ -110,6 +110,11 @@ namespace GodMorgon.Timeline
             particulePos.gameObject.GetComponent<ParticleSystem>().Stop();
         }
 
+        private void Update()
+        {
+            gearParticle.transform.position = gearsList[0].transform.position;
+        }
+
         //Init the Timeline, function call in Initialization_Maze state
         public void InitTimeline()
         {
@@ -125,10 +130,6 @@ namespace GodMorgon.Timeline
         public void SetTimeline()
         {
             nbActualAction = 1;
-
-            //actionGearAnimations[3].Stop();
-            //actionGearAnimations[0].Play();
-            //gearParticle.transform.position = gearsList[0].transform.position;
 
             int idx = indexCurrentAction;
             idx = SetNextActions(gearsList[0].logo, idx);
@@ -306,10 +307,15 @@ namespace GodMorgon.Timeline
          */
         public void UpdateGearPos()
         {
+            //décale les gears à gauche
             foreach (Gears gears in gearsList)
                 gears.MoveGear();
+
+            //détruit l'ancien gear
             gearsList[0].FadeOutGear();
+            GameObject oldGear = gearsList[0].gameObject;
             gearsList.RemoveAt(0);
+            Destroy(oldGear);
 
             //nouveau gear
             GameObject gearGAO = Instantiate(gearPrefab, newGearPos.position, Quaternion.identity, this.transform);

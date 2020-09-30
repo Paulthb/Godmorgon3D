@@ -83,23 +83,50 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             string cardDescription = card.description;
 
             //damage
-            int actualDamage = BuffManager.Instance.getModifiedDamage(card.GetRealDamage());
-            cardDescription = cardDescription.Replace("[nbDamage]", "<b>" + actualDamage.ToString() + "</b>");
+            int actualDamage = BuffManager.Instance.getModifiedDamage(card.GetDamageOnBonus());
+            //si il y a des bonus, le texte est vert
+            if (actualDamage > card.GetDamage())
+                cardDescription = cardDescription.Replace("[nbDamage]", "<b><color=green>" + actualDamage.ToString() + "</color></b>");
+            //si il n'y a rien, le texte est normale
+            else if(actualDamage == card.GetDamage())
+                cardDescription = cardDescription.Replace("[nbDamage]", "<b>" + actualDamage.ToString() + "</b>");
+            //si il y a des malus, le texte est rouge
+            else
+                cardDescription = cardDescription.Replace("[nbDamage]", "<b><color=red>" + actualDamage.ToString() + "</color></b>");
+
 
             //block
-            int actualBlock = BuffManager.Instance.getModifiedBlock(card.GetRealBlock());
-            cardDescription = cardDescription.Replace("[nbBlock]", "<b>" + actualBlock.ToString() + "</b>");
+            int actualBlock = BuffManager.Instance.getModifiedBlock(card.GetBlockOnBonus());
+            if (actualBlock > card.GetBlock())
+                cardDescription = cardDescription.Replace("[nbBlock]", "<b><color=green>" + actualBlock.ToString() + "</color></b>");
+            else if (actualBlock == card.GetBlock())
+                cardDescription = cardDescription.Replace("[nbBlock]", "<b>" + actualBlock.ToString() + "</b>");
+            else
+                cardDescription = cardDescription.Replace("[nbBlock]", "<b><color=red>" + actualBlock.ToString() + "</color></b>");
+
 
             //Move
-            int actualMove = BuffManager.Instance.getModifiedMove(card.GetRealMove());
-            cardDescription = cardDescription.Replace("[nbMove]", "<b>" + actualMove.ToString() + "</b>");
+            int actualMove = BuffManager.Instance.getModifiedMove(card.GetMoveOnBonus());
+            if (actualMove > card.GetMove())
+                cardDescription = cardDescription.Replace("[nbMove]", "<b><color=green>" + actualMove.ToString() + "</color></b>");
+            else if (actualMove == card.GetMove())
+                cardDescription = cardDescription.Replace("[nbMove]", "<b>" + actualMove.ToString() + "</b>");
+            else
+                cardDescription = cardDescription.Replace("[nbMove]", "<b><color=red>" + actualMove.ToString() + "</color></b>");
+
 
             //Heal
-            int actualHeal = BuffManager.Instance.getModifiedHeal(card.GetRealHeal());
-            cardDescription = cardDescription.Replace("[nbHeal]", "<b>" + actualHeal.ToString() + "</b>");
+            int actualHeal = BuffManager.Instance.getModifiedHeal(card.GetHealOnBonus());
+            if (actualHeal > card.GetHeal())
+                cardDescription = cardDescription.Replace("[nbHeal]", "<b><color=green>" + actualHeal.ToString() + "</color></b>");
+            else if (actualHeal == card.GetHeal())
+                cardDescription = cardDescription.Replace("[nbHeal]", "<b>" + actualHeal.ToString() + "</b>");
+            else
+                cardDescription = cardDescription.Replace("[nbHeal]", "<b><color=red>" + actualHeal.ToString() + "</color></b>");
+
 
             //carte à piocher
-            cardDescription = cardDescription.Replace("[nbCardToDraw]", "<b>" + card.GetRealNbDraw().ToString() + "</b>");
+            cardDescription = cardDescription.Replace("[nbCardToDraw]", "<b>" + card.GetNbDrawOnBonus().ToString() + "</b>");
 
             descriptionText.text = cardDescription;
         }
