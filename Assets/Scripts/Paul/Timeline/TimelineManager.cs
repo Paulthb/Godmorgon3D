@@ -63,6 +63,17 @@ namespace GodMorgon.Timeline
         //particule actuel
         public Transform particulePos = null;
 
+        //valeur de translation des gears
+        public float gearsTranslateValue = 0;
+
+        //prefab de gear
+        [SerializeField]
+        private GameObject gearPrefab = null;
+
+        //position de départ du nouveau gear
+        [SerializeField]
+        private Transform newGearPos = null;
+
         #region Singleton Pattern
         private static TimelineManager _instance;
 
@@ -91,7 +102,7 @@ namespace GodMorgon.Timeline
 
             //launche the first gear animation
             //actionGearAnimations[0].Play();
-            gearParticle.transform.position = gearsList[0].transform.position;
+            //gearParticle.transform.position = gearsList[0].transform.position;
 
             //particulePos.localPosition = actionGearAnimations[0].transform.localPosition;
 
@@ -117,7 +128,7 @@ namespace GodMorgon.Timeline
 
             //actionGearAnimations[3].Stop();
             //actionGearAnimations[0].Play();
-            gearParticle.transform.position = gearsList[0].transform.position;
+            //gearParticle.transform.position = gearsList[0].transform.position;
 
             int idx = indexCurrentAction;
             idx = SetNextActions(gearsList[0].logo, idx);
@@ -162,7 +173,7 @@ namespace GodMorgon.Timeline
             //particulePos.gameObject.SetActive(true);
             particulePos.gameObject.GetComponent<ParticleSystem>().Play();
 
-            gearsList[nbActualAction - 1].gear.Play();
+            gearsList[0].gear.Play();
 
             //SFX ringmaster laugh
             MusicManager.Instance.PlayRingMasterEndTurn();
@@ -174,13 +185,14 @@ namespace GodMorgon.Timeline
             isRunning = false;
 
             //on désactive le logo de l'action actuel
-            gearsList[nbActualAction - 1].logo.gameObject.SetActive(false);
+            gearsList[0].logo.gameObject.SetActive(false);
 
             //actualise le numéro pour l'action actuel et l'index de la list d'action;
             nbActualAction++;
             indexCurrentAction++;
 
-
+            //on décale les engrenages
+            UpdateGearPos();
 
             //si on arrive au bout des 4 actions affichées
             if (indexCurrentAction % 4 == 0)
@@ -202,11 +214,11 @@ namespace GodMorgon.Timeline
             else
             {
                 //actionGearAnimations[nbActualAction - 1].Play();
-                gearParticle.transform.position = gearsList[nbActualAction - 1].transform.position;
+                //gearParticle.transform.position = gearsList[0].transform.position;
 
                 //particulePos.localPosition = actionGearAnimations[nbActualAction - 1].transform.localPosition;
 
-                gearsList[nbActualAction - 2].gear.Stop();
+                gearsList[0].gear.Stop();/////////////////////----------------------- a voir
             }
 
             nbRingmasterActionRemain--;
@@ -223,11 +235,7 @@ namespace GodMorgon.Timeline
             particulePos.gameObject.GetComponent<ParticleSystem>().Stop();
 
             nbRemainingActionText.text = nbRingmasterActionRemain.ToString();
-
-            //décale les engrenages
-            UpdateGearPos();
         }
-
 
         //return the id of the current action in the list
         public int GetIndexCurrentAction()
@@ -247,14 +255,14 @@ namespace GodMorgon.Timeline
          */
         public IEnumerator ActionLogoAnimation()
         {
-            Vector3 originalScale = gearsList[nbActualAction - 1].logo.transform.localScale;
+            Vector3 originalScale = gearsList[0].logo.transform.localScale;
             Vector3 destinationScale = new Vector3(2f, 2f, 0);
 
             float currentTime = 0.0f;
 
             while (currentTime <= actionLogoTime)
             {
-                gearsList[nbActualAction - 1].logo.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime);
+                gearsList[0].logo.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime);
                 currentTime += Time.deltaTime * 4;
                 yield return null;
             }
@@ -263,7 +271,7 @@ namespace GodMorgon.Timeline
             currentTime = 0;
             while (currentTime <= actionLogoTime)
             {
-                gearsList[nbActualAction - 1].logo.transform.localScale = Vector3.Lerp(destinationScale, originalScale, currentTime);
+                gearsList[0].logo.transform.localScale = Vector3.Lerp(destinationScale, originalScale, currentTime);
                 currentTime += Time.deltaTime * 4;
                 yield return null;
             }
@@ -277,10 +285,8 @@ namespace GodMorgon.Timeline
         {
             for (int i = 0; i < nbAction; i++)
             {
-                if ((i + nbActualAction) > 4)
-                    gearsList[0].GetComponent<Animator>().SetBool("cardHover", true);
-                else
-                    gearsList[i + (nbActualAction - 1)].GetComponent<Animator>().SetBool("cardHover", true);
+                gearsList[i].GetComponent<Animator>().SetBool("cardHover", true);
+                gearsList[i].gear.Play();
             }
         }
         // désaffiche les prochaines actions du ringmaster
@@ -288,17 +294,28 @@ namespace GodMorgon.Timeline
         {
             for (int i = 0; i < nbAction; i++)
             {
-                if ((i + nbActualAction) > 4)
-                    gearsList[0].GetComponent<Animator>().SetBool("cardHover", false);
-                else
-                    gearsList[i + (nbActualAction - 1)].GetComponent<Animator>().SetBool("cardHover", false);
+                gearsList[i].GetComponent<Animator>().SetBool("cardHover", false);
+                gearsList[i].gear.Stop();
             }
         }
 
+        /**
+         * à la fin d'un tour du ringmaster
+         * l'action passé disparais et tous les gears se décale vers la gauche
+         * et un nouveau gears apparait à droite
+         */
         public void UpdateGearPos()
         {
             foreach (Gears gears in gearsList)
-                gears.MoveGears();
+                gears.MoveGear();
+            gearsList[0].FadeOutGear();
+            gearsList.RemoveAt(0);
+
+            //nouveau gear
+            GameObject gearGAO = Instantiate(gearPrefab, newGearPos.position, Quaternion.identity, this.transform);
+            gearGAO.GetComponent<Gears>().CreateGear();
+            gearGAO.GetComponent<Gears>().MoveGear();
+            gearsList.Add(gearGAO.GetComponent<Gears>());
         }
     }
 }

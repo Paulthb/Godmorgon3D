@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1124376632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1124376633}
+  m_Layer: 5
+  m_Name: NewGearPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1124376633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124376632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 485, y: -15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8808992978091051911}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2041795410
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7475808785038806671}
   - component: {fileID: 1185757125}
+  - component: {fileID: 1185757126}
   m_Layer: 5
   m_Name: Action2
   m_TagString: Untagged
@@ -179,6 +210,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1185757126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806760325433898593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9468b5bcb890e8c41b7073cab777be6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gear: {fileID: 76792885}
+  logo: {fileID: 8808992978115600091}
 --- !u!1 &4560101863695214338
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,6 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7316503736910238965}
   - component: {fileID: 1794746370}
+  - component: {fileID: 1794746371}
   m_Layer: 5
   m_Name: Action4
   m_TagString: Untagged
@@ -214,7 +260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 326.3, y: -15}
+  m_AnchoredPosition: {x: 285, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1794746370
@@ -236,6 +282,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1794746371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4560101863695214338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9468b5bcb890e8c41b7073cab777be6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gear: {fileID: 67137503}
+  logo: {fileID: 8808992979046637012}
 --- !u!1 &6329709295373625808
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8857381117598478784}
   - component: {fileID: 708717144}
+  - component: {fileID: 708717145}
   m_Layer: 5
   m_Name: Action3
   m_TagString: Untagged
@@ -271,7 +332,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: -15}
+  m_AnchoredPosition: {x: 85, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &708717144
@@ -293,6 +354,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &708717145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329709295373625808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9468b5bcb890e8c41b7073cab777be6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gear: {fileID: 2139884626}
+  logo: {fileID: 8808992978785163147}
 --- !u!1 &6892010965483872762
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6274543200372308899}
   - component: {fileID: 1860301018}
+  - component: {fileID: 1860301019}
   m_Layer: 5
   m_Name: Action1
   m_TagString: Untagged
@@ -402,7 +478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -332.80002, y: -15}
+  m_AnchoredPosition: {x: -315, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1860301018
@@ -424,6 +500,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1860301019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7175743109220345369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9468b5bcb890e8c41b7073cab777be6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gear: {fileID: 796555681}
+  logo: {fileID: 8808992980040290743}
 --- !u!1 &8808992977965502445
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,6 +733,7 @@ RectTransform:
   - {fileID: 7316503736910238965}
   - {fileID: 1593634906523168477}
   - {fileID: 2041795411}
+  - {fileID: 1124376633}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -672,27 +763,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 0919c8b011e7eef44be3c3f5a05320b0, type: 2}
-  actionObjectList:
-  - {fileID: 7175743109220345369}
-  - {fileID: 1806760325433898593}
-  - {fileID: 6329709295373625808}
-  - {fileID: 4560101863695214338}
-  actionLogoList:
-  - {fileID: 8808992980040290743}
-  - {fileID: 8808992978115600091}
-  - {fileID: 8808992978785163147}
-  - {fileID: 8808992979046637012}
   nbRemainingActionText: {fileID: 5008131918169433113}
+  gearsList:
+  - {fileID: 1860301019}
+  - {fileID: 1185757126}
+  - {fileID: 708717145}
+  - {fileID: 1794746371}
   nbBlockGain: 5
-  actionGearAnimations:
-  - {fileID: 796555681}
-  - {fileID: 76792885}
-  - {fileID: 2139884626}
-  - {fileID: 67137503}
   gearParticle: {fileID: 2144616853030352545}
   logoDestination: {fileID: 2041795411}
   actionLogoTime: 2
   particulePos: {fileID: 94621678514618339}
+  gearsTranslateValue: 100
+  gearPrefab: {fileID: 0}
 --- !u!1 &8808992978115600089
 GameObject:
   m_ObjectHideFlags: 0
