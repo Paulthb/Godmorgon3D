@@ -4,6 +4,7 @@ using UnityEngine;
 
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEngine.PlayerLoop;
 
 [CustomEditor(typeof(NodeData))]
 public class NodeDataEditor : Editor
@@ -17,7 +18,9 @@ public class NodeDataEditor : Editor
         NodeData nodeData = (NodeData)target;
 
         GUILayout.Label("Walkable tiles");
-
+        
+        EditorGUILayout.BeginVertical();
+        
         EditorGUILayout.BeginHorizontal();
         for (int i = 0; i < 3; i++)
         {
@@ -36,6 +39,17 @@ public class NodeDataEditor : Editor
         }
 
         EditorGUILayout.EndHorizontal();
+        
+        EditorGUILayout.Space();
+
+        EditorGUILayout.EndVertical();
+
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(nodeData.gameObject);
+            AssetDatabase.SaveAssets();
+            //AssetDatabase.Refresh();
+        }
     }
 }
 
