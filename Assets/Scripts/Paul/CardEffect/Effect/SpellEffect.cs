@@ -44,6 +44,12 @@ namespace GodMorgon.CardEffect
                 GameSequencer.Instance.AddAction(playerSpellAction);
             }
 
+            //effect to discard X card
+            if(effectData.DiscardCard)
+            {
+
+            }
+
             //add the sight sequence
             if(effectData.Sight)
             {

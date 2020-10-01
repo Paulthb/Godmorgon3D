@@ -13,7 +13,6 @@ namespace GodMorgon.GameSequencerSpace
          */
         public override IEnumerator ExecuteAction(GameContext context)
         {
-            //launch particle system
             GameManager.Instance.DiscardHand();
 
             //wait the time of the defense particle effect

@@ -24,16 +24,16 @@ namespace GodMorgon.Timeline
         {
             float timeToMove = 2;
             float elapsedTime = 0;
-            Vector3 currentPos = transform.position;
-            Vector3 Gotoposition = transform.position + (Vector3.left * TimelineManager.Instance.gearsTranslateValue);
+            Vector2 currentPos = GetComponent<RectTransform>().anchoredPosition;
+            Vector2 Gotoposition = GetComponent<RectTransform>().anchoredPosition + (Vector2.left * TimelineManager.Instance.gearsTranslateValue);
 
             while (elapsedTime < timeToMove)
             {
-                transform.position = Vector3.Lerp(currentPos, Gotoposition, (elapsedTime / timeToMove));
+                GetComponent<RectTransform>().anchoredPosition = Vector3.Lerp(currentPos, Gotoposition, (elapsedTime / timeToMove));
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
-            transform.position = Gotoposition;
+            GetComponent<RectTransform>().anchoredPosition = Gotoposition;
         }
 
         public void FadeOutGear()
@@ -63,6 +63,7 @@ namespace GodMorgon.Timeline
                 yield return null;
             }
             transform.localScale = GotoScale;
+            Destroy(this);
         }
 
         public IEnumerator FadeIn()

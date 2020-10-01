@@ -219,7 +219,7 @@ namespace GodMorgon.Timeline
 
                 //particulePos.localPosition = actionGearAnimations[nbActualAction - 1].transform.localPosition;
 
-                gearsList[0].gear.Stop();/////////////////////----------------------- a voir
+                gearsList[0].gear.Stop();
             }
 
             nbRingmasterActionRemain--;
@@ -315,7 +315,6 @@ namespace GodMorgon.Timeline
             gearsList[0].FadeOutGear();
             GameObject oldGear = gearsList[0].gameObject;
             gearsList.RemoveAt(0);
-            Destroy(oldGear);
 
             //nouveau gear
             GameObject gearGAO = Instantiate(gearPrefab, newGearPos.position, Quaternion.identity, this.transform);
