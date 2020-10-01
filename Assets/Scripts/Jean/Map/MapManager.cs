@@ -13,8 +13,10 @@ public class Node
     public RoadType roadType;
     public Tiles[,] tiles;
 
+    public NodeEffect nodeEffect = NodeEffect.NoEffect;
+
     public bool effectLaunched = false;
-    public bool isRoomCleared = false;
+    public bool isNodeCleared = false;
 }
 
 public class Tiles
@@ -29,6 +31,15 @@ public enum RoadType
     Horizontal,
     Vertical,
     NoRoad
+}
+
+//TEMPORAIRE
+public enum NodeEffect
+{
+    NoEffect,
+    Cursed,
+    Rest,
+    Chest
 }
 
 public class MapManager : MonoBehaviour
@@ -51,13 +62,12 @@ public class MapManager : MonoBehaviour
     private List<Transform> nodesList = new List<Transform>();
 
     //===================== PATHFINDING ================================
-    private int nbTilesToMove = 3; //For 1 move, 3 tiles to go through
+    private int nodeWidth = 3; //For 1 move, 3 tiles to go through
     public Astar astar;
     public List<Spot> roadPath = new List<Spot>();
-    [System.NonSerialized] public List<Vector3Int> accessibleTiles = new List<Vector3Int>();
+    [System.NonSerialized] public List<Vector3Int> accessibleNodes = new List<Vector3Int>();
     [System.NonSerialized] public List<Vector3Int> showableTilesList = new List<Vector3Int>();
-    [System.NonSerialized] public List<Vector3Int> nearestTilesList = new List<Vector3Int>();
-
+    [System.NonSerialized] public List<Vector3Int> nearestNodesList = new List<Vector3Int>(); //List of the node on the up down left and right of current node
 
     #region Singleton Pattern
 
@@ -169,7 +179,29 @@ public class MapManager : MonoBehaviour
     void Start()
     {
         CreateGrid();
-        astar = new Astar(grid, map.mapSize.x, map.mapSize.y);
+        astar = new Astar(grid, map.mapSize.x * 3, map.mapSize.y * 3);
+
+        UpdateAccessibleNodesList();
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+                if (hit.collider.tag == "Node")
+                {
+                    //hit.collider.gameObject now refers to the 
+                    //cube under the mouse cursor if present
+                    CheckClickedNode(hit.collider.gameObject);
+                    
+                    //print("Node hit : " + hit.collider.gameObject.transform.position);
+                }
+            }
+        }
     }
 
     public void CreateGrid()
@@ -208,17 +240,24 @@ public class MapManager : MonoBehaviour
             {
                 for (int j = currentNode.nodePosition.z; j < currentNode.nodePosition.z + 3; j++)
                 {
-                    //Fill grid array with tile positions
-                    grid[i, j] = new Vector3Int(i, 0, j);
-
                     //Fill tilesMap array with tiles objects
                     tilesMap[i, j] = currentNode.tiles[i - currentNode.nodePosition.x, j - currentNode.nodePosition.z];
+
+                    //Fill grid array with tile positions
+                    if (tilesMap[i, j].walkable)
+                    {
+                        grid[i, j] = new Vector3Int(i , j , 0);
+                    }
+                    else
+                    {   
+                        grid[i, j] = new Vector3Int(i, j, 1);
+                    }
                 }
             }
         }
 
-        #region TEMP : See walkable points
-
+        #region DEBUG : See walkable points
+        /*
         for (int i = 0; i < map.mapSize.x * 3; i++)
         {
             for (int j = 0; j < map.mapSize.y * 3; j++)
@@ -231,7 +270,7 @@ public class MapManager : MonoBehaviour
                 }
             }
         }
-
+        */
         #endregion
     }
 
@@ -289,48 +328,91 @@ public class MapManager : MonoBehaviour
      * * accessibles Tiles where the player can move
      * * showable Tiles where you can remove fog for example 
      */
-    public void UpdateAccessibleTilesList()
+    public void UpdateAccessibleNodesList()
     {
-        Vector3Int supposedPlayerCellPos = PlayerManager.Instance.supposedPos; //Position du player en format cell
-        nearestTilesList.Clear(); //Clear la liste de tiles avant de placer les nouvelles
-        nearestTilesList.Add(new Vector3Int(supposedPlayerCellPos.x + nbTilesToMove, supposedPlayerCellPos.y,
-            0)); //Ajoute les 4 cases voisines
-        nearestTilesList.Add(new Vector3Int(supposedPlayerCellPos.x - nbTilesToMove, supposedPlayerCellPos.y, 0));
-        nearestTilesList.Add(new Vector3Int(supposedPlayerCellPos.x, 0, supposedPlayerCellPos.y + nbTilesToMove));
-        nearestTilesList.Add(new Vector3Int(supposedPlayerCellPos.x, 0, supposedPlayerCellPos.y - nbTilesToMove));
+        //Player node position
+        Vector3Int supposedPlayerNodePos = PlayerMgr.Instance.GetNodePosOfPlayer();
+        Vector3Int supposedPlayerTilePos = PlayerMgr.Instance.GetTilePosOfPlayer();
+        Node currentNode = GetNodeFromPos(supposedPlayerNodePos).GetComponent<NodeScript>().node;
 
-        accessibleTiles.Clear();
+        //Clear the list to get new ones
+        nearestNodesList.Clear();
+
+        switch (currentNode.roadType)
+        {
+            case RoadType.Cross:
+                //Add the RIGHT node
+                if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                //Add the LEFT node
+                if (supposedPlayerNodePos.x - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
+                //Add the TOP node
+                if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3) 
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                //Add the DOWN node
+                if (supposedPlayerNodePos.z - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth)); 
+                break;
+            case RoadType.Horizontal:
+                //Add the RIGHT node
+                if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                //Add the LEFT node
+                if (supposedPlayerNodePos.x - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z)); 
+                break;
+            case RoadType.Vertical:
+                //Add the TOP node
+                if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                //Add the DOWN node
+                if (supposedPlayerNodePos.z - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
+                break;
+        }
+
+
+        //Clear the two lists
+        accessibleNodes.Clear();
         showableTilesList.Clear();
 
-        Vector3Int currentCellPos = PlayerManager.Instance.GetPlayerCellPosition();
 
-        if (null != tilesList)
+        if (null != tilesMap)
         {
-            //On regarde si les cases proches sont walkable, si non : on les retire de la liste
-            List<Vector3Int> tempNearTilesList = new List<Vector3Int>();
-            foreach (Vector3Int tile in nearestTilesList)
+            //If the path to nearest nodes is direct, add them to accessibles nodes 
+            foreach (Vector3Int node in nearestNodesList)
             {
-                if (tilesList.Contains(tile))
-                    tempNearTilesList.Add(tile);
+                //Get the middle tle of node
+                Vector3Int targetTile = new Vector3Int(node.x + 1, node.y, node.z + 1); 
 
-            }
-
-            nearestTilesList = tempNearTilesList;
-
-
-            //Si le chemin vers les rooms proches est direct, dans ce cas on met la tile dans la liste des accessibles
-            foreach (Vector3Int tile in nearestTilesList)
-            {
-                //Roadpath partant du centre de la room, qu'il y ait un ennemi ou pas, pour calculer les tiles accessibles, et qu'il n'y ait pas de décalage si le player n'est pas au centre de la room
-                roadPath = astar.CreatePath(grid, new Vector2Int(supposedPlayerCellPos.x, supposedPlayerCellPos.y),
-                    new Vector2Int(tile.x, tile.y), 100);
+                //Roadpath starting from the center of the node, with enemy on path or not, to calculate accessible tiles, and to not have an offset if the player is not in the center of the node
+                roadPath = astar.CreatePath(grid, new Vector2Int(supposedPlayerTilePos.x, supposedPlayerTilePos.z),
+                    new Vector2Int(targetTile.x, targetTile.z), 100);
 
                 //Si le chemin est direct (moins de 5 tiles pour y accéder)
-                if (roadPath.Count < 5)
+                if (roadPath != null && roadPath.Count < 5)
                 {
-                    accessibleTiles.Add(tile);
-                    showableTilesList.Add(tile);
+                    accessibleNodes.Add(node);
+                    //Debug.Log("Direct accessible tile : " + targetTile);
+                    //showableTilesList.Add(tile);
                 }
+            }
+        }
+    }
+
+    /**
+     * TEMP : check when click on room if can move, and active the move in player mgr
+     */
+    private void CheckClickedNode(GameObject clickedNode)
+    {
+        UpdateAccessibleNodesList();
+        foreach (Vector3Int node in accessibleNodes)
+        {
+            //If the clicked node is in the list of accessible nodes
+            if (clickedNode.transform.position.x == node.x && clickedNode.transform.position.z == node.z)
+            {
+                PlayerMgr.Instance.CalculatePlayerPath(node);
             }
         }
     }
