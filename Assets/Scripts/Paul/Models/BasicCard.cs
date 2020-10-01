@@ -42,7 +42,15 @@ namespace GodMorgon.Models
         #region GET_DATA
 
         //retourne les dégats de base de la carte
-        public int GetRealDamage()
+        public int GetDamage()
+        {
+            int damageData = 0;
+            foreach (CardEffectData effect in effectsData)
+                damageData += effect.damagePoint;
+            return damageData;
+        }
+        //retourne les dégats avec bonus de la carte
+        public int GetDamageOnBonus()
         {
             int damageData = 0;
             foreach (CardEffectData effect in effectsData)
@@ -58,8 +66,16 @@ namespace GodMorgon.Models
             return damageData;
         }
 
-        //retourne les blocks de base de la carte
-        public int GetRealBlock()
+        //retourne le block de base de la carte
+        public int GetBlock()
+        {
+            int blockData = 0;
+            foreach (CardEffectData effect in effectsData)
+                blockData += effect.nbBlock;
+            return blockData;
+        }
+        //retourne les blocks avec bonus de la carte
+        public int GetBlockOnBonus()
         {
             int blockData = 0;
             foreach (CardEffectData effect in effectsData)
@@ -74,7 +90,15 @@ namespace GodMorgon.Models
         }
 
         //retourne les mouvements de base de la carte
-        public int GetRealMove()
+        public int GetMove()
+        {
+            int moveData = 0;
+            foreach (CardEffectData effect in effectsData)
+                moveData += effect.nbMoves;
+            return moveData;
+        }
+        //retourne les mouvements avec bonus de la carte
+        public int GetMoveOnBonus()
         {
             int moveData = 0;
             foreach (CardEffectData effect in effectsData)
@@ -89,7 +113,15 @@ namespace GodMorgon.Models
         }
 
         //retourne le heal de base de la carte
-        public int GetRealHeal()
+        public int GetHeal()
+        {
+            int healData = 0;
+            foreach (CardEffectData effect in effectsData)
+                healData += effect.nbHeal;
+            return healData;
+        }
+        //retourne le heal avec bonus de la carte
+        public int GetHealOnBonus()
         {
             int healData = 0;
             foreach (CardEffectData effect in effectsData)
@@ -104,7 +136,15 @@ namespace GodMorgon.Models
         }
 
         //retourne le nombre de carte à piocher de base de la carte
-        public int GetRealNbDraw()
+        public int GetNbDraw()
+        {
+            int nbDrawData = 0;
+            foreach (CardEffectData effect in effectsData)
+                nbDrawData += effect.nbCardToDraw;
+            return nbDrawData;
+        }
+        //retourne le nombre de carte à piocher avec bonus de la carte
+        public int GetNbDrawOnBonus()
         {
             int nbDrawData = 0;
             foreach (CardEffectData effect in effectsData)

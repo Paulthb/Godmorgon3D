@@ -15,7 +15,7 @@ MonoBehaviour:
   cardType: 1
   id: 9
   name: Vicious Bite
-  description: Inflict 7 damages, gain 4 block.
+  description: Inflict [nbDamage] damages, gain [nbBlock] block.
   actionCost: 2
   price: 90
   template: {fileID: 21300000, guid: d914663f37f4d974aa4c14141b89f8c0, type: 3}

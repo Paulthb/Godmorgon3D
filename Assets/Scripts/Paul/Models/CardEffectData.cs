@@ -66,6 +66,10 @@ namespace GodMorgon.Models
         public bool DrawCard = false;
         public int nbCardToDraw = 0;
 
+        //effect to discard card
+        public bool DiscardCard = false;
+        public int nbDiscardCard = 0;
+
         //effect to heal
         public bool isHeal = false;
         public int nbHeal = 0;
