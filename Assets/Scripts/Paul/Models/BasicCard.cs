@@ -157,6 +157,16 @@ namespace GodMorgon.Models
             }
             return nbDrawData;
         }
+
+
+        //retourne le nombre de carte à discard
+        public int GetNbDiscard()
+        {
+            int nbDiscardData = 0;
+            foreach (CardEffectData effect in effectsData)
+                nbDiscardData += effect.nbDiscardCard;
+            return nbDiscardData;
+        }
         #endregion
     }
 }

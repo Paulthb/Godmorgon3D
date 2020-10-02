@@ -9,6 +9,7 @@ using TMPro;
 using GodMorgon.Models;
 using GodMorgon.StateMachine;
 using GodMorgon.Timeline;
+using System;
 
 /**
  * Présent sur chaque carte
@@ -16,7 +17,7 @@ using GodMorgon.Timeline;
  * Gère aussi le drag and drop de la carte, et les effets qui en découlent
  * On peut déclencher des évènements liés au drag and drop dans les autres scripts grâce aux delegate
  */
-public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public BasicCard card;
 
@@ -34,6 +35,13 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private static bool cardIsDragging = false;
 
     public GameObject display = null;
+
+    //la carte peut être joué
+    [NonSerialized]
+    public bool isplayable = false;
+    //la carte est discard si on click dessus
+    [NonSerialized]
+    public bool canBeDiscard = false;
 
     /**
      * Load the data of the card in the gameObject at start, if the card exist.
@@ -128,6 +136,9 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             //carte à piocher
             cardDescription = cardDescription.Replace("[nbCardToDraw]", "<b>" + card.GetNbDrawOnBonus().ToString() + "</b>");
 
+            //carte discard
+            cardDescription = cardDescription.Replace("[nbCardToDiscard]", "<b>" + card.GetNbDiscard().ToString() + "</b>");
+
             descriptionText.text = cardDescription;
         }
     }
@@ -143,7 +154,9 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             isHover = true;
             StartCoroutine(ScaleCardIn());
-            TimelineManager.Instance.ShowNextAction(card.actionCost);
+
+            if(!canBeDiscard || isplayable)
+                TimelineManager.Instance.ShowNextAction(card.actionCost);
         }
     }
 
@@ -154,7 +167,22 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             isHover = false;
             StartCoroutine(ScaleCardOut());
-            TimelineManager.Instance.HideNextAction(card.actionCost);
+
+            if(!canBeDiscard || isplayable)
+                TimelineManager.Instance.HideNextAction(card.actionCost);
+        }
+    }
+
+    //Detect if a click occurs
+    public void OnPointerClick(PointerEventData pointerEventData)
+    {
+        //si la carte peut être discard
+        if (canBeDiscard && isHover)
+        {
+            //discard the select card
+            GameManager.Instance.DiscardHandCard(this);
+
+            Destroy(this.gameObject);
         }
     }
 

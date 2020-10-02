@@ -7,6 +7,8 @@ using GodMorgon.Sound;
 using GodMorgon.CardEffect;
 using GodMorgon.Models;
 using GodMorgon.VisualEffect;
+using System.Diagnostics.Tracing;
+using System;
 
 public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -30,8 +32,6 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     private DropPositionManager dropPosManager = new DropPositionManager();
 
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -45,18 +45,10 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         effectsParent = GameObject.Find("EffectsParent").transform;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     //fonction lancée au drag d'une carte
     public void OnBeginDrag(PointerEventData eventData)
     {
-
-        //onCardDragBeginDelegate?.Invoke(this.gameObject, eventData);
-        
         startPosition = this.transform.position;
 
         if (eventData.pointerDrag.GetComponent<CardDisplay>().card.cardType != BasicCard.CARDTYPE.CURSE)
@@ -115,6 +107,9 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         dropPosManager.GetDropCardContext(_card, dropCellPosition, context);
         if (context.isDropValidate)
         {
+            //on lock toutes les cartes en main
+            GameManager.Instance.UnlockDragCardHandler(false);
+
             if (null != TilesManager.Instance.roomTilemap)
                 context.targetRoom = RoomEffectManager.Instance.GetRoomData(dropRoomCellPosition);
             else
@@ -135,18 +130,14 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             PlayTypeCardSFX(_card.cardType);
 
 
-            //MusicManager.Instance.PlayRollingKart();  //pas ici qu'il doit être activé
-
             //discard the used card
-            GameManager.Instance.DiscardHandCard(_card);
+            GameManager.Instance.DiscardHandCard(this.gameObject.GetComponent<CardDisplay>());
 
             //on lance la particle de card drop
             GameObject dropEffect = Instantiate(dropEffectPrefab, dropPosition, Quaternion.identity);
             dropEffect.GetComponent<ParticleSystemScript>().PlayNDestroy();
 
-            //on lock toutes les cartes en main
-            GameManager.Instance.UnlockDragCardHandler(false);
-
+            Destroy(this.gameObject);
         }
         else
         {

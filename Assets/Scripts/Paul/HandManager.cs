@@ -26,12 +26,6 @@ public class HandManager : MonoBehaviour
     //list of CardDisplay in the hand
     private List<CardDisplay> CardDisplayList = new List<CardDisplay>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     /**
      * Create a card gameObject in the hand and add it to the list
      * Use when a card is draw
@@ -47,6 +41,14 @@ public class HandManager : MonoBehaviour
     }
 
     /**
+     * Discard the card from the hand
+     */
+    public void DiscardCard(CardDisplay card)
+    {
+        CardDisplayList.Remove(card);
+    }
+
+    /**
      * Discard all the card in the hand
      */
     public void DiscardAllCard()
@@ -55,7 +57,7 @@ public class HandManager : MonoBehaviour
         {
             foreach (CardDisplay card in CardDisplayList)
             {
-                GameManager.Instance.DiscardHandCard(card.card);
+                GameManager.Instance.DiscardHandCard(card);
                 Destroy(card.gameObject);
             }
             CardDisplayList.Clear();
@@ -85,12 +87,6 @@ public class HandManager : MonoBehaviour
                 CardDisplayList[i].UpdateCard(GameEngine.Instance.GetHandCards()[i]);
 
         }
-
-        ////we delete the extra cards
-        //if (i >= GameEngine.Instance.GetHandCards().Count)
-        //{
-            
-        //}
     }
 
     //Update les infos de toutes les cartes
@@ -105,6 +101,7 @@ public class HandManager : MonoBehaviour
     {
         foreach(CardDisplay card in CardDisplayList)
         {
+            card.isplayable = cardUnlock;
             card.GetComponent<DragCardHandler>().enabled = cardUnlock;
         }
     }
@@ -113,5 +110,19 @@ public class HandManager : MonoBehaviour
     public List<CardDisplay> GetCardsInHand()
     {
         return CardDisplayList;
+    }
+
+    //active la possibilité de discard des cartes en main
+    public void ActivateCardDiscard()
+    {
+        foreach (CardDisplay cardDisplay in CardDisplayList)
+            cardDisplay.canBeDiscard = true;
+    }
+
+    //désactive la possibilité de discard des cartes en main
+    public void DesactivateCardDiscard()
+    {
+        foreach (CardDisplay cardDisplay in CardDisplayList)
+            cardDisplay.canBeDiscard = false;
     }
 }
