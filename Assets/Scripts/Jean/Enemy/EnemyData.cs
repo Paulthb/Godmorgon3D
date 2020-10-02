@@ -13,10 +13,10 @@ namespace GodMorgon.Enemy
         public int nbMoves = 0;
         public float speed = 0;
         public Sprite skin = null;
-        public bool inPlayersRoom = false;
-        public bool inOtherEnemyRoom = false;
+        public bool inPlayersNode = false;
+        public bool inOtherEnemyNode = false;
         public bool killedByPlayer = false;
-        public EnemyView enemyView = null;
+        public EnemyScript enemyScript = null;
 
         /**
          * call when enemy is attacked
@@ -39,7 +39,8 @@ namespace GodMorgon.Enemy
             //Debug.Log("enemy health after was : " + health);
             UpdateHealthBar();
 
-            float duration = enemyView.enemyHit.GetDuration();    //Récup la durée de la particule
+            /*
+            float duration = enemyScript.enemyHit.GetDuration();    //Récup la durée de la particule
             if (health <= 0)   //Si l'ennemi n'a plus de vie
             {
                 if (isPlayerAttacking)
@@ -47,26 +48,26 @@ namespace GodMorgon.Enemy
                     killedByPlayer = true;
                     GameManager.Instance.draftPanelActivated = true;    //Met un booleen à true pour faire attendre le séquenceur
                 }
-                enemyView.KillEnemy(duration);    //On le tue
-            }
+                enemyScript.KillEnemy(duration);    //On le tue
+            }*/
         }
 
         //return the position of the enemy
         public override Vector3 GetEntityViewPosition()
         {
-            return enemyView.transform.position;
+            return enemyScript.transform.position;
         }
 
         //update the enemy healthBar
         public override void UpdateHealthBar()
         {
-            enemyView.UpdateHealthBar(health, defense);
+            //enemyScript.UpdateHealthBar(health, defense);
         }
 
         //launch hit visual effect
         public override void OnDamage()
         {
-            enemyView.OnDamage();
+            //enemyScript.OnDamage();
         }
 
         /**
@@ -88,7 +89,8 @@ namespace GodMorgon.Enemy
         //return the duration a the enemy hit visual effect
         public override float GetDamageHitDuration()
         {
-            return enemyView.enemyHit.GetDuration();
+            //return enemyScript.enemyHit.GetDuration();
+            return 1;
         }
     }
 }

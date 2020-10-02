@@ -17,9 +17,6 @@ public class MapEditor : EditorWindow
 
     private bool showMapSettings = false;
     private bool showNodeSettings = false;
-    private bool showCrossNodes = false;
-    private bool showHorizontalNodes = false;
-    private bool showVerticalNodes = false;
 
 
     //Ajoute le RoomEffectEditor au menu Window

@@ -71,9 +71,9 @@ namespace GodMorgon.Enemy
                 enemyData.nbMoves = _enemy.nbMoves;
                 enemyData.speed = _enemy.speed;
                 enemyData.skin = _enemy.skin; 
-                enemyData.inPlayersRoom = false;
-                enemyData.inOtherEnemyRoom = false;
-                enemyData.enemyView = this;
+                enemyData.inPlayersNode = false;
+                enemyData.inOtherEnemyNode = false;
+                //enemyData.enemyScript = this;
             }
             else
             {
@@ -156,7 +156,7 @@ namespace GodMorgon.Enemy
             Vector3Int playerCellPos = walkableTilemap.WorldToCell(playerPos);    
 
             //Si l'ennemi n'est pas dans la room du player
-            if (!enemyData.inPlayersRoom && !enemyData.inOtherEnemyRoom)
+            if (!enemyData.inPlayersNode && !enemyData.inOtherEnemyNode)
             {
                 tileIndex = 0;
 
@@ -185,7 +185,7 @@ namespace GodMorgon.Enemy
                     if (playerCellPos.x == tile.X && playerCellPos.y == tile.Y)
                     {
                         isPlayerOnPath = true;
-                        enemyData.inPlayersRoom = true; //L'ennemi sera présent dans la room
+                        enemyData.inPlayersNode = true; //L'ennemi sera présent dans la room
                     }
 
                     //On regarde si on a un autre ennemi sur le path parmis tous les ennemis existants
@@ -201,7 +201,7 @@ namespace GodMorgon.Enemy
                             if (_enemyCellPos.x == tile.X && _enemyCellPos.y == tile.Y)
                             {
                                 isOtherEnemyOnPath = true;
-                                enemyData.inOtherEnemyRoom = true; //L'ennemi sera présent dans la room
+                                enemyData.inOtherEnemyNode = true; //L'ennemi sera présent dans la room
                                 //Debug.Log("L'ennemi " + this.name + " a un ennemi sur sa route : " + enemy.name);
                             }
                         }
@@ -289,7 +289,7 @@ namespace GodMorgon.Enemy
                     isMoveFinished = true;  //Le mouvement est terminé (pour la fonction qui retourne ce bool)
                     tilesList = new List<Spot>();   //Reset de la liste
 
-                    if(enemyData.inPlayersRoom || enemiesInRoom.Count > 0)
+                    if(enemyData.inPlayersNode || enemiesInRoom.Count > 0)
                     {
                         Attack();   //L'ennemi attaque s'il y a qqun dans la room d'arrivée
                     }
@@ -393,7 +393,7 @@ namespace GodMorgon.Enemy
             //ShowAttackEffect(); //Décommenter qd on aura l'anim d'attaque
             StartCoroutine(AttackEffect());
 
-            if(enemyData.inPlayersRoom) //Si le player est dans la room
+            if(enemyData.inPlayersNode) //Si le player est dans la room
                 PlayerManager.Instance.TakeDamage(enemyData.attack);
             if(enemiesInRoom.Count > 0) //S'il y a des ennemis dans la room
             {
@@ -491,7 +491,7 @@ namespace GodMorgon.Enemy
             
             
             canRecenter = true;
-            enemyData.inPlayersRoom = false;
+            enemyData.inPlayersNode = false;
         }
 
         private void LaunchRecenterMechanic()
@@ -506,7 +506,7 @@ namespace GodMorgon.Enemy
             {
                 Debug.Log("Enemy recentered");
                 canRecenter = false;
-                enemyData.inPlayersRoom = false;
+                enemyData.inPlayersNode = false;
             }
         }
 

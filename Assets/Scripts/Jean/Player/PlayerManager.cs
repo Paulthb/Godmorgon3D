@@ -211,7 +211,7 @@ public class PlayerManager : MonoBehaviour
         //on ajoute les tiles par lesquelles il va devoir passer sauf celle où il y a un enemy
         if (null != EnemyManager.Instance.GetEnemyViewByPosition(new Vector3Int(_roadPath[0].X, _roadPath[0].Y, 0)))
         {
-            EnemyManager.Instance.GetEnemyViewByPosition(new Vector3Int(_roadPath[0].X, _roadPath[0].Y, 0)).enemyData.inPlayersRoom = true;
+            EnemyManager.Instance.GetEnemyViewByPosition(new Vector3Int(_roadPath[0].X, _roadPath[0].Y, 0)).enemyData.inPlayersNode = true;
             isEnemyOnPath = true;
             isFirstInRoom = false;
 
@@ -237,7 +237,7 @@ public class PlayerManager : MonoBehaviour
             isFirstInRoom = true;
             foreach (EnemyView enemy in EnemyManager.Instance.GetEnemiesInPlayersRoom())
             {
-                enemy.enemyData.inPlayersRoom = false;
+                enemy.enemyData.inPlayersNode = false;
             }
         }
 

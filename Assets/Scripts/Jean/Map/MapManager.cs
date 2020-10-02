@@ -257,7 +257,7 @@ public class MapManager : MonoBehaviour
         }
 
         #region DEBUG : See walkable points
-        /*
+        
         for (int i = 0; i < map.mapSize.x * 3; i++)
         {
             for (int j = 0; j < map.mapSize.y * 3; j++)
@@ -270,7 +270,7 @@ public class MapManager : MonoBehaviour
                 }
             }
         }
-        */
+        
         #endregion
     }
 
@@ -390,11 +390,10 @@ public class MapManager : MonoBehaviour
                 roadPath = astar.CreatePath(grid, new Vector2Int(supposedPlayerTilePos.x, supposedPlayerTilePos.z),
                     new Vector2Int(targetTile.x, targetTile.z), 100);
 
-                //Si le chemin est direct (moins de 5 tiles pour y accéder)
+                //If the path is direct (less than 5 tiles)
                 if (roadPath != null && roadPath.Count < 5)
                 {
                     accessibleNodes.Add(node);
-                    //Debug.Log("Direct accessible tile : " + targetTile);
                     //showableTilesList.Add(tile);
                 }
             }
@@ -406,7 +405,9 @@ public class MapManager : MonoBehaviour
      */
     private void CheckClickedNode(GameObject clickedNode)
     {
+        //Get new accessible nodes
         UpdateAccessibleNodesList();
+
         foreach (Vector3Int node in accessibleNodes)
         {
             //If the clicked node is in the list of accessible nodes

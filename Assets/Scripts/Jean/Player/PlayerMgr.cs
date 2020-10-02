@@ -18,7 +18,7 @@ public class PlayerMgr : MonoBehaviour
     public bool isMoving = false;
 
     public bool playerCanMove = false;
-    private bool playerHasMoved = false;
+    //private bool playerHasMoved = false;
 
     //Path count
     [NonSerialized]
@@ -29,9 +29,9 @@ public class PlayerMgr : MonoBehaviour
     private CardEffectData[] _cardEffectDatas; //Move card datas
 
     private int tileIndex = 0;
-    private int nbMoveIterationCounter = 0; //nb d'iterations de move effectuées
-    private bool accessibleShown = false;
-    private bool canLaunchOtherMove = false;
+    //private int nbMoveIterationCounter = 0; //nb d'iterations de move effectuées
+    //private bool accessibleShown = false;
+    //private bool canLaunchOtherMove = false;
 
 
     #region Singleton Pattern
@@ -97,7 +97,7 @@ public class PlayerMgr : MonoBehaviour
         //roadPath est une liste de spots = une liste de positions de tiles
         playerPath = MapManager.Instance.astar.CreatePath(MapManager.Instance.grid, new Vector2Int(playerTilePos.x, playerTilePos.z), new Vector2Int(targetTilePos.x, targetTilePos.z), 5);
 
-        bool isEnemyOnPath = false;
+        //bool isEnemyOnPath = false;
 
         if (playerPath == null) return;
 
@@ -105,7 +105,7 @@ public class PlayerMgr : MonoBehaviour
         //on ajoute les tiles par lesquelles il va devoir passer sauf celle où il y a un enemy
         if (null != EnemyManager.Instance.GetEnemyViewByPosition(new Vector3Int(roadPath[0].X, roadPath[0].Y, 0)))
         {
-            EnemyManager.Instance.GetEnemyViewByPosition(new Vector3Int(roadPath[0].X, roadPath[0].Y, 0)).enemyData.inPlayersRoom = true;
+            EnemyManager.Instance.GetEnemyViewByPosition(new Vector3Int(roadPath[0].X, roadPath[0].Y, 0)).enemyData.inPlayersNode = true;
             isEnemyOnPath = true;
             isFirstInRoom = false;
 
@@ -131,7 +131,7 @@ public class PlayerMgr : MonoBehaviour
         //    isFirstInRoom = true;
         //    foreach (EnemyView enemy in EnemyManager.Instance.GetEnemiesInPlayersRoom())
         //    {
-        //        enemy.enemyData.inPlayersRoom = false;
+        //        enemy.enemyData.inPlayersNode = false;
         //    }
         //}
 
@@ -173,7 +173,7 @@ public class PlayerMgr : MonoBehaviour
 
         tileIndex = 0;
 
-        nbMoveIterationCounter++;   //On ajoute un move au compteur
+        //nbMoveIterationCounter++;   //On ajoute un move au compteur
 
         //SFX player  move
         //MusicManager.Instance.PlayPlayerMove();
@@ -210,10 +210,10 @@ public class PlayerMgr : MonoBehaviour
         }
         else
         {
-            float ratio = (float)tileIndex / (playerPath.Count - 1);   //ratio varie entre 0 et 1, 0 pour le spot le plus proche et 1 pour le spot final
-            ratio = playerMoveCurve.Evaluate(ratio);     //on le lie à notre curve pour le modifier dans l'inspector à notre guise
-            float speed = playerSpeed * ratio;   //on le lie à la vitesse pour que la curve ait un impact sur la vitesse du player
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(nextPos.x, this.transform.position.y, nextPos.z), speed * Time.deltaTime);
+            float ratio = (float)tileIndex / (playerPath.Count - 1);   //Ratio between 0 and 1, 0 for the closest and 1 for the final one
+            ratio = playerMoveCurve.Evaluate(ratio);     //Linked to the curve to modify it as we want
+            float speed = playerSpeed * ratio;   //Link ratio to modify speed
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(nextPos.x, this.transform.position.y, nextPos.z), speed * Time.deltaTime); //Go to next tile
 
         }
     }

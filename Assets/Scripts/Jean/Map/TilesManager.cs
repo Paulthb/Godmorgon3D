@@ -154,7 +154,7 @@ public class TilesManager : MonoBehaviour
                     if (null != EnemyManager.Instance.GetEnemyViewByPosition(new Vector3Int(_tile.X, _tile.Y, 0)))
                     {
                         //Si cet ennemi est dans la room
-                        if (EnemyManager.Instance.GetEnemyViewByPosition(new Vector3Int(_tile.X, _tile.Y, 0)).enemyData.inPlayersRoom)
+                        if (EnemyManager.Instance.GetEnemyViewByPosition(new Vector3Int(_tile.X, _tile.Y, 0)).enemyData.inPlayersNode)
                         {
                             isEnemyOnPath = true;
                         }

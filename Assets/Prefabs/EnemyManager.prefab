@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7347671793765871052}
-  - component: {fileID: 7347671793765871053}
+  - component: {fileID: 7298600251662648970}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7347671793765871053
+--- !u!114 &7298600251662648970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,11 +40,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7347671793765871054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a59d04e426de1d74e9457af43f7b6fcb, type: 3}
+  m_Script: {fileID: 11500000, guid: bce2e3ccf77b0c64f91cd07a70c26d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 0}
-  walkableTilemap: {fileID: 0}
-  roadMap: {fileID: 0}
-  roadTile: {fileID: 11400000, guid: 64acb8b0bf3bba7448dca6d7376ce772, type: 2}
   player: {fileID: 0}

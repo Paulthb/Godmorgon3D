@@ -74,7 +74,7 @@ namespace GodMorgon.Enemy
             foreach(EnemyView enemy in enemiesList)
             {
                 //s'il est pas dans la room du player ou de l'ennemi, on ne l'ajoute pas dans la liste des ennemis déplaçables
-                if (!enemy.enemyData.inPlayersRoom && !enemy.enemyData.inOtherEnemyRoom)
+                if (!enemy.enemyData.inPlayersNode && !enemy.enemyData.inOtherEnemyNode)
                     movableEnemiesList.Add(enemy);
             }
         }
@@ -145,7 +145,7 @@ namespace GodMorgon.Enemy
 
             foreach (EnemyView enemy in enemiesList)
             {
-                if(enemy.enemyData.inPlayersRoom)
+                if(enemy.enemyData.inPlayersNode)
                 {
                     attackableEnemies.Add(enemy);
 
@@ -240,7 +240,7 @@ namespace GodMorgon.Enemy
                 enemiesInPlayersRoom[0].RecenterEnemy();    //Le premier ennemi se recentre en avançant d'une case vers le player
                 foreach(EnemyView enemy in enemiesInPlayersRoom)
                 {
-                    enemy.enemyData.inPlayersRoom = false;
+                    enemy.enemyData.inPlayersNode = false;
                 }
                 enemiesInPlayersRoom.Clear();   //On clear la liste car plus d'ennemis présents dans la room du player
             }
@@ -258,11 +258,11 @@ namespace GodMorgon.Enemy
             foreach (EnemyView enemy in enemiesList)
             {
                 //Si un ennemi est présent dans la room d'un ennemi et ne fait pas partie de la liste des ennemis déplaçables
-                if (enemy.enemyData.inOtherEnemyRoom && !movableEnemiesList.Contains(enemy))
+                if (enemy.enemyData.inOtherEnemyNode && !movableEnemiesList.Contains(enemy))
                 {
                     //Debug.Log("Recentrage d'un ennemi après un EnemyMove");
                     enemy.RecenterEnemy();  //On le recentre
-                    enemy.enemyData.inOtherEnemyRoom = false;   //L'ennemi n'est plus dans la room d'un autre ennemi
+                    enemy.enemyData.inOtherEnemyNode = false;   //L'ennemi n'est plus dans la room d'un autre ennemi
                 }
             }
         }
@@ -284,7 +284,7 @@ namespace GodMorgon.Enemy
         {
             foreach (EnemyView enemy in enemiesList)
             {
-                if(enemy.enemyData.inPlayersRoom || enemy.enemiesInRoom.Count > 0)
+                if(enemy.enemyData.inPlayersNode || enemy.enemiesInRoom.Count > 0)
                 {
                     //Lance anim d'attack
                     enemy.Attack();

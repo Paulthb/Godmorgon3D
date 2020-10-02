@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8950de8fe1a33642a1d5a68118d3bf6, type: 3}
-  m_Name: Map1
+  m_Script: {fileID: 11500000, guid: a71e94aac41c8f94292ea1c47c82b638, type: 3}
+  m_Name: 9D6AA618-8668-41EF-9853-25734377A7AA
   m_EditorClassIdentifier: 
-  mapName: Map1
-  mapSize: {x: 6, y: 6}
-  nodeList: []
+  objectName: Player_Hit
+  id: 871813740
+  guid: 9D6AA618-8668-41EF-9853-25734377A7AA
