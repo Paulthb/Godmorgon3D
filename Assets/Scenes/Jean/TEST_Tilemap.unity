@@ -271,9 +271,10 @@ GameObject:
   m_Component:
   - component: {fileID: 43839027}
   - component: {fileID: 43839028}
+  - component: {fileID: 43839029}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,8 +311,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 53f0160c255756045b6901b57dbb6c02,
       type: 3}
     roadType: 1
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &43839029
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43839026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &57156081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,9 +1041,10 @@ GameObject:
   m_Component:
   - component: {fileID: 409313464}
   - component: {fileID: 409313465}
+  - component: {fileID: 409313466}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1065,8 +1081,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: d19c07597a9485c4c879e5d75fbb836a,
       type: 3}
     roadType: 3
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &409313466
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409313463}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &454254798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,9 +1200,10 @@ GameObject:
   m_Component:
   - component: {fileID: 455071537}
   - component: {fileID: 455071538}
+  - component: {fileID: 455071539}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1209,8 +1240,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 1abad7005a03a524391fb5892fbbe5b3,
       type: 3}
     roadType: 2
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &455071539
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455071536}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &505622753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,9 +1372,10 @@ GameObject:
   m_Component:
   - component: {fileID: 555100943}
   - component: {fileID: 555100944}
+  - component: {fileID: 555100945}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1366,8 +1412,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: a2a0153a7f3dc364ebe68601d0742e77,
       type: 3}
     roadType: 0
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &555100945
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555100942}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &560121693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,9 +1438,10 @@ GameObject:
   m_Component:
   - component: {fileID: 560121694}
   - component: {fileID: 560121695}
+  - component: {fileID: 560121696}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1417,8 +1478,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: d19c07597a9485c4c879e5d75fbb836a,
       type: 3}
     roadType: 3
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &560121696
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560121693}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &596220119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,9 +1832,10 @@ GameObject:
   m_Component:
   - component: {fileID: 745685538}
   - component: {fileID: 745685539}
+  - component: {fileID: 745685540}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1796,8 +1872,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 15e35d0ba0f26a248b1c348822acbb40,
       type: 3}
     roadType: 0
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &745685540
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745685537}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &771763809
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,9 +1898,10 @@ GameObject:
   m_Component:
   - component: {fileID: 771763810}
   - component: {fileID: 771763811}
+  - component: {fileID: 771763812}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1847,8 +1938,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: cc74aa4534259f34aaafc848a854dceb,
       type: 3}
     roadType: 2
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &771763812
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771763809}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &826859002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,137 +2047,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826859002}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &839101616
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 839101620}
-  - component: {fileID: 839101619}
-  - component: {fileID: 839101618}
-  - component: {fileID: 839101617}
-  - component: {fileID: 839101621}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &839101617
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839101616}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &839101618
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839101616}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 4d013d96111312e4a928e883830aa5ec, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &839101619
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839101616}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &839101620
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839101616}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0.75, z: 1.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &839101621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839101616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5f1e93f0bfeea34fb55bbfb6ed43f5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 1
-  playerMoveCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &910233601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,9 +2057,10 @@ GameObject:
   m_Component:
   - component: {fileID: 910233602}
   - component: {fileID: 910233603}
+  - component: {fileID: 910233604}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2122,8 +2097,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: da1522984f371c847867db0f76073700,
       type: 3}
     roadType: 1
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &910233604
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910233601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &926605853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,9 +2123,10 @@ GameObject:
   m_Component:
   - component: {fileID: 926605854}
   - component: {fileID: 926605855}
+  - component: {fileID: 926605856}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2173,8 +2163,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: d19c07597a9485c4c879e5d75fbb836a,
       type: 3}
     roadType: 3
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &926605856
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926605853}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &954856077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,9 +2626,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1133143973}
   - component: {fileID: 1133143974}
+  - component: {fileID: 1133143975}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2661,8 +2666,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 53f0160c255756045b6901b57dbb6c02,
       type: 3}
     roadType: 1
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &1133143975
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133143972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &1179904062
 GameObject:
   m_ObjectHideFlags: 0
@@ -2706,11 +2725,6 @@ MonoBehaviour:
   - {fileID: 1342960658508235011, guid: cc74aa4534259f34aaafc848a854dceb, type: 3}
   - {fileID: 1342960658508235011, guid: 1abad7005a03a524391fb5892fbbe5b3, type: 3}
   map: {fileID: 11400000, guid: 15f6167f5c52dc24a8322c7ec5a6334f, type: 2}
-  nodesList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   walkablePoint: {fileID: 2641223498923668382, guid: 224fa3459ee826d4c8ccfd39a804aa84,
     type: 3}
   walkablePtHolder: {fileID: 2019526418}
@@ -2925,9 +2939,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1233011801}
   - component: {fileID: 1233011802}
+  - component: {fileID: 1233011803}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2964,8 +2979,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 15e35d0ba0f26a248b1c348822acbb40,
       type: 3}
     roadType: 0
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &1233011803
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233011800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &1243793479
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,9 +3005,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1243793480}
   - component: {fileID: 1243793481}
+  - component: {fileID: 1243793482}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3015,8 +3045,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: d19c07597a9485c4c879e5d75fbb836a,
       type: 3}
     roadType: 3
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &1243793482
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243793479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &1257417820
 GameObject:
   m_ObjectHideFlags: 0
@@ -4476,9 +4520,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1748096387}
   - component: {fileID: 1748096388}
+  - component: {fileID: 1748096389}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4515,8 +4560,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 1abad7005a03a524391fb5892fbbe5b3,
       type: 3}
     roadType: 2
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &1748096389
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748096386}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &1749987497
 GameObject:
   m_ObjectHideFlags: 0
@@ -4620,9 +4679,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1776031841}
   - component: {fileID: 1776031842}
+  - component: {fileID: 1776031843}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4659,8 +4719,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 15e35d0ba0f26a248b1c348822acbb40,
       type: 3}
     roadType: 0
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &1776031843
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776031840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &1779229327
 GameObject:
   m_ObjectHideFlags: 0
@@ -4671,9 +4745,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1779229328}
   - component: {fileID: 1779229329}
+  - component: {fileID: 1779229330}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4710,8 +4785,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: a2a0153a7f3dc364ebe68601d0742e77,
       type: 3}
     roadType: 0
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &1779229330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779229327}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &1808986127
 GameObject:
   m_ObjectHideFlags: 0
@@ -4815,9 +4904,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1822154603}
   - component: {fileID: 1822154604}
+  - component: {fileID: 1822154605}
   m_Layer: 0
   m_Name: Node(Clone)
-  m_TagString: Untagged
+  m_TagString: Node
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4854,8 +4944,22 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 1abad7005a03a524391fb5892fbbe5b3,
       type: 3}
     roadType: 2
+    nodeEffect: 0
     effectLaunched: 0
-    isRoomCleared: 0
+    isNodeCleared: 0
+--- !u!65 &1822154605
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822154602}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 0.4, z: 3}
+  m_Center: {x: 1.5, y: 0.1, z: 1.5}
 --- !u!1 &1842410954
 GameObject:
   m_ObjectHideFlags: 0
@@ -5310,3 +5414,122 @@ MonoBehaviour:
   nodeName: 
   nodePreview: {fileID: 0}
   roadType: 3
+--- !u!1001 &6689561676831582981
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: playerMoveCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: playerMoveCurve.m_Curve.Array.data[0].value
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: playerMoveCurve.m_Curve.Array.data[0].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: playerMoveCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: playerMoveCurve.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: playerMoveCurve.m_Curve.Array.data[0].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: playerMoveCurve.m_Curve.Array.data[0].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: playerMoveCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: playerMoveCurve.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: playerMoveCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876981, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1f0f946f968c6ac4e844f63a0cfd8775, type: 3}
