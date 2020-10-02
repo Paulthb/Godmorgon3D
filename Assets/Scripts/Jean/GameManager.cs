@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
     //bool pour savoir si le player à passer son tour précédemment
     private bool lastPlayerTurnPassed = false;
 
+    //bool pour savoir si la selection de la carte à discard est en cours ou pas
+    private bool isDiscardCardSelectionOn = false;
+    //nombre de carte à discard
+    private int nbCardToDiscard = 0;
+
     //Booleen utilisé pour faire attendre le séquenceur
     [NonSerialized]
     public bool draftPanelActivated = false;
@@ -173,9 +178,19 @@ public class GameManager : MonoBehaviour
     * Discard the card
     * Call by the handManager
     */
-    public void DiscardHandCard(BasicCard cardDiscarded)
+    public void DiscardHandCard(CardDisplay card)
     {
-        GameEngine.Instance.DiscardCard(cardDiscarded);
+        handManager.DiscardCard(card);
+        GameEngine.Instance.DiscardCard(card.card);
+
+        if (isDiscardCardSelectionOn)
+        {
+            nbCardToDiscard--;
+            Debug.Log("card to discard : " + nbCardToDiscard);
+            //si il n'y a pu de carte à restart on continue
+            if (nbCardToDiscard <= 0)
+                DesactivateDiscardOnCard();
+        }
     }
 
     /**
@@ -193,6 +208,7 @@ public class GameManager : MonoBehaviour
     public void DownPanelBlock(bool isPanelBlock)
     {
         downPanelBlock.SetActive(isPanelBlock);
+        handManager.HandUpdate();
 
         //Cards in hand become darker if the block is activated, normal if not
         if(isPanelBlock)
@@ -305,6 +321,44 @@ public class GameManager : MonoBehaviour
             draftPanel.gameObject.SetActive(false);
             draftPanelActivated = false;
         }
+    }
+
+    //Set le nombre de carte à discard indiqué par le spell effect
+    public void SetNbCardToDiscard(int nbCard)
+    {
+        nbCardToDiscard = nbCard;
+    }
+
+    /**
+     * appelé par la séquence DiscardCard
+     * active la fonctionnalité de toutes les cartes à pouvoir être discard au click ~~~~~~~~~~~~
+     */
+    public void ActivateDiscardOnCard()
+    {
+        Debug.Log("activate discard card selection");
+        isDiscardCardSelectionOn = true;
+        handManager.ActivateCardDiscard();
+
+        //remet tout les gears à l'heure place
+        TimelineManager.Instance.HideNextAction(4);
+    }
+
+    /**
+     * appelé par la carte discard
+     * désactive la fonctionnalité de toutes les cartes à pouvoir être discard au click
+     * remet le compteur de carte à discard à 0
+     */
+    public void DesactivateDiscardOnCard()
+    {
+        isDiscardCardSelectionOn = false;
+        handManager.DesactivateCardDiscard();
+        nbCardToDiscard = 0;
+    }
+
+    //indique au séquencer si une carte a été discard
+    public bool CardDiscardSelectionON()
+    {
+        return isDiscardCardSelectionOn;
     }
 
     public IEnumerator LaunchFinalFade()

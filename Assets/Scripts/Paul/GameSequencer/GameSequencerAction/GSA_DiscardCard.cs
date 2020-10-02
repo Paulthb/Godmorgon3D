@@ -10,10 +10,14 @@ namespace GodMorgon.GameSequencerSpace
     {
         public override IEnumerator ExecuteAction(GameContext context)
         {
-            PlayerManager.Instance.OnKillerInstinct();
+            GameManager.Instance.ActivateDiscardOnCard();
 
-            //wait for 1sec
-            yield return new WaitForSeconds(1.0f);
+            while (GameManager.Instance.CardDiscardSelectionON())
+            {
+                yield return null;
+            }
+
+            //Debug.Log("sequence de discard fini");
         }
     }
 }

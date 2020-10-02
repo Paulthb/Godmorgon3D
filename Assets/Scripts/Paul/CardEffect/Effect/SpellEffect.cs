@@ -47,7 +47,11 @@ namespace GodMorgon.CardEffect
             //effect to discard X card
             if(effectData.DiscardCard)
             {
+                //informe le gameManager du nombre de carte à discard
+                GameManager.Instance.SetNbCardToDiscard(effectData.nbDiscardCard);
 
+                GSA_DiscardCard discardCardAction = new GSA_DiscardCard();
+                GameSequencer.Instance.AddAction(discardCardAction);
             }
 
             //add the sight sequence
