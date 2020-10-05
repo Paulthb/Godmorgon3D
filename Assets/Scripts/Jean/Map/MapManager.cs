@@ -207,7 +207,7 @@ public class MapManager : MonoBehaviour
                 {
                     //hit.collider.gameObject now refers to the 
                     //cube under the mouse cursor if present
-                    CheckClickedNode(hit.collider.gameObject);
+                    //CheckClickedNode(hit.collider.gameObject);
                     
                     //print("Node hit : " + hit.collider.gameObject.transform.position);
                 }
@@ -537,9 +537,17 @@ public class MapManager : MonoBehaviour
     }
 
     /**
+     * Active effects on accessible nodes
+     */
+    public void ShowAccessibleNodes()
+    {
+
+    }
+
+    /**
      * TEMP : check when click on room if can move, and active the move in player mgr
      */
-    private void CheckClickedNode(GameObject clickedNode)
+    public void CheckClickedNode(GameObject clickedNode)
     {
         //Get new accessible nodes
         UpdateAccessibleNodesList();
