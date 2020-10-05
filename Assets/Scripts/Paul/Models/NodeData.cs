@@ -10,5 +10,6 @@ public class NodeData : MonoBehaviour
 
     public RoadType roadType;
 
-    public Tiles[,] tiles = new Tiles[3,3];
+    public Tiles[] tiles = new Tiles[9];
+    //public Tiles[,] tiles = new Tiles[3,3];
 }

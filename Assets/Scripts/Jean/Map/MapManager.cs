@@ -19,6 +19,7 @@ public class Node
     public bool isNodeCleared = false;
 }
 
+[Serializable]
 public class Tiles
 {
     public Vector3Int tilePosition;
@@ -160,14 +161,8 @@ public class MapManager : MonoBehaviour
     }
 
     //Called when click on node button in map editor
-    public void UpdateNode(GameObject selectedNode, GameObject newNodePrefab)
+    public void UpdateNodeInfos(GameObject selectedNode, GameObject newNodePrefab)
     {
-        //Delete the old prefab
-        DestroyImmediate(selectedNode.transform.GetChild(0).gameObject);
-
-        //Instantiate a new node
-        Instantiate(newNodePrefab, selectedNode.transform);
-
         //Update node infos
         Node currentNode = selectedNode.GetComponent<NodeScript>().node;
         currentNode.nodePrefab = newNodePrefab.transform;
