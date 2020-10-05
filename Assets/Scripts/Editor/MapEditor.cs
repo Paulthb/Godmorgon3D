@@ -139,6 +139,74 @@ public class MapEditor : EditorWindow
                     }
                     EditorGUILayout.EndHorizontal();
 
+                    GUILayout.Label("Turn Up Right nodes", EditorStyles.boldLabel);
+                    EditorGUILayout.BeginHorizontal();
+                    GUILayout.Space(20);
+                    foreach (GameObject nodePrefab in _mapManager.turnUpRightPrefabList)
+                    {
+                        if (GUILayout.Button(nodePrefab.GetComponent<NodeData>().nodePreview, GUILayout.Width(80), GUILayout.Height(80)))
+                        {
+                            ReplaceNode(Selection.activeGameObject, nodePrefab);
+
+                            _mapManager.UpdateNodeInfos(Selection.activeGameObject, nodePrefab);
+
+                            EditorUtility.SetDirty(_mapManager.map);
+                            EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
+                        }
+                    }
+                    EditorGUILayout.EndHorizontal();
+
+                    GUILayout.Label("Turn Up Left nodes", EditorStyles.boldLabel);
+                    EditorGUILayout.BeginHorizontal();
+                    GUILayout.Space(20);
+                    foreach (GameObject nodePrefab in _mapManager.turnUpLeftPrefabList)
+                    {
+                        if (GUILayout.Button(nodePrefab.GetComponent<NodeData>().nodePreview, GUILayout.Width(80), GUILayout.Height(80)))
+                        {
+                            ReplaceNode(Selection.activeGameObject, nodePrefab);
+
+                            _mapManager.UpdateNodeInfos(Selection.activeGameObject, nodePrefab);
+
+                            EditorUtility.SetDirty(_mapManager.map);
+                            EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
+                        }
+                    }
+                    EditorGUILayout.EndHorizontal();
+
+                    GUILayout.Label("Turn Down Right nodes", EditorStyles.boldLabel);
+                    EditorGUILayout.BeginHorizontal();
+                    GUILayout.Space(20);
+                    foreach (GameObject nodePrefab in _mapManager.turnDownRightPrefabList)
+                    {
+                        if (GUILayout.Button(nodePrefab.GetComponent<NodeData>().nodePreview, GUILayout.Width(80), GUILayout.Height(80)))
+                        {
+                            ReplaceNode(Selection.activeGameObject, nodePrefab);
+
+                            _mapManager.UpdateNodeInfos(Selection.activeGameObject, nodePrefab);
+
+                            EditorUtility.SetDirty(_mapManager.map);
+                            EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
+                        }
+                    }
+                    EditorGUILayout.EndHorizontal();
+
+                    GUILayout.Label("Turn Down Left nodes", EditorStyles.boldLabel);
+                    EditorGUILayout.BeginHorizontal();
+                    GUILayout.Space(20);
+                    foreach (GameObject nodePrefab in _mapManager.turnDownLeftPrefabList)
+                    {
+                        if (GUILayout.Button(nodePrefab.GetComponent<NodeData>().nodePreview, GUILayout.Width(80), GUILayout.Height(80)))
+                        {
+                            ReplaceNode(Selection.activeGameObject, nodePrefab);
+
+                            _mapManager.UpdateNodeInfos(Selection.activeGameObject, nodePrefab);
+
+                            EditorUtility.SetDirty(_mapManager.map);
+                            EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
+                        }
+                    }
+                    EditorGUILayout.EndHorizontal();
+
                     GUILayout.Label("No road nodes", EditorStyles.boldLabel);
                     EditorGUILayout.BeginHorizontal();
                     GUILayout.Space(20);
