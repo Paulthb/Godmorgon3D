@@ -8,34 +8,38 @@ using UnityEditor;
 [CustomEditor(typeof(NodeData))]
 public class NodeDataEditor : Editor
 {
-    private bool _tempBool = false;
-
     public override void OnInspectorGUI()
     {
-        base.OnInspectorGUI();
+        serializedObject.Update();
 
-        NodeData nodeData = (NodeData)target;
+        DrawPropertiesExcluding(serializedObject, new string[]{"tiles"});
+
 
         GUILayout.Label("Walkable tiles");
 
         EditorGUILayout.BeginHorizontal();
+        SerializedProperty tilesProperty = serializedObject.FindProperty("tiles");
         for (int i = 0; i < 3; i++)
         {
             EditorGUILayout.BeginVertical();
             for (int j = 0; j < 3; j++)
             {
-                if (nodeData.tiles[i, j] == null)
-                {
-                    nodeData.tiles[i, j] = new Tiles();
-                }
+                //if (nodeData.tiles[i, j] == null)
+                //{
+                //    nodeData.tiles[i, j] = new Tiles();
+                //}
 
-                _tempBool = EditorGUILayout.Toggle(nodeData.tiles[i, j].walkable);
-                nodeData.tiles[i,j].walkable = _tempBool;
+                int nodeIndex = (i * 3) + j;
+                SerializedProperty walkableProperty =
+                    tilesProperty.GetArrayElementAtIndex(nodeIndex).FindPropertyRelative("walkable");
+                walkableProperty.boolValue = EditorGUILayout.Toggle(walkableProperty.boolValue);
+                //nodeData.tiles[i,j].walkable = _tempBool;
             }
             EditorGUILayout.EndVertical();
         }
-
         EditorGUILayout.EndHorizontal();
+
+        serializedObject.ApplyModifiedProperties();
     }
 }
 

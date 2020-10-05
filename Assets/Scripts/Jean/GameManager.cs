@@ -78,8 +78,8 @@ public class GameManager : MonoBehaviour
         //on sauvegarde l'alpha des images pour les animations, si on doit les stopper
         advertisingDefaultColor = playerTurnAnimation.gameObject.GetComponent<Image>().color;
 
-        MusicManager.Instance.PlayMechanical();
-        MusicManager.Instance.PlayParkTheme();
+        //MusicManager.Instance.PlayMechanical();
+        //MusicManager.Instance.PlayParkTheme();
         //MusicManager.Instance.PlayCardsPlay();
     }
 

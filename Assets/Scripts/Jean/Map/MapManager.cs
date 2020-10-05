@@ -19,6 +19,7 @@ public class Node
     public bool isNodeCleared = false;
 }
 
+[Serializable]
 public class Tiles
 {
     public Vector3Int tilePosition;
@@ -30,6 +31,10 @@ public enum RoadType
     Cross,
     Horizontal,
     Vertical,
+    TurnUpRight,
+    TurnUpLeft,
+    TurnDownRight,
+    TurnDownLeft,
     NoRoad
 }
 
@@ -50,6 +55,10 @@ public class MapManager : MonoBehaviour
     public List<GameObject> crossPrefabList = new List<GameObject>();
     public List<GameObject> horizontalPrefabList = new List<GameObject>();
     public List<GameObject> verticalPrefabList = new List<GameObject>();
+    public List<GameObject> turnUpRightPrefabList = new List<GameObject>();
+    public List<GameObject> turnUpLeftPrefabList = new List<GameObject>();
+    public List<GameObject> turnDownRightPrefabList = new List<GameObject>();
+    public List<GameObject> turnDownLeftPrefabList = new List<GameObject>();
     public NodeMap map;
     private Node[] _tempNodesArr;
 
@@ -160,14 +169,8 @@ public class MapManager : MonoBehaviour
     }
 
     //Called when click on node button in map editor
-    public void UpdateNode(GameObject selectedNode, GameObject newNodePrefab)
+    public void UpdateNodeInfos(GameObject selectedNode, GameObject newNodePrefab)
     {
-        //Delete the old prefab
-        DestroyImmediate(selectedNode.transform.GetChild(0).gameObject);
-
-        //Instantiate a new node
-        Instantiate(newNodePrefab, selectedNode.transform);
-
         //Update node infos
         Node currentNode = selectedNode.GetComponent<NodeScript>().node;
         currentNode.nodePrefab = newNodePrefab.transform;
@@ -300,7 +303,6 @@ public class MapManager : MonoBehaviour
                     node.tiles[1, i].walkable = true;
                     node.tiles[i, 1].walkable = true;
                 }
-
                 break;
             case RoadType.Horizontal:
                 //Middle row is passed to walkable
@@ -308,7 +310,6 @@ public class MapManager : MonoBehaviour
                 {
                     node.tiles[i, 1].walkable = true;
                 }
-
                 break;
             case RoadType.Vertical:
                 //Middle column is passed to walkable
@@ -316,7 +317,26 @@ public class MapManager : MonoBehaviour
                 {
                     node.tiles[1, i].walkable = true;
                 }
-
+                break;
+            case RoadType.TurnUpRight:
+                node.tiles[1, 1].walkable = true;
+                node.tiles[1, 2].walkable = true;
+                node.tiles[2, 1].walkable = true;
+                break;
+            case RoadType.TurnUpLeft:
+                node.tiles[1, 1].walkable = true;
+                node.tiles[0, 1].walkable = true;
+                node.tiles[1, 2].walkable = true;
+                break;
+            case RoadType.TurnDownRight:
+                node.tiles[1, 1].walkable = true;
+                node.tiles[1, 0].walkable = true;
+                node.tiles[2, 1].walkable = true;
+                break;
+            case RoadType.TurnDownLeft:
+                node.tiles[1, 1].walkable = true;
+                node.tiles[1, 0].walkable = true;
+                node.tiles[0, 1].walkable = true;
                 break;
         }
 
@@ -366,6 +386,38 @@ public class MapManager : MonoBehaviour
                 //Add the TOP node
                 if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
                     nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                //Add the DOWN node
+                if (supposedPlayerNodePos.z - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
+                break;
+            case RoadType.TurnUpRight:
+                //Add the TOP node
+                if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                //Add the RIGHT node
+                if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                break;
+            case RoadType.TurnUpLeft:
+                //Add the TOP node
+                if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                // Add the LEFT node
+                if (supposedPlayerNodePos.x - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
+                break;
+            case RoadType.TurnDownRight:
+                //Add the RIGHT node
+                if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                //Add the DOWN node
+                if (supposedPlayerNodePos.z - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
+                break;
+            case RoadType.TurnDownLeft:
+                // Add the LEFT node
+                if (supposedPlayerNodePos.x - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
                 //Add the DOWN node
                 if (supposedPlayerNodePos.z - nodeWidth >= 0)
                     nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));

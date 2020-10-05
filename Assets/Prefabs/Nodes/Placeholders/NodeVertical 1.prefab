@@ -48,6 +48,25 @@ MonoBehaviour:
   nodeName: 
   nodePreview: {fileID: 2800000, guid: d1ee1f95900ba134a8c62318e1bd6afe, type: 3}
   roadType: 2
+  tiles:
+  - tilePosition: {x: 0, y: 0, z: 0}
+    walkable: 0
+  - tilePosition: {x: 0, y: 0, z: 0}
+    walkable: 0
+  - tilePosition: {x: 0, y: 0, z: 0}
+    walkable: 0
+  - tilePosition: {x: 0, y: 0, z: 0}
+    walkable: 1
+  - tilePosition: {x: 0, y: 0, z: 0}
+    walkable: 1
+  - tilePosition: {x: 0, y: 0, z: 0}
+    walkable: 1
+  - tilePosition: {x: 0, y: 0, z: 0}
+    walkable: 0
+  - tilePosition: {x: 0, y: 0, z: 0}
+    walkable: 0
+  - tilePosition: {x: 0, y: 0, z: 0}
+    walkable: 0
 --- !u!1 &1342960659825325115
 GameObject:
   m_ObjectHideFlags: 0
