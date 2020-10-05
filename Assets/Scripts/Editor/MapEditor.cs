@@ -194,7 +194,7 @@ public class MapEditor : EditorWindow
         {
             for (int x = _mapManager.map.mapSize.x; x < newXValue; x++)
             {
-                for (int y = 0; y < _mapManager.map.mapSize.y; y++)
+                for (int y = 0; y < newYValue; y++)
                 {
                     //Instantiate the node
                     Vector3Int nodePosition = new Vector3Int(x * 3, 0, y * 3);
