@@ -353,7 +353,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341170106}
   m_LocalRotation: {x: -0.00000001739325, y: 0.99567676, z: -0.09288609, w: -0.00000018644397}
-  m_LocalPosition: {x: -12.17, y: 7.3, z: 23.6}
+  m_LocalPosition: {x: -11.94, y: 7.3, z: 14.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -649,6 +649,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 417600143}
+  - component: {fileID: 417600144}
   m_Layer: 0
   m_Name: Light_sphere
   m_TagString: Untagged
@@ -671,6 +672,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &417600144
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417600142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e931b931deca5df4ba3d7cabb9b732b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &483636769
 GameObject:
   m_ObjectHideFlags: 0
@@ -6084,7 +6104,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 700
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -6151,7 +6171,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 14, y: 14, z: 5}
+    m_Scale: {x: 14.5, y: 14.5, z: 6}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -10192,7 +10212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485700873}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -1.0199997, z: 0}
+  m_LocalPosition: {x: 0, y: -0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1091898903}
@@ -15474,14 +15494,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071496012}
-  m_LocalRotation: {x: 0.49778274, y: -0.2630237, z: 0.3420823, w: 0.75233674}
-  m_LocalPosition: {x: 0.25, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.25000015, y: -0.00000013764027, z: 0.000002146328}
   m_LocalScale: {x: 4.156178, y: 4.156178, z: 4.156178}
   m_Children:
   - {fileID: 612735749}
   m_Father: {fileID: 417600143}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -248.272, y: 891.425, z: -856.91797}
+  m_LocalEulerAnglesHint: {x: 338.68167, y: 338.68167, z: 338.68167}
 --- !u!135 &1071496014
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15557,7 +15577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1091898903
 Transform:
   m_ObjectHideFlags: 0
