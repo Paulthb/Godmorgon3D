@@ -66,7 +66,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         if(_card.cardType == BasicCard.CARDTYPE.MOVE)
         {
-            PlayerManager.Instance.UpdateMoveDatas(context.card.effectsData);   //On envoie les datas de la carte au playerMgr pour gérer les cas d'accessibilités des tiles voisines
+            PlayerMgr.Instance.UpdateMoveDatas(context.card.effectsData);   //On envoie les datas de la carte au playerMgr pour gérer les cas d'accessibilités des tiles voisines
         }
 
         //On montre les positions disponibles pour le drop de la carte
@@ -96,24 +96,40 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         eventData.pointerDrag.GetComponent<CardDisplay>().OnCardDrag(false);
 
+        /*
         Vector3 dropPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
         Vector3Int dropCellPosition = TilesManager.Instance.walkableTilemap.WorldToCell(dropPosition);
 
         Vector3Int dropRoomCellPosition = new Vector3Int(0, 0, 0);
         if (null != TilesManager.Instance.roomTilemap)  //Si le TilesManager possède bien la roomTilemap
             dropRoomCellPosition = TilesManager.Instance.roomTilemap.WorldToCell(dropPosition);
+        */
 
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100))
+        {
+            if (hit.collider.tag == "Node")
+            {
+                //hit.collider.gameObject now refers to the 
+                //cube under the mouse cursor if present
+                MapManager.Instance.CheckClickedNode(hit.collider.gameObject);
+
+                print("Node hit : " + hit.collider.gameObject.transform.position);
+            }
+        }
         //Vérifie si la position du drop est valide
-        dropPosManager.GetDropCardContext(_card, dropCellPosition, context);
+        //dropPosManager.GetDropCardContext(_card, dropCellPosition, context);
         if (context.isDropValidate)
         {
             //on lock toutes les cartes en main
             GameManager.Instance.UnlockDragCardHandler(false);
-
+            /*
             if (null != TilesManager.Instance.roomTilemap)
                 context.targetRoom = RoomEffectManager.Instance.GetRoomData(dropRoomCellPosition);
             else
                 context.targetRoom = null;
+            */
 
             //Joue la carte
             CardEffectManager.Instance.PlayCard(eventData.pointerDrag.GetComponent<CardDisplay>().card, context);
@@ -123,7 +139,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             this.gameObject.SetActive(false);
 
             //Cache les positions accessibles
-            dropPosManager.HidePositionsToDrop(_card);
+            //dropPosManager.HidePositionsToDrop(_card);
 
             //======================sound=========================
             MusicManager.Instance.PlayCardsPlay();
@@ -134,8 +150,8 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             GameManager.Instance.DiscardHandCard(this.gameObject.GetComponent<CardDisplay>());
 
             //on lance la particle de card drop
-            GameObject dropEffect = Instantiate(dropEffectPrefab, dropPosition, Quaternion.identity);
-            dropEffect.GetComponent<ParticleSystemScript>().PlayNDestroy();
+            //GameObject dropEffect = Instantiate(dropEffectPrefab, dropPosition, Quaternion.identity);
+            //dropEffect.GetComponent<ParticleSystemScript>().PlayNDestroy();
 
             Destroy(this.gameObject);
         }

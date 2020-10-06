@@ -35,6 +35,10 @@ public enum RoadType
     TurnUpLeft,
     TurnDownRight,
     TurnDownLeft,
+    TRight,
+    TLeft,
+    TUp,
+    TDown,
     NoRoad
 }
 
@@ -59,6 +63,10 @@ public class MapManager : MonoBehaviour
     public List<GameObject> turnUpLeftPrefabList = new List<GameObject>();
     public List<GameObject> turnDownRightPrefabList = new List<GameObject>();
     public List<GameObject> turnDownLeftPrefabList = new List<GameObject>();
+    public List<GameObject> tRightPrefabList = new List<GameObject>();
+    public List<GameObject> tLeftPrefabList = new List<GameObject>();
+    public List<GameObject> tUpPrefabList = new List<GameObject>();
+    public List<GameObject> tDownPrefabList = new List<GameObject>();
     public NodeMap map;
     private Node[] _tempNodesArr;
 
@@ -199,7 +207,7 @@ public class MapManager : MonoBehaviour
                 {
                     //hit.collider.gameObject now refers to the 
                     //cube under the mouse cursor if present
-                    CheckClickedNode(hit.collider.gameObject);
+                    //CheckClickedNode(hit.collider.gameObject);
                     
                     //print("Node hit : " + hit.collider.gameObject.transform.position);
                 }
@@ -338,6 +346,38 @@ public class MapManager : MonoBehaviour
                 node.tiles[1, 0].walkable = true;
                 node.tiles[0, 1].walkable = true;
                 break;
+            case RoadType.TRight:
+                //Middle column is passed to walkable
+                for (int i = 0; i < 3; i++)
+                {
+                    node.tiles[1, i].walkable = true;
+                }
+                node.tiles[2, 1].walkable = true;
+                break;
+            case RoadType.TLeft:
+                //Middle column is passed to walkable
+                for (int i = 0; i < 3; i++)
+                {
+                    node.tiles[1, i].walkable = true;
+                }
+                node.tiles[0, 1].walkable = true;
+                break;
+            case RoadType.TUp:
+                //Middle row is passed to walkable
+                for (int i = 0; i < 3; i++)
+                {
+                    node.tiles[i, 1].walkable = true;
+                }
+                node.tiles[1, 2].walkable = true;
+                break;
+            case RoadType.TDown:
+                //Middle row is passed to walkable
+                for (int i = 0; i < 3; i++)
+                {
+                    node.tiles[i, 1].walkable = true;
+                }
+                node.tiles[1, 0].walkable = true;
+                break;
         }
 
         #endregion
@@ -422,6 +462,50 @@ public class MapManager : MonoBehaviour
                 if (supposedPlayerNodePos.z - nodeWidth >= 0)
                     nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
                 break;
+            case RoadType.TRight:
+                //Add the TOP node
+                if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                //Add the DOWN node
+                if (supposedPlayerNodePos.z - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
+                //Add the RIGHT node
+                if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                break;
+            case RoadType.TLeft:
+                //Add the TOP node
+                if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                //Add the DOWN node
+                if (supposedPlayerNodePos.z - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
+                // Add the LEFT node
+                if (supposedPlayerNodePos.x - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
+                break;
+            case RoadType.TUp:
+                //Add the RIGHT node
+                if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                //Add the LEFT node
+                if (supposedPlayerNodePos.x - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
+                //Add the TOP node
+                if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                break;
+            case RoadType.TDown:
+                //Add the RIGHT node
+                if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                //Add the LEFT node
+                if (supposedPlayerNodePos.x - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
+                //Add the DOWN node
+                if (supposedPlayerNodePos.z - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
+                break;
         }
 
 
@@ -453,9 +537,17 @@ public class MapManager : MonoBehaviour
     }
 
     /**
+     * Active effects on accessible nodes
+     */
+    public void ShowAccessibleNodes()
+    {
+
+    }
+
+    /**
      * TEMP : check when click on room if can move, and active the move in player mgr
      */
-    private void CheckClickedNode(GameObject clickedNode)
+    public void CheckClickedNode(GameObject clickedNode)
     {
         //Get new accessible nodes
         UpdateAccessibleNodesList();
