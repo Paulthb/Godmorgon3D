@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeName: 
-  nodePreview: {fileID: 2800000, guid: 00fbc3df6b73e7345a7abe67c4e3f23d, type: 3}
+  nodePreview: {fileID: 2800000, guid: 9bdf8f18ff0d14d498319f4cdf44f0c4, type: 3}
   roadType: 1
   tiles:
   - tilePosition: {x: 0, y: 0, z: 0}

@@ -218,6 +218,25 @@ public class PlayerMgr : MonoBehaviour
         }
     }
 
+    /**
+     * Get datas of move card
+     */
+    public void UpdateMoveDatas(CardEffectData[] cardEffectData)
+    {
+        _cardEffectDatas = cardEffectData;
+    }
+
+    /**
+     * Return datas of card
+     */
+    public CardEffectData[] GetCardEffectData()
+    {
+        if (_cardEffectDatas != null)
+            return _cardEffectDatas;
+        else
+            return null;
+    }
+
     #region PLAYER POSITIONS
 
     /**
