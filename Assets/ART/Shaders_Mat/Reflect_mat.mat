@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ground_Mat
-  m_Shader: {fileID: 4800000, guid: 340e25da78d9e6440a0f924c02a70b43, type: 3}
+  m_Name: Reflect_mat
+  m_Shader: {fileID: 4800000, guid: f54b8e4dac4574a419e53e79ace51eef, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -19,10 +19,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _Albedo:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -59,16 +55,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Specmap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _TextureSample0:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 803941f5e2cb249498c9f95f90b0d415, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _ToonRamp:
-        m_Texture: {fileID: 0}
+    - _TextureSample1:
+        m_Texture: {fileID: 2800000, guid: 803941f5e2cb249498c9f95f90b0d415, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -76,38 +68,43 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _ASEOutlineWidth: 0.005
     - _BumpScale: 1
-    - _Cutoff: 0.5
+    - _Cutoff: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Emissive_Intensity: 0
-    - _Float1: -0.992
+    - _Eorsion: -5.42
+    - _Erosion: 14.53
+    - _Float3: -1.42
+    - _Float4: 0.58
+    - _FresnelPower: 0
+    - _FresnelScale: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _Intensity: 0
     - _Metallic: 0
     - _Mode: 0
+    - _NoiseSpeed: 0.5
     - _OcclusionStrength: 1
+    - _Off: 1
+    - _Offsetspeed: 0.37
+    - _Opacity: -1
     - _Parallax: 0.02
-    - _RimOffset: 0.2
-    - _Rimpower: 0.583
+    - _Powerint: 0
     - _SmoothnessTextureChannel: 0
-    - _Specintensity: 0.238
-    - _Specsmth: 0.649
     - _SpecularHighlights: 1
+    - _Speed: 3.7
+    - _Speed1: 0.5
+    - _Speedwhite: 0
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
-    - _max: 0
-    - _min: 0
+    - _goodbye: 1
+    - _noise_speed2: 0.43
+    - _opa2: 0
     m_Colors:
-    - _ASEOutlineColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1.7176471, g: 1.7176471, b: 1.7176471, a: 0}
+    - _Color0: {r: 1, g: 1, b: 1, a: 0}
+    - _Color1: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Emissive: {r: 0.3962264, g: 0.3509367, b: 0.28595585, a: 1}
-    - _GlobalTint: {r: 0, g: 0.03431094, b: 0.103773594, a: 1}
-    - _RimTint: {r: 0.94509804, g: 0.4253739, b: 0.082352936, a: 1}
-    - _Speccolor: {r: 0.13185887, g: 0.043137245, b: 0.5294118, a: 1}
-    - _Tint: {r: 0.9811321, g: 0.47640994, b: 0, a: 1}
