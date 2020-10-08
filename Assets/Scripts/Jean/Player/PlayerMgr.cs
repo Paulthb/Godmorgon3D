@@ -16,22 +16,25 @@ public class PlayerMgr : MonoBehaviour
     //BOOLS
     //[NonSerialized]
     public bool isMoving = false;
-
     public bool playerCanMove = false;
-    //private bool playerHasMoved = false;
+    private bool canLaunchOtherMove = false;
+    private bool playerHasMoved = false;
 
     //Path count
     [NonSerialized]
     public Vector3Int supposedPos; // Node position
     private List<Spot> playerPath;
-    private int basePlayerY = 0;
 
     private CardEffectData[] _cardEffectDatas; //Move card datas
 
+    private int basePlayerY = 0;
     private int tileIndex = 0;
-    //private int nbMoveIterationCounter = 0; //nb d'iterations de move effectuées
-    //private bool accessibleShown = false;
-    //private bool canLaunchOtherMove = false;
+    private int nbMoveIterationCounter = 0; //nb d'iterations de move effectuées
+    private int nbNodesToMove = 1;
+    [NonSerialized]
+    public int multiplier = 1;
+
+
 
 
     #region Singleton Pattern
@@ -57,6 +60,8 @@ public class PlayerMgr : MonoBehaviour
     {
         //supposedPos = GetNodePosOfPlayer();
         basePlayerY = (int)this.transform.position.y;
+
+        nbMoveIterationCounter = 0;
     }
 
     // Update is called once per frame
@@ -66,6 +71,43 @@ public class PlayerMgr : MonoBehaviour
         {
             LaunchMoveMechanic();
         }
+
+        if (null != _cardEffectDatas)    //Si on a un card effect data
+        {
+            if (nbMoveIterationCounter < nbNodesToMove * multiplier && canLaunchOtherMove) //If we still have moves to do and we are allowed to move
+            {
+                MapManager.Instance.ShowNewAccessibleNodes();    //On affiche les effets sur les nouvelles tiles disponibles
+
+                //On reset les particules avant d'attribuer les nouvelles
+                //foreach (ParticleSystemScript particule in wheelParticules)
+                //{
+                //    particule.stopParticle();
+                //}
+
+                if (Input.GetMouseButtonDown(0))    //If click
+                {
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 100))
+                    {
+                        if (hit.collider.tag == "Node")
+                        {
+                            Vector3Int clickedNode = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
+
+                            // If clicked node is accessible
+                            if (MapManager.Instance.CheckClickedNode(clickedNode))
+                            {
+                                canLaunchOtherMove = false; //We can't launch another move
+                                MapManager.Instance.accessibleShown = false;
+                                //MapManager.Instance.HideAccessibleTiles();    //Hide accessible nodes
+
+                                CalculatePlayerPath(clickedNode); //Launch player move
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -74,7 +116,7 @@ public class PlayerMgr : MonoBehaviour
      */
     public void CalculatePlayerPath(Vector3Int targetNodePos)
     {
-        //nbRoomsToMove = BuffManager.Instance.getModifiedMove(_cardEffectDatas[0].nbMoves);  //Update le nombre de rooms à parcourir, qui changera en fct du nb sur la carte et si un fast shoes a été joué
+        nbNodesToMove = BuffManager.Instance.getModifiedMove(_cardEffectDatas[0].nbMoves);  //Update le nombre de rooms à parcourir, qui changera en fct du nb sur la carte et si un fast shoes a été joué
 
         //GameManager.Instance.DownPanelBlock(true);  //Block le down panel pour que le joueur ne puisse pas jouer de carte pendant le mouvement
 
@@ -173,9 +215,9 @@ public class PlayerMgr : MonoBehaviour
 
         tileIndex = 0;
 
-        //nbMoveIterationCounter++;   //On ajoute un move au compteur
+        nbMoveIterationCounter++;   //On ajoute un move au compteur
 
-        //SFX player  move
+        //SFX player move
         //MusicManager.Instance.PlayPlayerMove();
     }
 
@@ -204,7 +246,6 @@ public class PlayerMgr : MonoBehaviour
             }
             else if (tileIndex < playerPath.Count - 1)
             {
-                //print("nexttile");
                 tileIndex++;    //on passe à la tile suivante tant qu'on a pas atteint la dernière
             }
         }
@@ -214,8 +255,31 @@ public class PlayerMgr : MonoBehaviour
             ratio = playerMoveCurve.Evaluate(ratio);     //Linked to the curve to modify it as we want
             float speed = playerSpeed * ratio;   //Link ratio to modify speed
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(nextPos.x, this.transform.position.y, nextPos.z), speed * Time.deltaTime); //Go to next tile
-
         }
+    }
+
+    /**
+     * Update the multiplier if trust activated on card
+     */
+    public void UpdateMultiplier(int valueToAddToMultiplier)
+    {
+        multiplier = valueToAddToMultiplier;
+    }
+
+    /**
+     * Return true if player has moved
+     */
+    public bool PlayerMoveDone()
+    {
+        if (!playerHasMoved) return false;
+
+        //foreach (ParticleSystemScript particule in wheelParticules)
+        //{
+        //    particule.stopParticle();
+        //}
+
+        playerHasMoved = false;
+        return true;
     }
 
     /**

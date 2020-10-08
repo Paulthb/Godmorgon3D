@@ -86,6 +86,9 @@ public class MapManager : MonoBehaviour
     [System.NonSerialized] public List<Vector3Int> showableTilesList = new List<Vector3Int>();
     [System.NonSerialized] public List<Vector3Int> nearestNodesList = new List<Vector3Int>(); //List of the node on the up down left and right of current node
 
+    [NonSerialized]
+    public bool accessibleShown = false;
+
     #region Singleton Pattern
 
     private static MapManager _instance;
@@ -545,9 +548,22 @@ public class MapManager : MonoBehaviour
     }
 
     /**
+     * Display new accessibles nodes when there are still move to use on move card
+     */
+    public void ShowNewAccessibleNodes()
+    {
+        if (!accessibleShown)
+        {
+            accessibleShown = true;
+            UpdateAccessibleNodesList();
+            ShowAccessibleNodes();
+        }
+    }
+
+    /**
      * TEMP : check when click on room if can move, and active the move in player mgr
      */
-    public void CheckClickedNode(GameObject clickedNode)
+    public bool CheckClickedNode(Vector3Int clickedNode)
     {
         //Get new accessible nodes
         UpdateAccessibleNodesList();
@@ -555,11 +571,13 @@ public class MapManager : MonoBehaviour
         foreach (Vector3Int node in accessibleNodes)
         {
             //If the clicked node is in the list of accessible nodes
-            if (clickedNode.transform.position.x == node.x && clickedNode.transform.position.z == node.z)
+            if (clickedNode.x == node.x && clickedNode.z == node.z)
             {
-                PlayerMgr.Instance.CalculatePlayerPath(node);
+                return true;
             }
         }
+
+        return false;
     }
 
     #region Get TILES and NODES
