@@ -100,7 +100,7 @@ public class CameraDrag : MonoBehaviour
     {
         if (gameCamera.orthographicSize >= minScroll && gameCamera.orthographicSize <= maxScroll)
         {
-            gameCamera.orthographicSize -= Input.mouseScrollDelta.y * 0.2f;
+            gameCamera.orthographicSize -= Input.mouseScrollDelta.y * 0.5f;
             //security
             if (gameCamera.orthographicSize < minScroll)
                 gameCamera.orthographicSize = minScroll;
