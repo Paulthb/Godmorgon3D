@@ -76,7 +76,7 @@ public class PlayerMgr : MonoBehaviour
         {
             if (nbMoveIterationCounter < nbNodesToMove * multiplier && canLaunchOtherMove) //If we still have moves to do and we are allowed to move
             {
-                MapManager.Instance.ShowNewAccessibleNodes();    //On affiche les effets sur les nouvelles tiles disponibles
+                MapManager.Instance.ShowNewAccessibleNodes();    //Launch accessible effect on accessible nodes
 
                 //On reset les particules avant d'attribuer les nouvelles
                 //foreach (ParticleSystemScript particule in wheelParticules)
@@ -99,7 +99,7 @@ public class PlayerMgr : MonoBehaviour
                             {
                                 canLaunchOtherMove = false; //We can't launch another move
                                 MapManager.Instance.accessibleShown = false;
-                                //MapManager.Instance.HideAccessibleTiles();    //Hide accessible nodes
+                                MapManager.Instance.DisallowAccessibleNodesEffects();    //Hide accessible nodes
 
                                 CalculatePlayerPath(clickedNode); //Launch player move
                             }
@@ -241,7 +241,7 @@ public class PlayerMgr : MonoBehaviour
                 playerCanMove = false;
                 isMoving = false;
                 tileIndex = 0;
-                //StartCoroutine(LaunchActionsInNewRoom());  //Attends avant de permettre un autre move (pour ralentir le rythme)
+                StartCoroutine(LaunchActionsInNewRoom());  //Attends avant de permettre un autre move (pour ralentir le rythme)
 
             }
             else if (tileIndex < playerPath.Count - 1)
@@ -299,6 +299,27 @@ public class PlayerMgr : MonoBehaviour
             return _cardEffectDatas;
         else
             return null;
+    }
+
+    /**
+     * Une fois arrivé à destination, active la suite des évènements après qq secondes
+     */
+    IEnumerator LaunchActionsInNewRoom()
+    {
+        //RoomEffectManager.Instance.LaunchRoomEffect(GetPlayerRoomPosition());   //Lance l'effet de room sur laquelle on vient d'arriver
+
+        yield return new WaitForSeconds(2f);
+        canLaunchOtherMove = true;  //On permet le lancement d'un autre move
+        if (nbMoveIterationCounter >= nbNodesToMove * multiplier)  //Si on a atteint le nombre de moves possibles de la carte
+        {
+            canLaunchOtherMove = false;
+            nbMoveIterationCounter = 0;
+            multiplier = 1;
+
+            yield return new WaitForSeconds(2f);
+
+            playerHasMoved = true;
+        }
     }
 
     #region PLAYER POSITIONS
