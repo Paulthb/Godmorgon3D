@@ -360,6 +360,8 @@ public class MapEditor : EditorWindow
                     Transform newNode = Instantiate(_mapManager.nodePrefab, nodePosition, Quaternion.identity) as Transform;
                     newNode.parent = _mapManager.transform.Find(holderName);
 
+                    ReplaceNode(newNode.gameObject, _mapManager.noRoadPrefabList[0]);
+
                     //Update the list of nodes with nodes infos
                     newNode.GetComponent<NodeScript>().node.nodePosition = nodePosition;
                     newNode.GetComponent<NodeScript>().node.nodePrefab = _mapManager.noRoadPrefabList[0].transform;
@@ -402,6 +404,8 @@ public class MapEditor : EditorWindow
                     Vector3Int nodePosition = new Vector3Int(x * 3, 0, y * 3);
                     Transform newNode = Instantiate(_mapManager.nodePrefab, nodePosition, Quaternion.identity) as Transform;
                     newNode.parent = _mapManager.transform.Find(holderName);
+
+                    ReplaceNode(newNode.gameObject, _mapManager.noRoadPrefabList[0]);
 
                     //Update the list of nodes with nodes infos
                     newNode.GetComponent<NodeScript>().node.nodePosition = nodePosition;
