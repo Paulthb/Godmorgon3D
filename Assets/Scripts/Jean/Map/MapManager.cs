@@ -39,6 +39,10 @@ public enum RoadType
     TLeft,
     TUp,
     TDown,
+    DeadendRight,
+    DeadendLeft,
+    DeadendUp,
+    DeadendDown,
     NoRoad
 }
 
@@ -67,6 +71,10 @@ public class MapManager : MonoBehaviour
     public List<GameObject> tLeftPrefabList = new List<GameObject>();
     public List<GameObject> tUpPrefabList = new List<GameObject>();
     public List<GameObject> tDownPrefabList = new List<GameObject>();
+    public List<GameObject> deadendRightPrefabList = new List<GameObject>();
+    public List<GameObject> deadendLeftPrefabList = new List<GameObject>();
+    public List<GameObject> deadendUpPrefabList = new List<GameObject>();
+    public List<GameObject> deadendDownPrefabList = new List<GameObject>();
     public NodeMap map;
     private Node[] _tempNodesArr;
 
@@ -236,6 +244,12 @@ public class MapManager : MonoBehaviour
             //get node of the transform
             Node currentNode = node.GetComponent<NodeScript>().node;
 
+            //Set no road to tiles with no roads (avoid a bug)
+            if (node.Find("EmptyNode"))
+            {
+                currentNode.roadType = RoadType.NoRoad;
+            }
+
             //Set tiles array in current node
             currentNode.tiles = new Tiles[3, 3];
             for (int i = 0; i < 3; i++)
@@ -381,6 +395,22 @@ public class MapManager : MonoBehaviour
                 }
                 node.tiles[1, 0].walkable = true;
                 break;
+            case RoadType.DeadendRight:
+                node.tiles[1, 1].walkable = true;
+                node.tiles[2, 1].walkable = true;
+                break;
+            case RoadType.DeadendLeft:
+                node.tiles[1, 1].walkable = true;
+                node.tiles[0, 1].walkable = true;
+                break;
+            case RoadType.DeadendUp:
+                node.tiles[1, 1].walkable = true;
+                node.tiles[1, 2].walkable = true;
+                break;
+            case RoadType.DeadendDown:
+                node.tiles[1, 1].walkable = true;
+                node.tiles[1, 0].walkable = true;
+                break;
         }
 
         #endregion
@@ -505,6 +535,26 @@ public class MapManager : MonoBehaviour
                 //Add the LEFT node
                 if (supposedPlayerNodePos.x - nodeWidth >= 0)
                     nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
+                //Add the DOWN node
+                if (supposedPlayerNodePos.z - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
+                break;
+            case RoadType.DeadendRight:
+                //Add the RIGHT node
+                if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                break;
+            case RoadType.DeadendLeft:
+                //Add the LEFT node
+                if (supposedPlayerNodePos.x - nodeWidth >= 0)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
+                break;
+            case RoadType.DeadendUp:
+                //Add the TOP node
+                if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
+                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                break;
+            case RoadType.DeadendDown:
                 //Add the DOWN node
                 if (supposedPlayerNodePos.z - nodeWidth >= 0)
                     nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
