@@ -145,7 +145,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             this.gameObject.SetActive(false);
 
             //Cache les positions accessibles
-            //dropPosManager.HidePositionsToDrop(_card);
+            dropPosManager.HidePositionsToDrop(_card);
 
             //======================sound=========================
             //MusicManager.Instance.PlayCardsPlay();

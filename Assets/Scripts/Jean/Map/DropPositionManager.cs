@@ -76,7 +76,7 @@ namespace GodMorgon.CardEffect
             {
                 case BasicCard.CARDTYPE.MOVE:
                     MapManager.Instance.UpdateAccessibleNodesList();
-                    MapManager.Instance.ShowAccessibleNodes();
+                    MapManager.Instance.AllowAccessibleNodesEffects();
                     break;
                 case BasicCard.CARDTYPE.ATTACK:
                     Debug.Log("Show positions for attack");
@@ -92,7 +92,7 @@ namespace GodMorgon.CardEffect
             switch (draggedCard.cardType)
             {
                 case BasicCard.CARDTYPE.MOVE:
-                    //TilesManager.Instance.HideAccessibleTiles();
+                    MapManager.Instance.DisallowAccessibleNodesEffects();
                     break;
                 case BasicCard.CARDTYPE.ATTACK:
                     EnemyManager.Instance.HideAttackableEnemies();
