@@ -4,6 +4,7 @@ using UnityEngine;
 
 using GodMorgon.Models;
 using GodMorgon.Enemy;
+using UnityEngine.PlayerLoop;
 
 namespace GodMorgon.CardEffect
 {
@@ -17,9 +18,12 @@ namespace GodMorgon.CardEffect
             switch (droppedCard.cardType)
             {
                 case BasicCard.CARDTYPE.MOVE:
-                    //PlayerManager.Instance.UpdateAccessibleTilesList(droppedCard.effectsData[0].nbMoves);
-                    if (TilesManager.Instance.accessibleTiles.Contains(dropPosition))
+                    //hit.collider.gameObject now refers to the cube under the mouse cursor if present
+                    if (MapManager.Instance.CheckClickedNode(dropPosition))
+                    {
+                        Debug.Log("context.isDropValidate = true;");
                         context.isDropValidate = true;
+                    }
                     break;
                 case BasicCard.CARDTYPE.ATTACK:
                     if (EnemyManager.Instance.attackableEnemiesTiles.Contains(dropPosition))
@@ -54,7 +58,7 @@ namespace GodMorgon.CardEffect
                     {
                         if (room.x == dropRoomPos.x && room.y == dropRoomPos.y)
                         {
-                            context.targetRoom = room;
+                            //context.targetRoom = room;
                             context.isDropValidate = true;
                         } 
                     }
@@ -72,7 +76,7 @@ namespace GodMorgon.CardEffect
             {
                 case BasicCard.CARDTYPE.MOVE:
                     MapManager.Instance.UpdateAccessibleNodesList();
-                    MapManager.Instance.ShowAccessibleNodes();
+                    MapManager.Instance.AllowAccessibleNodesEffects();
                     break;
                 case BasicCard.CARDTYPE.ATTACK:
                     Debug.Log("Show positions for attack");
@@ -88,7 +92,7 @@ namespace GodMorgon.CardEffect
             switch (draggedCard.cardType)
             {
                 case BasicCard.CARDTYPE.MOVE:
-                    //TilesManager.Instance.HideAccessibleTiles();
+                    MapManager.Instance.DisallowAccessibleNodesEffects();
                     break;
                 case BasicCard.CARDTYPE.ATTACK:
                     EnemyManager.Instance.HideAttackableEnemies();

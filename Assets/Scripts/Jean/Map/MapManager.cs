@@ -39,6 +39,10 @@ public enum RoadType
     TLeft,
     TUp,
     TDown,
+    DeadendRight,
+    DeadendLeft,
+    DeadendUp,
+    DeadendDown,
     NoRoad
 }
 
@@ -67,6 +71,10 @@ public class MapManager : MonoBehaviour
     public List<GameObject> tLeftPrefabList = new List<GameObject>();
     public List<GameObject> tUpPrefabList = new List<GameObject>();
     public List<GameObject> tDownPrefabList = new List<GameObject>();
+    public List<GameObject> deadendRightPrefabList = new List<GameObject>();
+    public List<GameObject> deadendLeftPrefabList = new List<GameObject>();
+    public List<GameObject> deadendUpPrefabList = new List<GameObject>();
+    public List<GameObject> deadendDownPrefabList = new List<GameObject>();
     public NodeMap map;
     private Node[] _tempNodesArr;
 
@@ -82,9 +90,16 @@ public class MapManager : MonoBehaviour
     private int nodeWidth = 3; //For 1 move, 3 tiles to go through
     public Astar astar;
     public List<Spot> roadPath = new List<Spot>();
-    [System.NonSerialized] public List<Vector3Int> accessibleNodes = new List<Vector3Int>();
+    [System.NonSerialized] public List<Transform> accessibleNodes = new List<Transform>();
     [System.NonSerialized] public List<Vector3Int> showableTilesList = new List<Vector3Int>();
-    [System.NonSerialized] public List<Vector3Int> nearestNodesList = new List<Vector3Int>(); //List of the node on the up down left and right of current node
+    [System.NonSerialized] public List<Transform> nearestNodesList = new List<Transform>(); //List of the node on the up down left and right of current node
+
+    [NonSerialized]
+    public bool accessibleShown = false;
+    private bool launchAccessibleEffect = false;
+    private bool resetAccessibleEffect = false;
+
+    private float offset = 0.01f; //offset changing for shaders 
 
     #region Singleton Pattern
 
@@ -197,21 +212,14 @@ public class MapManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (launchAccessibleEffect)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                if (hit.collider.tag == "Node")
-                {
-                    //hit.collider.gameObject now refers to the 
-                    //cube under the mouse cursor if present
-                    //CheckClickedNode(hit.collider.gameObject);
-                    
-                    //print("Node hit : " + hit.collider.gameObject.transform.position);
-                }
-            }
+            ShowAccessibleNodesEffect();
+        }
+
+        if(resetAccessibleEffect)
+        {
+            HideAccessibleNodesEffect();
         }
     }
 
@@ -232,6 +240,12 @@ public class MapManager : MonoBehaviour
         {
             //get node of the transform
             Node currentNode = node.GetComponent<NodeScript>().node;
+
+            //Set no road to tiles with no roads (avoid a bug)
+            if (node.Find("EmptyNode"))
+            {
+                currentNode.roadType = RoadType.NoRoad;
+            }
 
             //Set tiles array in current node
             currentNode.tiles = new Tiles[3, 3];
@@ -378,6 +392,22 @@ public class MapManager : MonoBehaviour
                 }
                 node.tiles[1, 0].walkable = true;
                 break;
+            case RoadType.DeadendRight:
+                node.tiles[1, 1].walkable = true;
+                node.tiles[2, 1].walkable = true;
+                break;
+            case RoadType.DeadendLeft:
+                node.tiles[1, 1].walkable = true;
+                node.tiles[0, 1].walkable = true;
+                break;
+            case RoadType.DeadendUp:
+                node.tiles[1, 1].walkable = true;
+                node.tiles[1, 2].walkable = true;
+                break;
+            case RoadType.DeadendDown:
+                node.tiles[1, 1].walkable = true;
+                node.tiles[1, 0].walkable = true;
+                break;
         }
 
         #endregion
@@ -403,108 +433,128 @@ public class MapManager : MonoBehaviour
             case RoadType.Cross:
                 //Add the RIGHT node
                 if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z)));
                 //Add the LEFT node
                 if (supposedPlayerNodePos.x - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z)));
                 //Add the TOP node
                 if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3) 
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth)));
                 //Add the DOWN node
                 if (supposedPlayerNodePos.z - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth)); 
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth))); 
                 break;
             case RoadType.Horizontal:
                 //Add the RIGHT node
                 if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z)));
                 //Add the LEFT node
                 if (supposedPlayerNodePos.x - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z)); 
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z))); 
                 break;
             case RoadType.Vertical:
                 //Add the TOP node
                 if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth)));
                 //Add the DOWN node
                 if (supposedPlayerNodePos.z - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth)));
                 break;
             case RoadType.TurnUpRight:
                 //Add the TOP node
                 if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth)));
                 //Add the RIGHT node
                 if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z)));
                 break;
             case RoadType.TurnUpLeft:
                 //Add the TOP node
                 if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth)));
                 // Add the LEFT node
                 if (supposedPlayerNodePos.x - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z)));
                 break;
             case RoadType.TurnDownRight:
                 //Add the RIGHT node
                 if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z)));
                 //Add the DOWN node
                 if (supposedPlayerNodePos.z - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth)));
                 break;
             case RoadType.TurnDownLeft:
                 // Add the LEFT node
                 if (supposedPlayerNodePos.x - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z)));
                 //Add the DOWN node
                 if (supposedPlayerNodePos.z - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth)));
                 break;
             case RoadType.TRight:
                 //Add the TOP node
                 if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth)));
                 //Add the DOWN node
                 if (supposedPlayerNodePos.z - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth)));
                 //Add the RIGHT node
                 if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z)));
                 break;
             case RoadType.TLeft:
                 //Add the TOP node
                 if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth)));
                 //Add the DOWN node
                 if (supposedPlayerNodePos.z - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth)));
                 // Add the LEFT node
                 if (supposedPlayerNodePos.x - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z)));
                 break;
             case RoadType.TUp:
                 //Add the RIGHT node
                 if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z)));
                 //Add the LEFT node
                 if (supposedPlayerNodePos.x - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z)));
                 //Add the TOP node
                 if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth)));
                 break;
             case RoadType.TDown:
                 //Add the RIGHT node
                 if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z)));
                 //Add the LEFT node
                 if (supposedPlayerNodePos.x - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z)));
                 //Add the DOWN node
                 if (supposedPlayerNodePos.z - nodeWidth >= 0)
-                    nearestNodesList.Add(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth));
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth)));
+                break;
+            case RoadType.DeadendRight:
+                //Add the RIGHT node
+                if (supposedPlayerNodePos.x + nodeWidth < map.mapSize.x * 3)
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x + nodeWidth, 0, supposedPlayerNodePos.z)));
+                break;
+            case RoadType.DeadendLeft:
+                //Add the LEFT node
+                if (supposedPlayerNodePos.x - nodeWidth >= 0)
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x - nodeWidth, 0, supposedPlayerNodePos.z)));
+                break;
+            case RoadType.DeadendUp:
+                //Add the TOP node
+                if (supposedPlayerNodePos.z + nodeWidth < map.mapSize.y * 3)
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z + nodeWidth)));
+                break;
+            case RoadType.DeadendDown:
+                //Add the DOWN node
+                if (supposedPlayerNodePos.z - nodeWidth >= 0)
+                    nearestNodesList.Add(GetNodeFromPos(new Vector3Int(supposedPlayerNodePos.x, 0, supposedPlayerNodePos.z - nodeWidth)));
                 break;
         }
 
@@ -517,10 +567,10 @@ public class MapManager : MonoBehaviour
         if (null != tilesMap)
         {
             //If the path to nearest nodes is direct, add them to accessibles nodes 
-            foreach (Vector3Int node in nearestNodesList)
+            foreach (Transform node in nearestNodesList)
             {
                 //Get the middle tle of node
-                Vector3Int targetTile = new Vector3Int(node.x + 1, node.y, node.z + 1); 
+                Vector3Int targetTile = new Vector3Int((int)node.position.x + 1, (int)node.position.y, (int)node.position.z + 1); 
 
                 //Roadpath starting from the center of the node, with enemy on path or not, to calculate accessible tiles, and to not have an offset if the player is not in the center of the node
                 roadPath = astar.CreatePath(grid, new Vector2Int(supposedPlayerTilePos.x, supposedPlayerTilePos.z),
@@ -539,27 +589,120 @@ public class MapManager : MonoBehaviour
     /**
      * Active effects on accessible nodes
      */
-    public void ShowAccessibleNodes()
+    public void AllowAccessibleNodesEffects()
     {
+        if (accessibleNodes.Count <= 0) return;
 
+        foreach (Transform node in accessibleNodes)
+        {
+            int lastIndex = node.GetChild(0).GetChild(0).childCount;
+            Transform groundOfNode = node.GetChild(0).GetChild(0).GetChild(lastIndex - 1);
+            if (groundOfNode != null)
+            {
+                MeshRenderer rend = groundOfNode.GetComponent<MeshRenderer>();
+
+                rend.materials[0].SetFloat("_Intensity", 2f);
+            }
+            else
+                print("No ground found for node");
+        }
+
+        launchAccessibleEffect = true;
+    }
+
+    
+    public void ShowAccessibleNodesEffect()
+    {
+        foreach (Transform node in accessibleNodes)
+        {
+            int lastIndex = node.GetChild(0).GetChild(0).childCount;
+            Transform groundOfNode = node.GetChild(0).GetChild(0).GetChild(lastIndex - 1);
+            if (groundOfNode != null)
+            {
+                MeshRenderer rend = groundOfNode.GetComponent<MeshRenderer>();
+                float currentIntensity = rend.materials[0].GetFloat("_Intensity");
+
+
+                if (currentIntensity > 0.70f)
+                    offset = -0.01f;
+                else if (currentIntensity <= 0)
+                    offset = 0.01f;
+
+                print("WOOOAAW");
+                rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);
+            }
+            else
+                print("No ground found for node");
+        }
+    }
+
+    /**
+     * Display new accessibles nodes when there are still move to use on move card
+     */
+    public void ShowNewAccessibleNodes()
+    {
+        if (!accessibleShown)
+        {
+            accessibleShown = true;
+            UpdateAccessibleNodesList();
+            AllowAccessibleNodesEffects();
+        }
+    }
+
+    /**
+     * Disactive effects on accessible nodes
+     */
+    public void DisallowAccessibleNodesEffects()
+    {
+        launchAccessibleEffect = false;
+        resetAccessibleEffect = true;
+    }
+
+    /**
+     * Reset effects on accessible nodes
+     */
+    public void HideAccessibleNodesEffect()
+    {
+        foreach (Transform node in accessibleNodes)
+        {
+            int lastIndex = node.GetChild(0).GetChild(0).childCount;
+            Transform groundOfNode = node.GetChild(0).GetChild(0).GetChild(lastIndex - 1);
+            if (groundOfNode != null)
+            {
+                MeshRenderer rend = groundOfNode.GetComponent<MeshRenderer>();
+
+                offset += 0.01f;
+
+                rend.materials[0].SetFloat("_Intensity", offset);
+
+                print("WOOOOOW");
+
+                if (rend.materials[0].GetFloat("_Intensity") >= 5f)
+                    resetAccessibleEffect = false;
+            }
+            else
+                print("No ground found for node");
+        }
     }
 
     /**
      * TEMP : check when click on room if can move, and active the move in player mgr
      */
-    public void CheckClickedNode(GameObject clickedNode)
+    public bool CheckClickedNode(Vector3Int clickedNode)
     {
         //Get new accessible nodes
         UpdateAccessibleNodesList();
 
-        foreach (Vector3Int node in accessibleNodes)
+        foreach (Transform node in accessibleNodes)
         {
             //If the clicked node is in the list of accessible nodes
-            if (clickedNode.transform.position.x == node.x && clickedNode.transform.position.z == node.z)
+            if (clickedNode.x == node.position.x && clickedNode.z == node.position.z)
             {
-                PlayerMgr.Instance.CalculatePlayerPath(node);
+                return true;
             }
         }
+
+        return false;
     }
 
     #region Get TILES and NODES

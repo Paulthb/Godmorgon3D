@@ -48,7 +48,7 @@ MonoBehaviour:
   node:
     nodePosition: {x: 0, y: 0, z: 0}
     nodePrefab: {fileID: 0}
-    roadType: 0
+    roadType: 15
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0

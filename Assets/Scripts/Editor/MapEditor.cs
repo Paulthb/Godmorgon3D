@@ -314,6 +314,84 @@ public class MapEditor : EditorWindow
                     EditorGUILayout.EndHorizontal();
 
                     EditorGUILayout.EndHorizontal();
+
+
+                    EditorGUILayout.BeginHorizontal();
+
+                    //GUILayout.Label("T u nodes", EditorStyles.boldLabel);
+                    EditorGUILayout.BeginHorizontal();
+                    GUILayout.Space(20);
+                    foreach (GameObject nodePrefab in _mapManager.deadendRightPrefabList)
+                    {
+                        if (GUILayout.Button(nodePrefab.GetComponent<NodeData>().nodePreview, GUILayout.Width(80), GUILayout.Height(80)))
+                        {
+                            ReplaceNode(Selection.activeGameObject, nodePrefab);
+
+                            _mapManager.UpdateNodeInfos(Selection.activeGameObject, nodePrefab);
+
+                            EditorUtility.SetDirty(_mapManager.map);
+                            EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
+                        }
+                    }
+                    EditorGUILayout.EndHorizontal();
+
+                    //GUILayout.Label("T d nodes", EditorStyles.boldLabel);
+                    EditorGUILayout.BeginHorizontal();
+                    GUILayout.Space(20);
+                    foreach (GameObject nodePrefab in _mapManager.deadendLeftPrefabList)
+                    {
+                        if (GUILayout.Button(nodePrefab.GetComponent<NodeData>().nodePreview, GUILayout.Width(80), GUILayout.Height(80)))
+                        {
+                            ReplaceNode(Selection.activeGameObject, nodePrefab);
+
+                            _mapManager.UpdateNodeInfos(Selection.activeGameObject, nodePrefab);
+
+                            EditorUtility.SetDirty(_mapManager.map);
+                            EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
+                        }
+                    }
+                    EditorGUILayout.EndHorizontal();
+
+                    EditorGUILayout.EndHorizontal();
+
+
+                    EditorGUILayout.BeginHorizontal();
+
+                    //GUILayout.Label("T u nodes", EditorStyles.boldLabel);
+                    EditorGUILayout.BeginHorizontal();
+                    GUILayout.Space(20);
+                    foreach (GameObject nodePrefab in _mapManager.deadendUpPrefabList)
+                    {
+                        if (GUILayout.Button(nodePrefab.GetComponent<NodeData>().nodePreview, GUILayout.Width(80), GUILayout.Height(80)))
+                        {
+                            ReplaceNode(Selection.activeGameObject, nodePrefab);
+
+                            _mapManager.UpdateNodeInfos(Selection.activeGameObject, nodePrefab);
+
+                            EditorUtility.SetDirty(_mapManager.map);
+                            EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
+                        }
+                    }
+                    EditorGUILayout.EndHorizontal();
+
+                    //GUILayout.Label("T d nodes", EditorStyles.boldLabel);
+                    EditorGUILayout.BeginHorizontal();
+                    GUILayout.Space(20);
+                    foreach (GameObject nodePrefab in _mapManager.deadendDownPrefabList)
+                    {
+                        if (GUILayout.Button(nodePrefab.GetComponent<NodeData>().nodePreview, GUILayout.Width(80), GUILayout.Height(80)))
+                        {
+                            ReplaceNode(Selection.activeGameObject, nodePrefab);
+
+                            _mapManager.UpdateNodeInfos(Selection.activeGameObject, nodePrefab);
+
+                            EditorUtility.SetDirty(_mapManager.map);
+                            EditorSceneManager.MarkSceneDirty(_mapManager.gameObject.scene);
+                        }
+                    }
+                    EditorGUILayout.EndHorizontal();
+
+                    EditorGUILayout.EndHorizontal();
                 }
                 else GUILayout.Label("Click on a node to modify it.", EditorStyles.boldLabel);
             }
@@ -360,6 +438,8 @@ public class MapEditor : EditorWindow
                     Transform newNode = Instantiate(_mapManager.nodePrefab, nodePosition, Quaternion.identity) as Transform;
                     newNode.parent = _mapManager.transform.Find(holderName);
 
+                    ReplaceNode(newNode.gameObject, _mapManager.noRoadPrefabList[0]);
+
                     //Update the list of nodes with nodes infos
                     newNode.GetComponent<NodeScript>().node.nodePosition = nodePosition;
                     newNode.GetComponent<NodeScript>().node.nodePrefab = _mapManager.noRoadPrefabList[0].transform;
@@ -402,6 +482,8 @@ public class MapEditor : EditorWindow
                     Vector3Int nodePosition = new Vector3Int(x * 3, 0, y * 3);
                     Transform newNode = Instantiate(_mapManager.nodePrefab, nodePosition, Quaternion.identity) as Transform;
                     newNode.parent = _mapManager.transform.Find(holderName);
+
+                    ReplaceNode(newNode.gameObject, _mapManager.noRoadPrefabList[0]);
 
                     //Update the list of nodes with nodes infos
                     newNode.GetComponent<NodeScript>().node.nodePosition = nodePosition;

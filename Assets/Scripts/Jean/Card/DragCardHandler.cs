@@ -66,7 +66,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         if(_card.cardType == BasicCard.CARDTYPE.MOVE)
         {
-            PlayerMgr.Instance.UpdateMoveDatas(context.card.effectsData);   //On envoie les datas de la carte au playerMgr pour gérer les cas d'accessibilités des tiles voisines
+            PlayerMgr.Instance.UpdateMoveDatas(context.card.effectsData);   //On envoie les datas de la carte au playerMgr pour gérer les cas d'accessibilités des nodes voisins
         }
 
         //On montre les positions disponibles pour le drop de la carte
@@ -111,15 +111,19 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         {
             if (hit.collider.tag == "Node")
             {
-                //hit.collider.gameObject now refers to the 
-                //cube under the mouse cursor if present
-                MapManager.Instance.CheckClickedNode(hit.collider.gameObject);
+                Vector3 clickedNode = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
 
-                print("Node hit : " + hit.collider.gameObject.transform.position);
+                //Vérifie si la position du drop est valide
+                dropPosManager.GetDropCardContext(_card, new Vector3Int((int)(clickedNode.x), 0, (int)(clickedNode.z)), context);
+            }
+
+            if (hit.collider.tag == "Enemy")
+            {
+                //hit.collider.gameObject now refers to the cube under the mouse cursor if present
+                //MapManager.Instance.CheckClickedNode(hit.collider.gameObject);
             }
         }
-        //Vérifie si la position du drop est valide
-        //dropPosManager.GetDropCardContext(_card, dropCellPosition, context);
+        
         if (context.isDropValidate)
         {
             //on lock toutes les cartes en main
@@ -131,7 +135,9 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 context.targetRoom = null;
             */
 
-            //Joue la carte
+            context.targetNodePos = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
+
+            //Play the card
             CardEffectManager.Instance.PlayCard(eventData.pointerDrag.GetComponent<CardDisplay>().card, context);
 
             //Effect + delete card
@@ -139,11 +145,11 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             this.gameObject.SetActive(false);
 
             //Cache les positions accessibles
-            //dropPosManager.HidePositionsToDrop(_card);
+            dropPosManager.HidePositionsToDrop(_card);
 
             //======================sound=========================
-            MusicManager.Instance.PlayCardsPlay();
-            PlayTypeCardSFX(_card.cardType);
+            //MusicManager.Instance.PlayCardsPlay();
+            //PlayTypeCardSFX(_card.cardType);
 
 
             //discard the used card
