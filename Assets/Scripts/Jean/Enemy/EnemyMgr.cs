@@ -52,11 +52,7 @@ public class EnemyMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            MoveEnemies();
-
-        }
+        
     }
 
     /**
@@ -77,6 +73,30 @@ public class EnemyMgr : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             enemiesList.Add(transform.GetChild(i).gameObject.GetComponent<EnemyScript>());
+        }
+    }
+
+    /**
+     * Update for each enemy the list eof enemies in his room
+     */
+    public void UpdateEnemiesInSameRoom()
+    {
+        UpdateEnemiesList();
+
+        foreach (EnemyScript enemy in enemiesList)
+        {
+            foreach (EnemyScript otherEnemy in enemiesList)
+            {
+                if (enemy != otherEnemy)
+                {
+                    Vector3Int enemyPos = enemy.GetNodePosOfEnemy();
+                    Vector3Int otherEnemyPos = otherEnemy.GetNodePosOfEnemy();
+                    if (enemyPos == otherEnemyPos)
+                    {
+                        enemy.enemiesInRoom.Add(otherEnemy);
+                    }
+                }
+            }
         }
     }
 

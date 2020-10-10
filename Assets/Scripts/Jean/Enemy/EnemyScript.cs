@@ -9,6 +9,7 @@ namespace GodMorgon.Enemy
         [Header("Enemy Settings")] 
         public Models.Enemy _enemy; //Scriptable object Enemy
         public EnemyData enemyData = new EnemyData();
+        public List<EnemyScript> enemiesInRoom = new List<EnemyScript>();
 
         [Header("Movement Settings")] 
         public float moveSpeed = 5f; //Enemy speed
