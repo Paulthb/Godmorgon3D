@@ -11,9 +11,9 @@ namespace GodMorgon.Timeline
         //tout les enemies de la scene gagne de la defense
         public override IEnumerator Execute()
         {
-            List<EnemyView> enemyInScene = EnemyManager.Instance.GetAllEnemies();
+            List<EnemyScript> enemyInScene = EnemyMgr.Instance.GetAllEnemies();
             if(enemyInScene.Count > 0)
-                foreach(EnemyView enemy in enemyInScene)
+                foreach(EnemyScript enemy in enemyInScene)
                     enemy.enemyData.AddBlock(TimelineManager.Instance.nbBlockGain);
 
             Debug.Log("ACTION defend");
