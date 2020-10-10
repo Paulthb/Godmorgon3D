@@ -177,7 +177,7 @@ namespace GodMorgon.Timeline
             gearsList[0].gear.Play();
 
             //SFX ringmaster laugh
-            MusicManager.Instance.PlayRingMasterEndTurn();
+            //MusicManager.Instance.PlayRingMasterEndTurn();
 
 
             isRunning = true;

@@ -84,7 +84,7 @@ public class MapManager : MonoBehaviour
     private Tiles[,] tilesMap;
     public GameObject walkablePoint;
     public Transform walkablePtHolder;
-    private List<Transform> nodesList = new List<Transform>();
+    public List<Transform> nodesList = new List<Transform>();
 
     //===================== PATHFINDING ================================
     private int nodeWidth = 3; //For 1 move, 3 tiles to go through
@@ -628,7 +628,6 @@ public class MapManager : MonoBehaviour
                 else if (currentIntensity <= 0)
                     offset = 0.01f;
 
-                print("WOOOAAW");
                 rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);
             }
             else
@@ -674,8 +673,6 @@ public class MapManager : MonoBehaviour
                 offset += 0.01f;
 
                 rend.materials[0].SetFloat("_Intensity", offset);
-
-                print("WOOOOOW");
 
                 if (rend.materials[0].GetFloat("_Intensity") >= 5f)
                     resetAccessibleEffect = false;
