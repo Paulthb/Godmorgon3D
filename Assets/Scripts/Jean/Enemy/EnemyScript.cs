@@ -15,16 +15,26 @@ namespace GodMorgon.Enemy
         public float moveSpeed = 5f; //Enemy speed
         //Curve linked to move to do speed variations
         public AnimationCurve moveCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
+
         private List<Spot> roadPath; //First path calculated
         private List<Spot> enemyPath; //Final path calculated, without player's tile if he's on path
         
         private int tileIndex;  //Index used for the movement mechanic, one tile after another
         private int nbTilesPerMove = 3;  //Nb tiles for 1 move
-        
+
+        [Header("Attack Settings")]
+        public float shakeDuration = 0.1f;
+        private Camera mainCamera;
+        private CameraShaker shaker;     //Script of shaking on camera
+
+
+        // ----- BOOL ------
         private bool canMove;
         private bool isMoveFinished = false;
+        private bool isAttackFinished = false;
         [System.NonSerialized]
         public bool canRecenter = false;
+
 
         private PlayerMgr player;
         private Animator _animator;
@@ -57,6 +67,10 @@ namespace GodMorgon.Enemy
         void Start()
         {
             player = FindObjectOfType<PlayerMgr>();
+
+            mainCamera = Camera.main;
+            if (mainCamera)
+                shaker = mainCamera.GetComponent<CameraShaker>();
         }
 
         // Update is called once per frame
@@ -152,6 +166,82 @@ namespace GodMorgon.Enemy
         public bool IsMoveFinished()
         {
             return isMoveFinished;
+        }
+
+        /**
+         * Launch attack visual + datas
+         */
+        public void Attack()
+        {
+            //ShowAttackEffect(); //Décommenter qd on aura l'anim d'attaque
+            StartCoroutine(AttackEffect());
+
+            //If player on node, player take damages
+            if (enemyData.inPlayersNode)
+                PlayerManager.Instance.TakeDamage(enemyData.attack);
+
+            //If enemies on node, they take damages
+            if (enemiesInRoom.Count > 0)
+            {
+                foreach (EnemyScript enemy in enemiesInRoom)
+                {
+                    enemy.enemyData.TakeDamage(enemyData.attack, false);
+                }
+            }
+
+            //prend des dégats si le counter est activé
+            enemyData.TakeDamage(PlayerManager.Instance.Counter(), false);
+
+            print("Enemy attacked !");
+        }
+
+        /**
+         * Attack shake animation
+         */
+        public IEnumerator AttackEffect()
+        {
+            shaker.Shake(shakeDuration);
+            yield return new WaitForSeconds(1f);
+            isAttackFinished = true;
+        }
+
+        /**
+         * Affiche les effets d'une attaque
+         */
+        public void ShowAttackEffect()
+        {
+            //_animator.SetTrigger("LaunchAttack");
+            Animation anim = this.transform.GetComponentInChildren<Animation>();
+
+            foreach (AnimationState state in anim)
+            {
+                if (state.name == "Enemy_Attack")
+                {
+                    anim.Play(state.name);
+
+                    //Debug.Log("anim played");
+                }
+            }
+        }
+
+        public bool IsAttackFinished()
+        {
+            /*
+            if (IsAnimFinished())
+            {
+                isAttackFinished = true;
+            }
+            else isAttackFinished = false;
+            
+            return isAttackFinished;*/
+
+            if (isAttackFinished)
+            {
+                isAttackFinished = false;
+                return true;
+            }
+
+            return false;
         }
 
         #region ENEMY POSITIONS

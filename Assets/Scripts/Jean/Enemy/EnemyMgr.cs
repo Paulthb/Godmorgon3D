@@ -18,6 +18,7 @@ public class EnemyMgr : MonoBehaviour
     public float rangeFromPlayer = 2;
 
     private bool enemiesHaveMoved;
+    private bool enemiesHaveAttacked = false;
 
     #region Singleton Pattern
 
@@ -211,6 +212,40 @@ public class EnemyMgr : MonoBehaviour
 
         Instantiate(enemy, spawnPos, Quaternion.identity, this.transform);  //Instantiate an enemy at spawn node, as a child of EnemyMgr
         //Instantiate(enemy.spawnParticule, spawnPos, Quaternion.identity, effectParent);    //Instantiate spawn effect
+    }
+
+    /**
+     * Lance l'attaque des ennemis
+     */
+    public void Attack()
+    {
+        enemiesHaveAttacked = false;
+        UpdateEnemiesList();
+        StartCoroutine(TimedAttacks());
+    }
+
+    /**
+     * Applique les effets de l'attaque pour chacun des ennemis l'un après l'autre
+     */
+    IEnumerator TimedAttacks()
+    {
+        foreach (EnemyScript enemy in enemiesList)
+        {
+            if (enemy.enemyData.inPlayersNode || enemy.enemiesInRoom.Count > 0)
+            {
+                //Lance anim d'attack
+                enemy.Attack();
+
+                while (!enemy.IsAttackFinished()) //Tant qu'ils n'ont pas tous attaqué (s'ils peuvent) on continue
+                {
+                    yield return null;
+
+                }
+            }
+        }
+
+        Debug.Log("All enemies have attacked");
+        enemiesHaveAttacked = true;
     }
 
     /**
