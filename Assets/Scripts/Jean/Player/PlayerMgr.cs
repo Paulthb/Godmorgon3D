@@ -34,7 +34,16 @@ public class PlayerMgr : MonoBehaviour
     [NonSerialized]
     public int multiplier = 1;
 
-
+    private HealthBar _healthBar = null;
+    /**
+    * la healthBar sera enfant du canvas de cette objet
+    */
+    [SerializeField]
+    private GameObject healthBarPrefab = null;
+    [SerializeField]
+    private Transform healthBarPos = null;
+    [SerializeField]
+    private Transform playerCanvas = null;
 
 
     #region Singleton Pattern
@@ -62,6 +71,9 @@ public class PlayerMgr : MonoBehaviour
         basePlayerY = (int)this.transform.position.y;
 
         nbMoveIterationCounter = 0;
+
+        if (healthBarPrefab != null)
+            InitializeHealthBar();
     }
 
     // Update is called once per frame
@@ -108,6 +120,10 @@ public class PlayerMgr : MonoBehaviour
                 }
             }
         }
+
+        //la bar d'espace suit le player sur l'écran
+        if (_healthBar != null)
+            _healthBar.transform.position = Camera.main.WorldToScreenPoint(healthBarPos.position);
     }
 
     /**
@@ -373,4 +389,12 @@ public class PlayerMgr : MonoBehaviour
 
     #endregion
 
+    /**
+    * Crée la healthbar dans le canvas
+    */
+    public void InitializeHealthBar()
+    {
+        GameObject healthBarGAO = Instantiate(healthBarPrefab, playerCanvas);
+        _healthBar = healthBarGAO.GetComponent<HealthBar>();
+    }
 }
