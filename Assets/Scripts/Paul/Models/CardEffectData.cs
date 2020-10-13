@@ -30,7 +30,7 @@ namespace GodMorgon.Models
         [Header("Damage")]
         //nb damage deal
         public int damagePoint = 0;
-
+        public int attackRange = 0;
 
         [Header("Movement")]
         //nb movement
