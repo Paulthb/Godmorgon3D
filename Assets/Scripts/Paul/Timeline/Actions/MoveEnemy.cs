@@ -10,8 +10,8 @@ namespace GodMorgon.Timeline
         public override IEnumerator Execute()
         {
             //Debug.Log("ACTION Move Enemy");
-            EnemyManager.Instance.MoveEnemies();
-            while(!EnemyManager.Instance.EnemiesMoveDone())
+            EnemyMgr.Instance.MoveEnemies();
+            while(!EnemyMgr.Instance.EnemiesMoveDone())
             {
                 yield return null;
             }
