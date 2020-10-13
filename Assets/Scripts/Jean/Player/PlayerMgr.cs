@@ -34,7 +34,16 @@ public class PlayerMgr : MonoBehaviour
     [NonSerialized]
     public int multiplier = 1;
 
-
+    private HealthBar _healthBar = null;
+    /**
+    * la healthBar sera enfant du canvas de cette objet
+    */
+    [SerializeField]
+    private GameObject healthBarPrefab = null;
+    [SerializeField]
+    private Transform healthBarPos = null;
+    [SerializeField]
+    private Transform playerCanvas = null;
 
 
     #region Singleton Pattern
@@ -62,6 +71,9 @@ public class PlayerMgr : MonoBehaviour
         basePlayerY = (int)this.transform.position.y;
 
         nbMoveIterationCounter = 0;
+
+        if (healthBarPrefab != null)
+            InitializeHealthBar();
     }
 
     // Update is called once per frame
@@ -108,6 +120,10 @@ public class PlayerMgr : MonoBehaviour
                 }
             }
         }
+
+        //la bar d'espace suit le player sur l'écran
+        if (_healthBar != null)
+            _healthBar.transform.position = Camera.main.WorldToScreenPoint(healthBarPos.position);
     }
 
     /**
@@ -241,8 +257,7 @@ public class PlayerMgr : MonoBehaviour
                 playerCanMove = false;
                 isMoving = false;
                 tileIndex = 0;
-                StartCoroutine(LaunchActionsInNewRoom());  //Attends avant de permettre un autre move (pour ralentir le rythme)
-
+                StartCoroutine(LaunchActionsInNewNode());  //Attends avant de permettre un autre move (pour ralentir le rythme)
             }
             else if (tileIndex < playerPath.Count - 1)
             {
@@ -304,11 +319,12 @@ public class PlayerMgr : MonoBehaviour
     /**
      * Une fois arrivé à destination, active la suite des évènements après qq secondes
      */
-    IEnumerator LaunchActionsInNewRoom()
+    IEnumerator LaunchActionsInNewNode()
     {
         //RoomEffectManager.Instance.LaunchRoomEffect(GetPlayerRoomPosition());   //Lance l'effet de room sur laquelle on vient d'arriver
+        FogMgr.Instance.ClearFogOnAccessibleNode(); // Clear the fog around the node we just arrived in
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         canLaunchOtherMove = true;  //On permet le lancement d'un autre move
         if (nbMoveIterationCounter >= nbNodesToMove * multiplier)  //Si on a atteint le nombre de moves possibles de la carte
         {
@@ -316,7 +332,7 @@ public class PlayerMgr : MonoBehaviour
             nbMoveIterationCounter = 0;
             multiplier = 1;
 
-            yield return new WaitForSeconds(2f);
+            //yield return new WaitForSeconds(2f);
 
             playerHasMoved = true;
         }
@@ -355,4 +371,12 @@ public class PlayerMgr : MonoBehaviour
 
     #endregion
 
+    /**
+    * Crée la healthbar dans le canvas
+    */
+    public void InitializeHealthBar()
+    {
+        GameObject healthBarGAO = Instantiate(healthBarPrefab, playerCanvas);
+        _healthBar = healthBarGAO.GetComponent<HealthBar>();
+    }
 }
