@@ -61,7 +61,7 @@ namespace GodMorgon.Enemy
         //update the enemy healthBar
         public override void UpdateHealthBar()
         {
-            //enemyScript.UpdateHealthBar(health, defense);
+            enemyScript.UpdateHealthBar(health, defense);
         }
 
         //launch hit visual effect
