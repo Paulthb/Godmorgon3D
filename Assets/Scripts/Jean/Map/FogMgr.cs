@@ -16,6 +16,7 @@ public class FogMgr : MonoBehaviour
 {
     [Header("Fog Settings")]
     public GameObject fogPrefab;
+    public float speedClear = 4f;
 
     private List<Vector3Int> nodesClearedAtStart = new List<Vector3Int>();
     private List<Vector3Int> positionsToSpawn = new List<Vector3Int>();
@@ -31,8 +32,6 @@ public class FogMgr : MonoBehaviour
     private bool hasBeenRevealed = false;
 
     private int revealRange = 1;
-
-    public float maxRemainingLifeTime = 2f;
 
 
     #region Singleton Pattern
@@ -60,14 +59,22 @@ public class FogMgr : MonoBehaviour
     private void Start()
     {
         InitFog();
+    }    
+
+    private void Update()
+    {
+
     }
 
+    /**
+     * Initialization of fog, recovering every node except player's node and accessible nodes around
+     */
     public void InitFog()
     {
         MapManager.Instance.UpdateNodesList();
 
         //Add fog on each node
-        foreach(Transform node in MapManager.Instance.nodesList)
+        foreach (Transform node in MapManager.Instance.nodesList)
         {
             AddFogOnNode(node);
         }
@@ -79,11 +86,6 @@ public class FogMgr : MonoBehaviour
         }
 
         hasUpdatedFog = false;
-    }
-
-    private void Update()
-    {
-        //UpdateFogParticules();
     }
 
     private void AddFogOnNode(Transform targetNode)
@@ -114,9 +116,9 @@ public class FogMgr : MonoBehaviour
                 
                 for (int i = 0; i < particles.Length; i++)
                 {
-                    if (particles[i].remainingLifetime > maxRemainingLifeTime)
+                    if (particles[i].remainingLifetime > speedClear)
                     {
-                        float rand = UnityEngine.Random.Range(0, maxRemainingLifeTime);
+                        float rand = UnityEngine.Random.Range(0, speedClear);
                         particles[i].remainingLifetime = rand;
                     }
                 }
@@ -134,49 +136,24 @@ public class FogMgr : MonoBehaviour
     }
 
     /**
-     * Clear les rooms autour du player
-     * Appelée lorsque le joueur est en mouvement
+     * Called when a player arrive on a new node
      */
-    /*
-    private void UpdateFogParticules()
+    public void ClearFogOnAccessibleNode()
     {
-        if (PlayerManager.Instance.IsPlayerMoving())
+        foreach (Transform child in transform)
         {
-            hasUpdatedFog = false;
-            return;
-        }
-
-        if (hasUpdatedFog) return;
-        
-        Vector3Int currentPlayerPos = PlayerManager.Instance.GetPlayerRoomPosition();
-
-        RoomData currentRoomData = RoomEffectManager.Instance.GetRoomData(currentPlayerPos);
-
-        List<RoomData> nearRoomDatas = GetNearRoomData(currentPlayerPos, 1);
-
-        TilesManager.Instance.CreateGrid();
-        TilesManager.Instance.UpdateAccessibleTilesList();
-
-        foreach (RoomData room in nearRoomDatas)   //Pour toutes les rooms à coté du player
-        {
-            foreach (RoomData accessibleRoom in TilesManager.Instance.GetAccessibleRooms())
-            {
-                //Debug.Log(room.x + "/" + room.y + " contre " + showableRoom.x + "/" + showableRoom.y);
-                
-                if (room == accessibleRoom)
+            foreach (Transform accessibleNode in MapManager.Instance.GetAccessibleNodesList())
+            {                
+                if (child.position == accessibleNode.position)
                 {
-                    if (!room.isRoomCleared)   //Si la tile n'est pas transparente
+                    if (!accessibleNode.GetComponent<NodeScript>().node.isNodeCleared)   //Si la tile n'est pas transparente
                     {
-                        ClearFogOnNode(room);
+                        ClearFogOnNode(accessibleNode);
                     }
                 }
             }
         }
-
-        ClearFogOnNode(currentRoomData);
-
-        hasUpdatedFog = true;
-    }*/
+    }
 
     
     /**
