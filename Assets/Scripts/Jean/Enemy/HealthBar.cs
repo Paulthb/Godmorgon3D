@@ -23,6 +23,8 @@ public class HealthBar : MonoBehaviour
     {
         maxDefensePoint = maxDefense;
         maxHealthPoint = maxHealth;
+
+        UpdateHealthBar(maxDefense, maxHealth);
     }
 
     /**
@@ -42,6 +44,9 @@ public class HealthBar : MonoBehaviour
             health.fillAmount = 0;
         else
             health.fillAmount = currentHealth / maxHealthPoint;
+
+        //print("la defense actuel est de : " + defense);
+        //print("la santé actuel est de : " + health);
     }
 
     //public void SetHealth(float newHealthValue)

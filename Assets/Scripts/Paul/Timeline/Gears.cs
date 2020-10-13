@@ -17,7 +17,6 @@ namespace GodMorgon.Timeline
         public void MoveGear()
         {
             StartCoroutine(GoToLeft());
-            print("gears moving");
         }
 
         public IEnumerator GoToLeft()

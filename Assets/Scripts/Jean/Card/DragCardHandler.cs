@@ -110,7 +110,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100))
         {
-            if (hit.collider.tag == "Node")
+            if (hit.collider.tag == "Node" && _card.cardType == BasicCard.CARDTYPE.MOVE)
             {
                 print("NOOODE");
 
@@ -122,12 +122,10 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 dropPosManager.GetDropCardContext(_card, clickedNode, context);
             }
 
-            if (hit.collider.tag == "Enemy")
+            if (hit.collider.tag == "Enemy" && _card.cardType == BasicCard.CARDTYPE.ATTACK)
             {
-                print("ENEMYYYYYYY");
-
                 // Add enemy selected in context
-                context.targets = hit.collider.GetComponent<EnemyScript>().enemyData;
+                context.targets = hit.collider.GetComponentInParent<EnemyScript>().enemyData;
 
                 // Get node position of this enemy
                 Vector3Int enemyNodePos = EnemyMgr.Instance.GetEnemyNodePos(hit.collider.transform);
