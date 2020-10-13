@@ -48,6 +48,8 @@ namespace GodMorgon.CardEffect
          */
         public void PlayCard(BasicCard card, GameContext context)
         {
+            Debug.Log("PLAY CARD");
+
             //create and apply all the effect of the card
             foreach (CardEffectData effectData in card.effectsData)
             {
