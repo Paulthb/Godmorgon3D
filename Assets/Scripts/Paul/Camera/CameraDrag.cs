@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class CameraDrag : MonoBehaviour
 {
+    private Vector3 DRAG_Y_VECTOR = new Vector3(0.5f, 0f, 0.5f);
 
     /*
     Made simple to use (drag and drop, done) for regular keyboard layout  
@@ -89,7 +90,10 @@ public class CameraDrag : MonoBehaviour
             Vector3 pos = Camera.main.ScreenToViewportPoint(dragOrigin - Input.mousePosition);
             Vector3 move = new Vector3(pos.x * dragSpeed, pos.y * dragSpeed, 0);
 
-            transform.Translate(move, Space.World);
+            transform.position += transform.right * move.x;
+            transform.position += DRAG_Y_VECTOR * move.y;
+
+            //transform.Translate(move, Space.World);
             dragOrigin = Input.mousePosition;
             return;
         }

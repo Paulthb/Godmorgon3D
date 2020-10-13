@@ -241,7 +241,7 @@ public class PlayerMgr : MonoBehaviour
                 playerCanMove = false;
                 isMoving = false;
                 tileIndex = 0;
-                StartCoroutine(LaunchActionsInNewRoom());  //Attends avant de permettre un autre move (pour ralentir le rythme)
+                StartCoroutine(LaunchActionsInNewNode());  //Attends avant de permettre un autre move (pour ralentir le rythme)
 
             }
             else if (tileIndex < playerPath.Count - 1)
@@ -304,11 +304,11 @@ public class PlayerMgr : MonoBehaviour
     /**
      * Une fois arrivé à destination, active la suite des évènements après qq secondes
      */
-    IEnumerator LaunchActionsInNewRoom()
+    IEnumerator LaunchActionsInNewNode()
     {
         //RoomEffectManager.Instance.LaunchRoomEffect(GetPlayerRoomPosition());   //Lance l'effet de room sur laquelle on vient d'arriver
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         canLaunchOtherMove = true;  //On permet le lancement d'un autre move
         if (nbMoveIterationCounter >= nbNodesToMove * multiplier)  //Si on a atteint le nombre de moves possibles de la carte
         {
@@ -316,7 +316,7 @@ public class PlayerMgr : MonoBehaviour
             nbMoveIterationCounter = 0;
             multiplier = 1;
 
-            yield return new WaitForSeconds(2f);
+            //yield return new WaitForSeconds(2f);
 
             playerHasMoved = true;
         }

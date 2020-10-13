@@ -41,6 +41,9 @@ namespace GodMorgon.Enemy
         [SerializeField]
         private Transform healthBarPos = null;
 
+        [SerializeField]
+        private Transform enemyCanvas = null;
+
         private PlayerMgr player;
         private Animator _animator;
         private HealthBar _healthBar;
@@ -292,7 +295,7 @@ namespace GodMorgon.Enemy
          */
         public void InitializeHealthBar()
         {
-            GameObject healthBarGAO = Instantiate(healthBarPrefab, FindObjectOfType<Canvas>().transform);///////////////
+            GameObject healthBarGAO = Instantiate(healthBarPrefab, enemyCanvas);
             _healthBar = healthBarGAO.GetComponent<HealthBar>();
         }
     }
