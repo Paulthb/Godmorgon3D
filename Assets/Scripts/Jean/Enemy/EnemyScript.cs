@@ -35,12 +35,13 @@ namespace GodMorgon.Enemy
         [System.NonSerialized]
         public bool canRecenter = false;
 
+        /**
+         * la healthBar sera enfant du canvas de cette objet
+         */
         [SerializeField]
         private GameObject healthBarPrefab = null;
-
         [SerializeField]
         private Transform healthBarPos = null;
-
         [SerializeField]
         private Transform enemyCanvas = null;
 
