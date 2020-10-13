@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using GodMorgon.Enemy;
 
 public class HealthBar : MonoBehaviour
 {
     [SerializeField]
-    private Transform defense = null;
+    private Image defense = null;
     [SerializeField]
-    private Transform health = null;
+    private Image health = null;
 
     private float maxHealthPoint = 1f;
     private float maxDefensePoint = 1f;
@@ -33,18 +34,18 @@ public class HealthBar : MonoBehaviour
             maxDefensePoint = currentDefense;
 
         if(currentDefense == 0)
-            defense.localScale = new Vector2(0, defense.localScale.y);
+            defense.fillAmount = 0;
         else
-            defense.localScale = new Vector2((currentDefense / maxDefensePoint), defense.localScale.y);
+            defense.fillAmount = currentDefense / maxDefensePoint;
 
         if(currentHealth == 0)
-            health.localScale = new Vector2(0, defense.localScale.y);
+            health.fillAmount = 0;
         else
-            health.localScale = new Vector2((currentHealth / maxHealthPoint), defense.localScale.y);
+            health.fillAmount = currentHealth / maxHealthPoint;
     }
 
-    public void SetHealth(float newHealthValue)
-    {
-        defense.localScale = new Vector3(newHealthValue * 0.01f, 1f);
-    }
+    //public void SetHealth(float newHealthValue)
+    //{
+    //    defense.localScale = new Vector3(newHealthValue * 0.01f, 1f);
+    //}
 }

@@ -18,10 +18,8 @@ namespace GodMorgon.CardEffect
             switch (droppedCard.cardType)
             {
                 case BasicCard.CARDTYPE.MOVE:
-                    //hit.collider.gameObject now refers to the cube under the mouse cursor if present
                     if (MapManager.Instance.CheckClickedNode(dropPosition))
                     {
-                        Debug.Log("context.isDropValidate = true;");
                         context.isDropValidate = true;
                     }
                     break;
@@ -52,16 +50,8 @@ namespace GodMorgon.CardEffect
                     }
                     break;
                 case BasicCard.CARDTYPE.SIGHT:
-                    Vector3 dropWorldPos = TilesManager.Instance.walkableTilemap.CellToWorld(dropPosition);
-                    Vector3Int dropRoomPos = TilesManager.Instance.roomTilemap.WorldToCell(dropWorldPos);
-                    foreach (RoomData room in RoomEffectManager.Instance.roomsDataArr)
-                    {
-                        if (room.x == dropRoomPos.x && room.y == dropRoomPos.y)
-                        {
-                            //context.targetRoom = room;
-                            context.isDropValidate = true;
-                        } 
-                    }
+                    context.targetNodePos = MapManager.Instance.GetNodeFromPos(dropPosition).GetComponent<NodeScript>().node.nodePosition;
+                    context.isDropValidate = true;
                     break;
                 default:
                     break;
