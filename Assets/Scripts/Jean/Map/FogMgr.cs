@@ -25,10 +25,6 @@ public class FogMgr : MonoBehaviour
     [SerializeField]
     private float timeAfterAction = 2f;
 
-    //[Header("Sight Action Settings")]
-    //public Bounds fogBounds;
-
-    private bool hasUpdatedFog = false;
     private bool hasBeenRevealed = false;
 
     private int revealRange = 1;
@@ -80,17 +76,15 @@ public class FogMgr : MonoBehaviour
         }
 
         //Remove fog on player's node and next to him 
-        foreach (Transform node in MapManager.Instance.GetNearNodesList(PlayerMgr.Instance.GetNodePosOfPlayer(), 1))
+        foreach (Transform node in MapManager.Instance.GetAccessibleNodesList())
         {
             ClearFogOnNode(node);
+            ClearFogOnNode(PlayerMgr.Instance.GetNodeOfPlayer());
         }
-
-        hasUpdatedFog = false;
     }
 
     private void AddFogOnNode(Transform targetNode)
     {
-        print("spawning fog");
         Vector3 spawnPos = targetNode.position;
 
         Instantiate(fogPrefab, spawnPos, Quaternion.identity, transform);
@@ -157,28 +151,22 @@ public class FogMgr : MonoBehaviour
 
     
     /**
-     * Clear les rooms autour d'une position donnée, avec une certaine range
-     * Penser à faire un SetRevealRange avant d'appeler la GSA Sight pour que la valeur de la carte soit prise en compte
+     * Clear fog in a zone of a specific range
      */
-    /*
-    public void RevealRoomAtPosition(Vector3Int baseRoomPosition, int cardRevealRange)
+    public void RevealZoneAtPosition(Vector3Int baseRoomPosition)
     {
-        List<RoomData> nearRooms = GetNearRoomData(baseRoomPosition, cardRevealRange);
+        print("RevealZone");
 
-        nearRooms.Add(RoomEffectManager.Instance.GetRoomData(baseRoomPosition));
-
-
-        foreach (RoomData roomPos in nearRooms)
+        foreach (Transform nearNode in MapManager.Instance.GetNearNodesList(baseRoomPosition, revealRange))
         {
-            ClearFogOnNode(roomPos);
+            ClearFogOnNode(nearNode);
         }
 
         StartCoroutine(TimedAction(timeAfterAction));
 
         //SFX fog clear
-        MusicManager.Instance.PlayFogClear();
+        //MusicManager.Instance.PlayFogClear();
     }
-    */
     
 
     /**
@@ -199,6 +187,14 @@ public class FogMgr : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToWait);
         hasBeenRevealed = true;
+    }
+
+    /**
+     * Set la reveal range en fonction de la valeur de la carte
+     */
+    public void SetRevealRange(int rangeValue)
+    {
+        revealRange = rangeValue;
     }
 
     /**

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GodMorgon.CardEffect;
+using GodMorgon.Models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -353,6 +353,24 @@ public class PlayerMgr : MonoBehaviour
 
     }
 
+    /**
+     * Return player's node
+     */
+    public Transform GetNodeOfPlayer()
+    {
+        Transform currentNode = MapManager.Instance.GetNodeFromPos(new Vector3Int((int)transform.position.x, (int)transform.position.y, (int)transform.position.z));
+        if (currentNode == null)
+        {
+            print("Node of player is NULL");
+
+            return null;
+        }
+        else
+        {
+            return currentNode;
+        }
+    }
+
     #endregion
 
 }

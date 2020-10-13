@@ -16,7 +16,8 @@ namespace GodMorgon.CardEffect
         DEFENSE,
         POWER_UP,
         SPELL,
-        CURSE
+        CURSE,
+        SIGHT
     }
 
     /**
