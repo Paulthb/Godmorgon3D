@@ -241,7 +241,7 @@ public class PlayerMgr : MonoBehaviour
                 playerCanMove = false;
                 isMoving = false;
                 tileIndex = 0;
-                StartCoroutine(LaunchActionsInNewRoom());  //Attends avant de permettre un autre move (pour ralentir le rythme)
+                StartCoroutine(LaunchActionsInNewNode());  //Attends avant de permettre un autre move (pour ralentir le rythme)
             }
             else if (tileIndex < playerPath.Count - 1)
             {
