@@ -44,4 +44,4 @@ MonoBehaviour:
     trust: 0
     trustNb: 0
     isDiscardHand: 0
-    isUseless: 1
+    isUseless: 0
