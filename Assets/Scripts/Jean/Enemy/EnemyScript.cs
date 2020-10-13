@@ -298,6 +298,15 @@ namespace GodMorgon.Enemy
         {
             GameObject healthBarGAO = Instantiate(healthBarPrefab, enemyCanvas);
             _healthBar = healthBarGAO.GetComponent<HealthBar>();
+
+            _healthBar.SetBarPoints(enemyData.health, enemyData.defense);
+        }
+
+        public void UpdateHealthBar(int health, int defense)
+        {
+            _healthBar.UpdateHealthBar(defense, health);
+            print("la defense actuel est de : " + defense);
+            print("la santé actuel est de : " + health);
         }
     }
 }
