@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88563952eb0d6ad47ba4270090c7de02, type: 3}
+  m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
   m_Name: Defense_Counter
   m_EditorClassIdentifier: 
   cardType: 2
-  id: 8
+  id: 0
   name: Counter
-  description: Gain [nbBlock] block, enemies that attack you this turn take 4 damages.
+  description: "Gain [nbBlock] block, enemies that attack you this turn take 4 damages.\r"
   actionCost: 2
   price: 96
   template: {fileID: 21300000, guid: f44370d35cac10f4f805debd227b407b, type: 3}
@@ -33,13 +33,15 @@ MonoBehaviour:
     KillerInstinct: 0
     FastShoes: 0
     Sight: 0
-    sightRange: 1
+    sightRange: 0
     DrawCard: 0
     nbCardToDraw: 0
+    DiscardCard: 0
+    nbDiscardCard: 0
     isHeal: 0
     nbHeal: 0
     shiver: 0
     trust: 0
     trustNb: 0
     isDiscardHand: 0
-    isUseless: 1
+    isUseless: 0

@@ -70,7 +70,7 @@ namespace GodMorgon.CardEffect
                     break;
                 case BasicCard.CARDTYPE.ATTACK:
                     Debug.Log("Show positions for attack");
-                    EnemyManager.Instance.ShowAttackableEnemies();
+                    //EnemyManager.Instance.ShowAttackableEnemies();//////////////////// à refaire avec des shaders ou particule
                     break;
                 case BasicCard.CARDTYPE.DEFENSE:
                     break;

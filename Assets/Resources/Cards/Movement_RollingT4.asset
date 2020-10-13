@@ -9,16 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88563952eb0d6ad47ba4270090c7de02, type: 3}
+  m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
   m_Name: Movement_RollingT4
   m_EditorClassIdentifier: 
   cardType: 0
-  id: 8
+  id: 0
   name: Rolling
-  description: 'Trust 4
+  description: 'Trust 4.
 
+    
 
-    Move to [nbMove] Room'
+    Move to [nbMove] Room.'
   actionCost: 1
   price: 0
   template: {fileID: 21300000, guid: ce453fab9acc07c4cbafa0b991d778fb, type: 3}
@@ -36,13 +37,15 @@ MonoBehaviour:
     KillerInstinct: 0
     FastShoes: 0
     Sight: 0
-    sightRange: 1
+    sightRange: 0
     DrawCard: 0
     nbCardToDraw: 0
+    DiscardCard: 0
+    nbDiscardCard: 0
     isHeal: 0
     nbHeal: 0
     shiver: 0
     trust: 1
     trustNb: 4
     isDiscardHand: 0
-    isUseless: 1
+    isUseless: 0
