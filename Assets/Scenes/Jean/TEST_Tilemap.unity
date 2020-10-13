@@ -15366,7 +15366,7 @@ MonoBehaviour:
   fogPrefab: {fileID: 1909398891030852746, guid: 47bba79517d6de94aa2904079d5f2cfd,
     type: 3}
   timeAfterAction: 2
-  speedClear: 4
+  maxRemainingLifeTime: 4
 --- !u!1 &1532143141
 GameObject:
   m_ObjectHideFlags: 0
