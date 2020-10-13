@@ -9,6 +9,7 @@ using GodMorgon.Models;
 using GodMorgon.VisualEffect;
 using System.Diagnostics.Tracing;
 using System;
+using GodMorgon.Enemy;
 
 public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -111,16 +112,27 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         {
             if (hit.collider.tag == "Node")
             {
-                Vector3 clickedNode = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
+                print("NOOODE");
 
-                //Vérifie si la position du drop est valide
-                dropPosManager.GetDropCardContext(_card, new Vector3Int((int)(clickedNode.x), 0, (int)(clickedNode.z)), context);
+                Vector3Int clickedNode = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
+
+                context.targetNodePos = clickedNode;
+
+                // Check if drop on node is ok 
+                dropPosManager.GetDropCardContext(_card, clickedNode, context);
             }
 
             if (hit.collider.tag == "Enemy")
             {
-                //hit.collider.gameObject now refers to the cube under the mouse cursor if present
-                //MapManager.Instance.CheckClickedNode(hit.collider.gameObject);
+                print("ENEMYYYYYYY");
+
+                // Add enemy selected in context
+                context.targets = hit.collider.GetComponent<EnemyScript>().enemyData;
+
+                // Get node position of this enemy
+                Vector3Int enemyNodePos = EnemyMgr.Instance.GetEnemyNodePos(hit.collider.transform);
+
+                dropPosManager.GetDropCardContext(_card, enemyNodePos, context);
             }
         }
         
@@ -135,7 +147,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 context.targetRoom = null;
             */
 
-            context.targetNodePos = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
+            
 
             //Play the card
             CardEffectManager.Instance.PlayCard(eventData.pointerDrag.GetComponent<CardDisplay>().card, context);

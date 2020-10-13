@@ -126,6 +126,8 @@ public class PlayerMgr : MonoBehaviour
             _healthBar.transform.position = Camera.main.WorldToScreenPoint(healthBarPos.position);
     }
 
+    #region MOVEMENT
+
     /**
      * Update the list of the tiles the player has to go through and then activate move mechanic
      * The parameter targetPos is the target node position
@@ -338,6 +340,8 @@ public class PlayerMgr : MonoBehaviour
         }
     }
 
+    #endregion
+
     #region PLAYER POSITIONS
 
     /**
@@ -397,4 +401,6 @@ public class PlayerMgr : MonoBehaviour
         GameObject healthBarGAO = Instantiate(healthBarPrefab, playerCanvas);
         _healthBar = healthBarGAO.GetComponent<HealthBar>();
     }
+
+
 }
