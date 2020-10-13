@@ -258,7 +258,6 @@ public class PlayerMgr : MonoBehaviour
                 isMoving = false;
                 tileIndex = 0;
                 StartCoroutine(LaunchActionsInNewNode());  //Attends avant de permettre un autre move (pour ralentir le rythme)
-
             }
             else if (tileIndex < playerPath.Count - 1)
             {
@@ -323,6 +322,7 @@ public class PlayerMgr : MonoBehaviour
     IEnumerator LaunchActionsInNewNode()
     {
         //RoomEffectManager.Instance.LaunchRoomEffect(GetPlayerRoomPosition());   //Lance l'effet de room sur laquelle on vient d'arriver
+        FogMgr.Instance.ClearFogOnAccessibleNode(); // Clear the fog around the node we just arrived in
 
         yield return new WaitForSeconds(1f);
         canLaunchOtherMove = true;  //On permet le lancement d'un autre move

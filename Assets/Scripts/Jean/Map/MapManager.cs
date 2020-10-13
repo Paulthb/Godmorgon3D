@@ -758,11 +758,19 @@ public class MapManager : MonoBehaviour
                 || (node.position.x == positionSrc.x && node.position.y == positionSrc.y - range)*/
     }
 
+    /**
+     * Get list of accessible nodes around the player
+     */
+    public List<Transform> GetAccessibleNodesList()
+    {
+        UpdateAccessibleNodesList();
+        return accessibleNodes;
+    }
 
     /**
      * Get Tile from a given tile position
      */
-        public Tiles GetTileFromPos(Vector3Int thisPos)
+    public Tiles GetTileFromPos(Vector3Int thisPos)
     {
         //Get the node of the given position
         Node currentNode = GetNodeFromPos(thisPos).GetComponent<NodeScript>().node;    
