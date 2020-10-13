@@ -35,6 +35,11 @@ namespace GodMorgon.Enemy
         [System.NonSerialized]
         public bool canRecenter = false;
 
+        [SerializeField]
+        private GameObject healthBarPrefab = null;
+
+        [SerializeField]
+        private Transform healthBarPos = null;
 
         private PlayerMgr player;
         private Animator _animator;
@@ -71,6 +76,9 @@ namespace GodMorgon.Enemy
             mainCamera = Camera.main;
             if (mainCamera)
                 shaker = mainCamera.GetComponent<CameraShaker>();
+
+            if(healthBarPrefab != null)
+                InitializeHealthBar();
         }
 
         // Update is called once per frame
@@ -78,6 +86,9 @@ namespace GodMorgon.Enemy
         {
             if(canMove)
                 LaunchMoveMechanic();
+
+            if(_healthBar != null)
+                _healthBar.transform.position = Camera.main.WorldToScreenPoint(healthBarPos.position);
         }
 
         public void CalculateEnemyPath()
@@ -275,5 +286,14 @@ namespace GodMorgon.Enemy
         }
 
         #endregion
+
+        /**
+         * Crée la healthbar dans le canvas
+         */
+        public void InitializeHealthBar()
+        {
+            GameObject healthBarGAO = Instantiate(healthBarPrefab, FindObjectOfType<Canvas>().transform);///////////////
+            _healthBar = healthBarGAO.GetComponent<HealthBar>();
+        }
     }
 }

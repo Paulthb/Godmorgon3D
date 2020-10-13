@@ -377,13 +377,13 @@ namespace GodMorgon.Enemy
             MusicManager.Instance.PlayEnemyHit();
         }
 
-        /**
-         * Affiche les effets lors de damage
-         */
-        public void ShowDamageEffect()
-        {
-            _healthBar.SetHealth(enemyData.health);
-        }
+        ///**
+        // * Affiche les effets lors de damage
+        // */
+        //public void ShowDamageEffect()
+        //{
+        //    _healthBar.SetHealth(enemyData.health);
+        //}
 
         /**
          * Lance l'attaque (effet visuel + calcul)
