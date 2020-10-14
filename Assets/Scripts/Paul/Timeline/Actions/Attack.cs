@@ -9,8 +9,8 @@ namespace GodMorgon.Timeline
     {
         public override IEnumerator Execute()
         {
-            EnemyManager.Instance.Attack();
-            while (!EnemyManager.Instance.EnemiesAttackDone())
+            EnemyMgr.Instance.Attack();
+            while (!EnemyMgr.Instance.EnemiesAttackDone())
             {
                 yield return null;
             }

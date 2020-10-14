@@ -1,5 +1,6 @@
 ﻿using GodMorgon.CardEffect;
 using GodMorgon.Models;
+using GodMorgon.Player;
 using System;
 using System.Collections;
 using System.Collections.Generic;

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GodMorgon.Player;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -193,7 +194,7 @@ namespace GodMorgon.Enemy
 
             //If player on node, player take damages
             if (enemyData.inPlayersNode)
-                PlayerManager.Instance.TakeDamage(enemyData.attack);
+                PlayerMgr.Instance.TakeDamage(enemyData.attack);
 
             //If enemies on node, they take damages
             if (enemiesInRoom.Count > 0)
@@ -205,9 +206,7 @@ namespace GodMorgon.Enemy
             }
 
             //prend des dégats si le counter est activé
-            enemyData.TakeDamage(PlayerManager.Instance.Counter(), false);
-
-            print("Enemy attacked !");
+            //enemyData.TakeDamage(PlayerManager.Instance.Counter(), false);
         }
 
         /**

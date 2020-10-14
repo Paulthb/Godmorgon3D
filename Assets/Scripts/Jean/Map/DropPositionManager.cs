@@ -5,6 +5,7 @@ using UnityEngine;
 using GodMorgon.Models;
 using GodMorgon.Enemy;
 using UnityEngine.PlayerLoop;
+using GodMorgon.Player;
 
 namespace GodMorgon.CardEffect
 {

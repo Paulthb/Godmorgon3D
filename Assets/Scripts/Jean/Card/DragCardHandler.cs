@@ -10,6 +10,7 @@ using GodMorgon.VisualEffect;
 using System.Diagnostics.Tracing;
 using System;
 using GodMorgon.Enemy;
+using GodMorgon.Player;
 
 public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
