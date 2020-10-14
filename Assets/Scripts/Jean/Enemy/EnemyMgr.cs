@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using GodMorgon.Enemy;
+using GodMorgon.Player;
 using UnityEngine;
 
 public class EnemyMgr : MonoBehaviour
@@ -225,7 +226,7 @@ public class EnemyMgr : MonoBehaviour
     }
 
     /**
-     * Lance l'attaque des ennemis
+     * Launch enemies attack
      */
     public void Attack()
     {
@@ -315,7 +316,7 @@ public class EnemyMgr : MonoBehaviour
     }
 
     /**
-     * Applique les effets de l'attaque pour chacun des ennemis l'un après l'autre
+     * Attack one after the other
      */
     IEnumerator TimedAttacks()
     {
@@ -337,6 +338,15 @@ public class EnemyMgr : MonoBehaviour
         Debug.Log("All enemies have attacked");
         enemiesHaveAttacked = true;
     }
+
+    public bool EnemiesAttackDone()
+    {
+        if (enemiesHaveAttacked)
+            return true;
+        else
+            return false;
+    }
+
 
     /**
      * Return a list of enemies on player's node

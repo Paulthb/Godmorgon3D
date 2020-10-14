@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 using GodMorgon.Sound;
+using GodMorgon.Player;
 
 public class FogTile
 {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 using GodMorgon.Models;
 using GodMorgon.GameSequencerSpace;
+using GodMorgon.Player;
 
 namespace GodMorgon.CardEffect
 {
