@@ -339,8 +339,7 @@ public class EnemyMgr : MonoBehaviour
     }
 
     /**
-     * Renvoie la liste des ennemis présents dans la room du player
-     * Met à jour en même temps la listes des tiles sur lesquelles sont les ennemis présents dans la room du player
+     * Return a list of enemies on player's node
      */
     public List<EnemyScript> GetEnemiesOnPlayersNode()
     {

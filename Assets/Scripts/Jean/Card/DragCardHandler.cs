@@ -110,10 +110,8 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100))
         {
-            if (hit.collider.tag == "Node" && _card.cardType == BasicCard.CARDTYPE.MOVE)
+            if (hit.collider.tag == "Node" && _card.cardType != BasicCard.CARDTYPE.ATTACK)
             {
-                print("NOOODE");
-
                 Vector3Int clickedNode = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
 
                 context.targetNodePos = clickedNode;
@@ -121,8 +119,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 // Check if drop on node is ok 
                 dropPosManager.GetDropCardContext(_card, clickedNode, context);
             }
-
-            if (hit.collider.tag == "Enemy" && _card.cardType == BasicCard.CARDTYPE.ATTACK)
+            else if (hit.collider.tag == "Enemy" && _card.cardType == BasicCard.CARDTYPE.ATTACK)
             {
                 // Add enemy selected in context
                 context.targets = hit.collider.GetComponentInParent<EnemyScript>().enemyData;
@@ -137,15 +134,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         if (context.isDropValidate)
         {
             //on lock toutes les cartes en main
-            GameManager.Instance.UnlockDragCardHandler(false);
-            /*
-            if (null != TilesManager.Instance.roomTilemap)
-                context.targetRoom = RoomEffectManager.Instance.GetRoomData(dropRoomCellPosition);
-            else
-                context.targetRoom = null;
-            */
-
-            
+            GameManager.Instance.UnlockDragCardHandler(false);            
 
             //Play the card
             CardEffectManager.Instance.PlayCard(eventData.pointerDrag.GetComponent<CardDisplay>().card, context);
