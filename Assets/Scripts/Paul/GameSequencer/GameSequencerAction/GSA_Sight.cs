@@ -12,9 +12,7 @@ namespace GodMorgon.GameSequencerSpace
     {
         public override IEnumerator ExecuteAction(GameContext context)
         {
-            //Vector3Int targetRoomPos = new Vector3Int(context.targetRoom.x, context.targetRoom.y, 0);
-            //FogMgr.Instance.RevealRoomAtPosition(targetRoomPos, context.card.effectsData[0].sightRange);
-            //FogMgr.Instance.RevealAtPosition(targetRoomPos);
+            FogMgr.Instance.RevealZoneAtPosition(context.targetNodePos);
             while (!FogMgr.Instance.RevealDone())
                 yield return null;
         }

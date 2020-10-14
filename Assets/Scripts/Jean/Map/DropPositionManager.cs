@@ -18,17 +18,15 @@ namespace GodMorgon.CardEffect
             switch (droppedCard.cardType)
             {
                 case BasicCard.CARDTYPE.MOVE:
-                    //hit.collider.gameObject now refers to the cube under the mouse cursor if present
                     if (MapManager.Instance.CheckClickedNode(dropPosition))
                     {
-                        Debug.Log("context.isDropValidate = true;");
                         context.isDropValidate = true;
                     }
                     break;
                 case BasicCard.CARDTYPE.ATTACK:
-                    if (EnemyManager.Instance.attackableEnemiesTiles.Contains(dropPosition))
+                    // Get distance between node player and node enemy and check if it's in range value of card ( "* 3" because Vector3Int.Distance use world position, not node position))
+                    if (Vector3Int.Distance(PlayerMgr.Instance.GetNodePosOfPlayer(), dropPosition) <= droppedCard.effectsData[0].attackRange * 3)
                     {
-                        context.targets = EnemyManager.Instance.GetEnemyViewByPosition(dropPosition).enemyData;
                         context.isDropValidate = true;
                     }
                     break;
@@ -52,16 +50,8 @@ namespace GodMorgon.CardEffect
                     }
                     break;
                 case BasicCard.CARDTYPE.SIGHT:
-                    Vector3 dropWorldPos = TilesManager.Instance.walkableTilemap.CellToWorld(dropPosition);
-                    Vector3Int dropRoomPos = TilesManager.Instance.roomTilemap.WorldToCell(dropWorldPos);
-                    foreach (RoomData room in RoomEffectManager.Instance.roomsDataArr)
-                    {
-                        if (room.x == dropRoomPos.x && room.y == dropRoomPos.y)
-                        {
-                            //context.targetRoom = room;
-                            context.isDropValidate = true;
-                        } 
-                    }
+                    context.targetNodePos = MapManager.Instance.GetNodeFromPos(dropPosition).GetComponent<NodeScript>().node.nodePosition;
+                    context.isDropValidate = true;
                     break;
                 default:
                     break;
@@ -79,8 +69,7 @@ namespace GodMorgon.CardEffect
                     MapManager.Instance.AllowAccessibleNodesEffects();
                     break;
                 case BasicCard.CARDTYPE.ATTACK:
-                    Debug.Log("Show positions for attack");
-                    EnemyManager.Instance.ShowAttackableEnemies();
+                    EnemyMgr.Instance.AllowAttackableEffect(draggedCard.effectsData[0].attackRange);
                     break;
                 case BasicCard.CARDTYPE.DEFENSE:
                     break;
@@ -95,7 +84,7 @@ namespace GodMorgon.CardEffect
                     MapManager.Instance.DisallowAccessibleNodesEffects();
                     break;
                 case BasicCard.CARDTYPE.ATTACK:
-                    EnemyManager.Instance.HideAttackableEnemies();
+                    EnemyMgr.Instance.DisallowAttackableEffects();
                     break;
                 case BasicCard.CARDTYPE.DEFENSE:
                     break;

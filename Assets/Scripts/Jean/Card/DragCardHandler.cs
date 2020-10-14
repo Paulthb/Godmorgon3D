@@ -9,6 +9,7 @@ using GodMorgon.Models;
 using GodMorgon.VisualEffect;
 using System.Diagnostics.Tracing;
 using System;
+using GodMorgon.Enemy;
 
 public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -109,33 +110,31 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100))
         {
-            if (hit.collider.tag == "Node")
+            if (hit.collider.tag == "Node" && _card.cardType != BasicCard.CARDTYPE.ATTACK)
             {
-                Vector3 clickedNode = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
+                Vector3Int clickedNode = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
 
-                //Vérifie si la position du drop est valide
-                dropPosManager.GetDropCardContext(_card, new Vector3Int((int)(clickedNode.x), 0, (int)(clickedNode.z)), context);
+                context.targetNodePos = clickedNode;
+
+                // Check if drop on node is ok 
+                dropPosManager.GetDropCardContext(_card, clickedNode, context);
             }
-
-            if (hit.collider.tag == "Enemy")
+            else if (hit.collider.tag == "Enemy" && _card.cardType == BasicCard.CARDTYPE.ATTACK)
             {
-                //hit.collider.gameObject now refers to the cube under the mouse cursor if present
-                //MapManager.Instance.CheckClickedNode(hit.collider.gameObject);
+                // Add enemy selected in context
+                context.targets = hit.collider.GetComponentInParent<EnemyScript>().enemyData;
+
+                // Get node position of this enemy
+                Vector3Int enemyNodePos = EnemyMgr.Instance.GetEnemyNodePos(hit.collider.transform);
+
+                dropPosManager.GetDropCardContext(_card, enemyNodePos, context);
             }
         }
         
         if (context.isDropValidate)
         {
             //on lock toutes les cartes en main
-            GameManager.Instance.UnlockDragCardHandler(false);
-            /*
-            if (null != TilesManager.Instance.roomTilemap)
-                context.targetRoom = RoomEffectManager.Instance.GetRoomData(dropRoomCellPosition);
-            else
-                context.targetRoom = null;
-            */
-
-            context.targetNodePos = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
+            GameManager.Instance.UnlockDragCardHandler(false);            
 
             //Play the card
             CardEffectManager.Instance.PlayCard(eventData.pointerDrag.GetComponent<CardDisplay>().card, context);

@@ -9,6 +9,7 @@ public class EnemyMgr : MonoBehaviour
 
     private List<EnemyScript> enemiesList;
     private List<EnemyScript> movableEnemiesList;
+    private List<EnemyScript> attackableEnemiesList;
 
     //public List<Vector3Int> spawnList = new List<Vector3Int>();    //List of spawns for enemies
     public List<GameObject> enemiesPrefabsList = new List<GameObject>();    //All the prefabs of enemies that can be instantiated
@@ -19,6 +20,12 @@ public class EnemyMgr : MonoBehaviour
 
     private bool enemiesHaveMoved;
     private bool enemiesHaveAttacked = false;
+    private bool launchAttackableEffect = false;
+    private bool resetAttackableEffect = false;
+    
+
+    private float offset = 0.01f; //offset changing for shaders 
+
 
     #region Singleton Pattern
 
@@ -53,7 +60,10 @@ public class EnemyMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(launchAttackableEffect)
+        {
+            ShowAttackableEnemies();
+        }
     }
 
     /**
@@ -225,6 +235,86 @@ public class EnemyMgr : MonoBehaviour
     }
 
     /**
+     * Montre les ennemis attaquables en activant l'effet (cible) enfant du gameObject de l'ennemi
+     */
+    public void ShowAttackableEnemies()
+    {
+        MeshRenderer rend;
+
+        foreach (EnemyScript enemy in attackableEnemiesList)
+        {
+            rend = enemy.transform.GetChild(0).GetComponent<MeshRenderer>();
+            float currentIntensity = rend.materials[0].GetFloat("_Intensity");
+
+            if (currentIntensity > 0.70f)
+                offset = -0.01f;
+            else if (currentIntensity <= 0)
+                offset = 0.01f;
+
+            rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);
+        }        
+    }
+
+    public void AllowAttackableEffect(int range)
+    {
+        UpdateAttackableEnemiesList(range);
+
+        MeshRenderer rend;
+
+        foreach (EnemyScript enemy in attackableEnemiesList)
+        {
+            rend = enemy.transform.GetChild(0).GetComponent<MeshRenderer>();
+
+            rend.materials[0].SetFloat("_Intensity", 2f);
+        }
+
+        launchAttackableEffect = true;
+    }
+
+    /**
+     * Disactive effects on accessible nodes
+     */
+    public void DisallowAttackableEffects()
+    {
+        launchAttackableEffect = false;
+        resetAttackableEffect = true;
+    }
+
+    /**
+    * Désactive l'effet (cible) enfant du gameObject de l'ennemi
+    */
+    public void HideAttackableEnemies()
+    {
+        MeshRenderer rend;
+
+        foreach (EnemyScript enemy in attackableEnemiesList)
+        {
+            rend = enemy.transform.GetChild(0).GetComponent<MeshRenderer>();
+
+            offset += 0.01f;
+
+            rend.materials[0].SetFloat("_Intensity", offset);
+
+            if (rend.materials[0].GetFloat("_Intensity") >= 5f)
+                resetAttackableEffect = false;
+        }
+    }
+
+    private void UpdateAttackableEnemiesList(int range)
+    {
+        attackableEnemiesList = new List<EnemyScript>();
+        UpdateEnemiesList();
+
+        foreach(EnemyScript enemy in enemiesList)
+        {
+            if(Vector3Int.Distance(PlayerMgr.Instance.GetNodePosOfPlayer(), GetEnemyNodePos(enemy.transform)) <= range * 3)
+            {
+                attackableEnemiesList.Add(enemy);
+            }
+        }
+    }
+
+    /**
      * Applique les effets de l'attaque pour chacun des ennemis l'un après l'autre
      */
     IEnumerator TimedAttacks()
@@ -249,6 +339,25 @@ public class EnemyMgr : MonoBehaviour
     }
 
     /**
+     * Return a list of enemies on player's node
+     */
+    public List<EnemyScript> GetEnemiesOnPlayersNode()
+    {
+        UpdateEnemiesList();
+
+        List<EnemyScript> enemiesOnPlayersNode = new List<EnemyScript>();
+
+        foreach (EnemyScript enemy in enemiesList)
+        {
+            if (enemy.enemyData.inPlayersNode)
+            {
+                enemiesOnPlayersNode.Add(enemy);
+            }
+        }
+        return enemiesOnPlayersNode;
+    }
+
+    /**
      * Function to pick a specific number of different random elements of a list
      */
     public static List<T> GetRandomItemsFromList<T>(List<T> list, int number)
@@ -265,5 +374,23 @@ public class EnemyMgr : MonoBehaviour
         }
 
         return newList;
+    }
+
+    /**
+     * Return enemy's node position
+     */
+    public Vector3Int GetEnemyNodePos(Transform enemy)
+    {
+        Transform currentNode = MapManager.Instance.GetNodeFromPos(new Vector3Int((int)enemy.position.x, (int)enemy.position.y, (int)enemy.position.z));
+        if (currentNode == null)
+        {
+            print("Node of enemy is NULL");
+
+            return new Vector3Int(0, 0, 0);
+        }
+        else
+        {
+            return currentNode.GetComponent<NodeScript>().node.nodePosition;
+        }
     }
 }

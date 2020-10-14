@@ -88,7 +88,7 @@ public class RoomEffectManager : MonoBehaviour
             room.effectLaunched = false;
         }
         currentRoom = GetRoomData(PlayerManager.Instance.GetPlayerRoomPosition());
-        FogMgr.Instance.InitFog();   //Initialise le tableau room du FogMgr
+        //FogMgr.Instance.InitFog();   //Initialise le tableau room du FogMgr
     }
 
     // Update is called once per frame

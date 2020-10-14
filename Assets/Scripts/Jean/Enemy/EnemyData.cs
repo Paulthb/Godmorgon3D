@@ -24,7 +24,7 @@ namespace GodMorgon.Enemy
          */
         public override void TakeDamage(int damagePoint, bool isPlayerAttacking)
         {
-            //Debug.Log("enemy health before was : " + health);
+            //Debug.Log("enemy : " + enemyId + ", health before was : " + health + " and damage point : " + damagePoint);
             while(damagePoint > 0 && defense > 0)
             {
                 defense--;
@@ -61,7 +61,7 @@ namespace GodMorgon.Enemy
         //update the enemy healthBar
         public override void UpdateHealthBar()
         {
-            //enemyScript.UpdateHealthBar(health, defense);
+            enemyScript.UpdateHealthBar(health, defense);
         }
 
         //launch hit visual effect

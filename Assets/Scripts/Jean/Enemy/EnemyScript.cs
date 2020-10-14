@@ -35,11 +35,15 @@ namespace GodMorgon.Enemy
         [System.NonSerialized]
         public bool canRecenter = false;
 
+        /**
+         * la healthBar sera enfant du canvas de cette objet
+         */
         [SerializeField]
         private GameObject healthBarPrefab = null;
-
         [SerializeField]
         private Transform healthBarPos = null;
+        [SerializeField]
+        private Transform enemyCanvas = null;
 
         private PlayerMgr player;
         private Animator _animator;
@@ -292,8 +296,17 @@ namespace GodMorgon.Enemy
          */
         public void InitializeHealthBar()
         {
-            GameObject healthBarGAO = Instantiate(healthBarPrefab, FindObjectOfType<Canvas>().transform);///////////////
+            GameObject healthBarGAO = Instantiate(healthBarPrefab, enemyCanvas);
             _healthBar = healthBarGAO.GetComponent<HealthBar>();
+
+            _healthBar.SetBarPoints(enemyData.health, enemyData.defense);
+        }
+
+        public void UpdateHealthBar(int health, int defense)
+        {
+            _healthBar.UpdateHealthBar(defense, health);
+            //print("la defense actuel est de : " + defense);
+            //print("la santé actuel est de : " + health);
         }
     }
 }

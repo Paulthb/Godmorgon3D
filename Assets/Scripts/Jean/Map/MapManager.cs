@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GodMorgon.CardEffect;
+using GodMorgon.Models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -228,12 +230,7 @@ public class MapManager : MonoBehaviour
         grid = new Vector3Int[map.mapSize.x * 3, map.mapSize.y * 3];
         tilesMap = new Tiles[map.mapSize.x * 3, map.mapSize.y * 3];
 
-        //Fill the node list with all the nodes generated in Generated Map
-        nodesList = new List<Transform>();
-        foreach (Transform nodeObject in transform.Find("Generated Map"))
-        {
-            nodesList.Add(nodeObject);
-        }
+        UpdateNodesList();
 
         //Node by node, fill grid with tile positions and tilesMap with tiles objects (to know if some are walkable or not)
         foreach (Transform node in nodesList)
@@ -705,6 +702,19 @@ public class MapManager : MonoBehaviour
     #region Get TILES and NODES
 
     /**
+     * Update list of nodes
+     */
+    public void UpdateNodesList()
+    {
+        //Fill the node list with all the nodes generated in Generated Map
+        nodesList = new List<Transform>();
+        foreach (Transform nodeObject in transform.Find("Generated Map"))
+        {
+            nodesList.Add(nodeObject);
+        }
+    }
+
+    /**
      * Get node from a given tile position
      */
     public Transform GetNodeFromPos(Vector3Int thisPos)
@@ -725,6 +735,39 @@ public class MapManager : MonoBehaviour
         return null;
     }
 
+    /**
+     * Get list of nodes around a given position
+     */
+    public List<Transform> GetNearNodesList(Vector3Int positionSrc, int range)
+    {
+        List<Transform> nearNodes = new List<Transform>();
+
+        // Add the nodes at a range from the given position, in a list
+        foreach (Transform node in nodesList)
+        {
+            if (Vector3.Distance(positionSrc, node.position) <= range * 3 && node.GetComponent<NodeScript>().node.roadType != RoadType.NoRoad)
+            {
+                nearNodes.Add(node);
+            }
+        }
+
+        return nearNodes;
+
+        /*
+         * (node.position.x == positionSrc.x + range && node.position.y == positionSrc.y)     
+                || (node.position.x == positionSrc.x && node.position.y == positionSrc.y + range)
+                || (node.position.x == positionSrc.x - range && node.position.y == positionSrc.y)
+                || (node.position.x == positionSrc.x && node.position.y == positionSrc.y - range)*/
+    }
+
+    /**
+     * Get list of accessible nodes around the player
+     */
+    public List<Transform> GetAccessibleNodesList()
+    {
+        UpdateAccessibleNodesList();
+        return accessibleNodes;
+    }
 
     /**
      * Get Tile from a given tile position
