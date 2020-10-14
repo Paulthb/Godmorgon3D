@@ -113,7 +113,6 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             if (hit.collider.tag == "Node" && _card.cardType != BasicCard.CARDTYPE.ATTACK)
             {
                 Vector3Int clickedNode = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
-
                 context.targetNodePos = clickedNode;
 
                 // Check if drop on node is ok 
@@ -128,6 +127,16 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 Vector3Int enemyNodePos = EnemyMgr.Instance.GetEnemyNodePos(hit.collider.transform);
 
                 dropPosManager.GetDropCardContext(_card, enemyNodePos, context);
+            }
+            else if (hit.collider.tag == "Player")
+            {
+                // put player in context
+                context.targets = hit.collider.GetComponentInParent<PlayerMgr>().playerData;
+
+                // Get node position of the player
+                Vector3Int playerNodePos = PlayerMgr.Instance.GetNodePosOfPlayer();
+
+                dropPosManager.GetDropCardContext(_card, playerNodePos, context);
             }
         }
         

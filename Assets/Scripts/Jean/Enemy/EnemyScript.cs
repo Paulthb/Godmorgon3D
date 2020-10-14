@@ -304,7 +304,7 @@ namespace GodMorgon.Enemy
 
         public void UpdateHealthBar(int health, int defense)
         {
-            _healthBar.UpdateHealthBar(defense, health);
+            _healthBar.UpdateHealthBarDisplay(defense, health);
             //print("la defense actuel est de : " + defense);
             //print("la santé actuel est de : " + health);
         }
