@@ -404,6 +404,13 @@ namespace GodMorgon.Player
             _healthBar = healthBarGAO.GetComponent<HealthBar>();
         }
 
+        public void UpdateHealthBar(int health, int defense)
+        {
+            _healthBar.UpdateHealthBar(defense, health);
+            //print("la defense actuel est de : " + defense);
+            //print("la santé actuel est de : " + health);
+        }
+
         /**
          * Inflige des damages au player
          */

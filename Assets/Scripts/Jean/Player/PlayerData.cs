@@ -87,7 +87,7 @@ namespace GodMorgon.Player
             }
             //Debug.Log("player health after was : " + health);
 
-            PlayerManager.Instance.UpdateHealthBar(health + defense);
+            PlayerMgr.Instance.UpdateHealthBar(health, defense);
         }
 
         /**
