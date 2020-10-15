@@ -120,9 +120,6 @@ namespace GodMorgon.Player
             defense += blockValue;
             if (defense > defenseMax)
                 defense = defenseMax;
-
-            Debug.Log("player defense is  : " + defense);
-            Debug.Log("player defense MAX is  : " + defenseMax);
         }
 
         //Set the damage done and taken for the killer instinct effect

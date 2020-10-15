@@ -35,7 +35,7 @@ namespace GodMorgon.CardEffect
                     if (PlayerMgr.Instance.GetNodePosOfPlayer() == dropPosition)
                     {
                         context.isDropValidate = true;
-                        Debug.Log("DEFENSE");
+                        //Debug.Log("DEFENSE");
                     }
                     break;
                 case BasicCard.CARDTYPE.POWER_UP:

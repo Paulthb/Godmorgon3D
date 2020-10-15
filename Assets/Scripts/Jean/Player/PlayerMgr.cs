@@ -421,6 +421,7 @@ namespace GodMorgon.Player
             GameObject healthBarGAO = Instantiate(healthBarPrefab, playerCanvas);
             _healthBar = healthBarGAO.GetComponent<HealthBar>();
 
+            //la defense max au départ est à 0
             _healthBar.SetBarPoints(playerData.health, playerData.defense);
             //SFX player hit
             //MusicManager.Instance.PlayPlayerHit();
@@ -432,12 +433,11 @@ namespace GodMorgon.Player
         public void UpdateHealthBar()
         {
             _healthBar.UpdateHealthBarDisplay(playerData.defense, playerData.health);
-            print("defense à mettre à jour est de" + playerData.defense);
         }
 
         /**
-            * Inflige des damages au player
-            */
+        * Inflige des damages au player
+        */
         public void TakeDamage(int damage)
         {
             //considérer le shield du player
@@ -450,16 +450,16 @@ namespace GodMorgon.Player
         }
 
         /**
-            * Inflige des dégat à l'ennemie lorsque le player est attaqué
-            */
+        * Inflige des dégat à l'ennemie lorsque le player est attaqué
+        */
         public int Counter()
         {
             return BuffManager.Instance.counterDamage;
         }
 
         /**
-            * Add block defense to player
-            */
+        * Add block defense to player
+        */
         public void AddBlock(int blockValue)
         {
             playerData.AddBlock(blockValue);
@@ -468,27 +468,27 @@ namespace GodMorgon.Player
         }
 
         /**
-            * Add Gold to player
-            * ~~ il faudra mettre à jour l'interface
-            */
+        * Add Gold to player
+        * ~~ il faudra mettre à jour l'interface
+        */
         public void AddGold(int goldValue)
         {
             playerData.AddGold(goldValue);
         }
 
         /**
-            * Add Token to player
-            * ~~ il faudra mettre à jour l'interface
-            */
+        * Add Token to player
+        * ~~ il faudra mettre à jour l'interface
+        */
         public void AddToken()
         {
             playerData.AddToken();
         }
 
         /**
-            * Remove 1 token to player
-            * ~~ il faudra mettre à jour l'interface
-            */
+        * Remove 1 token to player
+        * ~~ il faudra mettre à jour l'interface
+        */
         public void TakeOffToken()
         {
             playerData.TakeOffOneToken();
@@ -539,5 +539,6 @@ namespace GodMorgon.Player
             playerCounter.stopParticle();
         }
         #endregion
+
         } 
     }
