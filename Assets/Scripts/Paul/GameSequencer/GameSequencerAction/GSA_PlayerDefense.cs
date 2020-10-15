@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GodMorgon.CardEffect;
+using GodMorgon.Player;
 
 namespace GodMorgon.GameSequencerSpace
 {
