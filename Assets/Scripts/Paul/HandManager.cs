@@ -53,14 +53,22 @@ public class HandManager : MonoBehaviour
      */
     public void DiscardAllCard()
     {
+        List<CardDisplay> tempCardList = new List<CardDisplay>();
+
         if (CardDisplayList.Count > 0)
         {
             foreach (CardDisplay card in CardDisplayList)
             {
-                GameManager.Instance.DiscardHandCard(card);
-                Destroy(card.gameObject);
+                if (card.card.IsRetain())
+                    tempCardList.Add(card);
+                else
+                {
+                    GameManager.Instance.DiscardHandCard(card);
+                    Destroy(card.gameObject);
+                }
             }
             CardDisplayList.Clear();
+            CardDisplayList.AddRange(tempCardList);
         }
     }
 
@@ -85,7 +93,6 @@ public class HandManager : MonoBehaviour
             //if the cardDisplayed is different we modify it
             else if(CardDisplayList[i].card != GameEngine.Instance.GetHandCards()[i])
                 CardDisplayList[i].UpdateCard(GameEngine.Instance.GetHandCards()[i]);
-
         }
     }
 

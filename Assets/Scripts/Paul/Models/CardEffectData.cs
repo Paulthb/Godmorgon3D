@@ -80,13 +80,15 @@ namespace GodMorgon.Models
         //Trust : active des bonus par rapport au tour de la timeline du ringmaster
         public bool trust = false;
         public int trustNb = 0;
+        //retain : la carte n'est pas discard à la fin d'un tour
+        public bool retain = false;
 
         //Discard toutes les cartes en main
         public bool isDiscardHand = false;
 
         [Header("Curse")]
         //pour la carte obstruction
-        public bool isUseless = true;
+        public bool isUseless = false;
 
         
     }

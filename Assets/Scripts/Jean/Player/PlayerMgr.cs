@@ -450,6 +450,14 @@ namespace GodMorgon.Player
         }
 
         /**
+        * reçoit des heal pour le player
+        */
+        public void TakeHeal(int heal)
+        {
+            playerData.AddHeal(heal);
+        }
+
+        /**
         * Inflige des dégat à l'ennemie lorsque le player est attaqué
         */
         public int Counter()

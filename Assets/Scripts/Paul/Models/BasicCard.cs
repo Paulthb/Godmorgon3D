@@ -167,6 +167,17 @@ namespace GodMorgon.Models
                 nbDiscardData += effect.nbDiscardCard;
             return nbDiscardData;
         }
+
+        //retourne true si la card a l'effet retain
+        public bool IsRetain()
+        {
+            foreach (CardEffectData effect in effectsData)
+            {
+                if (effect.retain)
+                    return true;
+            }
+            return false;
+        }
         #endregion
     }
 }

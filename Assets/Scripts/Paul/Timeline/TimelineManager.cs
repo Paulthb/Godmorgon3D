@@ -100,13 +100,6 @@ namespace GodMorgon.Timeline
             //set the nb remaining action text
             nbRemainingActionText.text = nbRingmasterActionRemain.ToString();
 
-            //launche the first gear animation
-            //actionGearAnimations[0].Play();
-            //gearParticle.transform.position = gearsList[0].transform.position;
-
-            //particulePos.localPosition = actionGearAnimations[0].transform.localPosition;
-
-            //particulePos.gameObject.SetActive(false);
             particulePos.gameObject.GetComponent<ParticleSystem>().Stop();
         }
 
@@ -213,14 +206,7 @@ namespace GodMorgon.Timeline
                 MusicManager.Instance.PlayCursorEnd();
             }
             else
-            {
-                //actionGearAnimations[nbActualAction - 1].Play();
-                //gearParticle.transform.position = gearsList[0].transform.position;
-
-                //particulePos.localPosition = actionGearAnimations[nbActualAction - 1].transform.localPosition;
-
                 gearsList[0].gear.Stop();
-            }
 
             nbRingmasterActionRemain--;
             //si il reste des action pour le ringmaster, on relance son tour
