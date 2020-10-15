@@ -85,7 +85,7 @@ namespace GodMorgon.Player
                 health--;
                 damagePoint--;
             }
-            //Debug.Log("player health after was : " + health);
+            Debug.Log("player health after was : " + health);
         }
 
         /**

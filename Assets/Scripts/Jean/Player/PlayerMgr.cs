@@ -502,6 +502,16 @@ namespace GodMorgon.Player
             playerData.TakeOffOneToken();
         }
 
+        /**
+        * annule tous les bonus de stats du player
+        * annule aussi les effets visuel de ces bonus
+        */
+        public void ResetBonus()
+        {
+            playerData.ResetStat();
+            StopVisualEffect();
+        }
+
         #region Visual effect
 
         //launch player hit effect
@@ -510,7 +520,7 @@ namespace GodMorgon.Player
             playerHit.launchParticle();
 
             //SFX player hit
-            MusicManager.Instance.PlayPlayerHit();
+            //MusicManager.Instance.PlayPlayerHit();
         }
 
         //launch player Shield effect
