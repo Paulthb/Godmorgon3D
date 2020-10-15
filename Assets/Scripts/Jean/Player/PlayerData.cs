@@ -113,13 +113,22 @@ namespace GodMorgon.Player
 
         /**
          * add block to player data
-         * must be called from player manager !!
          */
         public void AddBlock(int blockValue)
         {
             defense += blockValue;
             if (defense > defenseMax)
                 defense = defenseMax;
+        }
+
+        /**
+         * add heal to player data
+         */
+        public void AddHeal(int healValue)
+        {
+            health += healValue;
+            if (health > healthMax)
+                health = healthMax;
         }
 
         //Set the damage done and taken for the killer instinct effect

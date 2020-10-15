@@ -61,6 +61,14 @@ namespace GodMorgon.CardEffect
                 GSA_Sight sightAction = new GSA_Sight();
                 GameSequencer.Instance.AddAction(sightAction);
             }
+
+            //heal the player
+            if(effectData.isHeal)
+            {
+                PlayerMgr.Instance.TakeHeal(effectData.nbHeal);
+                GSA_Spell playerSpellAction = new GSA_Spell();
+                GameSequencer.Instance.AddAction(playerSpellAction);
+            }
         }
     }
 }
