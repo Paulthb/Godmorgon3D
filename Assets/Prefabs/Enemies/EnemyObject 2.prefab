@@ -172,7 +172,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  shakeDuration: 0.2
+  shakeDuration: 1
   healthBarPrefab: {fileID: 5174257765683543531, guid: faf3234c119acaf43adca13e1572bd79,
     type: 3}
   healthBarPos: {fileID: 1668198383776553363}

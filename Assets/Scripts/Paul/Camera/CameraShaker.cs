@@ -45,7 +45,12 @@ public class CameraShaker : MonoBehaviour
         var startTime = Time.realtimeSinceStartup;
         while(Time.realtimeSinceStartup < startTime + _shakingDuration)
         {
-            var randomPoint = new Vector3(Random.Range(-1f, 1f)* shakeIntensity, Random.Range(-1f, 1f)* shakeIntensity, _initialPos.z);
+            float randomX = Random.Range(-1f, 1f);
+            float randomY = Random.Range(-1f, 1f);
+            print(randomX + "/" + randomY);
+
+            var randomPoint = new Vector3(randomX * shakeIntensity, randomY * shakeIntensity, _initialPos.z);
+            
             _target.localPosition += randomPoint;
             yield return null;
         }
