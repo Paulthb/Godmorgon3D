@@ -37,32 +37,32 @@ namespace GodMorgon.Player
         [NonSerialized]
         public int multiplier = 1;
 
-    [NonSerialized]
-    public PlayerData playerData;
+        [NonSerialized]
+        public PlayerData playerData;
 
-    private HealthBar _healthBar = null;
-    /**
-    * la healthBar sera enfant du canvas de cette objet
-    */
-    [SerializeField]
-    private GameObject healthBarPrefab = null;
-    [SerializeField]
-    private Transform healthBarPos = null;
-    [SerializeField]
-    private Transform playerCanvas = null;
+        private HealthBar _healthBar = null;
+        /**
+        * la healthBar sera enfant du canvas de cette objet
+        */
+        [SerializeField]
+        private GameObject healthBarPrefab = null;
+        [SerializeField]
+        private Transform healthBarPos = null;
+        [SerializeField]
+        private Transform playerCanvas = null;
 
-    //all visual effect for the player
-    [Header("Visual Effect")]
-    public ParticleSystemScript playerHit = null;
-    public ParticleSystemScript playerShield = null;
-    public ParticleSystemScript playerPowerUp = null;
-    public ParticleSystemScript playerKillerInstinct = null;
-    public ParticleSystemScript playerCounter = null;
-    public ParticleSystemScript playerFastShoes = null;
+        //all visual effect for the player
+        [Header("Visual Effect")]
+        public ParticleSystemScript playerHit = null;
+        public ParticleSystemScript playerShield = null;
+        public ParticleSystemScript playerPowerUp = null;
+        public ParticleSystemScript playerKillerInstinct = null;
+        public ParticleSystemScript playerCounter = null;
+        public ParticleSystemScript playerFastShoes = null;
 
 
-    #region Singleton Pattern
-    private static PlayerMgr _instance;
+        #region Singleton Pattern
+        private static PlayerMgr _instance;
 
         public static PlayerMgr Instance { get { return _instance; } }
         #endregion
@@ -87,21 +87,13 @@ namespace GodMorgon.Player
 
             nbMoveIterationCounter = 0;
 
-        nbMoveIterationCounter = 0;
+            nbMoveIterationCounter = 0;
 
-        //création du playerData
-        playerData = new PlayerData();
+            //création du playerData
+            playerData = new PlayerData();
 
-        if (healthBarPrefab != null)
-            InitializeHealthBar();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (playerCanMove)
-        {
-            LaunchMoveMechanic();
+            if (healthBarPrefab != null)
+                InitializeHealthBar();
         }
 
         // Update is called once per frame
@@ -153,13 +145,13 @@ namespace GodMorgon.Player
             if (_healthBar != null)
                 _healthBar.transform.position = Camera.main.WorldToScreenPoint(healthBarPos.position);
         }
-
+            
         #region MOVEMENT
 
         /**
-         * Update the list of the tiles the player has to go through and then activate move mechanic
-         * The parameter targetPos is the target node position
-         */
+            * Update the list of the tiles the player has to go through and then activate move mechanic
+            * The parameter targetPos is the target node position
+            */
         public void CalculatePlayerPath(Vector3Int targetNodePos)
         {
             nbNodesToMove = BuffManager.Instance.getModifiedMove(_cardEffectDatas[0].nbMoves);  //Update le nombre de rooms à parcourir, qui changera en fct du nb sur la carte et si un fast shoes a été joué
@@ -268,8 +260,8 @@ namespace GodMorgon.Player
         }
 
         /**
-         * Launch player move if player can move
-         */
+            * Launch player move if player can move
+            */
         private void LaunchMoveMechanic()
         {
             isMoving = true;
@@ -304,16 +296,16 @@ namespace GodMorgon.Player
         }
 
         /**
-         * Update the multiplier if trust activated on card
-         */
+            * Update the multiplier if trust activated on card
+            */
         public void UpdateMultiplier(int valueToAddToMultiplier)
         {
             multiplier = valueToAddToMultiplier;
         }
 
         /**
-         * Return true if player has moved
-         */
+            * Return true if player has moved
+            */
         public bool PlayerMoveDone()
         {
             if (!playerHasMoved) return false;
@@ -328,16 +320,16 @@ namespace GodMorgon.Player
         }
 
         /**
-         * Get datas of move card
-         */
+            * Get datas of move card
+            */
         public void UpdateMoveDatas(CardEffectData[] cardEffectData)
         {
             _cardEffectDatas = cardEffectData;
         }
 
         /**
-         * Return datas of card
-         */
+            * Return datas of card
+            */
         public CardEffectData[] GetCardEffectData()
         {
             if (_cardEffectDatas != null)
@@ -347,8 +339,8 @@ namespace GodMorgon.Player
         }
 
         /**
-         * Une fois arrivé à destination, active la suite des évènements après qq secondes
-         */
+            * Une fois arrivé à destination, active la suite des évènements après qq secondes
+            */
         IEnumerator LaunchActionsInNewNode()
         {
             //RoomEffectManager.Instance.LaunchRoomEffect(GetPlayerRoomPosition());   //Lance l'effet de room sur laquelle on vient d'arriver
@@ -373,8 +365,8 @@ namespace GodMorgon.Player
         #region PLAYER POSITIONS
 
         /**
-         * Return player's tile position
-         */
+            * Return player's tile position
+            */
         public Vector3Int GetTilePosOfPlayer()
         {
             Tiles currentTile = MapManager.Instance.GetTileFromPos(new Vector3Int((int)transform.position.x,
@@ -383,8 +375,8 @@ namespace GodMorgon.Player
         }
 
         /**
-         * Return player's node position
-         */
+            * Return player's node position
+            */
         public Vector3Int GetNodePosOfPlayer()
         {
             Transform currentNode = MapManager.Instance.GetNodeFromPos(new Vector3Int((int)transform.position.x, (int)transform.position.y, (int)transform.position.z));
@@ -402,8 +394,8 @@ namespace GodMorgon.Player
         }
 
         /**
-         * Return player's node
-         */
+            * Return player's node
+            */
         public Transform GetNodeOfPlayer()
         {
             Transform currentNode = MapManager.Instance.GetNodeFromPos(new Vector3Int((int)transform.position.x, (int)transform.position.y, (int)transform.position.z));
@@ -422,167 +414,130 @@ namespace GodMorgon.Player
         #endregion
 
         /**
-        * Crée la healthbar dans le canvas
-        */
+         * Crée la healthbar dans le canvas
+         */
         public void InitializeHealthBar()
         {
             GameObject healthBarGAO = Instantiate(healthBarPrefab, playerCanvas);
             _healthBar = healthBarGAO.GetComponent<HealthBar>();
-        }
 
-        public void UpdateHealthBar(int health, int defense)
-        {
-            _healthBar.UpdateHealthBar(defense, health);
-            //print("la defense actuel est de : " + defense);
-            //print("la santé actuel est de : " + health);
+            _healthBar.SetBarPoints(playerData.health, playerData.defense);
+            //SFX player hit
+            //MusicManager.Instance.PlayPlayerHit();
         }
 
         /**
-         * Inflige des damages au player
-         */
+        * Update Health Text
+        */
+        public void UpdateHealthBar()
+        {
+            _healthBar.UpdateHealthBarDisplay(playerData.defense, playerData.health);
+            print("defense à mettre à jour est de" + playerData.defense);
+        }
+
+        /**
+            * Inflige des damages au player
+            */
         public void TakeDamage(int damage)
         {
             //considérer le shield du player
-            PlayerData.Instance.TakeDamage(damage, false);
+            playerData.TakeDamage(damage, false);
 
-            //UpdateHealthText();
-            //UpdateBlockText();
-            //Debug.Log("Update player's life ");
+            UpdateHealthBar();
 
             //launch player hit effect
-            //OnDamage();
+            OnDamage();
         }
+
+        /**
+            * Inflige des dégat à l'ennemie lorsque le player est attaqué
+            */
+        public int Counter()
+        {
+            return BuffManager.Instance.counterDamage;
+        }
+
+        /**
+            * Add block defense to player
+            */
+        public void AddBlock(int blockValue)
+        {
+            playerData.AddBlock(blockValue);
+            //UpdateBlockText();
+            UpdateHealthBar();
+        }
+
+        /**
+            * Add Gold to player
+            * ~~ il faudra mettre à jour l'interface
+            */
+        public void AddGold(int goldValue)
+        {
+            playerData.AddGold(goldValue);
+        }
+
+        /**
+            * Add Token to player
+            * ~~ il faudra mettre à jour l'interface
+            */
+        public void AddToken()
+        {
+            playerData.AddToken();
+        }
+
+        /**
+            * Remove 1 token to player
+            * ~~ il faudra mettre à jour l'interface
+            */
+        public void TakeOffToken()
+        {
+            playerData.TakeOffOneToken();
+        }
+
+        #region Visual effect
 
         //launch player hit effect
         public void OnDamage()
         {
-            //playerHit.launchParticle();
+            playerHit.launchParticle();
 
-    /**
-    * Crée la healthbar dans le canvas
-    */
-    public void InitializeHealthBar()
-    {
-        GameObject healthBarGAO = Instantiate(healthBarPrefab, playerCanvas);
-        _healthBar = healthBarGAO.GetComponent<HealthBar>();
-
-        _healthBar.SetBarPoints(playerData.health, playerData.defense);
             //SFX player hit
-            //MusicManager.Instance.PlayPlayerHit();
+            MusicManager.Instance.PlayPlayerHit();
         }
+
+        //launch player Shield effect
+        public void OnShield()
+        {
+            playerShield.launchParticle();
+        }
+
+        //launch player PowerUp effect
+        public void OnPowerUp()
+        {
+            playerPowerUp.launchParticle();
+        }
+
+        public void OnKillerInstinct()
+        {
+            playerKillerInstinct.launchParticle();
+        }
+
+        public void OnPlayerCounter()
+        {
+            playerCounter.launchParticle();
+        }
+
+        public void OnPlayerFastShoes()
+        {
+            playerFastShoes.launchParticle();
+        }
+
+        public void StopVisualEffect()
+        {
+            playerKillerInstinct.stopParticle();
+            playerFastShoes.stopParticle();
+            playerCounter.stopParticle();
+        }
+        #endregion
+        } 
     }
-
-    /**
-    * Update Health Text
-    */
-    public void UpdateHealthBar()
-    {
-        _healthBar.UpdateHealthBarDisplay(playerData.defense, playerData.health);
-        print("defense à mettre à jour est de" + playerData.defense);
-    }
-
-    /**
-     * Inflige des damages au player
-     */
-    public void TakeDamage(int damage)
-    {
-        //considérer le shield du player
-        playerData.TakeDamage(damage, false);
-
-        UpdateHealthBar();
-
-        //launch player hit effect
-        OnDamage();
-    }
-
-    /**
-     * Inflige des dégat à l'ennemie lorsque le player est attaqué
-     */
-    public int Counter()
-    {
-        return BuffManager.Instance.counterDamage;
-    }
-
-    /**
-     * Add block defense to player
-     */
-    public void AddBlock(int blockValue)
-    {
-        playerData.AddBlock(blockValue);
-        //UpdateBlockText();
-        UpdateHealthBar();
-    }
-
-    /**
-     * Add Gold to player
-     * ~~ il faudra mettre à jour l'interface
-     */
-    public void AddGold(int goldValue)
-    {
-        playerData.AddGold(goldValue);
-    }
-
-    /**
-     * Add Token to player
-     * ~~ il faudra mettre à jour l'interface
-     */
-    public void AddToken()
-    {
-        playerData.AddToken();
-    }
-
-    /**
-     * Remove 1 token to player
-     * ~~ il faudra mettre à jour l'interface
-     */
-    public void TakeOffToken()
-    {
-        playerData.TakeOffOneToken();
-    }
-
-    #region Visual effect
-
-    //launch player hit effect
-    public void OnDamage()
-    {
-        playerHit.launchParticle();
-
-        //SFX player hit
-        MusicManager.Instance.PlayPlayerHit();
-    }
-
-    //launch player Shield effect
-    public void OnShield()
-    {
-        playerShield.launchParticle();
-    }
-
-    //launch player PowerUp effect
-    public void OnPowerUp()
-    {
-        playerPowerUp.launchParticle();
-    }
-
-    public void OnKillerInstinct()
-    {
-        playerKillerInstinct.launchParticle();
-    }
-
-    public void OnPlayerCounter()
-    {
-        playerCounter.launchParticle();
-    }
-
-    public void OnPlayerFastShoes()
-    {
-        playerFastShoes.launchParticle();
-    }
-
-    public void StopVisualEffect()
-    {
-        playerKillerInstinct.stopParticle();
-        playerFastShoes.stopParticle();
-        playerCounter.stopParticle();
-    }
-    #endregion
-}
