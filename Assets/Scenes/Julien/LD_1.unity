@@ -24740,6 +24740,7 @@ MonoBehaviour:
   - {fileID: 1342960658508235011, guid: 2c703a6c77b89764cb965261477ecd35, type: 3}
   turnDownLeftPrefabList:
   - {fileID: 1342960658508235011, guid: 2add5f3ec66c0b6448b0cf092e2b0035, type: 3}
+  - {fileID: 1342960658508235011, guid: 2add5f3ec66c0b6448b0cf092e2b0035, type: 3}
   tRightPrefabList:
   - {fileID: 1342960658508235011, guid: 505be5047e925304a8e4780b4d176dd3, type: 3}
   tLeftPrefabList:
