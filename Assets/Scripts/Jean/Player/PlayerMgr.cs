@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using GodMorgon.Enemy;
 using GodMorgon.Models;
+using GodMorgon.Player;
 using GodMorgon.Sound;
 using GodMorgon.VisualEffect;
 using UnityEngine;
@@ -36,20 +37,32 @@ namespace GodMorgon.Player
         [NonSerialized]
         public int multiplier = 1;
 
-        private HealthBar _healthBar = null;
-        /**
-        * la healthBar sera enfant du canvas de cette objet
-        */
-        [SerializeField]
-        private GameObject healthBarPrefab = null;
-        [SerializeField]
-        private Transform healthBarPos = null;
-        [SerializeField]
-        private Transform playerCanvas = null;
+    [NonSerialized]
+    public PlayerData playerData;
+
+    private HealthBar _healthBar = null;
+    /**
+    * la healthBar sera enfant du canvas de cette objet
+    */
+    [SerializeField]
+    private GameObject healthBarPrefab = null;
+    [SerializeField]
+    private Transform healthBarPos = null;
+    [SerializeField]
+    private Transform playerCanvas = null;
+
+    //all visual effect for the player
+    [Header("Visual Effect")]
+    public ParticleSystemScript playerHit = null;
+    public ParticleSystemScript playerShield = null;
+    public ParticleSystemScript playerPowerUp = null;
+    public ParticleSystemScript playerKillerInstinct = null;
+    public ParticleSystemScript playerCounter = null;
+    public ParticleSystemScript playerFastShoes = null;
 
 
-        #region Singleton Pattern
-        private static PlayerMgr _instance;
+    #region Singleton Pattern
+    private static PlayerMgr _instance;
 
         public static PlayerMgr Instance { get { return _instance; } }
         #endregion
@@ -74,8 +87,21 @@ namespace GodMorgon.Player
 
             nbMoveIterationCounter = 0;
 
-            if (healthBarPrefab != null)
-                InitializeHealthBar();
+        nbMoveIterationCounter = 0;
+
+        //création du playerData
+        playerData = new PlayerData();
+
+        if (healthBarPrefab != null)
+            InitializeHealthBar();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (playerCanMove)
+        {
+            LaunchMoveMechanic();
         }
 
         // Update is called once per frame
@@ -432,8 +458,131 @@ namespace GodMorgon.Player
         {
             //playerHit.launchParticle();
 
+    /**
+    * Crée la healthbar dans le canvas
+    */
+    public void InitializeHealthBar()
+    {
+        GameObject healthBarGAO = Instantiate(healthBarPrefab, playerCanvas);
+        _healthBar = healthBarGAO.GetComponent<HealthBar>();
+
+        _healthBar.SetBarPoints(playerData.health, playerData.defense);
             //SFX player hit
             //MusicManager.Instance.PlayPlayerHit();
         }
     }
+
+    /**
+    * Update Health Text
+    */
+    public void UpdateHealthBar()
+    {
+        _healthBar.UpdateHealthBarDisplay(playerData.defense, playerData.health);
+        print("defense à mettre à jour est de" + playerData.defense);
+    }
+
+    /**
+     * Inflige des damages au player
+     */
+    public void TakeDamage(int damage)
+    {
+        //considérer le shield du player
+        playerData.TakeDamage(damage, false);
+
+        UpdateHealthBar();
+
+        //launch player hit effect
+        OnDamage();
+    }
+
+    /**
+     * Inflige des dégat à l'ennemie lorsque le player est attaqué
+     */
+    public int Counter()
+    {
+        return BuffManager.Instance.counterDamage;
+    }
+
+    /**
+     * Add block defense to player
+     */
+    public void AddBlock(int blockValue)
+    {
+        playerData.AddBlock(blockValue);
+        //UpdateBlockText();
+        UpdateHealthBar();
+    }
+
+    /**
+     * Add Gold to player
+     * ~~ il faudra mettre à jour l'interface
+     */
+    public void AddGold(int goldValue)
+    {
+        playerData.AddGold(goldValue);
+    }
+
+    /**
+     * Add Token to player
+     * ~~ il faudra mettre à jour l'interface
+     */
+    public void AddToken()
+    {
+        playerData.AddToken();
+    }
+
+    /**
+     * Remove 1 token to player
+     * ~~ il faudra mettre à jour l'interface
+     */
+    public void TakeOffToken()
+    {
+        playerData.TakeOffOneToken();
+    }
+
+    #region Visual effect
+
+    //launch player hit effect
+    public void OnDamage()
+    {
+        playerHit.launchParticle();
+
+        //SFX player hit
+        MusicManager.Instance.PlayPlayerHit();
+    }
+
+    //launch player Shield effect
+    public void OnShield()
+    {
+        playerShield.launchParticle();
+    }
+
+    //launch player PowerUp effect
+    public void OnPowerUp()
+    {
+        playerPowerUp.launchParticle();
+    }
+
+    public void OnKillerInstinct()
+    {
+        playerKillerInstinct.launchParticle();
+    }
+
+    public void OnPlayerCounter()
+    {
+        playerCounter.launchParticle();
+    }
+
+    public void OnPlayerFastShoes()
+    {
+        playerFastShoes.launchParticle();
+    }
+
+    public void StopVisualEffect()
+    {
+        playerKillerInstinct.stopParticle();
+        playerFastShoes.stopParticle();
+        playerCounter.stopParticle();
+    }
+    #endregion
 }

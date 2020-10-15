@@ -24,21 +24,25 @@ public class HealthBar : MonoBehaviour
         maxDefensePoint = maxDefense;
         maxHealthPoint = maxHealth;
 
-        UpdateHealthBar(maxDefense, maxHealth);
+        UpdateHealthBarDisplay(maxDefense, maxHealth);
     }
 
     /**
      * update the health and defense bar
      */
-    public void UpdateHealthBar(float currentDefense, float currentHealth)
+    public void UpdateHealthBarDisplay(float currentDefense, float currentHealth)
     {
         if (maxDefensePoint < currentDefense)
             maxDefensePoint = currentDefense;
 
-        if(currentDefense == 0)
+        if (currentDefense == 0)
             defense.fillAmount = 0;
         else
+        {
             defense.fillAmount = currentDefense / maxDefensePoint;
+            print(defense + "     /     " + maxDefensePoint);
+            print(currentDefense / maxDefensePoint + "     --------------");
+        }
 
         if(currentHealth == 0)
             health.fillAmount = 0;
