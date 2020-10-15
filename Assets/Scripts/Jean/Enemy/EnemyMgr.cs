@@ -414,4 +414,14 @@ public class EnemyMgr : MonoBehaviour
             return currentNode.GetComponent<NodeScript>().node.nodePosition;
         }
     }
+
+    /**
+     * Return player's tile position
+     */
+    public Vector3Int GetEnemyTilePos(Transform enemy)
+    {
+        Tiles currentTile = MapManager.Instance.GetTileFromPos(new Vector3Int((int)enemy.position.x,
+            (int)enemy.position.y, (int)enemy.position.z));
+        return currentTile.tilePosition;
+    }
 }
