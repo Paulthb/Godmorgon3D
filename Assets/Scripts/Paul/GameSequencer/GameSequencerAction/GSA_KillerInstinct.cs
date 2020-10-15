@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GodMorgon.CardEffect;
+using GodMorgon.Player;
 
 namespace GodMorgon.GameSequencerSpace
 {
@@ -10,7 +11,7 @@ namespace GodMorgon.GameSequencerSpace
     {
         public override IEnumerator ExecuteAction(GameContext context)
         {
-            PlayerManager.Instance.OnKillerInstinct();
+            PlayerMgr.Instance.OnKillerInstinct();
 
             //wait for 1sec
             yield return new WaitForSeconds(1.0f);
