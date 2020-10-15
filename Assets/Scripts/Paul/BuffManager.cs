@@ -58,7 +58,7 @@ public class BuffManager
         isCounterActive = false;
         counterDamage = 0;
 
-        PlayerManager.Instance.ResetBonus();
+        PlayerMgr.Instance.ResetBonus();
     }
 
     //retourne les valeurs modifié ou non en fonction des powerUp actifs
