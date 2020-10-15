@@ -794,6 +794,29 @@ public class MapManager : MonoBehaviour
     }
 
 
+    /**
+     * Get walkable nodes at specific range from player
+     */
+    public List<Transform> GetNodesAtRangeFromPlayer(int range)
+    {
+        List<Transform> nodesAtRange = new List<Transform>();
+
+        //Put in a list the nodes at specific range from the player
+        foreach (Transform node in MapManager.Instance.nodesList)
+        {
+            float dist = Vector3.Distance(PlayerMgr.Instance.GetNodePosOfPlayer(), node.position);
+
+            if (dist > range * 3 - 1 && dist < range * 3 + 1)
+            {
+                if (node.GetComponent<NodeScript>().node.roadType != RoadType.NoRoad)
+                    nodesAtRange.Add(node);
+            }
+        }
+
+        return nodesAtRange;
+    }
+
+
 
     #endregion
 }

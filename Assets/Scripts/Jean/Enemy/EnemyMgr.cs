@@ -17,7 +17,10 @@ public class EnemyMgr : MonoBehaviour
 
     [Header("Spawn Settings")]
     public int nbEnemiesToSpawn = 2;
-    public float rangeFromPlayer = 2;
+    public int spawnRangeFromPlayer = 2;
+
+    [Header("Curse Settings")]
+    public int curseRangeFromPlayer = 2;
 
     private bool enemiesHaveMoved;
     private bool enemiesHaveAttacked = false;
@@ -187,19 +190,7 @@ public class EnemyMgr : MonoBehaviour
             return;
         }
 
-        List<Transform> nodesAtSpecificRange = new List<Transform>();
-
-        //Get the nodes at specific range from the player and put them in a list
-        foreach (Transform node in MapManager.Instance.nodesList)
-        {
-            float dist = Vector3.Distance(PlayerMgr.Instance.GetNodePosOfPlayer(), node.position);
-
-            if(dist > rangeFromPlayer * 3 - 1 && dist < rangeFromPlayer * 3 + 1)
-            {
-                if(node.GetComponent<NodeScript>().node.roadType != RoadType.NoRoad)
-                    nodesAtSpecificRange.Add(node);
-            }
-        }
+        List<Transform> nodesAtSpecificRange = MapManager.Instance.GetNodesAtRangeFromPlayer(spawnRangeFromPlayer);
 
         //Create a list of spawns with a size = nbEnemiesToSpawn
         List<Transform> randomSpawns = GetRandomItemsFromList(nodesAtSpecificRange, nbEnemiesToSpawn);
@@ -345,6 +336,26 @@ public class EnemyMgr : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    /*
+     * Timeline action : Curse a node at a range from player
+     */
+    public void CurseNode()
+    {
+        List<Transform> nodesAtRange = MapManager.Instance.GetNodesAtRangeFromPlayer(curseRangeFromPlayer);
+
+        int randomNode = Random.Range(0, nodesAtRange.Count);
+
+        //Pick a random node in list of node at range
+        Transform nodeToCurse = nodesAtRange[randomNode];
+
+        //Launch particules on node 
+        //GameObject curseParticules = Instantiate(roomFxList[3], cursedRoomWorldPos, Quaternion.identity, roomEffectsParent);
+        //curseParticules.transform.localScale = new Vector3(.5f, .5f, 0);
+
+        //Set the node as Cursed
+        nodeToCurse.GetComponent<NodeScript>().node.nodeEffect = NodeEffect.Cursed;
     }
 
 

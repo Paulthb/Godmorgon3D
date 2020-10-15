@@ -126,6 +126,25 @@ namespace GodMorgon.Enemy
                         enemyData.inPlayersNode = true; //Enemy set as "in player's room"
                     }
 
+                    //We check if there is an other enemy on path
+                    foreach (EnemyScript enemy in EnemyMgr.Instance.GetAllEnemies())
+                    {
+                        //Node position of enemy
+                        Vector3Int enemyNodePos = EnemyMgr.Instance.GetEnemyNodePos(enemy.transform);
+
+                        //Check only other enemies than the one we are moving
+                        if (enemy != this)
+                        {
+                            //Si l'ennemi est sur une tile
+                            if (enemyNodePos.x == tile.X && enemyNodePos.z == tile.Y)
+                            {
+                                //isOtherEnemyOnPath = true;
+                                enemyData.inOtherEnemyNode = true; //L'ennemi sera présent dans la room
+                                //Debug.Log("L'ennemi " + this.name + " a un ennemi sur sa route : " + enemy.name);
+                            }
+                        }
+                    }
+
                     if (!isPlayerOnPath)
                     {
                         enemyPath.Add(tile);
