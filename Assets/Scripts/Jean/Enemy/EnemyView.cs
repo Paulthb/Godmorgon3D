@@ -364,7 +364,7 @@ namespace GodMorgon.Enemy
          */
         public void UpdateHealthBar(float health, float defense)
         {
-            _healthBar.UpdateHealthBar(defense, health);
+            _healthBar.UpdateHealthBarDisplay(defense, health);
         }
 
         /**

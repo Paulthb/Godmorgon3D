@@ -8,9 +8,9 @@ using GodMorgon.Enemy;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField]
-    private Image defense = null;
+    private Image defenseImage = null;
     [SerializeField]
-    private Image health = null;
+    private Image healthImage = null;
 
     private float maxHealthPoint = 1f;
     private float maxDefensePoint = 1f;
@@ -24,33 +24,34 @@ public class HealthBar : MonoBehaviour
         maxDefensePoint = maxDefense;
         maxHealthPoint = maxHealth;
 
-        UpdateHealthBar(maxDefense, maxHealth);
+        UpdateHealthBarDisplay(maxDefense, maxHealth);
+        //print("at start healthbar, max defense is : " + maxDefense);
     }
 
     /**
      * update the health and defense bar
      */
-    public void UpdateHealthBar(float currentDefense, float currentHealth)
+    public void UpdateHealthBarDisplay(float currentDefense, float currentHealth)
     {
         if (maxDefensePoint < currentDefense)
+        {
             maxDefensePoint = currentDefense;
-
-        if(currentDefense == 0)
-            defense.fillAmount = 0;
+        }
+        if (currentDefense == 0)
+            defenseImage.fillAmount = 0;
         else
-            defense.fillAmount = currentDefense / maxDefensePoint;
+        {
+            defenseImage.fillAmount = currentDefense / maxDefensePoint;
+            //print(currentDefense + "     /     " + maxDefensePoint);
+            //print(currentDefense / maxDefensePoint + "     --------------");
+        }
 
         if(currentHealth == 0)
-            health.fillAmount = 0;
+            healthImage.fillAmount = 0;
         else
-            health.fillAmount = currentHealth / maxHealthPoint;
+            healthImage.fillAmount = currentHealth / maxHealthPoint;
 
         //print("la defense actuel est de : " + defense);
         //print("la santé actuel est de : " + health);
     }
-
-    //public void SetHealth(float newHealthValue)
-    //{
-    //    defense.localScale = new Vector3(newHealthValue * 0.01f, 1f);
-    //}
 }

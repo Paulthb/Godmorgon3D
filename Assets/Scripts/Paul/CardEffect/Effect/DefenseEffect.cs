@@ -54,11 +54,11 @@ namespace GodMorgon.CardEffect
                 GSA_PlayerCounter counterAction = new GSA_PlayerCounter();
                 GameSequencer.Instance.AddAction(counterAction);
 
-                PlayerManager.Instance.OnPlayerCounter();
+                PlayerMgr.Instance.OnPlayerCounter();
             }
 
             //apply effect
-            PlayerManager.Instance.AddBlock(nbBlock);
+            PlayerMgr.Instance.AddBlock(nbBlock);
             Debug.Log("add " + nbBlock + " to player defense");
 
             //add the defense sequence

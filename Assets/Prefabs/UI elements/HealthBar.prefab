@@ -54,8 +54,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120ef75cc13b4a34690dfd5484fda30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defense: {fileID: 5174257767498604307}
-  health: {fileID: 5174257766223817764}
+  defenseImage: {fileID: 5174257767498604307}
+  healthImage: {fileID: 5174257766223817764}
 --- !u!1 &5174257766223817766
 GameObject:
   m_ObjectHideFlags: 0

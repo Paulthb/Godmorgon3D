@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GodMorgon.CardEffect;
+using GodMorgon.Player;
 
 namespace GodMorgon.GameSequencerSpace
 {
@@ -14,10 +15,10 @@ namespace GodMorgon.GameSequencerSpace
         public override IEnumerator ExecuteAction(GameContext context)
         {
             //launch particle system
-            PlayerManager.Instance.OnPowerUp();
+            PlayerMgr.Instance.OnPowerUp();
 
             //wait the time of the power up particle effect
-            yield return new WaitForSeconds(PlayerManager.Instance.playerPowerUp.GetDuration());
+            yield return new WaitForSeconds(PlayerMgr.Instance.playerPowerUp.GetDuration());
         }
     }
 }

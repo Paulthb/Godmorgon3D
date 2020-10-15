@@ -42,7 +42,7 @@ namespace GodMorgon.Player
         }
         #endregion
 
-        //Sera créé et configuré par le gameEngine
+        //Sera créé et configuré par le gameEngine~~
         public PlayerData()
         {
             //à configurer par le gameEngine
@@ -86,8 +86,6 @@ namespace GodMorgon.Player
                 damagePoint--;
             }
             //Debug.Log("player health after was : " + health);
-
-            PlayerMgr.Instance.UpdateHealthBar(health, defense);
         }
 
         /**
@@ -119,9 +117,9 @@ namespace GodMorgon.Player
          */
         public void AddBlock(int blockValue)
         {
-            health += blockValue;
-            if (health > healthMax)
-                health = healthMax;
+            defense += blockValue;
+            if (defense > defenseMax)
+                defense = defenseMax;
         }
 
         //Set the damage done and taken for the killer instinct effect
