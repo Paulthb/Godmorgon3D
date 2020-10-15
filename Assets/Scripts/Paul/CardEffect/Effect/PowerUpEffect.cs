@@ -38,7 +38,7 @@ namespace GodMorgon.CardEffect
                 GSA_FastShoes fastShoesAction = new GSA_FastShoes();
                 GameSequencer.Instance.AddAction(fastShoesAction);
 
-                PlayerManager.Instance.OnPlayerFastShoes();
+                PlayerMgr.Instance.OnPlayerFastShoes();
             }
         }
     }
