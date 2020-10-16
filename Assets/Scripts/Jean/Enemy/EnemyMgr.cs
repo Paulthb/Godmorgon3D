@@ -229,13 +229,14 @@ public class EnemyMgr : MonoBehaviour
         int randIndex = Random.Range(0, nodesAtSpecificRange.Count);
         enemy.transform.position = nodesAtSpecificRange[randIndex].position;
 
-        /**
-         * on check si l'enemie n'est pas déjà sur une node occupé par un autre enemy
-         * si c'est le cas, on repositionne l'enemy à une autre node
-         * 
-         * A CONFIRMER COMME MODEL !!
-         */
-        for(int i = 0; i < enemiesList.Count; i++)
+        //*
+        // *on check si l'enemie n'est pas déjà sur une node occupé par un autre enemy
+        //* si c'est le cas, on repositionne l'enemy à une autre node
+        //*
+        //* A CONFIRMER COMME MODEL!!
+
+
+        for (int i = 0; i < enemiesList.Count; i++)
         {
             if(enemy.transform.position == enemiesList[i].transform.position)
             {
