@@ -80,8 +80,9 @@ public class FogMgr : MonoBehaviour
         foreach (Transform node in MapManager.Instance.GetAccessibleNodesList())
         {
             ClearFogOnNode(node);
-            ClearFogOnNode(PlayerMgr.Instance.GetNodeOfPlayer());
         }
+        ClearFogOnNode(PlayerMgr.Instance.GetNodeOfPlayer());
+
     }
 
     private void AddFogOnNode(Transform targetNode)
@@ -152,7 +153,7 @@ public class FogMgr : MonoBehaviour
 
     
     /**
-     * Clear fog in a zone of a specific range
+     * Clear fog in a zone of a specific range (Sight card)
      */
     public void RevealZoneAtPosition(Vector3Int baseRoomPosition)
     {
@@ -171,7 +172,7 @@ public class FogMgr : MonoBehaviour
     
 
     /**
-     * Check si les positions ont été reveal
+     * Check if nodes has been revealed with Sight card
      */
     public bool RevealDone()
     {
@@ -182,7 +183,7 @@ public class FogMgr : MonoBehaviour
     }
 
     /**
-     * On attend un peu avant de terminer l'action
+     * Wait before ending action
      */
     IEnumerator TimedAction(float timeToWait)
     {
@@ -191,7 +192,7 @@ public class FogMgr : MonoBehaviour
     }
 
     /**
-     * Set la reveal range en fonction de la valeur de la carte
+     * Set the reveal range
      */
     public void SetRevealRange(int rangeValue)
     {
@@ -199,19 +200,26 @@ public class FogMgr : MonoBehaviour
     }
 
     /**
-    * Recouvre toute la map de Fog sauf où il y a le player et des cases voisines
+    * Add fog everywhere except with around the player
     */
-    /*
     public void CoverMapWithFog()
     {
-        hasUpdatedFog = false;  //Le fog n'a pas encore été updaté
+        ParticleSystem ps;
 
-        foreach(RoomData room in RoomEffectManager.Instance.roomsDataArr)
+        //Play the particules of fog on every node
+        foreach (Transform fog in transform)
         {
-            if(!TilesManager.Instance.GetAccessibleRooms().Contains(room))
-            {
-                PlayFogParticuleOnRoom(room);
-            }
+            ps = fog.GetChild(1).GetComponent<ParticleSystem>();
+
+            if (ps == null) print("Particle system not found");
+            ps.Play();
         }
-    }*/
+
+        //Remove fog on player's node and next to him 
+        foreach (Transform node in MapManager.Instance.GetAccessibleNodesList())
+        {
+            ClearFogOnNode(node);
+        }
+        ClearFogOnNode(PlayerMgr.Instance.GetNodeOfPlayer());
+    }
 }
