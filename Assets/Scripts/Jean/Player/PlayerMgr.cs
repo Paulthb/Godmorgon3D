@@ -502,14 +502,24 @@ namespace GodMorgon.Player
             playerData.TakeOffOneToken();
         }
 
+
+
         /**
+
         * annule tous les bonus de stats du player
+
         * annule aussi les effets visuel de ces bonus
+
         */
+
         public void ResetBonus()
+
         {
+
             playerData.ResetStat();
+
             StopVisualEffect();
+
         }
 
         #region Visual effect

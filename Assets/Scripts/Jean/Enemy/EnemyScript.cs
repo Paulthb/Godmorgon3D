@@ -118,6 +118,7 @@ namespace GodMorgon.Enemy
                 foreach (Spot tile in roadPath)
                 {
                     bool isPlayerOnPath = false;
+                    bool isOtherEnemyOnPath = false;
 
                     //We keep all the tiles except the one with the player on it (if player on path obviously)
                     if (playerTilePos.x == tile.X && playerTilePos.z == tile.Y)
@@ -130,24 +131,43 @@ namespace GodMorgon.Enemy
                     foreach (EnemyScript enemy in EnemyMgr.Instance.GetAllEnemies())
                     {
                         //Node position of enemy
-                        Vector3Int enemyNodePos = EnemyMgr.Instance.GetEnemyNodePos(enemy.transform);
+                        Vector3Int enemyNodePos = EnemyMgr.Instance.GetEnemyTilePos(enemy.transform);
 
                         //Check only other enemies than the one we are moving
                         if (enemy != this)
                         {
-                            //Si l'ennemi est sur une tile
+                            //If there is an enemy on tile
                             if (enemyNodePos.x == tile.X && enemyNodePos.z == tile.Y)
                             {
-                                //isOtherEnemyOnPath = true;
-                                enemyData.inOtherEnemyNode = true; //L'ennemi sera présent dans la room
-                                //Debug.Log("L'ennemi " + this.name + " a un ennemi sur sa route : " + enemy.name);
+                                isOtherEnemyOnPath = true;
+                                enemyData.inOtherEnemyNode = true; //Used to remove the tile in roadpath
                             }
                         }
                     }
 
-                    if (!isPlayerOnPath)
+                    if (!isPlayerOnPath && !isOtherEnemyOnPath)
                     {
                         enemyPath.Add(tile);
+                    }
+                }
+
+                enemiesInRoom.Clear();
+
+                //Get the next node with last tile of path (used to know if enemies in that node, in that case we add them in list)
+                Vector3Int nextNode = MapManager.Instance.GetNodeFromPos(new Vector3Int(roadPath[0].X, 0, roadPath[0].Y)).GetComponent<NodeScript>().node.nodePosition;
+
+                //For each existing enemy
+                foreach (EnemyScript enemy in EnemyMgr.Instance.GetAllEnemies())
+                {
+                    //If it's not the enemy we are moving
+                    if (enemy != this)
+                    {
+                        //Check if enemy in next node
+                        if (enemy.GetNodePosOfEnemy() == nextNode)
+                        {
+                            //Add enemy in list
+                            enemiesInRoom.Add(enemy);
+                        }
                     }
                 }
 
@@ -180,7 +200,7 @@ namespace GodMorgon.Enemy
 
                     if (enemyData.inPlayersNode || enemyPath.Count > 0)
                     {
-                        ///Attack();   //Attack there is someone in node
+                        Attack();   //Attack there is someone in node
                     }
                 }
                 //Else if it's not the final tile
@@ -224,8 +244,8 @@ namespace GodMorgon.Enemy
                 }
             }
 
-            //prend des dégats si le counter est activé
-            //enemyData.TakeDamage(PlayerManager.Instance.Counter(), false);
+            //Take damage if counter activated
+            enemyData.TakeDamage(PlayerMgr.Instance.Counter(), false);
         }
 
         /**

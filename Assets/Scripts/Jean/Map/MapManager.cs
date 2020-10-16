@@ -746,7 +746,7 @@ public class MapManager : MonoBehaviour
         // Add the nodes at a range from the given position, in a list
         foreach (Transform node in nodesList)
         {
-            if (Vector3.Distance(positionSrc, node.position) <= range * 3 && node.GetComponent<NodeScript>().node.roadType != RoadType.NoRoad)
+            if (Vector3.Distance(positionSrc, node.position) <= range * 3)
             {
                 nearNodes.Add(node);
             }
