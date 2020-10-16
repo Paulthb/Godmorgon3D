@@ -789,7 +789,6 @@ public class MapManager : MonoBehaviour
                 }
             }
         }
-
         return null;
     }
 

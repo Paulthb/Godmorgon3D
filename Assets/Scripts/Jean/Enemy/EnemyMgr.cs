@@ -217,6 +217,35 @@ public class EnemyMgr : MonoBehaviour
     }
 
     /**
+     * Teleporte un enemy à une position aléatoire
+     * dans la même porté que le spawn des enemies
+     */
+    public void TeleportEnemy(EnemyScript enemy)
+    {
+        //on récup la liste des nodes dans la range du player
+        List<Transform> nodesAtSpecificRange = MapManager.Instance.GetNodesAtRangeFromPlayer(spawnRangeFromPlayer);
+
+        //on positionne l'enemy à une node random de la liste
+        int randIndex = Random.Range(0, nodesAtSpecificRange.Count);
+        enemy.transform.position = nodesAtSpecificRange[randIndex].position;
+
+        /**
+         * on check si l'enemie n'est pas déjà sur une node occupé par un autre enemy
+         * si c'est le cas, on repositionne l'enemy à une autre node
+         * 
+         * A CONFIRMER COMME MODEL !!
+         */
+        for(int i = 0; i < enemiesList.Count; i++)
+        {
+            if(enemy.transform.position == enemiesList[i].transform.position)
+            {
+                randIndex = Random.Range(0, nodesAtSpecificRange.Count);
+                enemy.transform.position = nodesAtSpecificRange[randIndex].position;
+            }
+        }
+    }
+
+    /**
      * Launch enemies attack
      */
     public void Attack()

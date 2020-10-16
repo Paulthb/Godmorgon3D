@@ -111,7 +111,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100))
         {
-            if (hit.collider.tag == "Node" && _card.cardType != BasicCard.CARDTYPE.ATTACK)
+            if (hit.collider.tag == "Node" && _card.dropTarget == BasicCard.DROP_TARGET.NODE)
             {
                 Vector3Int clickedNode = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
                 context.targetNodePos = clickedNode;
@@ -119,7 +119,8 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 // Check if drop on node is ok 
                 dropPosManager.GetDropCardContext(_card, clickedNode, context);
             }
-            else if (hit.collider.tag == "Enemy" && _card.cardType == BasicCard.CARDTYPE.ATTACK)
+
+            else if (hit.collider.tag == "Enemy" && _card.dropTarget == BasicCard.DROP_TARGET.ENEMY)
             {
                 // Add enemy selected in context
                 context.targets = hit.collider.GetComponentInParent<EnemyScript>().enemyData;
@@ -129,7 +130,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
                 dropPosManager.GetDropCardContext(_card, enemyNodePos, context);
             }
-            else if (hit.collider.tag == "Player")
+            else if (hit.collider.tag == "Player" && _card.dropTarget == BasicCard.DROP_TARGET.PLAYER)
             {
                 // put player in context
                 context.targets = hit.collider.GetComponentInParent<PlayerMgr>().playerData;

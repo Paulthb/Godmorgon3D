@@ -66,6 +66,9 @@ namespace GodMorgon.Models
         public bool DrawCard = false;
         public int nbCardToDraw = 0;
 
+        //effect to teleport an enemy
+        public bool Teleport = false;
+
         //effect to discard card
         public bool DiscardCard = false;
         public int nbDiscardCard = 0;
