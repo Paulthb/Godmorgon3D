@@ -817,6 +817,16 @@ public class MapManager : MonoBehaviour
     }
 
 
+    /**
+     * Get a tile position with tile coordinates : (0,0) for down left tile, (2,2) for up right tile 
+     */
+    public Vector3Int GetTilePosInNode(Transform node, int xIndex, int yIndex)
+    {
+        Vector3Int tilePos = node.GetComponent<NodeScript>().node.tiles[xIndex, yIndex].tilePosition;
+
+        return tilePos;
+    }
+
 
     #endregion
 }

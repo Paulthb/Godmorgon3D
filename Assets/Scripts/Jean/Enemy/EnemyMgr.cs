@@ -148,7 +148,7 @@ public class EnemyMgr : MonoBehaviour
     }
 
     /**
-     * Permet de lancer le move des ennemis loin du player, l'un après l'autre
+     * Launch enemy move one after the other
      */
     IEnumerator TimedEnemiesMove()
     {
@@ -161,7 +161,7 @@ public class EnemyMgr : MonoBehaviour
             }
         }
 
-        //RecenterEnemiesAfterEnemyMove(); //On recentre les ennemis qui étaient dans la room d'un autre ennemi
+        RecenterEnemiesAfterEnemyMove(); //On recentre les ennemis qui étaient dans la room d'un autre ennemi
         UpdateMovableEnemiesList();    //On met à jour la liste des ennemis déplaçables après recentrage
         enemiesHaveMoved = true;
     }
@@ -176,7 +176,27 @@ public class EnemyMgr : MonoBehaviour
         else
             return false;
     }
+
+    public void RecenterEnemiesAfterEnemyMove()
+    {
+        UpdateEnemiesList();    //On met à jour la liste des ennemis
+
+        //Pour tout les ennemis de la map
+        foreach (EnemyScript enemy in enemiesList)
+        {
+            //Si un ennemi est présent dans la room d'un ennemi et ne fait pas partie de la liste des ennemis déplaçables
+            if (enemy.enemyData.inOtherEnemyNode && !movableEnemiesList.Contains(enemy))
+            {
+                //Debug.Log("Recentrage d'un ennemi après un EnemyMove");
+                enemy.RecenterEnemy();  //On le recentre
+                enemy.enemyData.inOtherEnemyNode = false;   //L'ennemi n'est plus dans la room d'un autre ennemi
+            }
+        }
+    }
+
     #endregion
+
+
 
     /**
      * Spawn X enemies at a range from player
@@ -314,11 +334,10 @@ public class EnemyMgr : MonoBehaviour
         foreach (EnemyScript enemy in enemiesList)
         {
             if (enemy.enemyData.inPlayersNode || enemy.enemiesInRoom.Count > 0)
-            {
-                //Lance anim d'attack
+            {                
                 enemy.Attack();
 
-                while (!enemy.IsAttackFinished()) //Tant qu'ils n'ont pas tous attaqué (s'ils peuvent) on continue
+                while (!enemy.IsAttackFinished())
                 {
                     yield return null;
 
