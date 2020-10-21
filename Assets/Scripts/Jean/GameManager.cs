@@ -183,6 +183,7 @@ public class GameManager : MonoBehaviour
         handManager.DiscardCard(card);
         GameEngine.Instance.DiscardCard(card.card);
 
+        //si on est en procédure de choix d'une carte à discard
         if (isDiscardCardSelectionOn)
         {
             nbCardToDiscard--;

@@ -15,6 +15,7 @@ MonoBehaviour:
   cardType: 4
   id: 0
   name: Bandage
+  dropTarget: 1
   description: 'Trust 4
 
 
@@ -40,6 +41,7 @@ MonoBehaviour:
     sightRange: 1
     DrawCard: 1
     nbCardToDraw: 2
+    Teleport: 0
     DiscardCard: 0
     nbDiscardCard: 0
     isHeal: 1

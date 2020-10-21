@@ -21,12 +21,20 @@ namespace GodMorgon.Models
             POWER_UP,
             SPELL,
             SIGHT,
-            CURSE,
+            CURSE
+        }
+
+        public enum DROP_TARGET
+        {
+            NODE,
+            PLAYER,
+            ENEMY
         }
 
         public CARDTYPE cardType = CARDTYPE.MOVE;
         public int id;
         public new string name;
+        public DROP_TARGET dropTarget = DROP_TARGET.NODE;
 
         [TextArea]
         public string description;

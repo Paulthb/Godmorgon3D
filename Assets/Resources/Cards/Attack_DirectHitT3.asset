@@ -15,6 +15,7 @@ MonoBehaviour:
   cardType: 1
   id: 9
   name: Direct Hit
+  dropTarget: 2
   description: 'Trust 3
 
     Ranged 1.
@@ -42,6 +43,7 @@ MonoBehaviour:
     sightRange: 1
     DrawCard: 0
     nbCardToDraw: 0
+    Teleport: 0
     DiscardCard: 0
     nbDiscardCard: 0
     isHeal: 0
