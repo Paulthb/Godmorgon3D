@@ -344,9 +344,10 @@ namespace GodMorgon.Player
         IEnumerator LaunchActionsInNewNode()
         {
             //RoomEffectManager.Instance.LaunchRoomEffect(GetPlayerRoomPosition());   //Lance l'effet de room sur laquelle on vient d'arriver
+            yield return new WaitForSeconds(.5f);
             FogMgr.Instance.ClearFogOnAccessibleNode(); // Clear the fog around the node we just arrived in
 
-            yield return new WaitForSeconds(1f);
+            
             canLaunchOtherMove = true;  //On permet le lancement d'un autre move
             if (nbMoveIterationCounter >= nbNodesToMove * multiplier)  //Si on a atteint le nombre de moves possibles de la carte
             {

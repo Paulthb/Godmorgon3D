@@ -626,7 +626,7 @@ public class MapManager : MonoBehaviour
                 else if (currentIntensity <= 0)
                     offset = 0.01f;
 
-                rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);
+                rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);                
             }
             else
                 print("No ground found for node");
@@ -641,7 +641,6 @@ public class MapManager : MonoBehaviour
         if (!accessibleShown)
         {
             accessibleShown = true;
-            UpdateAccessibleNodesList();
             AllowAccessibleNodesEffects();
         }
     }
@@ -667,13 +666,19 @@ public class MapManager : MonoBehaviour
             if (groundOfNode != null)
             {
                 MeshRenderer rend = groundOfNode.GetComponent<MeshRenderer>();
+                float currentIntensity = rend.materials[0].GetFloat("_Intensity");
 
-                offset += 0.01f;
+                offset = 0.01f;
 
-                rend.materials[0].SetFloat("_Intensity", offset);
+                rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);
 
-                if (rend.materials[0].GetFloat("_Intensity") >= 5f)
+                if (rend.materials[0].GetFloat("_Intensity") >= 1f)
+                {
+                    print("Reset");
+                    rend.materials[0].SetFloat("_Intensity", 5f);
                     resetAccessibleEffect = false;
+                }
+                    
             }
             else
                 print("No ground found for node");
@@ -686,7 +691,7 @@ public class MapManager : MonoBehaviour
     public bool CheckClickedNode(Vector3Int clickedNode)
     {
         //Get new accessible nodes
-        UpdateAccessibleNodesList();
+        //UpdateAccessibleNodesList();
 
         foreach (Transform node in accessibleNodes)
         {
