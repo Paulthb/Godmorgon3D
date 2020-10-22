@@ -12,8 +12,8 @@ namespace GodMorgon.GameSequencerSpace
     {
         public override IEnumerator ExecuteAction(GameContext context)
         {
-            RoomEffectManager.Instance.LaunchCurseRoomEffect();
-            while (!RoomEffectManager.Instance.RoomEffectDone())
+            NodeEffectMgr.Instance.LaunchCurseNodeEffect();
+            while (!NodeEffectMgr.Instance.NodeEffectDone())
                 yield return null;
         }
     }

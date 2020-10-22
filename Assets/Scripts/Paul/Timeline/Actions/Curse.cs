@@ -8,7 +8,8 @@ namespace GodMorgon.Timeline
     {
         public override IEnumerator Execute()
         {
-            EnemyMgr.Instance.CurseNode();  //Curse a node at a specified range
+            NodeEffectMgr.Instance.CurseNode();  //Curse a node at a specified range
+
             Debug.Log("ACTION Curse");
 
             yield return new WaitForSeconds(2f);

@@ -387,27 +387,6 @@ public class EnemyMgr : MonoBehaviour
             return false;
     }
 
-    /*
-     * Timeline action : Curse a node at a range from player
-     */
-    public void CurseNode()
-    {
-        List<Transform> nodesAtRange = MapManager.Instance.GetNodesAtRangeFromPlayer(curseRangeFromPlayer);
-
-        int randomNode = Random.Range(0, nodesAtRange.Count);
-
-        //Pick a random node in list of node at range
-        Transform nodeToCurse = nodesAtRange[randomNode];
-
-        //Launch particules on node 
-        //GameObject curseParticules = Instantiate(roomFxList[3], cursedRoomWorldPos, Quaternion.identity, roomEffectsParent);
-        //curseParticules.transform.localScale = new Vector3(.5f, .5f, 0);
-
-        //Set the node as Cursed
-        nodeToCurse.GetComponent<NodeScript>().node.nodeEffect = NodeEffect.Cursed;
-    }
-
-
     /**
      * Return a list of enemies on player's node
      */

@@ -11,9 +11,7 @@ public enum RoomEffect
 {
     EMPTY,
     CURSE,
-    SHOP,
     REST,
-    REMOVE,
     CHEST,
     START,
     EXIT
@@ -120,13 +118,7 @@ public class RoomEffectManager : MonoBehaviour
                     LaunchCurseRoomEffect();
                     
                     break;
-                case RoomEffect.SHOP:
-
-                    break;
                 case RoomEffect.REST:
-
-                    break;
-                case RoomEffect.REMOVE:
 
                     break;
                 case RoomEffect.CHEST:
@@ -168,14 +160,8 @@ public class RoomEffectManager : MonoBehaviour
                 case RoomEffect.CURSE:
                     currentTileBase = GetTileBase("Curse");
                     break;
-                case RoomEffect.SHOP:
-                    currentTileBase = GetTileBase("Shop");
-                    break;
                 case RoomEffect.REST:
                     currentTileBase = GetTileBase("Rest");
-                    break;
-                case RoomEffect.REMOVE:
-                    currentTileBase = GetTileBase("Remove");
                     break;
                 case RoomEffect.CHEST:
                     currentTileBase = GetTileBase("Chest");

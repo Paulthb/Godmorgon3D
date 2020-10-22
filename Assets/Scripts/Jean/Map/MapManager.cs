@@ -16,7 +16,7 @@ public class Node
     public RoadType roadType;
     public Tiles[,] tiles;
 
-    public NodeEffect nodeEffect = NodeEffect.NoEffect;
+    public NodeEffect nodeEffect = NodeEffect.EMPTY;
 
     public bool effectLaunched = false;
     public bool isNodeCleared = false;
@@ -47,15 +47,6 @@ public enum RoadType
     DeadendUp,
     DeadendDown,
     NoRoad
-}
-
-//TEMPORAIRE
-public enum NodeEffect
-{
-    NoEffect,
-    Cursed,
-    Rest,
-    Chest
 }
 
 public class MapManager : MonoBehaviour
@@ -170,6 +161,7 @@ public class MapManager : MonoBehaviour
                 }
             }
         }
+
 
         #region Delete rows or colums of nodes
 
@@ -806,7 +798,7 @@ public class MapManager : MonoBehaviour
         List<Transform> nodesAtRange = new List<Transform>();
 
         //Put in a list the nodes at specific range from the player
-        foreach (Transform node in MapManager.Instance.nodesList)
+        foreach (Transform node in nodesList)
         {
             float dist = Vector3.Distance(PlayerMgr.Instance.GetNodePosOfPlayer(), node.position);
 
