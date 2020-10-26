@@ -6,6 +6,7 @@ using GodMorgon.Models;
 using GodMorgon.Player;
 using GodMorgon.Sound;
 using GodMorgon.VisualEffect;
+using TMPro;
 using UnityEngine;
 
 namespace GodMorgon.Player
@@ -30,26 +31,29 @@ namespace GodMorgon.Player
 
         private CardEffectData[] _cardEffectDatas; //Move card datas
 
-        private int basePlayerY = 0;
         private int tileIndex = 0;
-        private int nbMoveIterationCounter = 0; //nb d'iterations de move effectuées
+        private int nbMoveIterationCounter = 0;
         private int nbNodesToMove = 1;
         [NonSerialized]
         public int multiplier = 1;
 
         [NonSerialized]
         public PlayerData playerData;
-
-        private HealthBar _healthBar = null;
+        
+        
         /**
         * la healthBar sera enfant du canvas de cette objet
         */
+        [Header("UI Settings")]
         [SerializeField]
         private GameObject healthBarPrefab = null;
         [SerializeField]
         private Transform healthBarPos = null;
         [SerializeField]
         private Transform playerCanvas = null;
+        [SerializeField]
+        private TextMeshProUGUI goldValueText;
+        private HealthBar _healthBar = null;
 
         //all visual effect for the player
         [Header("Visual Effect")]
@@ -82,11 +86,6 @@ namespace GodMorgon.Player
         // Start is called before the first frame update
         void Start()
         {
-            //supposedPos = GetNodePosOfPlayer();
-            basePlayerY = (int)this.transform.position.y;
-
-            nbMoveIterationCounter = 0;
-
             nbMoveIterationCounter = 0;
 
             //création du playerData
@@ -94,6 +93,8 @@ namespace GodMorgon.Player
 
             if (healthBarPrefab != null)
                 InitializeHealthBar();
+
+            UpdateGoldText();
         }
 
         // Update is called once per frame
@@ -343,11 +344,16 @@ namespace GodMorgon.Player
             */
         IEnumerator LaunchActionsInNewNode()
         {
-            //RoomEffectManager.Instance.LaunchRoomEffect(GetPlayerRoomPosition());   //Lance l'effet de room sur laquelle on vient d'arriver
+            NodeEffectMgr.Instance.LaunchRoomEffect(GetNodePosOfPlayer());   //Lance l'effet de room sur laquelle on vient d'arriver
+            
             yield return new WaitForSeconds(.5f);
             FogMgr.Instance.ClearFogOnAccessibleNode(); // Clear the fog around the node we just arrived in
 
-            
+            while(!NodeEffectMgr.Instance.NodeEffectDone())
+            {
+                yield return null;
+            }
+
             canLaunchOtherMove = true;  //On permet le lancement d'un autre move
             if (nbMoveIterationCounter >= nbNodesToMove * multiplier)  //Si on a atteint le nombre de moves possibles de la carte
             {
@@ -366,8 +372,8 @@ namespace GodMorgon.Player
         #region PLAYER POSITIONS
 
         /**
-            * Return player's tile position
-            */
+        * Return player's tile position
+        */
         public Vector3Int GetTilePosOfPlayer()
         {
             Tiles currentTile = MapManager.Instance.GetTileFromPos(new Vector3Int((int)transform.position.x,
@@ -437,6 +443,16 @@ namespace GodMorgon.Player
         }
 
         /**
+         * Set player health to maximum
+         */
+        public void SetHealthToMax()
+        {
+            _healthBar.SetBarPoints(playerData.healthMax, playerData.defenseMax);
+            playerData.health = playerData.healthMax;
+            playerData.defense = playerData.defenseMax;
+        }
+
+        /**
         * Inflige des damages au player
         */
         public void TakeDamage(int damage)
@@ -478,11 +494,20 @@ namespace GodMorgon.Player
 
         /**
         * Add Gold to player
-        * ~~ il faudra mettre à jour l'interface
         */
         public void AddGold(int goldValue)
         {
             playerData.AddGold(goldValue);
+
+            UpdateGoldText();
+        }
+
+        /**
+        * Update Gold Text
+        */
+        public void UpdateGoldText()
+        {
+            goldValueText.text = playerData.goldValue.ToString();
         }
 
         /**

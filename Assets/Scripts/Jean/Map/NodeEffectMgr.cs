@@ -1,4 +1,5 @@
-﻿using GodMorgon.Player;
+﻿using GodMorgon.Models;
+using GodMorgon.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,7 @@ public class NodeEffectMgr : MonoBehaviour
 
     [Header("Curse Settings")]
     public int curseRange;
+    public BasicCard cursedCard;
 
     [Header("Chest Settings")]
     public int goldInChest = 5;
@@ -32,6 +34,7 @@ public class NodeEffectMgr : MonoBehaviour
 
     #region Singleton Pattern
     private static NodeEffectMgr _instance;
+    
 
     public static NodeEffectMgr Instance { get { return _instance; } }
     #endregion
@@ -83,6 +86,38 @@ public class NodeEffectMgr : MonoBehaviour
     }
 
 
+    public void LaunchRoomEffect(Vector3Int nodePos)
+    {
+        playerNode = MapManager.Instance.GetNodeFromPos(nodePos).GetComponent<NodeScript>().node;
+
+        if (!playerNode.effectLaunched)
+        {
+            switch (playerNode.nodeEffect) // Check node effect
+            {
+                case NodeEffect.CURSE:
+                    LaunchCurseNodeEffect();
+
+                    break;
+                case NodeEffect.REST:
+                    LaunchRestNodeEffect();
+                    break;
+                case NodeEffect.CHEST:
+                    LaunchChestNodeEffect();
+
+                    break;
+                case NodeEffect.START:
+                    // Lance un tuto ? une anim ?
+                    break;
+                case NodeEffect.EXIT:
+                    // Lance la fin de la partie
+                    break;
+            }
+
+            playerNode.effectLaunched = true;
+        }
+    }
+
+
     #region CURSE
 
     /*
@@ -116,8 +151,13 @@ public class NodeEffectMgr : MonoBehaviour
 
         //On lance les particules de Curse sur la room 
         //Instantiate(nodeFxList[0], currentRoomWorldPos, Quaternion.identity, nodeEffectsParent);
-        //if (null != cursedCard)
-            //GameManager.Instance.AddCardToDiscardPile(cursedCard);
+
+        if (null != cursedCard)
+            GameManager.Instance.AddCardToDiscardPile(cursedCard);
+        else print("No cursed card given to NodeEffectMgr");
+
+        //print("Node effect : CURSE");
+
         StartCoroutine(TimedNodeEffect());
     }
 
@@ -130,13 +170,14 @@ public class NodeEffectMgr : MonoBehaviour
     public void LaunchChestNodeEffect()
     {
         if (null == playerNode) return;
-        //Vector3 currentRoomWorldPos = roomTilemap.CellToWorld(new Vector3Int(currentRoom.x, currentRoom.y, 0)) + new Vector3(0, 0.75f, 0);
 
         // Create particule effect object
         //Instantiate(nodeFxList[(int)NodeEffect.CHEST], currentRoomWorldPos, Quaternion.identity, nodeEffectsParent);
 
         // Add gold to player
         PlayerMgr.Instance.AddGold(goldInChest);
+
+        print("Node effect : CHEST \nAdd " + goldInChest + " gold");
 
         //SFX chest room
         //MusicManager.Instance.PlayFeedbackChest();
@@ -152,6 +193,12 @@ public class NodeEffectMgr : MonoBehaviour
     {
         // Add rest
         if (null == playerNode) return;
+
+        print("Node effect : REST");
+
+        PlayerMgr.Instance.SetHealthToMax();
+
+        StartCoroutine(TimedNodeEffect());
     }
 
 

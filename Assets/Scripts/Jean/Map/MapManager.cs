@@ -591,7 +591,7 @@ public class MapManager : MonoBehaviour
             {
                 MeshRenderer rend = groundOfNode.GetComponent<MeshRenderer>();
 
-                rend.materials[0].SetFloat("_Intensity", 2f);
+                rend.materials[0].SetFloat("_Intensity", 1.2f);
             }
             else
                 print("No ground found for node");
@@ -660,13 +660,12 @@ public class MapManager : MonoBehaviour
                 MeshRenderer rend = groundOfNode.GetComponent<MeshRenderer>();
                 float currentIntensity = rend.materials[0].GetFloat("_Intensity");
 
-                offset = 0.01f;
+                offset = 0.03f;
 
                 rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);
 
                 if (rend.materials[0].GetFloat("_Intensity") >= 1f)
                 {
-                    print("Reset");
                     rend.materials[0].SetFloat("_Intensity", 5f);
                     resetAccessibleEffect = false;
                 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using GodMorgon.CardEffect;
 
 /**
- * Effet Rest d'une room
+ * Effet Curse d'une room
  */
 namespace GodMorgon.GameSequencerSpace
 {

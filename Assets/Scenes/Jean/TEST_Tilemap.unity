@@ -3726,36 +3726,6 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
---- !u!1 &341291480
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 341291481}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &341291481
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 341291480}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 515439099}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &343963598
 GameObject:
   m_ObjectHideFlags: 0
@@ -4345,7 +4315,7 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 7d1d986ac4d80e841924dbe9145a4f86,
       type: 3}
     roadType: 4
-    nodeEffect: 0
+    nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
 --- !u!1 &389329221
@@ -5380,8 +5350,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 341291481}
+  m_Children: []
   m_Father: {fileID: 518248502}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5414,6 +5383,7 @@ Transform:
   m_Children:
   - {fileID: 515439099}
   - {fileID: 2074570567}
+  - {fileID: 1451149303}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11877,8 +11847,10 @@ MonoBehaviour:
     effectLaunched: 0
     isNodeCleared: 0
   curseRange: 2
+  cursedCard: {fileID: 11400000, guid: a8bc687686e0d8247bd221dbe4ac5007, type: 2}
+  goldInChest: 5
   nodeFxList: []
-  nodeEffectsParent: {fileID: 0}
+  nodeEffectsParent: {fileID: 1451149303}
 --- !u!1001 &1185715074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14801,6 +14773,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1444894226}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1451149302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1451149303}
+  m_Layer: 0
+  m_Name: NodeEffectsParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1451149303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451149302}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 518248502}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1457251673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17698,7 +17700,7 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: b7f55fb74782ea344bf13eb9767c53ae,
       type: 3}
     roadType: 3
-    nodeEffect: 0
+    nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
 --- !u!1001 &1882961931
@@ -20785,6 +20787,11 @@ PrefabInstance:
       propertyPath: playerSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: goldValueText
+      value: 
+      objectReference: {fileID: 16656106}
     - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
       propertyPath: m_LocalPosition.x
