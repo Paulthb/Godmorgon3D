@@ -59,18 +59,34 @@ public class NodeEffectMgr : MonoBehaviour
     void InitNodesList()
     {
         nodesList.Clear();
-
+        Node currentNode;
         foreach (Transform node in MapManager.Instance.transform.Find("Generated Map"))
         {
-            nodesList.Add(node.GetComponent<NodeScript>().node);
+            currentNode = node.GetComponent<NodeScript>().node;
+            nodesList.Add(currentNode);
+            
+            // Instantiate effect if different than empty ( /!\ Effects in list have to be well ordered )
+            if(currentNode.nodeEffect != NodeEffect.EMPTY)
+            {
+                switch(currentNode.nodeEffect)
+                {
+                    case NodeEffect.CURSE:
+                        Instantiate(nodeFxList[0], node);
+                        break;
+                    case NodeEffect.CHEST:
+                        
+                        break;
+                    case NodeEffect.REST:
+                        Instantiate(nodeFxList[1], node);
+                        break;
+                }
+            }
         }
 
         if (nodesList.Count == 0)
         {
             print("No nodes found. List can't be init");
         }
-
-        //Instantiate effect
     }
 
     // Start is called before the first frame update

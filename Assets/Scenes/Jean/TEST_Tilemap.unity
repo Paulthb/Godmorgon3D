@@ -4315,7 +4315,7 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 7d1d986ac4d80e841924dbe9145a4f86,
       type: 3}
     roadType: 4
-    nodeEffect: 3
+    nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
 --- !u!1 &389329221
@@ -11810,7 +11810,8 @@ MonoBehaviour:
   walkablePoint: {fileID: 2641223498923668382, guid: 224fa3459ee826d4c8ccfd39a804aa84,
     type: 3}
   walkablePtHolder: {fileID: 2019526418}
-  nodesList: []
+  nodesList:
+  - {fileID: 4894572644564906822, guid: f55efadd2adce8144a0032126ffb8fac, type: 3}
 --- !u!4 &1179904064
 Transform:
   m_ObjectHideFlags: 0
@@ -11849,7 +11850,9 @@ MonoBehaviour:
   curseRange: 2
   cursedCard: {fileID: 11400000, guid: a8bc687686e0d8247bd221dbe4ac5007, type: 2}
   goldInChest: 5
-  nodeFxList: []
+  nodeFxList:
+  - {fileID: 5594890576326695108, guid: d5851479e4ad82440a0dd203f5a7dbca, type: 3}
+  - {fileID: 4894572644564906817, guid: f55efadd2adce8144a0032126ffb8fac, type: 3}
   nodeEffectsParent: {fileID: 1451149303}
 --- !u!1001 &1185715074
 PrefabInstance:
