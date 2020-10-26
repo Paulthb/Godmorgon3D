@@ -64,23 +64,9 @@ public class NodeEffectMgr : MonoBehaviour
         {
             currentNode = node.GetComponent<NodeScript>().node;
             nodesList.Add(currentNode);
-            
+
             // Instantiate effect if different than empty ( /!\ Effects in list have to be well ordered )
-            if(currentNode.nodeEffect != NodeEffect.EMPTY)
-            {
-                switch(currentNode.nodeEffect)
-                {
-                    case NodeEffect.CURSE:
-                        Instantiate(nodeFxList[0], node);
-                        break;
-                    case NodeEffect.CHEST:
-                        
-                        break;
-                    case NodeEffect.REST:
-                        Instantiate(nodeFxList[1], node);
-                        break;
-                }
-            }
+            InstantiateParticlesOnNode(currentNode, node);
         }
 
         if (nodesList.Count == 0)
@@ -99,6 +85,28 @@ public class NodeEffectMgr : MonoBehaviour
     void Update()
     {
         
+    }
+
+    /**
+     * Instantiate the particles of a non-launched node effect
+     */
+    private void InstantiateParticlesOnNode(Node node, Transform nodeTransform)
+    {
+        if (node.nodeEffect != NodeEffect.EMPTY)
+        {
+            switch (node.nodeEffect)
+            {
+                case NodeEffect.CURSE:
+                    Instantiate(nodeFxList[0], nodeTransform);
+                    break;
+                case NodeEffect.CHEST:
+
+                    break;
+                case NodeEffect.REST:
+                    Instantiate(nodeFxList[1], nodeTransform);
+                    break;
+            }
+        }
     }
 
 
@@ -148,12 +156,11 @@ public class NodeEffectMgr : MonoBehaviour
         //Pick a random node in list of node at range
         Transform nodeToCurse = nodesAtRange[randomNode];
 
-        //Launch particules on node 
-        //GameObject curseParticules = Instantiate(roomFxList[3], cursedRoomWorldPos, Quaternion.identity, roomEffectsParent);
-        //curseParticules.transform.localScale = new Vector3(.5f, .5f, 0);
-
         //Set the node as Cursed
         nodeToCurse.GetComponent<NodeScript>().node.nodeEffect = NodeEffect.CURSE;
+
+        //Launch particules on node 
+        InstantiateParticlesOnNode(nodeToCurse.GetComponent<NodeScript>().node, nodeToCurse);        
     }
 
 
