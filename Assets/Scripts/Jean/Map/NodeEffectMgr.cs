@@ -112,7 +112,8 @@ public class NodeEffectMgr : MonoBehaviour
 
     public void LaunchRoomEffect(Vector3Int nodePos)
     {
-        playerNode = MapManager.Instance.GetNodeFromPos(nodePos).GetComponent<NodeScript>().node;
+        Transform nodeObject = MapManager.Instance.GetNodeFromPos(nodePos);
+        playerNode = nodeObject.GetComponent<NodeScript>().node;
 
         if (!playerNode.effectLaunched)
         {
@@ -136,6 +137,9 @@ public class NodeEffectMgr : MonoBehaviour
                     // Lance la fin de la partie
                     break;
             }
+
+            // Remove particules on node
+            StartCoroutine(DeleteParticles(nodeObject));
 
             playerNode.effectLaunched = true;
         }
@@ -245,5 +249,16 @@ public class NodeEffectMgr : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    /**
+     * Remove particles on node when effect launched
+     */
+    IEnumerator DeleteParticles(Transform currentNode)
+    {
+        ParticleSystem currentParticleObject = currentNode.GetComponentInChildren<ParticleSystem>();
+        currentParticleObject.Stop();
+        yield return new WaitForSeconds(3f);
+        Destroy(currentParticleObject.gameObject);
     }
 }
