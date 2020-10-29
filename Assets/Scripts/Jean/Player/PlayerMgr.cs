@@ -18,11 +18,16 @@ namespace GodMorgon.Player
         public AnimationCurve playerMoveCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
         //BOOLS
-        //[NonSerialized]
+        [NonSerialized]
         public bool isMoving = false;
+        [NonSerialized]
         public bool playerCanMove = false;
         private bool canLaunchOtherMove = false;
         private bool playerHasMoved = false;
+        private bool enemyOnPath = false;
+        [SerializeField]
+        private bool firstInRoom = true;
+
 
         //Path count
         [NonSerialized]
@@ -157,7 +162,7 @@ namespace GodMorgon.Player
         {
             nbNodesToMove = BuffManager.Instance.getModifiedMove(_cardEffectDatas[0].nbMoves);  //Update le nombre de rooms à parcourir, qui changera en fct du nb sur la carte et si un fast shoes a été joué
 
-            //GameManager.Instance.DownPanelBlock(true);  //Block le down panel pour que le joueur ne puisse pas jouer de carte pendant le mouvement
+            GameManager.Instance.DownPanelBlock(true);  //Block le down panel pour que le joueur ne puisse pas jouer de carte pendant le mouvement
 
 
             //Get player tile pos
@@ -175,80 +180,46 @@ namespace GodMorgon.Player
 
 
             //création du path, prenant en compte la position des tiles, le point de départ, le point d'arrivée, et la longueur en tiles du path
-            //roadPath est une liste de spots = une liste de positions de tiles
+            //playerPath est une liste de spots = une liste de positions de tiles
             playerPath = MapManager.Instance.astar.CreatePath(MapManager.Instance.grid, new Vector2Int(playerTilePos.x, playerTilePos.z), new Vector2Int(targetTilePos.x, targetTilePos.z), 5);
 
-            //bool isEnemyOnPath = false;
+            enemyOnPath = false;
 
             if (playerPath == null) return;
 
-            /*
-            //on ajoute les tiles par lesquelles il va devoir passer sauf celle où il y a un enemy
-            if (null != EnemyManager.Instance.GetEnemyViewByPosition(new Vector3Int(roadPath[0].X, roadPath[0].Y, 0)))
+            
+            //On ajoute les tiles par lesquelles il va devoir passer sauf celle où il y a un enemy
+            if (null != EnemyMgr.Instance.GetEnemyByPosition(new Vector3Int(playerPath[0].X, 0, playerPath[0].Y)))
             {
-                EnemyManager.Instance.GetEnemyViewByPosition(new Vector3Int(roadPath[0].X, roadPath[0].Y, 0)).enemyData.inPlayersNode = true;
-                isEnemyOnPath = true;
-                isFirstInRoom = false;
+                EnemyMgr.Instance.GetEnemyByPosition(new Vector3Int(playerPath[0].X, 0, playerPath[0].Y)).enemyData.inPlayersNode = true;
+                enemyOnPath = true;
+                firstInRoom = false;
 
-                supposedPos = new Vector3Int(roadPath[0].X, roadPath[0].Y, 0);    //La position supposée est celle de l'ennemi sur le path
-                roadPath.Remove(roadPath[0]);
-            }*/
+                supposedPos = new Vector3Int(playerPath[0].X, 0, playerPath[0].Y);    //La position supposée est celle de l'ennemi sur le path
+                playerPath.Remove(playerPath[0]);
+            }
 
             //playerPath = roadPath;
 
             //Si on ETAIT le premier arrivé dans la room, alors un ennemi présent dans la room doit se recentrer au milieu de la room
-            //if (isFirstInRoom)
-            //    EnemyManager.Instance.RecenterEnemiesAfterPlayerMove();
+            if (firstInRoom)
+                EnemyMgr.Instance.RecenterEnemiesAfterPlayerMove();
 
 
             playerPath.Reverse(); //on inverse la liste pour la parcourir de la tile la plus proche à la plus éloignée
             playerPath.RemoveAt(0);
 
             //Si on n'a pas d'ennemi sur le chemin, on est le premier arrivé dans la room
-            //if (!isEnemyOnPath)
-            //{
-            //    supposedPos = new Vector3Int(playerPath[playerPath.Count - 1].X, playerPath[playerPath.Count - 1].Y, 0); //position supposée = dernière tile du path
+            if (!enemyOnPath)
+            {
+                supposedPos = new Vector3Int(playerPath[playerPath.Count - 1].X, 0, playerPath[playerPath.Count - 1].Y); //position supposée = dernière tile du path
 
-            //    isFirstInRoom = true;
-            //    foreach (EnemyView enemy in EnemyManager.Instance.GetEnemiesInPlayersRoom())
-            //    {
-            //        enemy.enemyData.inPlayersNode = false;
-            //    }
-            //}
-
-            //On reset les particules avant d'attribuer les nouvelles
-            //foreach (ParticleSystemScript particule in wheelParticules)
-            //{
-            //    particule.stopParticle();
-            //}
-
-            ////On update le sprite du player en fonction de sa direction
-            //if (playerPath[0].Y > playerCellPos.y)
-            //{
-            //    UpdatePlayerSprite("haut_gauche");
-            //    wheelParticules[1].launchParticle();
-            //}
-            //else if (playerPath[0].X > playerCellPos.x)
-            //{
-            //    UpdatePlayerSprite("haut_droite");
-            //    wheelParticules[2].launchParticle();
-            //}
-            //else if (playerPath[0].X < playerCellPos.x)
-            //{
-            //    UpdatePlayerSprite("bas_gauche");
-            //    wheelParticules[3].launchParticle();
-            //}
-            //else if (playerPath[0].Y < playerCellPos.y)
-            //{
-            //    UpdatePlayerSprite("bas_droite");
-            //    wheelParticules[0].launchParticle();
-            //}
-
-
-            //foreach (Spot spot in playerPath)
-            //{
-            //    Debug.Log(spot.X + " / " + spot.Y);
-            //}
+                firstInRoom = true;
+                foreach (EnemyScript enemy in EnemyMgr.Instance.GetEnemiesOnPlayersNode())
+                {
+                    enemy.enemyData.inPlayersNode = false;
+                }
+            }
 
             playerCanMove = true;  //on autorise le player à bouger
 

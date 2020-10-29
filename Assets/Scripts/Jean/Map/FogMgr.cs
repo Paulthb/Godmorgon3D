@@ -157,8 +157,6 @@ public class FogMgr : MonoBehaviour
      */
     public void RevealZoneAtPosition(Vector3Int baseRoomPosition)
     {
-        print("RevealZone");
-
         foreach (Transform nearNode in MapManager.Instance.GetNearNodesList(baseRoomPosition, revealRange))
         {
             ClearFogOnNode(nearNode);

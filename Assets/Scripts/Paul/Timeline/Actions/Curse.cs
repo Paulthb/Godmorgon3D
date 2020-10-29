@@ -10,8 +10,6 @@ namespace GodMorgon.Timeline
         {
             NodeEffectMgr.Instance.CurseNode();  //Curse a node at a specified range
 
-            Debug.Log("ACTION Curse");
-
             yield return new WaitForSeconds(2f);
 
             //yield return null;

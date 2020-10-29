@@ -11,6 +11,8 @@ public class EnemyMgr : MonoBehaviour
     private List<EnemyScript> enemiesList;
     private List<EnemyScript> movableEnemiesList;
     private List<EnemyScript> attackableEnemiesList;
+    private List<EnemyScript> enemiesOnPlayersNode = new List<EnemyScript>();
+    private List<Vector3Int> attackableEnemiesTiles = new List<Vector3Int>();
 
     //public List<Vector3Int> spawnList = new List<Vector3Int>();    //List of spawns for enemies
     public List<GameObject> enemiesPrefabsList = new List<GameObject>();    //All the prefabs of enemies that can be instantiated
@@ -79,6 +81,50 @@ public class EnemyMgr : MonoBehaviour
         return enemiesList;
     }
 
+
+    /**
+     * Return an enemy by his tile position
+     */
+    public EnemyScript GetEnemyByPosition(Vector3Int tilePosition)
+    {
+        UpdateEnemiesList();
+
+        if (enemiesList.Count > 0)
+        {
+            foreach (EnemyScript enemy in enemiesList)
+            {
+                Vector3Int enemyTilePos = GetEnemyTilePos(enemy.transform);
+                if (enemyTilePos.x == tilePosition.x && enemyTilePos.z == tilePosition.z)
+                {
+                    return enemy;
+                }
+            }
+        }
+
+        return null;
+    }
+
+
+    /**
+    * Renvoie la liste des ennemis présents dans la room du player
+    * Met à jour en même temps la listes des tiles sur lesquelles sont les ennemis présents dans la room du player
+    */
+    public void UpdateEnemiesOnPlayersNodeList()
+    {
+        UpdateEnemiesList();
+
+        enemiesOnPlayersNode.Clear();
+
+        foreach (EnemyScript enemy in enemiesList)
+        {
+            if (enemy.enemyData.inPlayersNode)
+            {
+                enemiesOnPlayersNode.Add(enemy);
+            }
+        }
+    }
+
+
     /**
      * Put EVERY child of EnemyMgr in the list
      */
@@ -114,6 +160,7 @@ public class EnemyMgr : MonoBehaviour
             }
         }
     }
+
 
     #region FUNCTIONS FOR MOVEMENT
 
@@ -191,6 +238,26 @@ public class EnemyMgr : MonoBehaviour
                 enemy.RecenterEnemy();  //On le recentre
                 enemy.enemyData.inOtherEnemyNode = false;   //L'ennemi n'est plus dans la room d'un autre ennemi
             }
+        }
+    }
+
+    /**
+     * Prend un ennemi présent dans la room du player et le recentre au milieu de la room
+     * Cela peut arriver si le joueur fuit une room avec des ennemis dedans
+     */
+    public void RecenterEnemiesAfterPlayerMove()
+    {
+        UpdateEnemiesOnPlayersNodeList();   //On réactualise la liste des ennemis présents dans la room du player
+
+        //Si on a des ennemis dans la room du player
+        if (enemiesOnPlayersNode.Count > 0)
+        {
+            enemiesOnPlayersNode[0].RecenterEnemy();    //Le premier ennemi se recentre en avançant d'une case vers le player
+            foreach (EnemyScript enemy in enemiesOnPlayersNode)
+            {
+                enemy.enemyData.inPlayersNode = false;
+            }
+            enemiesOnPlayersNode.Clear();   //On clear la liste car plus d'ennemis présents dans la room du player
         }
     }
 

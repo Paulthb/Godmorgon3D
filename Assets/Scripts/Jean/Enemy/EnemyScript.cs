@@ -256,7 +256,7 @@ namespace GodMorgon.Enemy
          */
         public IEnumerator AttackEffect()
         {
-            shaker.Shake(shakeDuration);
+            //shaker.Shake(shakeDuration);
             yield return new WaitForSeconds(1f);
             isAttackFinished = true;
         }

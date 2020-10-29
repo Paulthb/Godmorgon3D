@@ -47,7 +47,7 @@ public class CameraShaker : MonoBehaviour
         {
             float randomX = Random.Range(-1f, 1f);
             float randomY = Random.Range(-1f, 1f);
-            print(randomX + "/" + randomY);
+            //print(randomX + "/" + randomY);
 
             var randomPoint = new Vector3(randomX * shakeIntensity, randomY * shakeIntensity, _initialPos.z);
             

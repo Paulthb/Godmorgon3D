@@ -119,16 +119,17 @@ public class NodeEffectMgr : MonoBehaviour
         {
             switch (playerNode.nodeEffect) // Check node effect
             {
+                case NodeEffect.EMPTY:
+                    StartCoroutine(TimedNodeEffect());
+                    break;
                 case NodeEffect.CURSE:
                     LaunchCurseNodeEffect();
-
                     break;
                 case NodeEffect.REST:
                     LaunchRestNodeEffect();
                     break;
                 case NodeEffect.CHEST:
                     LaunchChestNodeEffect();
-
                     break;
                 case NodeEffect.START:
                     // Lance un tuto ? une anim ?
@@ -204,8 +205,6 @@ public class NodeEffectMgr : MonoBehaviour
         // Add gold to player
         PlayerMgr.Instance.AddGold(goldInChest);
 
-        print("Node effect : CHEST \nAdd " + goldInChest + " gold");
-
         //SFX chest room
         //MusicManager.Instance.PlayFeedbackChest();
 
@@ -220,8 +219,6 @@ public class NodeEffectMgr : MonoBehaviour
     {
         // Add rest
         if (null == playerNode) return;
-
-        print("Node effect : REST");
 
         PlayerMgr.Instance.SetHealthToMax();
 
@@ -257,8 +254,11 @@ public class NodeEffectMgr : MonoBehaviour
     IEnumerator DeleteParticles(Transform currentNode)
     {
         ParticleSystem currentParticleObject = currentNode.GetComponentInChildren<ParticleSystem>();
+        
+        if (currentParticleObject == null) yield break;
+        
         currentParticleObject.Stop();
         yield return new WaitForSeconds(3f);
-        Destroy(currentParticleObject.gameObject);
+        Destroy(currentParticleObject.gameObject);        
     }
 }

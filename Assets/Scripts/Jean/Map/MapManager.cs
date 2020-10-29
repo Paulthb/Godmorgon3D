@@ -569,8 +569,23 @@ public class MapManager : MonoBehaviour
                 //If the path is direct (less than 5 tiles)
                 if (roadPath != null && roadPath.Count < 5)
                 {
-                    accessibleNodes.Add(node);
-                    //showableTilesList.Add(tile);
+                    bool enemyOnPath = false;
+
+                    // Check if an enemy is on path, but not on the last tile, because we can go on a node with an enemy on it
+                    foreach(Spot tile in roadPath)
+                    {
+                        //If there is an enemy on path
+                        if (EnemyMgr.Instance.GetEnemyByPosition(new Vector3Int(tile.X, 0, tile.Y)))
+                        {
+                            if(EnemyMgr.Instance.GetEnemyByPosition(new Vector3Int(tile.X, 0, tile.Y)).enemyData.inPlayersNode)
+                                enemyOnPath = true;
+                        }
+                    }
+
+                    if(!enemyOnPath)
+                    {
+                        accessibleNodes.Add(node);
+                    }
                 }
             }
         }

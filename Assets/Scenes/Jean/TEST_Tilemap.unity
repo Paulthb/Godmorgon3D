@@ -7424,12 +7424,17 @@ PrefabInstance:
     - target: {fileID: 7298600251662648970, guid: 653085ed10243b14cb2eae8835328137,
         type: 3}
       propertyPath: nbEnemiesToSpawn
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7298600251662648970, guid: 653085ed10243b14cb2eae8835328137,
         type: 3}
       propertyPath: rangeFromPlayer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298600251662648970, guid: 653085ed10243b14cb2eae8835328137,
+        type: 3}
+      propertyPath: spawnRangeFromPlayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7347671793765871052, guid: 653085ed10243b14cb2eae8835328137,
         type: 3}
