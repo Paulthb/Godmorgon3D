@@ -117,6 +117,8 @@ public class GameManager : MonoBehaviour
      */
     public void DrawCardButton()
     {
+        print("Draw card btn");
+
         BasicCard cardDrawn = GameEngine.Instance.DrawCard();
         handManager.AddCard(cardDrawn);
     }
