@@ -600,6 +600,7 @@ public class MapManager : MonoBehaviour
 
         foreach (Transform node in accessibleNodes)
         {
+            print(node.position.x + "/" + node.position.z);
             int lastIndex = node.GetChild(0).GetChild(0).childCount;
             Transform groundOfNode = node.GetChild(0).GetChild(0).GetChild(lastIndex - 1);
             if (groundOfNode != null)
