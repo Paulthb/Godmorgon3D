@@ -596,11 +596,12 @@ public class MapManager : MonoBehaviour
      */
     public void AllowAccessibleNodesEffects()
     {
+        UpdateAccessibleNodesList();
+
         if (accessibleNodes.Count <= 0) return;
 
         foreach (Transform node in accessibleNodes)
         {
-            print(node.position.x + "/" + node.position.z);
             int lastIndex = node.GetChild(0).GetChild(0).childCount;
             Transform groundOfNode = node.GetChild(0).GetChild(0).GetChild(lastIndex - 1);
             if (groundOfNode != null)
