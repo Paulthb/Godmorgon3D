@@ -16,7 +16,7 @@ public class Node
     public RoadType roadType;
     public Tiles[,] tiles;
 
-    public NodeEffect nodeEffect = NodeEffect.NoEffect;
+    public NodeEffect nodeEffect = NodeEffect.EMPTY;
 
     public bool effectLaunched = false;
     public bool isNodeCleared = false;
@@ -47,15 +47,6 @@ public enum RoadType
     DeadendUp,
     DeadendDown,
     NoRoad
-}
-
-//TEMPORAIRE
-public enum NodeEffect
-{
-    NoEffect,
-    Cursed,
-    Rest,
-    Chest
 }
 
 public class MapManager : MonoBehaviour
@@ -170,6 +161,7 @@ public class MapManager : MonoBehaviour
                 }
             }
         }
+
 
         #region Delete rows or colums of nodes
 
@@ -577,8 +569,23 @@ public class MapManager : MonoBehaviour
                 //If the path is direct (less than 5 tiles)
                 if (roadPath != null && roadPath.Count < 5)
                 {
-                    accessibleNodes.Add(node);
-                    //showableTilesList.Add(tile);
+                    bool enemyOnPath = false;
+
+                    // Check if an enemy is on path, but not on the last tile, because we can go on a node with an enemy on it
+                    foreach(Spot tile in roadPath)
+                    {
+                        //If there is an enemy on path
+                        if (EnemyMgr.Instance.GetEnemyByPosition(new Vector3Int(tile.X, 0, tile.Y)))
+                        {
+                            if(EnemyMgr.Instance.GetEnemyByPosition(new Vector3Int(tile.X, 0, tile.Y)).enemyData.inPlayersNode)
+                                enemyOnPath = true;
+                        }
+                    }
+
+                    if(!enemyOnPath)
+                    {
+                        accessibleNodes.Add(node);
+                    }
                 }
             }
         }
@@ -589,6 +596,8 @@ public class MapManager : MonoBehaviour
      */
     public void AllowAccessibleNodesEffects()
     {
+        UpdateAccessibleNodesList();
+
         if (accessibleNodes.Count <= 0) return;
 
         foreach (Transform node in accessibleNodes)
@@ -599,7 +608,7 @@ public class MapManager : MonoBehaviour
             {
                 MeshRenderer rend = groundOfNode.GetComponent<MeshRenderer>();
 
-                rend.materials[0].SetFloat("_Intensity", 2f);
+                rend.materials[0].SetFloat("_Intensity", 1.2f);
             }
             else
                 print("No ground found for node");
@@ -626,7 +635,7 @@ public class MapManager : MonoBehaviour
                 else if (currentIntensity <= 0)
                     offset = 0.01f;
 
-                rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);
+                rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);                
             }
             else
                 print("No ground found for node");
@@ -641,7 +650,6 @@ public class MapManager : MonoBehaviour
         if (!accessibleShown)
         {
             accessibleShown = true;
-            UpdateAccessibleNodesList();
             AllowAccessibleNodesEffects();
         }
     }
@@ -667,13 +675,18 @@ public class MapManager : MonoBehaviour
             if (groundOfNode != null)
             {
                 MeshRenderer rend = groundOfNode.GetComponent<MeshRenderer>();
+                float currentIntensity = rend.materials[0].GetFloat("_Intensity");
 
-                offset += 0.01f;
+                offset = 0.03f;
 
-                rend.materials[0].SetFloat("_Intensity", offset);
+                rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);
 
-                if (rend.materials[0].GetFloat("_Intensity") >= 5f)
+                if (rend.materials[0].GetFloat("_Intensity") >= 1f)
+                {
+                    rend.materials[0].SetFloat("_Intensity", 5f);
                     resetAccessibleEffect = false;
+                }
+                    
             }
             else
                 print("No ground found for node");
@@ -686,7 +699,7 @@ public class MapManager : MonoBehaviour
     public bool CheckClickedNode(Vector3Int clickedNode)
     {
         //Get new accessible nodes
-        UpdateAccessibleNodesList();
+        //UpdateAccessibleNodesList();
 
         foreach (Transform node in accessibleNodes)
         {
@@ -801,7 +814,7 @@ public class MapManager : MonoBehaviour
         List<Transform> nodesAtRange = new List<Transform>();
 
         //Put in a list the nodes at specific range from the player
-        foreach (Transform node in MapManager.Instance.nodesList)
+        foreach (Transform node in nodesList)
         {
             float dist = Vector3.Distance(PlayerMgr.Instance.GetNodePosOfPlayer(), node.position);
 
@@ -815,6 +828,16 @@ public class MapManager : MonoBehaviour
         return nodesAtRange;
     }
 
+
+    /**
+     * Get a tile position with tile coordinates : (0,0) for down left tile, (2,2) for up right tile 
+     */
+    public Vector3Int GetTilePosInNode(Transform node, int xIndex, int yIndex)
+    {
+        Vector3Int tilePos = node.GetComponent<NodeScript>().node.tiles[xIndex, yIndex].tilePosition;
+
+        return tilePos;
+    }
 
 
     #endregion

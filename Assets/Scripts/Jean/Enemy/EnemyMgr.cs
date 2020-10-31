@@ -11,6 +11,8 @@ public class EnemyMgr : MonoBehaviour
     private List<EnemyScript> enemiesList;
     private List<EnemyScript> movableEnemiesList;
     private List<EnemyScript> attackableEnemiesList;
+    private List<EnemyScript> enemiesOnPlayersNode = new List<EnemyScript>();
+    private List<Vector3Int> attackableEnemiesTiles = new List<Vector3Int>();
 
     //public List<Vector3Int> spawnList = new List<Vector3Int>();    //List of spawns for enemies
     public List<GameObject> enemiesPrefabsList = new List<GameObject>();    //All the prefabs of enemies that can be instantiated
@@ -79,6 +81,50 @@ public class EnemyMgr : MonoBehaviour
         return enemiesList;
     }
 
+
+    /**
+     * Return an enemy by his tile position
+     */
+    public EnemyScript GetEnemyByPosition(Vector3Int tilePosition)
+    {
+        UpdateEnemiesList();
+
+        if (enemiesList.Count > 0)
+        {
+            foreach (EnemyScript enemy in enemiesList)
+            {
+                Vector3Int enemyTilePos = GetEnemyTilePos(enemy.transform);
+                if (enemyTilePos.x == tilePosition.x && enemyTilePos.z == tilePosition.z)
+                {
+                    return enemy;
+                }
+            }
+        }
+
+        return null;
+    }
+
+
+    /**
+    * Renvoie la liste des ennemis présents dans la room du player
+    * Met à jour en même temps la listes des tiles sur lesquelles sont les ennemis présents dans la room du player
+    */
+    public void UpdateEnemiesOnPlayersNodeList()
+    {
+        UpdateEnemiesList();
+
+        enemiesOnPlayersNode.Clear();
+
+        foreach (EnemyScript enemy in enemiesList)
+        {
+            if (enemy.enemyData.inPlayersNode)
+            {
+                enemiesOnPlayersNode.Add(enemy);
+            }
+        }
+    }
+
+
     /**
      * Put EVERY child of EnemyMgr in the list
      */
@@ -115,6 +161,7 @@ public class EnemyMgr : MonoBehaviour
         }
     }
 
+
     #region FUNCTIONS FOR MOVEMENT
 
     /**
@@ -148,7 +195,7 @@ public class EnemyMgr : MonoBehaviour
     }
 
     /**
-     * Permet de lancer le move des ennemis loin du player, l'un après l'autre
+     * Launch enemy move one after the other
      */
     IEnumerator TimedEnemiesMove()
     {
@@ -161,7 +208,7 @@ public class EnemyMgr : MonoBehaviour
             }
         }
 
-        //RecenterEnemiesAfterEnemyMove(); //On recentre les ennemis qui étaient dans la room d'un autre ennemi
+        RecenterEnemiesAfterEnemyMove(); //On recentre les ennemis qui étaient dans la room d'un autre ennemi
         UpdateMovableEnemiesList();    //On met à jour la liste des ennemis déplaçables après recentrage
         enemiesHaveMoved = true;
     }
@@ -176,7 +223,47 @@ public class EnemyMgr : MonoBehaviour
         else
             return false;
     }
+
+    public void RecenterEnemiesAfterEnemyMove()
+    {
+        UpdateEnemiesList();    //On met à jour la liste des ennemis
+
+        //Pour tout les ennemis de la map
+        foreach (EnemyScript enemy in enemiesList)
+        {
+            //Si un ennemi est présent dans la room d'un ennemi et ne fait pas partie de la liste des ennemis déplaçables
+            if (enemy.enemyData.inOtherEnemyNode && !movableEnemiesList.Contains(enemy))
+            {
+                //Debug.Log("Recentrage d'un ennemi après un EnemyMove");
+                enemy.RecenterEnemy();  //On le recentre
+                enemy.enemyData.inOtherEnemyNode = false;   //L'ennemi n'est plus dans la room d'un autre ennemi
+            }
+        }
+    }
+
+    /**
+     * Prend un ennemi présent dans la room du player et le recentre au milieu de la room
+     * Cela peut arriver si le joueur fuit une room avec des ennemis dedans
+     */
+    public void RecenterEnemiesAfterPlayerMove()
+    {
+        UpdateEnemiesOnPlayersNodeList();   //On réactualise la liste des ennemis présents dans la room du player
+
+        print("enemies should recenter : " + enemiesOnPlayersNode.Count);
+        //Si on a des ennemis dans la room du player
+        if (enemiesOnPlayersNode.Count > 0)
+        {
+            enemiesOnPlayersNode[0].RecenterEnemy();    //Le premier ennemi se recentre en avançant d'une case vers le player
+            foreach (EnemyScript enemy in enemiesOnPlayersNode)
+            {
+                enemy.enemyData.inPlayersNode = false;
+            }
+            enemiesOnPlayersNode.Clear();   //On clear la liste car plus d'ennemis présents dans la room du player
+        }
+    }
+
     #endregion
+
 
     /**
      * Spawn X enemies at a range from player
@@ -344,11 +431,10 @@ public class EnemyMgr : MonoBehaviour
         foreach (EnemyScript enemy in enemiesList)
         {
             if (enemy.enemyData.inPlayersNode || enemy.enemiesInRoom.Count > 0)
-            {
-                //Lance anim d'attack
+            {                
                 enemy.Attack();
 
-                while (!enemy.IsAttackFinished()) //Tant qu'ils n'ont pas tous attaqué (s'ils peuvent) on continue
+                while (!enemy.IsAttackFinished())
                 {
                     yield return null;
 
@@ -367,27 +453,6 @@ public class EnemyMgr : MonoBehaviour
         else
             return false;
     }
-
-    /*
-     * Timeline action : Curse a node at a range from player
-     */
-    public void CurseNode()
-    {
-        List<Transform> nodesAtRange = MapManager.Instance.GetNodesAtRangeFromPlayer(curseRangeFromPlayer);
-
-        int randomNode = Random.Range(0, nodesAtRange.Count);
-
-        //Pick a random node in list of node at range
-        Transform nodeToCurse = nodesAtRange[randomNode];
-
-        //Launch particules on node 
-        //GameObject curseParticules = Instantiate(roomFxList[3], cursedRoomWorldPos, Quaternion.identity, roomEffectsParent);
-        //curseParticules.transform.localScale = new Vector3(.5f, .5f, 0);
-
-        //Set the node as Cursed
-        nodeToCurse.GetComponent<NodeScript>().node.nodeEffect = NodeEffect.Cursed;
-    }
-
 
     /**
      * Return a list of enemies on player's node

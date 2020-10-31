@@ -92,7 +92,10 @@ namespace GodMorgon.Enemy
             if(canMove)
                 LaunchMoveMechanic();
 
-            if(_healthBar != null)
+            if (canRecenter)
+                LaunchRecenterMechanic();
+
+            if (_healthBar != null)
                 _healthBar.transform.position = Camera.main.WorldToScreenPoint(healthBarPos.position);
         }
 
@@ -253,7 +256,7 @@ namespace GodMorgon.Enemy
          */
         public IEnumerator AttackEffect()
         {
-            shaker.Shake(shakeDuration);
+            //shaker.Shake(shakeDuration);
             yield return new WaitForSeconds(1f);
             isAttackFinished = true;
         }
@@ -297,6 +300,78 @@ namespace GodMorgon.Enemy
             return false;
         }
 
+        /**
+         * Replace enemy at center of a node
+         */
+        public void RecenterEnemy()
+        {
+            //Take the tile in middle of node
+            Vector3Int middleTile = MapManager.Instance.GetTilePosInNode(GetNodeOfEnemy(), 1, 1);
+
+            //Position tile de l'enemy
+            Vector3Int enemyPos = GetTilePosOfEnemy();
+
+            if (roadPath != null && roadPath.Count > 0) //reset le roadpath
+                roadPath.Clear();
+
+            //création du path
+            roadPath = MapManager.Instance.astar.CreatePath(MapManager.Instance.grid, new Vector2Int(enemyPos.x, enemyPos.z), new Vector2Int(middleTile.x, middleTile.z), 2);
+
+            if (roadPath == null)
+            {
+                return;
+            }
+
+            enemyPath.Clear();
+
+            foreach(Spot tile in roadPath)
+            {
+                enemyPath.Add(tile);
+            }
+
+            enemyPath.Reverse();
+            enemyPath.RemoveAt(0);
+
+            tileIndex = 0;
+            canRecenter = true;
+            enemyData.inPlayersNode = false;
+        }
+
+        private void LaunchRecenterMechanic()
+        {
+            //Next position is the next tile
+            Vector3Int nextPos = new Vector3Int(enemyPath[tileIndex].X, 0, enemyPath[tileIndex].Y);
+
+            float speed = 1f;
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(nextPos.x, transform.position.y, nextPos.z), speed * Time.deltaTime);   //on avance jusqu'à la prochaine tile
+
+            //If arrived
+            if (transform.position.x == nextPos.x && transform.position.z == nextPos.z)
+            {
+                Debug.Log("Enemy recentered");
+                canRecenter = false;
+                enemyData.inPlayersNode = false;
+            }
+        }
+
+        /**
+         * Crée la healthbar dans le canvas
+         */
+        public void InitializeHealthBar()
+        {
+            GameObject healthBarGAO = Instantiate(healthBarPrefab, enemyCanvas);
+            _healthBar = healthBarGAO.GetComponent<HealthBar>();
+
+            _healthBar.SetBarPoints(enemyData.health, enemyData.defense);
+        }
+
+        public void UpdateHealthBar(int health, int defense)
+        {
+            _healthBar.UpdateHealthBarDisplay(defense, health);
+            //print("la defense actuel est de : " + defense);
+            //print("la santé actuel est de : " + health);
+        }
+
         #region ENEMY POSITIONS
 
         /**
@@ -327,24 +402,25 @@ namespace GodMorgon.Enemy
             }
         }
 
+        /**
+         * Return enemy's node position
+         */
+        public Transform GetNodeOfEnemy()
+        {
+            Transform currentNode = MapManager.Instance.GetNodeFromPos(new Vector3Int((int)transform.position.x, (int)transform.position.y, (int)transform.position.z));
+            if (currentNode == null)
+            {
+                print("Node of player is NULL");
+
+                return null;
+            }
+            else
+            {
+                return currentNode;
+            }
+        }
+
         #endregion
 
-        /**
-         * Crée la healthbar dans le canvas
-         */
-        public void InitializeHealthBar()
-        {
-            GameObject healthBarGAO = Instantiate(healthBarPrefab, enemyCanvas);
-            _healthBar = healthBarGAO.GetComponent<HealthBar>();
-
-            _healthBar.SetBarPoints(enemyData.health, enemyData.defense);
-        }
-
-        public void UpdateHealthBar(int health, int defense)
-        {
-            _healthBar.UpdateHealthBarDisplay(defense, health);
-            //print("la defense actuel est de : " + defense);
-            //print("la santé actuel est de : " + health);
-        }
     }
 }

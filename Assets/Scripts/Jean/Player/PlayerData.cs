@@ -159,6 +159,7 @@ namespace GodMorgon.Player
         public void AddGold(int value)
         {
             goldValue += value;
+            Debug.Log("Player has now : " + goldValue);
         }
 
         //Dépense de l'argent

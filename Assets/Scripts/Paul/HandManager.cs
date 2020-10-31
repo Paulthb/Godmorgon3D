@@ -54,6 +54,7 @@ public class HandManager : MonoBehaviour
     public void DiscardAllCard()
     {
         List<CardDisplay> tempCardList = new List<CardDisplay>();
+        List<CardDisplay> cardsToDestroy = new List<CardDisplay>();
 
         if (CardDisplayList.Count > 0)
         {
@@ -63,12 +64,24 @@ public class HandManager : MonoBehaviour
                     tempCardList.Add(card);
                 else
                 {
-                    GameManager.Instance.DiscardHandCard(card);
-                    Destroy(card.gameObject);
+                    cardsToDestroy.Add(card);
+                }
+            }
+
+            if (cardsToDestroy.Count > 0)
+            {
+                foreach(Transform card in transform)
+                {
+                    if(cardsToDestroy.Contains(card.GetComponent<CardDisplay>()))
+                    {
+                        GameManager.Instance.DiscardHandCard(card.GetComponent<CardDisplay>());
+                        Destroy(card.gameObject);
+                    }
                 }
             }
             CardDisplayList.Clear();
             CardDisplayList.AddRange(tempCardList);
+            cardsToDestroy.Clear();
         }
     }
 

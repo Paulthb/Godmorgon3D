@@ -6,6 +6,7 @@ using GodMorgon.Models;
 using GodMorgon.Player;
 using GodMorgon.Sound;
 using GodMorgon.VisualEffect;
+using TMPro;
 using UnityEngine;
 
 namespace GodMorgon.Player
@@ -17,11 +18,16 @@ namespace GodMorgon.Player
         public AnimationCurve playerMoveCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
         //BOOLS
-        //[NonSerialized]
+        [NonSerialized]
         public bool isMoving = false;
+        [NonSerialized]
         public bool playerCanMove = false;
         private bool canLaunchOtherMove = false;
         private bool playerHasMoved = false;
+        private bool enemyOnPath = false;
+        [SerializeField]
+        private bool firstInRoom = true;
+
 
         //Path count
         [NonSerialized]
@@ -30,26 +36,29 @@ namespace GodMorgon.Player
 
         private CardEffectData[] _cardEffectDatas; //Move card datas
 
-        private int basePlayerY = 0;
         private int tileIndex = 0;
-        private int nbMoveIterationCounter = 0; //nb d'iterations de move effectuées
+        private int nbMoveIterationCounter = 0;
         private int nbNodesToMove = 1;
         [NonSerialized]
         public int multiplier = 1;
 
         [NonSerialized]
         public PlayerData playerData;
-
-        private HealthBar _healthBar = null;
+        
+        
         /**
         * la healthBar sera enfant du canvas de cette objet
         */
+        [Header("UI Settings")]
         [SerializeField]
         private GameObject healthBarPrefab = null;
         [SerializeField]
         private Transform healthBarPos = null;
         [SerializeField]
         private Transform playerCanvas = null;
+        [SerializeField]
+        private TextMeshProUGUI goldValueText;
+        private HealthBar _healthBar = null;
 
         //all visual effect for the player
         [Header("Visual Effect")]
@@ -82,11 +91,6 @@ namespace GodMorgon.Player
         // Start is called before the first frame update
         void Start()
         {
-            //supposedPos = GetNodePosOfPlayer();
-            basePlayerY = (int)this.transform.position.y;
-
-            nbMoveIterationCounter = 0;
-
             nbMoveIterationCounter = 0;
 
             //création du playerData
@@ -94,6 +98,8 @@ namespace GodMorgon.Player
 
             if (healthBarPrefab != null)
                 InitializeHealthBar();
+
+            UpdateGoldText();
         }
 
         // Update is called once per frame
@@ -156,7 +162,7 @@ namespace GodMorgon.Player
         {
             nbNodesToMove = BuffManager.Instance.getModifiedMove(_cardEffectDatas[0].nbMoves);  //Update le nombre de rooms à parcourir, qui changera en fct du nb sur la carte et si un fast shoes a été joué
 
-            //GameManager.Instance.DownPanelBlock(true);  //Block le down panel pour que le joueur ne puisse pas jouer de carte pendant le mouvement
+            GameManager.Instance.DownPanelBlock(true);  //Block le down panel pour que le joueur ne puisse pas jouer de carte pendant le mouvement
 
 
             //Get player tile pos
@@ -174,80 +180,46 @@ namespace GodMorgon.Player
 
 
             //création du path, prenant en compte la position des tiles, le point de départ, le point d'arrivée, et la longueur en tiles du path
-            //roadPath est une liste de spots = une liste de positions de tiles
+            //playerPath est une liste de spots = une liste de positions de tiles
             playerPath = MapManager.Instance.astar.CreatePath(MapManager.Instance.grid, new Vector2Int(playerTilePos.x, playerTilePos.z), new Vector2Int(targetTilePos.x, targetTilePos.z), 5);
 
-            //bool isEnemyOnPath = false;
+            enemyOnPath = false;
 
             if (playerPath == null) return;
 
-            /*
-            //on ajoute les tiles par lesquelles il va devoir passer sauf celle où il y a un enemy
-            if (null != EnemyManager.Instance.GetEnemyViewByPosition(new Vector3Int(roadPath[0].X, roadPath[0].Y, 0)))
+            
+            //On ajoute les tiles par lesquelles il va devoir passer sauf celle où il y a un enemy
+            if (null != EnemyMgr.Instance.GetEnemyByPosition(new Vector3Int(playerPath[0].X, 0, playerPath[0].Y)))
             {
-                EnemyManager.Instance.GetEnemyViewByPosition(new Vector3Int(roadPath[0].X, roadPath[0].Y, 0)).enemyData.inPlayersNode = true;
-                isEnemyOnPath = true;
-                isFirstInRoom = false;
+                EnemyMgr.Instance.GetEnemyByPosition(new Vector3Int(playerPath[0].X, 0, playerPath[0].Y)).enemyData.inPlayersNode = true;
+                enemyOnPath = true;
+                firstInRoom = false;
 
-                supposedPos = new Vector3Int(roadPath[0].X, roadPath[0].Y, 0);    //La position supposée est celle de l'ennemi sur le path
-                roadPath.Remove(roadPath[0]);
-            }*/
+                supposedPos = new Vector3Int(playerPath[0].X, 0, playerPath[0].Y);    //La position supposée est celle de l'ennemi sur le path
+                playerPath.Remove(playerPath[0]);
+            }
 
             //playerPath = roadPath;
 
             //Si on ETAIT le premier arrivé dans la room, alors un ennemi présent dans la room doit se recentrer au milieu de la room
-            //if (isFirstInRoom)
-            //    EnemyManager.Instance.RecenterEnemiesAfterPlayerMove();
+            if (firstInRoom)
+                EnemyMgr.Instance.RecenterEnemiesAfterPlayerMove();
 
 
             playerPath.Reverse(); //on inverse la liste pour la parcourir de la tile la plus proche à la plus éloignée
             playerPath.RemoveAt(0);
 
             //Si on n'a pas d'ennemi sur le chemin, on est le premier arrivé dans la room
-            //if (!isEnemyOnPath)
-            //{
-            //    supposedPos = new Vector3Int(playerPath[playerPath.Count - 1].X, playerPath[playerPath.Count - 1].Y, 0); //position supposée = dernière tile du path
+            if (!enemyOnPath)
+            {
+                supposedPos = new Vector3Int(playerPath[playerPath.Count - 1].X, 0, playerPath[playerPath.Count - 1].Y); //position supposée = dernière tile du path
 
-            //    isFirstInRoom = true;
-            //    foreach (EnemyView enemy in EnemyManager.Instance.GetEnemiesInPlayersRoom())
-            //    {
-            //        enemy.enemyData.inPlayersNode = false;
-            //    }
-            //}
-
-            //On reset les particules avant d'attribuer les nouvelles
-            //foreach (ParticleSystemScript particule in wheelParticules)
-            //{
-            //    particule.stopParticle();
-            //}
-
-            ////On update le sprite du player en fonction de sa direction
-            //if (playerPath[0].Y > playerCellPos.y)
-            //{
-            //    UpdatePlayerSprite("haut_gauche");
-            //    wheelParticules[1].launchParticle();
-            //}
-            //else if (playerPath[0].X > playerCellPos.x)
-            //{
-            //    UpdatePlayerSprite("haut_droite");
-            //    wheelParticules[2].launchParticle();
-            //}
-            //else if (playerPath[0].X < playerCellPos.x)
-            //{
-            //    UpdatePlayerSprite("bas_gauche");
-            //    wheelParticules[3].launchParticle();
-            //}
-            //else if (playerPath[0].Y < playerCellPos.y)
-            //{
-            //    UpdatePlayerSprite("bas_droite");
-            //    wheelParticules[0].launchParticle();
-            //}
-
-
-            //foreach (Spot spot in playerPath)
-            //{
-            //    Debug.Log(spot.X + " / " + spot.Y);
-            //}
+                firstInRoom = true;
+                foreach (EnemyScript enemy in EnemyMgr.Instance.GetEnemiesOnPlayersNode())
+                {
+                    enemy.enemyData.inPlayersNode = false;
+                }
+            }
 
             playerCanMove = true;  //on autorise le player à bouger
 
@@ -343,10 +315,16 @@ namespace GodMorgon.Player
             */
         IEnumerator LaunchActionsInNewNode()
         {
-            //RoomEffectManager.Instance.LaunchRoomEffect(GetPlayerRoomPosition());   //Lance l'effet de room sur laquelle on vient d'arriver
+            NodeEffectMgr.Instance.LaunchRoomEffect(GetNodePosOfPlayer());   //Lance l'effet de room sur laquelle on vient d'arriver
+            
+            yield return new WaitForSeconds(.5f);
             FogMgr.Instance.ClearFogOnAccessibleNode(); // Clear the fog around the node we just arrived in
 
-            yield return new WaitForSeconds(1f);
+            while(!NodeEffectMgr.Instance.NodeEffectDone())
+            {
+                yield return null;
+            }
+
             canLaunchOtherMove = true;  //On permet le lancement d'un autre move
             if (nbMoveIterationCounter >= nbNodesToMove * multiplier)  //Si on a atteint le nombre de moves possibles de la carte
             {
@@ -365,8 +343,8 @@ namespace GodMorgon.Player
         #region PLAYER POSITIONS
 
         /**
-            * Return player's tile position
-            */
+        * Return player's tile position
+        */
         public Vector3Int GetTilePosOfPlayer()
         {
             Tiles currentTile = MapManager.Instance.GetTileFromPos(new Vector3Int((int)transform.position.x,
@@ -436,6 +414,16 @@ namespace GodMorgon.Player
         }
 
         /**
+         * Set player health to maximum
+         */
+        public void SetHealthToMax()
+        {
+            _healthBar.SetBarPoints(playerData.healthMax, playerData.defenseMax);
+            playerData.health = playerData.healthMax;
+            playerData.defense = playerData.defenseMax;
+        }
+
+        /**
         * Inflige des damages au player
         */
         public void TakeDamage(int damage)
@@ -477,11 +465,20 @@ namespace GodMorgon.Player
 
         /**
         * Add Gold to player
-        * ~~ il faudra mettre à jour l'interface
         */
         public void AddGold(int goldValue)
         {
             playerData.AddGold(goldValue);
+
+            UpdateGoldText();
+        }
+
+        /**
+        * Update Gold Text
+        */
+        public void UpdateGoldText()
+        {
+            goldValueText.text = playerData.goldValue.ToString();
         }
 
         /**

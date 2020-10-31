@@ -117,6 +117,8 @@ public class GameManager : MonoBehaviour
      */
     public void DrawCardButton()
     {
+        print("Draw card btn");
+
         BasicCard cardDrawn = GameEngine.Instance.DrawCard();
         handManager.AddCard(cardDrawn);
     }
@@ -196,7 +198,7 @@ public class GameManager : MonoBehaviour
 
     /**
     * Discard a card (not from hand)
-    * Call by the RoomEffectManager
+    * Call by the NodeEffectMgr
     */
     public void AddCardToDiscardPile(BasicCard cardDiscarded)
     {
