@@ -30,6 +30,11 @@ namespace GodMorgon.CardEffect
                     {
                         context.isDropValidate = true;
                     }
+                    // Si c'est un coup de pied circulaire et que la cible est dans la node du player
+                    else if(droppedCard.effectsData[0].isCircular && Vector3Int.Distance(PlayerMgr.Instance.GetNodePosOfPlayer(), dropPosition) <= 3)
+                    {
+                        context.isDropValidate = true;
+                    }
                     break;
                 case BasicCard.CARDTYPE.DEFENSE:
                     if (PlayerMgr.Instance.GetNodePosOfPlayer() == dropPosition)

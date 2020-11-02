@@ -6,6 +6,7 @@ using GodMorgon.Models;
 using GodMorgon.GameSequencerSpace;
 using GodMorgon.Player;
 using GodMorgon.Timeline;
+using GodMorgon.Enemy;
 
 namespace GodMorgon.CardEffect
 {
@@ -41,10 +42,21 @@ namespace GodMorgon.CardEffect
             //if player attack an enemy
             if (context.targets == null)
                 Debug.Log("il manque une target dans le contexte !");
-            
-            //toujours passer par le playerData pour infliger les dégats correspondant au stats actuel du player
-            context.targets.TakeDamage(PlayerData.Instance.DoDamage(damagePoint), true);
 
+            //attaque tout les enemy dans la node du player
+            if (effectData.isCircular)
+            {
+                foreach (EnemyScript enemyScript in EnemyMgr.Instance.GetEnemiesOnPlayersNode())
+                {
+                    enemyScript.enemyData.TakeDamage(PlayerData.Instance.DoDamage(damagePoint), true);
+                }
+                Debug.Log("circular attack");
+            }
+            else
+            {
+                //toujours passer par le playerData pour infliger les dégats correspondant au stats actuel du player
+                context.targets.TakeDamage(PlayerData.Instance.DoDamage(damagePoint), true);
+            }
             //add the attack sequence
             GSA_PlayerAttack playerAttackAction = new GSA_PlayerAttack();
             GameSequencer.Instance.AddAction(playerAttackAction);

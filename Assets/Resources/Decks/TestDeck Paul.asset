@@ -18,7 +18,7 @@ MonoBehaviour:
   artwork: {fileID: 0}
   cards:
   - {fileID: 11400000, guid: fb8bda0e1d686014b99131ccf151a1e7, type: 2}
-  - {fileID: 11400000, guid: fb8bda0e1d686014b99131ccf151a1e7, type: 2}
+  - {fileID: 11400000, guid: 82fc72e5353d19e42a2f8f5a75af5d36, type: 2}
   - {fileID: 11400000, guid: 822fd2ac269d16240b7bb4fb5e1d2211, type: 2}
   - {fileID: 11400000, guid: fb8bda0e1d686014b99131ccf151a1e7, type: 2}
   - {fileID: 11400000, guid: 822fd2ac269d16240b7bb4fb5e1d2211, type: 2}
