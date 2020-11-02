@@ -32,6 +32,9 @@ namespace GodMorgon.Models
         public int damagePoint = 0;
         public int attackRange = 0;
 
+        //attaque tous les enemy dans la node du player
+        public bool isCircular = false;
+
         [Header("Movement")]
         //nb movement
         public int nbMoves = 0;
