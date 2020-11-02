@@ -46,11 +46,8 @@ namespace GodMorgon.CardEffect
                     }
                     break;
                 case BasicCard.CARDTYPE.SPELL:
-                    if (PlayerMgr.Instance.GetNodePosOfPlayer() == dropPosition)
-                    {
-                        context.isDropValidate = true;
-                        Debug.Log("SPELL");
-                    }
+                    context.isDropValidate = true;
+                    Debug.Log("SPELL");
                     break;
                 case BasicCard.CARDTYPE.SIGHT:
                     context.targetNodePos = MapManager.Instance.GetNodeFromPos(dropPosition).GetComponent<NodeScript>().node.nodePosition;

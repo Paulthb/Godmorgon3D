@@ -322,7 +322,6 @@ public class EnemyMgr : MonoBehaviour
         //*
         //* A CONFIRMER COMME MODEL!!
 
-
         for (int i = 0; i < enemiesList.Count; i++)
         {
             if(enemy.transform.position == enemiesList[i].transform.position)

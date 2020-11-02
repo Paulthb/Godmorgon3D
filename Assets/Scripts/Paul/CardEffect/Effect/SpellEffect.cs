@@ -6,6 +6,7 @@ using GodMorgon.Models;
 using GodMorgon.GameSequencerSpace;
 using GodMorgon.Player;
 using GodMorgon.Timeline;
+using GodMorgon.Enemy;
 
 namespace GodMorgon.CardEffect
 {
@@ -68,6 +69,24 @@ namespace GodMorgon.CardEffect
                 PlayerMgr.Instance.TakeHeal(effectData.nbHeal);
                 GSA_Spell playerSpellAction = new GSA_Spell();
                 GameSequencer.Instance.AddAction(playerSpellAction);
+            }
+
+            //Teleport ennemy
+            if(effectData.Teleport)
+            {
+                //on cast target en EnemyData
+                EnemyData enData = context.targets as EnemyData;
+                if (enData != null)
+                {
+                    Debug.Log("Trap Door Spell");
+                    EnemyMgr.Instance.TeleportEnemy(enData.enemyScript);
+                    GSA_Spell playerSpellAction = new GSA_Spell();
+                    GSA_TrapDoor trapDoorAction = new GSA_TrapDoor();
+                    GameSequencer.Instance.AddAction(playerSpellAction);
+                    GameSequencer.Instance.AddAction(trapDoorAction);
+                }
+                else
+                    Debug.Log("target to teleport is not an ennemy");
             }
         }
     }

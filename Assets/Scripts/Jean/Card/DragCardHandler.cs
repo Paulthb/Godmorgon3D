@@ -111,6 +111,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100))
         {
+            //On check à chaque fois si on drop la carte sur une cible du même type que le type précisé par la carte
             if (hit.collider.tag == "Node" && _card.dropTarget == BasicCard.DROP_TARGET.NODE)
             {
                 Vector3Int clickedNode = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
