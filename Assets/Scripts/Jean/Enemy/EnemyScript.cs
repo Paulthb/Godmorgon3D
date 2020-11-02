@@ -398,6 +398,47 @@ namespace GodMorgon.Enemy
             //print("la santé actuel est de : " + health);
         }
 
+
+        /**
+         * Tue un ennemi donné après une durée correspondant à la durée de la particule du hit
+         */
+        public void KillEnemy(float hitAnimDuration)
+        {
+            StartCoroutine(TimedDeath(hitAnimDuration));
+            EnemyMgr.Instance.UpdateEnemiesList();    //Update la liste des ennemis sur la map
+            PlayerMgr.Instance.AddGold(15); //Add gold to player
+
+            //SFX enemy death
+            //MusicManager.Instance.PlayEnemyDeath();
+        }
+
+        IEnumerator TimedDeath(float duration)
+        {
+            yield return new WaitForSeconds(duration);   //On attend que la particule de hit soit terminée
+
+
+            foreach (Transform child in this.transform)
+            {
+                if (child.gameObject.GetComponent<SpriteRenderer>() != null)
+                {
+                    child.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+                }
+            }
+
+            //Instantiate(deathParticule, this.transform.position, Quaternion.identity, EnemyManager.Instance.effectParent);
+
+            if (enemyData.killedByPlayer)
+            {
+                yield return new WaitForSeconds(1f);
+                GameManager.Instance.DraftPanelActivation(true);
+                Debug.Log("Tué directement par le player, donc lance le draft");
+            }
+
+
+
+            Destroy(gameObject);    //Détruit le gameobject de l'ennemi
+        }
+
         #region ENEMY POSITIONS
 
         /**

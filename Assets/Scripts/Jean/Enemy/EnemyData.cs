@@ -39,8 +39,8 @@ namespace GodMorgon.Enemy
             //Debug.Log("enemy health after was : " + health);
             UpdateHealthBar();
 
-            /*
-            float duration = enemyScript.enemyHit.GetDuration();    //Récup la durée de la particule
+
+            float duration = 1f;//enemyScript.enemyHit.GetDuration();    //Récup la durée de la particule
             if (health <= 0)   //Si l'ennemi n'a plus de vie
             {
                 if (isPlayerAttacking)
@@ -49,7 +49,7 @@ namespace GodMorgon.Enemy
                     GameManager.Instance.draftPanelActivated = true;    //Met un booleen à true pour faire attendre le séquenceur
                 }
                 enemyScript.KillEnemy(duration);    //On le tue
-            }*/
+            }
         }
 
         //return the position of the enemy
