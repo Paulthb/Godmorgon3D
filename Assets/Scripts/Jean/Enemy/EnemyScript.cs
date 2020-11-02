@@ -10,7 +10,7 @@ namespace GodMorgon.Enemy
         [Header("Enemy Settings")] 
         public Models.Enemy _enemy; //Scriptable object Enemy
         public EnemyData enemyData = new EnemyData();
-        public List<EnemyScript> enemiesInRoom = new List<EnemyScript>();
+        public List<EnemyScript> enemiesInNode = new List<EnemyScript>();
 
         [Header("Movement Settings")] 
         public float moveSpeed = 5f; //Enemy speed
@@ -118,11 +118,13 @@ namespace GodMorgon.Enemy
 
                 if (roadPath == null) return;
 
+                bool isPlayerOnPath = false;
+                bool isOtherEnemyOnPath = false;
+
+                roadPath.Reverse(); //Reverse the list to begin at the closest 
+
                 foreach (Spot tile in roadPath)
                 {
-                    bool isPlayerOnPath = false;
-                    bool isOtherEnemyOnPath = false;
-
                     //We keep all the tiles except the one with the player on it (if player on path obviously)
                     if (playerTilePos.x == tile.X && playerTilePos.z == tile.Y)
                     {
@@ -130,7 +132,7 @@ namespace GodMorgon.Enemy
                         enemyData.inPlayersNode = true; //Enemy set as "in player's room"
                     }
 
-                    //We check if there is an other enemy on path
+                    // We check if there is an other enemy on path 
                     foreach (EnemyScript enemy in EnemyMgr.Instance.GetAllEnemies())
                     {
                         //Node position of enemy
@@ -146,7 +148,10 @@ namespace GodMorgon.Enemy
                                 enemyData.inOtherEnemyNode = true; //Used to remove the tile in roadpath
                             }
                         }
+
+                        
                     }
+
 
                     if (!isPlayerOnPath && !isOtherEnemyOnPath)
                     {
@@ -154,7 +159,29 @@ namespace GodMorgon.Enemy
                     }
                 }
 
-                enemiesInRoom.Clear();
+
+                // We put the moving enemy out of other enemies enemiesInNode list
+                foreach (EnemyScript enemy in EnemyMgr.Instance.GetAllEnemies())
+                {
+                    if (enemy != this)
+                    {
+                        if (enemy.enemiesInNode.Count > 0)
+                        {
+                            bool shouldBeRemovedFromList = false;   //Should be removed from enemiesinNode list of other enemies
+                            foreach (EnemyScript otherEnemy in enemy.enemiesInNode)
+                            {
+                                if (otherEnemy == this)
+                                {
+                                    shouldBeRemovedFromList = true;
+                                }
+                            }
+
+                            if (shouldBeRemovedFromList) enemy.enemiesInNode.Remove(this);
+                        }
+                    }
+                }
+
+                enemiesInNode.Clear();
 
                 //Get the next node with last tile of path (used to know if enemies in that node, in that case we add them in list)
                 Vector3Int nextNode = MapManager.Instance.GetNodeFromPos(new Vector3Int(roadPath[0].X, 0, roadPath[0].Y)).GetComponent<NodeScript>().node.nodePosition;
@@ -169,12 +196,11 @@ namespace GodMorgon.Enemy
                         if (enemy.GetNodePosOfEnemy() == nextNode)
                         {
                             //Add enemy in list
-                            enemiesInRoom.Add(enemy);
+                            enemiesInNode.Add(enemy);
                         }
                     }
                 }
 
-                enemyPath.Reverse(); //Reverse the list to begin at the closest 
                 enemyPath.RemoveAt(0); //Remove the first which is the tile the enemy is on
             }
 
@@ -239,9 +265,9 @@ namespace GodMorgon.Enemy
                 PlayerMgr.Instance.TakeDamage(enemyData.attack);
 
             //If enemies on node, they take damages
-            if (enemiesInRoom.Count > 0)
+            if (enemiesInNode.Count > 0)
             {
-                foreach (EnemyScript enemy in enemiesInRoom)
+                foreach (EnemyScript enemy in enemiesInNode)
                 {
                     enemy.enemyData.TakeDamage(enemyData.attack, false);
                 }
