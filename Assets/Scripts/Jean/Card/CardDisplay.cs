@@ -139,6 +139,9 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             //carte discard
             cardDescription = cardDescription.Replace("[nbCardToDiscard]", "<b>" + card.GetNbDiscard().ToString() + "</b>");
 
+            //porté de l'effet de la carte
+            cardDescription = cardDescription.Replace("[nbRangeEffect]", "<b>" + card.GetNbRangeEffect().ToString() + "</b>");
+
             descriptionText.text = cardDescription;
         }
     }

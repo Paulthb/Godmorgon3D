@@ -176,6 +176,15 @@ namespace GodMorgon.Models
             return nbDiscardData;
         }
 
+        //retourne le nombre de carte à discard
+        public int GetNbRangeEffect()
+        {
+            int nbRangeEffect = 0;
+            foreach (CardEffectData effect in effectsData)
+                nbRangeEffect += effect.rangeEffect;
+            return nbRangeEffect;
+        }
+
         //retourne true si la card a l'effet retain
         public bool IsRetain()
         {

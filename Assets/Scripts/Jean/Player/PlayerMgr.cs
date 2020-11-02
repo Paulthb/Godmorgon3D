@@ -389,6 +389,14 @@ namespace GodMorgon.Player
             }
         }
 
+        /**
+         * teleport player to new position
+         */
+        public void SetNodeOfPlayer(Vector3Int nodePos)
+        {
+            transform.position = nodePos;
+        }
+
         #endregion
 
         /**
@@ -500,23 +508,14 @@ namespace GodMorgon.Player
         }
 
 
-
         /**
-
         * annule tous les bonus de stats du player
-
         * annule aussi les effets visuel de ces bonus
-
         */
-
         public void ResetBonus()
-
         {
-
             playerData.ResetStat();
-
             StopVisualEffect();
-
         }
 
         #region Visual effect

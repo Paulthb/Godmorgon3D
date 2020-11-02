@@ -69,6 +69,9 @@ namespace GodMorgon.Models
         //effect to teleport an enemy
         public bool Teleport = false;
 
+        //effect to switch player pos with enemy pos
+        public bool Overtake = false;
+
         //effect to discard card
         public bool DiscardCard = false;
         public int nbDiscardCard = 0;
@@ -85,6 +88,9 @@ namespace GodMorgon.Models
         public int trustNb = 0;
         //retain : la carte n'est pas discard à la fin d'un tour
         public bool retain = false;
+
+        //porté en node d'effet de la carte
+        public int rangeEffect = 0;
 
         //Discard toutes les cartes en main
         public bool isDiscardHand = false;

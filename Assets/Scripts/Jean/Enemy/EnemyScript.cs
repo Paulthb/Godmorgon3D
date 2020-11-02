@@ -420,6 +420,14 @@ namespace GodMorgon.Enemy
             }
         }
 
+        /**
+         * Set new enemy's node position
+         */
+        public void SetNodeOfEnemy(Vector3Int nodePos)
+        {
+            transform.position = nodePos;
+        }
+
         #endregion
 
     }
