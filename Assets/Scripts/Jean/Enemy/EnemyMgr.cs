@@ -154,7 +154,7 @@ public class EnemyMgr : MonoBehaviour
                     Vector3Int otherEnemyPos = otherEnemy.GetNodePosOfEnemy();
                     if (enemyPos == otherEnemyPos)
                     {
-                        enemy.enemiesInRoom.Add(otherEnemy);
+                        enemy.enemiesInNode.Add(otherEnemy);
                     }
                 }
             }
@@ -207,7 +207,7 @@ public class EnemyMgr : MonoBehaviour
                 yield return null;
             }
         }
-
+        UpdateMovableEnemiesList();
         RecenterEnemiesAfterEnemyMove(); //On recentre les ennemis qui étaient dans la room d'un autre ennemi
         UpdateMovableEnemiesList();    //On met à jour la liste des ennemis déplaçables après recentrage
         enemiesHaveMoved = true;
@@ -429,7 +429,7 @@ public class EnemyMgr : MonoBehaviour
     {
         foreach (EnemyScript enemy in enemiesList)
         {
-            if (enemy.enemyData.inPlayersNode || enemy.enemiesInRoom.Count > 0)
+            if (enemy.enemyData.inPlayersNode || enemy.enemiesInNode.Count > 0)
             {                
                 enemy.Attack();
 
