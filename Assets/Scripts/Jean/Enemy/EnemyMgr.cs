@@ -314,7 +314,7 @@ public class EnemyMgr : MonoBehaviour
 
         //on positionne l'enemy à une node random de la liste
         int randIndex = Random.Range(0, nodesAtSpecificRange.Count);
-        enemy.transform.position = nodesAtSpecificRange[randIndex].position;
+        enemy.transform.position = nodesAtSpecificRange[randIndex].position + new Vector3(1, 0, 1);
 
         //*
         // *on check si l'enemie n'est pas déjà sur une node occupé par un autre enemy

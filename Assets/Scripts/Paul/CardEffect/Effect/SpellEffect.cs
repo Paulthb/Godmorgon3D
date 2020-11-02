@@ -78,8 +78,8 @@ namespace GodMorgon.CardEffect
                 EnemyData enData = context.targets as EnemyData;
                 if (enData != null)
                 {
-                    Debug.Log("Trap Door Spell");
                     EnemyMgr.Instance.TeleportEnemy(enData.enemyScript);
+
                     GSA_Spell playerSpellAction = new GSA_Spell();
                     GSA_TrapDoor trapDoorAction = new GSA_TrapDoor();
                     GameSequencer.Instance.AddAction(playerSpellAction);
@@ -87,6 +87,24 @@ namespace GodMorgon.CardEffect
                 }
                 else
                     Debug.Log("target to teleport is not an ennemy");
+            }
+
+            //Overtake (switch pos player <-> enemy)
+            if (effectData.Overtake)
+            {
+                EnemyData enData = context.targets as EnemyData;
+                if (enData != null)
+                {
+                    Debug.Log("Overtake");
+                    Vector3Int newPlayerNodePos = enData.enemyScript.GetTilePosOfEnemy();
+                    enData.enemyScript.SetNodeOfEnemy(PlayerMgr.Instance.GetTilePosOfPlayer());
+                    PlayerMgr.Instance.SetNodeOfPlayer(newPlayerNodePos);
+
+                    GSA_Spell playerSpellAction = new GSA_Spell();
+                    GameSequencer.Instance.AddAction(playerSpellAction);
+                    GSA_Overtake overtakeAction = new GSA_Overtake();
+                    GameSequencer.Instance.AddAction(overtakeAction);
+                }
             }
         }
     }

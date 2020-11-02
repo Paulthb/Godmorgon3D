@@ -7,16 +7,16 @@ using GodMorgon.Player;
 
 namespace GodMorgon.GameSequencerSpace
 {
-    public class GSA_TrapDoor : GameSequencerAction
+    public class GSA_Overtake : GameSequencerAction
     {
         /**
-         * Should apply a visual teleportation effect
+         * Should apply a visual double teleportation effect
          */
         public override IEnumerator ExecuteAction(GameContext context)
         {
-            //wait the time of the teleport effect
+            //wait the time of the Overtake effect
             yield return new WaitForSeconds(0.5f);
-            //Debug.Log("Trap Door ACTION");
+            Debug.Log("Overtake ACTION");
         }
     }
 }
