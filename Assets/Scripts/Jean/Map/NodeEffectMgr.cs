@@ -133,9 +133,11 @@ public class NodeEffectMgr : MonoBehaviour
                     break;
                 case NodeEffect.START:
                     // Lance un tuto ? une anim ?
+                    StartCoroutine(TimedNodeEffect());
                     break;
                 case NodeEffect.EXIT:
                     // Lance la fin de la partie
+                    StartCoroutine(TimedNodeEffect());
                     break;
             }
 
@@ -143,7 +145,8 @@ public class NodeEffectMgr : MonoBehaviour
             StartCoroutine(DeleteParticles(nodeObject));
 
             playerNode.effectLaunched = true;
-        }
+        } else 
+            StartCoroutine(TimedNodeEffect());
     }
 
 
@@ -198,9 +201,6 @@ public class NodeEffectMgr : MonoBehaviour
     public void LaunchChestNodeEffect()
     {
         if (null == playerNode) return;
-
-        // Create particule effect object
-        //Instantiate(nodeFxList[(int)NodeEffect.CHEST], currentRoomWorldPos, Quaternion.identity, nodeEffectsParent);
 
         // Add gold to player
         PlayerMgr.Instance.AddGold(goldInChest);
