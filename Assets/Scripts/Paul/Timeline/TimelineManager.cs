@@ -195,8 +195,8 @@ namespace GodMorgon.Timeline
                 //le joueur jette sa main et repioche des cartes
                 GameManager.Instance.PlayerDraw();
 
-                //le player perd ces bonus à la fin du tour
-                BuffManager.Instance.ResetAllBonus();
+                //on réactive les effets pour le nouveaux tour
+                BuffManager.Instance.ReffillBonus();
 
                 gearsList[3].gear.Stop();
 
