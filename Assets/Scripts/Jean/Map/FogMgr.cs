@@ -121,8 +121,6 @@ public class FogMgr : MonoBehaviour
 
                 ps.SetParticles(particles, particleCount);
             }
-            else
-                print("No fog found on node at position : " + targetNode.position.x + "/" + targetNode.position.z);
         }
 
         // Set the node as cleared

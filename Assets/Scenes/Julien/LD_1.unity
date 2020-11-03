@@ -13482,6 +13482,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7078950512023755572, guid: a88b6cc1fa8a5c6488ecaa9600b9aedf,
         type: 3}
+    - target: {fileID: 7298600251662648970, guid: 653085ed10243b14cb2eae8835328137,
+        type: 3}
+      propertyPath: nbEnemiesToSpawn
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7347671793765871052, guid: 653085ed10243b14cb2eae8835328137,
         type: 3}
       propertyPath: m_LocalPosition.x
