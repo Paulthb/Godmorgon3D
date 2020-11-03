@@ -128,10 +128,10 @@ namespace GodMorgon.Shop
                 isPlayerGoldTextUpdated = false;
                 card.gameObject.SetActive(false);
                 actualContent.Remove(card.card);
-                PlayerManager.Instance.UpdateGoldText();    //Met à jour les golds sur l'écran de jeu
+                PlayerMgr.Instance.UpdateGoldText();    //Met à jour les golds sur l'écran de jeu
 
                 //SFX card buy
-                MusicManager.Instance.PlayCardsBuy();
+                //MusicManager.Instance.PlayCardsBuy();
 
                 hasPlayerBuy = true;
             }

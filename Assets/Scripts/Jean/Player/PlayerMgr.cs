@@ -58,6 +58,8 @@ namespace GodMorgon.Player
         private Transform playerCanvas = null;
         [SerializeField]
         private TextMeshProUGUI goldValueText;
+        [SerializeField]
+        private TextMeshProUGUI tokenText;
         private HealthBar _healthBar = null;
 
         //all visual effect for the player
@@ -496,6 +498,8 @@ namespace GodMorgon.Player
         public void AddToken()
         {
             playerData.AddToken();
+
+            UpdateTokenText();
         }
 
         /**
@@ -505,6 +509,16 @@ namespace GodMorgon.Player
         public void TakeOffToken()
         {
             playerData.TakeOffOneToken();
+
+            UpdateTokenText();
+        }
+
+        /**
+         * Update Token Text
+         */
+        private void UpdateTokenText()
+        {
+            tokenText.text = playerData.token.ToString();
         }
 
 
