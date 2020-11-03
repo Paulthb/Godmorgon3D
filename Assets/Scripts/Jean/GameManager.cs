@@ -55,6 +55,16 @@ public class GameManager : MonoBehaviour
     public Image ThankYouImage = null;
     public float timeFade = 2;
 
+    /**
+     * FOR DEBUG 
+     * 
+     * List to see the content of the deck and discardPile
+     * Don't modify it in-game are you will break the game
+     */
+    public List<BasicCard> VisibleDeck = new List<BasicCard>();
+    public List<BasicCard> VisibleDiscardPile = new List<BasicCard>();
+
+
     #region Singleton Pattern
     private static GameManager _instance;
 
@@ -89,6 +99,7 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(LaunchFinalFade());
         }
+        UpdateVisibleDeck();
     }
 
     /**
@@ -409,5 +420,16 @@ public class GameManager : MonoBehaviour
             currentTime += Time.deltaTime;
             yield return null;
         }
+    }
+
+    /**
+     * FOR DEBUG
+     * update the visible deck
+     */
+    public void UpdateVisibleDeck()
+    {
+        VisibleDeck.AddRange(GameEngine.Instance.GetPlayerDeck());
+        VisibleDiscardPile.AddRange(GameEngine.Instance.GetDisposalPile());
+        //print("alooooooooooo");
     }
 }

@@ -266,6 +266,18 @@ public class GameEngine
         }
     }
 
+    //return the contain of the current deck
+    public List<BasicCard> GetPlayerDeck()
+    {
+        return playerDeck.GetCards();
+    }
+
+    //return the contain of the current deck
+    public List<BasicCard> GetDisposalPile()
+    {
+        return disposalPile.GetCards();
+    }
+
     #endregion
 
     /**
