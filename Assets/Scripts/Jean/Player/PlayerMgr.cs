@@ -518,7 +518,8 @@ namespace GodMorgon.Player
          */
         private void UpdateTokenText()
         {
-            tokenText.text = playerData.token.ToString();
+            if(tokenText != null)
+                tokenText.text = playerData.token.ToString();
         }
 
 

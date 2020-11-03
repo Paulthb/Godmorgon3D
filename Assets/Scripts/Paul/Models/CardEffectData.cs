@@ -43,6 +43,8 @@ namespace GodMorgon.Models
         public bool swift = false;
         public bool noBrakes = false;
 
+        //inflict damage by moving
+        public bool ForcedWalk = false;
 
         [Header("Defense")]
         //nb block

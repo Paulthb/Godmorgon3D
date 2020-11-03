@@ -36,7 +36,7 @@ public class BuffManager
     //each time player get hit, we draw 2 card at start of turn
     public bool scarificationActivate = false;
     //peut être activé pour ce tour (4 actions)
-    public bool canScarification = true;
+    public bool canScarification = false;
 
     //defense effet
     public bool isCounterActive = false;

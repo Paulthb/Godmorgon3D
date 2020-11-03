@@ -15,6 +15,13 @@ namespace GodMorgon.CardEffect
         */
         public override void ApplyEffect(CardEffectData effectData, GameContext context)
         {
+            //Forced Walk
+            if(effectData.ForcedWalk)
+            {
+                PlayerMgr.Instance.TakeDamage(effectData.damagePoint);
+                Debug.Log("player receive 20 damages points for Forced Walk");
+            }
+
             //Trust
             if (effectData.trust)
             {
