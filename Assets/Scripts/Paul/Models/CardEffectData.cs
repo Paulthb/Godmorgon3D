@@ -85,6 +85,9 @@ namespace GodMorgon.Models
         public bool isHeal = false;
         public int nbHeal = 0;
 
+        //discard all the card in hand and draw 4 cards
+        public bool SecondChance = false;
+
         [Header("Other")]
         //Shiver : double les valeurs si la vie est inférieurs à 50%
         public bool shiver = false;

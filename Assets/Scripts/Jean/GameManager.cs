@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
     }
 
     /**
-     * At the beginning of turn,
+     * At the beginning of turn(after 4 action),
      * the player discard all his currents cards and draw new one.
      */
     public void PlayerDraw()
@@ -343,7 +343,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //Set le nombre de carte à discard indiqué par le spell effect
+    //Set le nombre de carte à discard indiqué par le spell "Secret pouch" 
     public void SetNbCardToDiscard(int nbCard)
     {
         nbCardToDiscard = nbCard;

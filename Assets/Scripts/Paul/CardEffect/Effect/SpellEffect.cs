@@ -120,6 +120,16 @@ namespace GodMorgon.CardEffect
                     GameSequencer.Instance.AddAction(overtakeAction);
                 }
             }
+
+            //discard all the card in hand and draw 4 cards
+            if(effectData.SecondChance)
+            {
+                GameManager.Instance.DiscardHand();
+                GameManager.Instance.DrawCard(4);
+
+                GSA_Spell playerSpellAction = new GSA_Spell();
+                GameSequencer.Instance.AddAction(playerSpellAction);
+            }
         }
     }
 }
