@@ -16,6 +16,7 @@ namespace GodMorgon.StateMachine
             GameManager.Instance.ShowPlayerTurnImage();
             GameManager.Instance.UnlockDragCardHandler(true);
 
+            BuffManager.Instance.ApplyBonusEffect();
         }
     }
 }

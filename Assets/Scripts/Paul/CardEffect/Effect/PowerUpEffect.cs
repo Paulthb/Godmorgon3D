@@ -40,6 +40,12 @@ namespace GodMorgon.CardEffect
 
                 PlayerMgr.Instance.OnPlayerFastShoes();
             }
+
+            if(effectData.Scarification)
+            {
+                BuffManager.Instance.ActivateScarification();
+                //visual effect
+            }
         }
     }
 }

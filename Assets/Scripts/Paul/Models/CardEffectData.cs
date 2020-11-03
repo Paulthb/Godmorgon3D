@@ -59,6 +59,9 @@ namespace GodMorgon.Models
         //double les déplacements
         public bool FastShoes = false;
 
+        //activate Scarification
+        public bool Scarification = false;
+
         [Header("Sight")]
         //effect to sight card
         public bool Sight = false;

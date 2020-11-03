@@ -86,6 +86,9 @@ namespace GodMorgon.Player
                 damagePoint--;
             }
             Debug.Log("player health after was : " + health);
+
+            //apply scarification at every damage taken
+            BuffManager.Instance.ApplyScarification();
         }
 
         /**
