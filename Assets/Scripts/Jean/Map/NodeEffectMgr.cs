@@ -167,6 +167,9 @@ public class NodeEffectMgr : MonoBehaviour
         //Set the node as Cursed
         nodeToCurse.GetComponent<NodeScript>().node.nodeEffect = NodeEffect.CURSE;
 
+        //Reset effect launched to false
+        nodeToCurse.GetComponent<NodeScript>().node.effectLaunched = false;
+
         //Launch particules on node 
         InstantiateParticlesOnNode(nodeToCurse.GetComponent<NodeScript>().node, nodeToCurse);        
     }
@@ -234,8 +237,8 @@ public class NodeEffectMgr : MonoBehaviour
         yield return new WaitForSeconds(3f);
         isNodeEffectDone = true;
         yield return new WaitForSeconds(3f);
-        foreach (Transform child in nodeEffectsParent)  //Destroy
-            DestroyImmediate(child.gameObject);
+        //foreach (Transform child in nodeEffectsParent)  //Destroy
+        //    DestroyImmediate(child.gameObject);
         isNodeEffectDone = false;
     }
 
@@ -253,12 +256,24 @@ public class NodeEffectMgr : MonoBehaviour
      */
     IEnumerator DeleteParticles(Transform currentNode)
     {
-        ParticleSystem currentParticleObject = currentNode.GetComponentInChildren<ParticleSystem>();
-        
+        ParticleSystem currentParticleObject = null;
+
+        foreach (Transform child in currentNode)
+        {
+            for(int i = 0; i < nodeFxList.Count; i++)
+            {
+                if (child.name.Contains(nodeFxList[i].name))
+                {
+                    currentParticleObject = child.GetComponent<ParticleSystem>();
+                }
+            }
+        }
+
         if (currentParticleObject == null) yield break;
         
         currentParticleObject.Stop();
         yield return new WaitForSeconds(3f);
-        Destroy(currentParticleObject.gameObject);        
+        Destroy(currentParticleObject.gameObject);
+        
     }
 }

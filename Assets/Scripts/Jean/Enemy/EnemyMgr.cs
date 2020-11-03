@@ -249,7 +249,6 @@ public class EnemyMgr : MonoBehaviour
     {
         UpdateEnemiesOnPlayersNodeList();   //On réactualise la liste des ennemis présents dans la room du player
 
-        print("enemies should recenter : " + enemiesOnPlayersNode.Count);
         //Si on a des ennemis dans la room du player
         if (enemiesOnPlayersNode.Count > 0)
         {
