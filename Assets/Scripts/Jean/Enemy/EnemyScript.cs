@@ -7,19 +7,19 @@ namespace GodMorgon.Enemy
 {
     public class EnemyScript : MonoBehaviour
     {
-        [Header("Enemy Settings")] 
+        [Header("Enemy Settings")]
         public Models.Enemy _enemy; //Scriptable object Enemy
         public EnemyData enemyData = new EnemyData();
         public List<EnemyScript> enemiesInNode = new List<EnemyScript>();
 
-        [Header("Movement Settings")] 
+        [Header("Movement Settings")]
         public float moveSpeed = 5f; //Enemy speed
         //Curve linked to move to do speed variations
         public AnimationCurve moveCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
         private List<Spot> roadPath; //First path calculated
         private List<Spot> enemyPath; //Final path calculated, without player's tile if he's on path
-        
+
         private int tileIndex;  //Index used for the movement mechanic, one tile after another
         private int nbTilesPerMove = 3;  //Nb tiles for 1 move
 
@@ -82,14 +82,14 @@ namespace GodMorgon.Enemy
             if (mainCamera)
                 shaker = mainCamera.GetComponent<CameraShaker>();
 
-            if(healthBarPrefab != null)
+            if (healthBarPrefab != null)
                 InitializeHealthBar();
         }
 
         // Update is called once per frame
         void Update()
         {
-            if(canMove)
+            if (canMove)
                 LaunchMoveMechanic();
 
             if (canRecenter)
@@ -111,9 +111,9 @@ namespace GodMorgon.Enemy
             if (!enemyData.inPlayersNode)
             {
                 //Path creation
-                roadPath = MapManager.Instance.astar.CreatePath(MapManager.Instance.grid, 
-                    new Vector2Int(enemyTilePos.x, enemyTilePos.z), 
-                    new Vector2Int(playerTilePos.x, playerTilePos.z), 
+                roadPath = MapManager.Instance.astar.CreatePath(MapManager.Instance.grid,
+                    new Vector2Int(enemyTilePos.x, enemyTilePos.z),
+                    new Vector2Int(playerTilePos.x, playerTilePos.z),
                     nbTilesPerMove * enemyData.nbMoves);
 
                 if (roadPath == null) return;
@@ -149,7 +149,7 @@ namespace GodMorgon.Enemy
                             }
                         }
 
-                        
+
                     }
 
 
@@ -350,7 +350,7 @@ namespace GodMorgon.Enemy
 
             enemyPath.Clear();
 
-            foreach(Spot tile in roadPath)
+            foreach (Spot tile in roadPath)
             {
                 enemyPath.Add(tile);
             }

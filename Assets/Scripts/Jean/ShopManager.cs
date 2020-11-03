@@ -37,7 +37,7 @@ namespace GodMorgon.Shop
         public void Awake()
         {
             //on initialize la liste actuiel de carte
-            foreach(BasicCard card in shopContent.cards)
+            foreach (BasicCard card in shopContent.cards)
             {
                 actualContent.Add(card);
             }
