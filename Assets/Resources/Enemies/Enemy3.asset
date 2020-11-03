@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy3
   m_EditorClassIdentifier: 
   enemyId: Butcher
-  health: 100
+  health: 15
   skin: {fileID: 0}
   nbMoves: 1
   speed: 5
