@@ -34,7 +34,7 @@ public class NodeEffectMgr : MonoBehaviour
 
     #region Singleton Pattern
     private static NodeEffectMgr _instance;
-    
+
 
     public static NodeEffectMgr Instance { get { return _instance; } }
     #endregion
@@ -78,13 +78,13 @@ public class NodeEffectMgr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     /**
@@ -145,7 +145,8 @@ public class NodeEffectMgr : MonoBehaviour
             StartCoroutine(DeleteParticles(nodeObject));
 
             playerNode.effectLaunched = true;
-        } else 
+        }
+        else
             StartCoroutine(TimedNodeEffect());
     }
 
@@ -171,7 +172,7 @@ public class NodeEffectMgr : MonoBehaviour
         nodeToCurse.GetComponent<NodeScript>().node.effectLaunched = false;
 
         //Launch particules on node 
-        InstantiateParticlesOnNode(nodeToCurse.GetComponent<NodeScript>().node, nodeToCurse);        
+        InstantiateParticlesOnNode(nodeToCurse.GetComponent<NodeScript>().node, nodeToCurse);
     }
 
 
@@ -246,7 +247,7 @@ public class NodeEffectMgr : MonoBehaviour
         {
             yield return null;
         }
-        
+
         isNodeEffectDone = true;
         yield return new WaitForSeconds(3f);
         isNodeEffectDone = false;
@@ -270,7 +271,7 @@ public class NodeEffectMgr : MonoBehaviour
 
         foreach (Transform child in currentNode)
         {
-            for(int i = 0; i < nodeFxList.Count; i++)
+            for (int i = 0; i < nodeFxList.Count; i++)
             {
                 if (child.name.Contains(nodeFxList[i].name))
                 {
@@ -280,10 +281,10 @@ public class NodeEffectMgr : MonoBehaviour
         }
 
         if (currentParticleObject == null) yield break;
-        
+
         currentParticleObject.Stop();
         yield return new WaitForSeconds(3f);
         Destroy(currentParticleObject.gameObject);
-        
+
     }
 }

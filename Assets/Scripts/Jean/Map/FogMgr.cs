@@ -56,7 +56,7 @@ public class FogMgr : MonoBehaviour
     private void Start()
     {
         InitFog();
-    }    
+    }
 
     private void Update()
     {
@@ -124,7 +124,7 @@ public class FogMgr : MonoBehaviour
         }
 
         // Set the node as cleared
-        foreach(Transform node in MapManager.Instance.nodesList)
+        foreach (Transform node in MapManager.Instance.nodesList)
         {
             if (node.position.x == targetNode.position.x && node.position.z == targetNode.position.z)
                 node.GetComponent<NodeScript>().node.isNodeCleared = true;
@@ -137,15 +137,15 @@ public class FogMgr : MonoBehaviour
     public void ClearFogOnAccessibleNode()
     {
         foreach (Transform accessibleNode in MapManager.Instance.GetAccessibleNodesList())
-        { 
+        {
             if (!accessibleNode.GetComponent<NodeScript>().node.isNodeCleared)   //Si la tile n'est pas transparente
             {
                 ClearFogOnNode(accessibleNode);
-            }            
-        }        
+            }
+        }
     }
 
-    
+
     /**
      * Clear fog in a zone of a specific range (Sight card)
      */
@@ -161,7 +161,7 @@ public class FogMgr : MonoBehaviour
         //SFX fog clear
         //MusicManager.Instance.PlayFogClear();
     }
-    
+
 
     /**
      * Check if nodes has been revealed with Sight card
