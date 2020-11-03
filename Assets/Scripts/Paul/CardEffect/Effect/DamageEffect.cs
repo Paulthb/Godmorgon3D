@@ -48,14 +48,14 @@ namespace GodMorgon.CardEffect
             {
                 foreach (EnemyScript enemyScript in EnemyMgr.Instance.GetEnemiesOnPlayersNode())
                 {
-                    enemyScript.enemyData.TakeDamage(PlayerData.Instance.DoDamage(damagePoint), true);
+                    enemyScript.enemyData.TakeDamage(PlayerMgr.Instance.playerData.DoDamage(damagePoint), true);
                 }
                 Debug.Log("circular attack");
             }
             else
             {
                 //toujours passer par le playerData pour infliger les dégats correspondant au stats actuel du player
-                context.targets.TakeDamage(PlayerData.Instance.DoDamage(damagePoint), true);
+                context.targets.TakeDamage(PlayerMgr.Instance.playerData.DoDamage(damagePoint), true);
             }
             //add the attack sequence
             GSA_PlayerAttack playerAttackAction = new GSA_PlayerAttack();
