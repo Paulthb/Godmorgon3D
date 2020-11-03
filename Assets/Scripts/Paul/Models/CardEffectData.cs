@@ -67,6 +67,8 @@ namespace GodMorgon.Models
         [Header("Spell")]
         //effect to draw card
         public bool DrawCard = false;
+        //effect draw card from discard pile
+        public bool recycling = false;
         public int nbCardToDraw = 0;
 
         //effect to teleport an enemy
