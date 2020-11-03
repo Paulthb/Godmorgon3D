@@ -211,6 +211,8 @@ public class NodeEffectMgr : MonoBehaviour
         //SFX chest room
         //MusicManager.Instance.PlayFeedbackChest();
 
+        GameManager.Instance.DraftPanelActivation(true);
+
         StartCoroutine(TimedNodeEffect());
     }
 
@@ -235,10 +237,15 @@ public class NodeEffectMgr : MonoBehaviour
     IEnumerator TimedNodeEffect()
     {
         yield return new WaitForSeconds(3f);
+
+        // Wait for the player to choose a card in draft panel (activated with Chest node)
+        while (GameManager.Instance.draftPanelActivated)
+        {
+            yield return null;
+        }
+        
         isNodeEffectDone = true;
         yield return new WaitForSeconds(3f);
-        //foreach (Transform child in nodeEffectsParent)  //Destroy
-        //    DestroyImmediate(child.gameObject);
         isNodeEffectDone = false;
     }
 

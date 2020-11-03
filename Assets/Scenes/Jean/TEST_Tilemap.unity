@@ -5241,7 +5241,7 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 1abad7005a03a524391fb5892fbbe5b3,
       type: 3}
     roadType: 2
-    nodeEffect: 1
+    nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
 --- !u!1001 &330149695
