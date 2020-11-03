@@ -89,16 +89,16 @@ public class FogMgr : MonoBehaviour
     {
         Vector3 spawnPos = targetNode.position;
 
-        Instantiate(fogPrefab, spawnPos, Quaternion.identity, transform);
+        Instantiate(fogPrefab, spawnPos, Quaternion.identity, targetNode);
         targetNode.GetComponent<NodeScript>().node.isNodeCleared = false;
     }
 
     private void ClearFogOnNode(Transform targetNode)
     {
         // Stop the particule
-        foreach (Transform child in transform)
+        foreach (Transform child in targetNode)
         {
-            if (child.position.x == targetNode.position.x && child.position.z == targetNode.position.z)
+            if (child.name == "Fog_Tile(Clone)")
             {
                 ParticleSystem ps = child.GetChild(1).GetComponent<ParticleSystem>();
 
@@ -109,7 +109,7 @@ public class FogMgr : MonoBehaviour
                 int particleCount = ps.particleCount;
                 ParticleSystem.Particle[] particles = new ParticleSystem.Particle[particleCount];
                 ps.GetParticles(particles);
-                
+
                 for (int i = 0; i < particles.Length; i++)
                 {
                     if (particles[i].remainingLifetime > speedClear)
@@ -136,19 +136,13 @@ public class FogMgr : MonoBehaviour
      */
     public void ClearFogOnAccessibleNode()
     {
-        foreach (Transform child in transform)
-        {
-            foreach (Transform accessibleNode in MapManager.Instance.GetAccessibleNodesList())
-            {                
-                if (child.position == accessibleNode.position)
-                {
-                    if (!accessibleNode.GetComponent<NodeScript>().node.isNodeCleared)   //Si la tile n'est pas transparente
-                    {
-                        ClearFogOnNode(accessibleNode);
-                    }
-                }
-            }
-        }
+        foreach (Transform accessibleNode in MapManager.Instance.GetAccessibleNodesList())
+        { 
+            if (!accessibleNode.GetComponent<NodeScript>().node.isNodeCleared)   //Si la tile n'est pas transparente
+            {
+                ClearFogOnNode(accessibleNode);
+            }            
+        }        
     }
 
     
