@@ -5361,7 +5361,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1795635172285137310, guid: 0426c08173d205b4abdb615c5d792c02, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0426c08173d205b4abdb615c5d792c02, type: 3}
 --- !u!1 &338659263
 GameObject:
@@ -10102,6 +10103,34 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+--- !u!1 &587208555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1795635172285136994, guid: 0426c08173d205b4abdb615c5d792c02,
+    type: 3}
+  m_PrefabInstance: {fileID: 333844175}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &587208556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587208555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02424ce132c81774eb80d00b0b1ab01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  fDistance: 785
+  MinAngle: 42
+  MaxAngle: 0
+  StartAngle: 114
 --- !u!1001 &592351071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23733,7 +23762,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 333844175}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 587208555}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b7670932d17eaf42b71c98fe4ee15e7, type: 3}

@@ -192,12 +192,30 @@ public class GameEngine
             //throw new DeckIsEmptyException();
             ShuffleDeck();
         }
-
         // Take from the deck
         BasicCard myNewCard = playerDeck.DrawCard();
         hand.AddCard(myNewCard);
         return myNewCard;
-        
+    }
+
+    //draw a card of the disposalPile and remove it from the disposalPile
+    public BasicCard DrawCardFromDisposalPile()
+    {
+        //si le deck est vide on reprend toute les cartes dans la disposal pile pour remplir le deck en mélangeant les cartes.
+        if (disposalPile.Count() == 0)
+        {
+            Debug.Log("the disposalPile is empty");
+        }
+        // Take from the deck
+        BasicCard myNewCard = disposalPile.DrawCard();
+        hand.AddCard(myNewCard);
+        return myNewCard;
+    }
+
+    //return the nb of card in the disposal pile
+    public int GetNbCardInDisposalPile()
+    {
+        return disposalPile.Count();
     }
 
     //Add card to the deck of the player

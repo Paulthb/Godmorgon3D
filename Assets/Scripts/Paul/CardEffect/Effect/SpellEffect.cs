@@ -45,6 +45,20 @@ namespace GodMorgon.CardEffect
                 GameSequencer.Instance.AddAction(playerSpellAction);
             }
 
+            //effect to draw X card from discard pile
+            if (effectData.recycling)
+            {
+                int nbCardToDraw = effectData.nbCardToDraw;
+                if (isTrustActivate)
+                    nbCardToDraw = nbCardToDraw * 2;
+
+                GameManager.Instance.DrawCardFromDiscardPile(nbCardToDraw);
+
+                //add the Spell sequence
+                GSA_Spell playerSpellAction = new GSA_Spell();
+                GameSequencer.Instance.AddAction(playerSpellAction);
+            }
+
             //effect to discard X card
             if(effectData.DiscardCard)
             {

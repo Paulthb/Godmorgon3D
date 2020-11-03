@@ -168,6 +168,23 @@ public class GameManager : MonoBehaviour
         handManager.UpdateCardDataDisplay();
     }
 
+    //add nbCard from disposal pile, if there is one, to hand
+    public void DrawCardFromDiscardPile(int nbCard)
+    {
+        for (int i = 0; i < nbCard; i++)
+        {
+            if (GameEngine.Instance.GetNbCardInDisposalPile() > 0)
+            {
+                BasicCard cardDrawn = GameEngine.Instance.DrawCardFromDisposalPile();
+                handManager.AddCard(cardDrawn);
+            }
+            else
+                Debug.Log("discard pile is empty");
+        }
+        //on met à jour les infos dès qu'on pioche une carte
+        handManager.UpdateCardDataDisplay();
+    }
+
     //add card to hand from shop
     public void AddCardInHand(BasicCard card)
     {
