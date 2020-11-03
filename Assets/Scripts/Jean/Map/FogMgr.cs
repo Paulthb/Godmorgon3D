@@ -199,9 +199,9 @@ public class FogMgr : MonoBehaviour
         ParticleSystem ps;
 
         //Play the particules of fog on every node
-        foreach (Transform fog in transform)
+        foreach (Transform node in MapManager.Instance.nodesList)       // AJOUTER UNE LIST DES NODES DECOUVERTS
         {
-            ps = fog.GetChild(1).GetComponent<ParticleSystem>();
+            ps = node.Find("Fog_Tile(Clone)").GetChild(1).GetComponent<ParticleSystem>();
 
             if (ps == null) print("Particle system not found");
             ps.Play();
