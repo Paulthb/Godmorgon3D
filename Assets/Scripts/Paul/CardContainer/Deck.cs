@@ -40,6 +40,13 @@ namespace GodMorgon.CardContainer
             cards.Clear();
         }
 
+        //Get the cards list
+        public List<BasicCard> GetCards()
+        {
+            List<BasicCard> newList = new List<BasicCard>(cards);
+            return newList;
+        }
+
         //Return the count in the Stack
         public new int Count() { return cards.Count; }
     }

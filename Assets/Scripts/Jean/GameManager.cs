@@ -428,8 +428,13 @@ public class GameManager : MonoBehaviour
      */
     public void UpdateVisibleDeck()
     {
-        VisibleDeck.AddRange(GameEngine.Instance.GetPlayerDeck());
-        VisibleDiscardPile.AddRange(GameEngine.Instance.GetDisposalPile());
-        //print("alooooooooooo");
+        VisibleDeck.Clear();
+        VisibleDiscardPile.Clear();
+        foreach (BasicCard card in GameEngine.Instance.GetPlayerDeck()){
+            VisibleDeck.Add(card);
+        }
+        foreach (BasicCard card in GameEngine.Instance.GetDisposalPile()){
+            VisibleDiscardPile.Add(card);
+        }
     }
 }
