@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Attack_BackAtYou[a_tester]
+  m_Name: Attack_Rush [a_tester]
   m_EditorClassIdentifier: 
   cardType: 1
   id: 9
-  name: BackAtYou
+  name: Rush
   dropTarget: 2
-  description: Inflict [nbDamage] damages for every damages taken this turn
+  description: 'Inflict [nbDamage] damages to player and [nbDamage] damages to an
+    Enemy - Ranged  '
   actionCost: 1
   price: 0
   template: {fileID: 21300000, guid: d914663f37f4d974aa4c14141b89f8c0, type: 3}
   artwork: {fileID: 21300000, guid: 809f8ec10a8eeb748895029d9c5d8a5e, type: 3}
   effectsData:
   - currentEffect: 0
-    damagePoint: 5
+    damagePoint: 10
     attackRange: 1
-    BackAtYou: 1
-    Rush: 0
+    BackAtYou: 0
+    Rush: 1
     isCircular: 0
     nbMoves: 0
     rolling: 0

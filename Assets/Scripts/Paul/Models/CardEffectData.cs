@@ -35,6 +35,9 @@ namespace GodMorgon.Models
         //attaque en fonction des dégats reçu pendant le tour
         public bool BackAtYou = false;
 
+        //attaque l'enemy et le player
+        public bool Rush = false;
+
         //attaque tous les enemy dans la node du player
         public bool isCircular = false;
 
