@@ -7125,10 +7125,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4894572644564906816, guid: f55efadd2adce8144a0032126ffb8fac,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894572644564906816, guid: f55efadd2adce8144a0032126ffb8fac,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 444954648325390464, guid: f010cc7c138956b47b5ef365ff6572c0,
+        type: 3}
+    - target: {fileID: 4894572644564906816, guid: f55efadd2adce8144a0032126ffb8fac,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2728f8a597b0454a8d695f8beb99067, type: 2}
+    - target: {fileID: 4894572644564906816, guid: f55efadd2adce8144a0032126ffb8fac,
+        type: 3}
+      propertyPath: m_RenderAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4894572644564906817, guid: f55efadd2adce8144a0032126ffb8fac,
         type: 3}
       propertyPath: m_Name
-      value: E_Spawn_Falling_Flashes
+      value: Cursed_Skulls
       objectReference: {fileID: 0}
     - target: {fileID: 4894572644564906822, guid: f55efadd2adce8144a0032126ffb8fac,
         type: 3}
@@ -7184,6 +7205,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894572644564906823, guid: f55efadd2adce8144a0032126ffb8fac,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894572644564906823, guid: f55efadd2adce8144a0032126ffb8fac,
+        type: 3}
+      propertyPath: InitialModule.startRotation.scalar
+      value: 0.7853981
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894572644564906823, guid: f55efadd2adce8144a0032126ffb8fac,
+        type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894572644564906823, guid: f55efadd2adce8144a0032126ffb8fac,
+        type: 3}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894572644564906823, guid: f55efadd2adce8144a0032126ffb8fac,
+        type: 3}
+      propertyPath: InitialModule.startRotationX.scalar
+      value: 3.1415925
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f55efadd2adce8144a0032126ffb8fac, type: 3}
