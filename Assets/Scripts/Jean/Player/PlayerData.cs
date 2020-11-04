@@ -63,7 +63,7 @@ namespace GodMorgon.Player
 
         /**
          * Update health and defense player data
-         * must be called from player manager !!
+         * must be called from player mgr !!
          */
         public override void TakeDamage(int damagePoint, bool isPlayerAttacking)
         {

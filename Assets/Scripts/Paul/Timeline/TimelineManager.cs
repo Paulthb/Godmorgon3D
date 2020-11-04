@@ -7,6 +7,7 @@ using GodMorgon.Models;
 
 using GodMorgon.StateMachine;
 using GodMorgon.Sound;
+using GodMorgon.Player;
 
 namespace GodMorgon.Timeline
 {
@@ -204,6 +205,9 @@ namespace GodMorgon.Timeline
 
                 //reset la défense de tous les enemy à 0
                 EnemyMgr.Instance.CancelEnemyBlock();
+
+                //reset le nombre de dégat du player pris à ce tour
+                PlayerMgr.Instance.ResetTurnDamage();
 
                 //SFX end ringmaster Turn
                 //MusicManager.Instance.PlayCursorEnd();
