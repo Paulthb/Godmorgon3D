@@ -19,6 +19,8 @@ Texture2D:
   m_TextureFormat: 1
   m_MipCount: 1
   m_IsReadable: 1
+  m_IgnoreMasterTextureLimit: 0
+  m_IsPreProcessed: 0
   m_StreamingMipmaps: 0
   m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
@@ -54,7 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hashCode: -12300645
   material: {fileID: 1332396824645728166}
-  materialHashCode: 83088944
+  materialHashCode: -961465509
   m_Version: 1.1.0
   m_SourceFontFileGUID: c22ceea10816ac24cb6cc2d7ec17002c
   m_SourceFontFile_EditorRef: {fileID: 0}
@@ -1219,6 +1221,7 @@ MonoBehaviour:
   m_AtlasTextures:
   - {fileID: -7119086693017312506}
   m_AtlasTextureIndex: 0
+  m_IsMultiAtlasTexturesEnabled: 0
   m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
@@ -1833,7 +1836,7 @@ Material:
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
     - _ScaleRatioB: 0.56041664
-    - _ScaleRatioC: 0.56041664
+    - _ScaleRatioC: 0.28020832
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -1846,9 +1849,9 @@ Material:
     - _StencilWriteMask: 255
     - _TextureHeight: 512
     - _TextureWidth: 512
-    - _UnderlayDilate: 0
-    - _UnderlayOffsetX: 0
-    - _UnderlayOffsetY: 0
+    - _UnderlayDilate: 1
+    - _UnderlayOffsetX: 1
+    - _UnderlayOffsetY: 1
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
@@ -1864,4 +1867,4 @@ Material:
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _UnderlayColor: {r: 0, g: 0, b: 0, a: 1}
