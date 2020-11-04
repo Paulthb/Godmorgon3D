@@ -202,6 +202,9 @@ namespace GodMorgon.Timeline
 
                 GameManager.Instance.ShowNewTurnImage();
 
+                //reset la défense de tous les enemy à 0
+                EnemyMgr.Instance.CancelEnemyBlock();
+
                 //SFX end ringmaster Turn
                 //MusicManager.Instance.PlayCursorEnd();
             }
