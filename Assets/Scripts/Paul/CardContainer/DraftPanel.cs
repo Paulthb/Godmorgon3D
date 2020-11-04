@@ -7,41 +7,26 @@ public class DraftPanel : MonoBehaviour
 {
     public List<CardDisplay> cardObjects = new List<CardDisplay>();
 
-    public List<BasicCard> draftCards = new List<BasicCard>();
-
-    public int draftNb = 0;
+    public List<BasicCard> cardsList = new List<BasicCard>(); //EN ATTENDANT QUE TOUTES LES CARTES SOIENT DEV
 
     public void UpdateDraft()
     {
-        
+        List<BasicCard> draftCards = GetRandomItemsFromList(cardsList, 3);
 
-        int index = 0;
-
-        if (draftNb > 2) draftNb = 0;
-
-        //Choisit à partir de quel index de la liste on choisit les 3 cartes
-        switch(draftNb)
+        if (draftCards.Count < 3)
         {
-            case 0:
-                index = 0;
-                break;
-            case 1:
-                index = 3;
-                break;
-            case 2:
-                index = 6;
-                break;
+            print("No cards enough in list for draft");
+            return;
         }
 
-        ++draftNb;
+        int randomIndex = 0;
 
         //On applique à chacune des trois cartes les SO de la liste suivant l'index
         foreach (CardDisplay card in cardObjects)
         {
-            card.UpdateCard(draftCards[index]);
-            index++;
+            card.UpdateCard(draftCards[randomIndex]);
+            randomIndex++;
         }
-
     }
 
     /**
@@ -51,5 +36,21 @@ public class DraftPanel : MonoBehaviour
     {
         GameManager.Instance.AddCardToDiscardPile(card.card);
         GameManager.Instance.DraftPanelActivation(false);
+    }
+
+    public static List<T> GetRandomItemsFromList<T>(List<T> list, int number)
+    {
+        List<T> tempList = new List<T>(list);
+
+        List<T> newList = new List<T>();
+
+        while (newList.Count < number && tempList.Count > 0)
+        {
+            int index = Random.Range(0, tempList.Count);
+            newList.Add(tempList[index]);
+            tempList.RemoveAt(index);
+        }
+
+        return newList;
     }
 }
