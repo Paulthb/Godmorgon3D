@@ -10438,7 +10438,7 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: e4676f4fe30fc5c4fb64d83b1f2957f3,
       type: 3}
     roadType: 8
-    nodeEffect: 0
+    nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
 --- !u!1001 &610962758
@@ -31718,6 +31718,8 @@ MonoBehaviour:
   finalFade: {fileID: 462192203}
   ThankYouImage: {fileID: 1893941440}
   timeFade: 2
+  VisibleDeck: []
+  VisibleDiscardPile: []
 --- !u!1 &1887873558
 GameObject:
   m_ObjectHideFlags: 0
@@ -33039,17 +33041,28 @@ MonoBehaviour:
   - {fileID: 2139320467}
   - {fileID: 426484361}
   - {fileID: 2132221366}
-  draftCards:
-  - {fileID: 11400000, guid: 5e9371a1cf287a14891efde596badc7d, type: 2}
-  - {fileID: 11400000, guid: 06e2ee03369fa7140b6d1928da50e340, type: 2}
-  - {fileID: 11400000, guid: 4927819fdade8f94ca883c795c053952, type: 2}
-  - {fileID: 11400000, guid: fb8bda0e1d686014b99131ccf151a1e7, type: 2}
-  - {fileID: 11400000, guid: 5b551602b56c5944198862458fb53010, type: 2}
+  cardsList:
+  - {fileID: 11400000, guid: b0562ec5940c64a4a99ce5b85bb8a373, type: 2}
   - {fileID: 11400000, guid: 9d89adbf16c28b74ea41129ca443c5ca, type: 2}
-  - {fileID: 11400000, guid: bf6ccb3df9eaf6e4b9473456c3e30157, type: 2}
+  - {fileID: 11400000, guid: 13f8d87c8e3ab96498f8f4fbb7d878bd, type: 2}
+  - {fileID: 11400000, guid: 53b746cb7c219e248a1cb9fa14b14678, type: 2}
+  - {fileID: 11400000, guid: 5e9371a1cf287a14891efde596badc7d, type: 2}
+  - {fileID: 11400000, guid: a8bc687686e0d8247bd221dbe4ac5007, type: 2}
+  - {fileID: 11400000, guid: b9059be7a75c79242a71a3257ed552f3, type: 2}
+  - {fileID: 11400000, guid: 89c72975e0cd20d4cafd072b0e7a03cc, type: 2}
+  - {fileID: 11400000, guid: 06e2ee03369fa7140b6d1928da50e340, type: 2}
   - {fileID: 11400000, guid: 527b1e93c42d6074089a2a984b4dc08f, type: 2}
+  - {fileID: 11400000, guid: c91ffa10c4282a1419efbbd422070d7c, type: 2}
+  - {fileID: 11400000, guid: 5544ee2d25306704ea80818478e64cb9, type: 2}
+  - {fileID: 11400000, guid: f010c905af109b34fa385803359d15df, type: 2}
+  - {fileID: 11400000, guid: 3a1d7ae860d3fd64897b7df615d8b432, type: 2}
+  - {fileID: 11400000, guid: 5b551602b56c5944198862458fb53010, type: 2}
+  - {fileID: 11400000, guid: bf6ccb3df9eaf6e4b9473456c3e30157, type: 2}
+  - {fileID: 11400000, guid: 4927819fdade8f94ca883c795c053952, type: 2}
+  - {fileID: 11400000, guid: 60358d3e6f39a9e4c8af3113a82fd3ea, type: 2}
   - {fileID: 11400000, guid: fbe3e48121328a04288b6ebf6f4e6a61, type: 2}
-  draftNb: 0
+  - {fileID: 11400000, guid: fb8bda0e1d686014b99131ccf151a1e7, type: 2}
+  - {fileID: 11400000, guid: 3b7e10571c9a6cd49bb3d3299cfa78e1, type: 2}
 --- !u!222 &1937391227
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -36770,6 +36783,11 @@ PrefabInstance:
       propertyPath: goldValueText
       value: 
       objectReference: {fileID: 16656106}
+    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: tokenText
+      value: 
+      objectReference: {fileID: 1413652341}
     - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
       propertyPath: m_LocalPosition.x

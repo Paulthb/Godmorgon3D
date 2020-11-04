@@ -434,8 +434,6 @@ namespace GodMorgon.Enemy
                 Debug.Log("Tué directement par le player, donc lance le draft");
             }
 
-
-
             Destroy(gameObject);    //Détruit le gameobject de l'ennemi
         }
 
