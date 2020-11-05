@@ -408,15 +408,15 @@ public class EnemyMgr : MonoBehaviour
     {
         foreach (EnemyScript enemy in enemiesList)
         {
-            if (enemy.enemyData.inPlayersNode || enemy.GetNodeOfEnemy().GetComponent<NodeScript>().node.enemiesOnNode.Count > 2) // '> 2' because this enemy and another one
+            // If the enemy has not already been destroyed
+            if(enemy != null)
             {                
                 enemy.Attack();
 
                 while (!enemy.IsAttackFinished())
                 {
                     yield return null;
-
-                }
+                }                
             }
         }
 
