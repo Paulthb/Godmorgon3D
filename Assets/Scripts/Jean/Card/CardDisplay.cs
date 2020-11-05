@@ -57,6 +57,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             costText.text = card.actionCost.ToString();
         }
         UpdateDescription();
+        UpdateCardCost();
     }
 
     /**
@@ -77,6 +78,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         costText.text = card.actionCost.ToString();
 
         UpdateDescription();
+        UpdateCardCost();
     }
 
     /**
@@ -147,6 +149,23 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     /**
+     * met le coût de la carte à jour :
+     */
+    public void UpdateCardCost()
+    {
+        if (card != null)
+        {
+            string cardCost = card.actionCost.ToString();
+            //check possible buff. Si oui, on change la valeur affichée en conséquence et on écrit en rouge
+            if (BuffManager.Instance.isStickyFingersActivate)
+                cardCost = "<b><color=red>" + (card.actionCost + 1).ToString() + "</color></b>";
+
+            costText.text = cardCost;
+        }
+    }
+
+
+    /**
      * Quand on passe la souris sur l'élément
      * doit activer l'animation de l'agrandissement de la carte
      * afficher les prochaines action du ringmaster
@@ -158,8 +177,14 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             isHover = true;
             StartCoroutine(ScaleCardIn());
 
-            if(!canBeDiscard || isplayable)
-                TimelineManager.Instance.ShowNextAction(card.actionCost);
+            if (!canBeDiscard || isplayable)
+            {
+                //check des possibles modificateurs
+                if (BuffManager.Instance.isStickyFingersActivate)
+                    TimelineManager.Instance.ShowNextAction(card.actionCost + 1);
+                else
+                    TimelineManager.Instance.ShowNextAction(card.actionCost);
+            }
         }
     }
 
@@ -171,8 +196,14 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             isHover = false;
             StartCoroutine(ScaleCardOut());
 
-            if(!canBeDiscard || isplayable)
-                TimelineManager.Instance.HideNextAction(card.actionCost);
+            if (!canBeDiscard || isplayable)
+            {
+                //check des possibles modificateurs
+                if (BuffManager.Instance.isStickyFingersActivate)
+                    TimelineManager.Instance.HideNextAction(card.actionCost + 1);
+                else
+                    TimelineManager.Instance.HideNextAction(card.actionCost);
+            }
         }
     }
 
@@ -241,7 +272,11 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             StopCoroutine(ScaleCardIn());
             StopCoroutine(ScaleCardOut());
 
-            TimelineManager.Instance.HideNextAction(card.actionCost);
+            //check des possibles modificateurs
+            if (BuffManager.Instance.isStickyFingersActivate)
+                TimelineManager.Instance.HideNextAction(card.actionCost + 1);
+            else
+                TimelineManager.Instance.HideNextAction(card.actionCost);
 
             display.transform.localScale = new Vector3(1, 1, 1);
             display.transform.localPosition = new Vector3(0, 0, 0);

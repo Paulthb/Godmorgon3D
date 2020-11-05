@@ -114,6 +114,9 @@ namespace GodMorgon.Models
         //Discard toutes les cartes en main
         public bool isDiscardHand = false;
 
+        //Double les valeurs si le player a subit des dégats pendant ce tour
+        public bool Goosebump = false;
+
         [Header("Curse")]
         //pour la carte obstruction
         public bool isUseless = false;
