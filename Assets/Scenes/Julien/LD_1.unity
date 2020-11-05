@@ -20415,11 +20415,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1887340685}
-    - target: {fileID: 6965676382809026211, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenShop
-      objectReference: {fileID: 0}
     - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -20427,19 +20422,9 @@ PrefabInstance:
       objectReference: {fileID: 1887340685}
     - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SkipPlayerTurn
-      objectReference: {fileID: 0}
-    - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1887340685}
-    - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: DrawCardButton
-      objectReference: {fileID: 0}
     - target: {fileID: 6965676383302999650, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_Name
