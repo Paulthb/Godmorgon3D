@@ -81,8 +81,8 @@ public class FogMgr : MonoBehaviour
         {
             ClearFogOnNode(node);
         }
-        ClearFogOnNode(PlayerMgr.Instance.GetNodeOfPlayer());
 
+        ClearFogOnNode(PlayerMgr.Instance.GetNodeOfPlayer());
     }
 
     private void AddFogOnNode(Transform targetNode)
@@ -104,6 +104,9 @@ public class FogMgr : MonoBehaviour
 
                 // Stop emitting
                 child.GetChild(1).GetComponent<ParticleSystem>().Stop();
+
+                // Add 1 to nbNodeCleared
+                MapManager.Instance.nbNodesCleared++;
 
                 // Change lifeTime of all existing particules
                 int particleCount = ps.particleCount;
@@ -197,6 +200,8 @@ public class FogMgr : MonoBehaviour
     public void CoverMapWithFog()
     {
         ParticleSystem ps;
+
+        MapManager.Instance.nbNodesCleared = 0;
 
         //Play the particules of fog on every node
         foreach (Transform node in MapManager.Instance.nodesList)       // AJOUTER UNE LIST DES NODES DECOUVERTS
