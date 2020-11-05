@@ -23,7 +23,7 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: 55632c0e90a51cb4a9cda76143e70ae3, type: 3}
   effectsData:
   - currentEffect: 1
-    damagePoint: 20
+    damagePoint: 0
     attackRange: 0
     BackAtYou: 0
     Rush: 0
@@ -57,6 +57,6 @@ MonoBehaviour:
     retain: 0
     rangeEffect: 0
     isDiscardHand: 0
-    Goosebump: 0
+    Goosebump: 1
     isUseless: 0
     StickyFinger: 0
