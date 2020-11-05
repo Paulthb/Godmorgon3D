@@ -176,7 +176,7 @@ public class GameManager : MonoBehaviour
             handManager.AddCard(cardDrawn);
         }
         //on met à jour les infos dès qu'on pioche une carte
-        handManager.UpdateCardDataDisplay();
+        UpdateCardDataDisplay();
     }
 
     //add nbCard from disposal pile, if there is one, to hand
@@ -193,7 +193,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("discard pile is empty");
         }
         //on met à jour les infos dès qu'on pioche une carte
-        handManager.UpdateCardDataDisplay();
+        UpdateCardDataDisplay();
     }
 
     //add card to hand from shop
@@ -201,7 +201,7 @@ public class GameManager : MonoBehaviour
     {
         GameEngine.Instance.hand.AddCard(card);
         handManager.AddCard(card);
-        handManager.UpdateCardDataDisplay();
+        UpdateCardDataDisplay();
     }
 
     /**
@@ -212,6 +212,7 @@ public class GameManager : MonoBehaviour
     {
         handManager.DiscardCard(card);
         GameEngine.Instance.DiscardCard(card.card);
+        UpdateCardDataDisplay();
 
         //si on est en procédure de choix d'une carte à discard
         if (isDiscardCardSelectionOn)
