@@ -549,6 +549,13 @@ namespace GodMorgon.Player
             StopVisualEffect();
         }
 
+
+        //Reset block of the player
+        public void CancelBlock()
+        {
+            playerData.defense = 0;
+            UpdateHealthBar();
+        }
         #region Visual effect
 
         //launch player hit effect

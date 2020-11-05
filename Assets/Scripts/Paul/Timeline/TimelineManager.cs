@@ -203,7 +203,9 @@ namespace GodMorgon.Timeline
 
                 GameManager.Instance.ShowNewTurnImage();
 
-                //reset la défense de tous les enemy à 0
+
+                //reset la défense de tout le monde
+                PlayerMgr.Instance.CancelBlock();
                 EnemyMgr.Instance.CancelEnemyBlock();
 
                 //reset le nombre de dégat du player pris à ce tour
