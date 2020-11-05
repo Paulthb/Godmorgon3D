@@ -497,4 +497,14 @@ public class EnemyMgr : MonoBehaviour
             (int)enemy.position.y, (int)enemy.position.z));
         return currentTile.tilePosition;
     }
+
+
+    //cacel the block of all enemy at end of turn
+    public void CancelEnemyBlock()
+    {
+        foreach (EnemyScript enemyScript in enemiesList)
+        {
+            enemyScript.enemyData.CancelBlock();
+        }
+    }
 }

@@ -52,6 +52,20 @@ namespace GodMorgon.CardEffect
                 }
                 Debug.Log("circular attack");
             }
+            //on renvoie nbDamage en fonction des dégat reçu à ce tour
+            else if(effectData.BackAtYou)
+            {
+                for(int i = 0; i <= PlayerMgr.Instance.GetTurnDamage(); i++)
+                {
+                    context.targets.TakeDamage(PlayerMgr.Instance.playerData.DoDamage(damagePoint), true);
+                }
+            }
+            //inflige des dégats à l'enemy visé et au player
+            else if(effectData.Rush)
+            {
+                context.targets.TakeDamage(PlayerMgr.Instance.playerData.DoDamage(damagePoint), true);
+                PlayerMgr.Instance.TakeDamage(damagePoint);
+            }
             else
             {
                 //toujours passer par le playerData pour infliger les dégats correspondant au stats actuel du player

@@ -28,6 +28,8 @@ namespace GodMorgon.Player
         [SerializeField]
         private bool firstInRoom = true;
 
+        //dégats reçu à ce tour
+        public int turnDamage = 0;
 
         //Path count
         [NonSerialized]
@@ -443,8 +445,22 @@ namespace GodMorgon.Player
 
             UpdateHealthBar();
 
+            turnDamage += damage;
+
             //launch player hit effect
             OnDamage();
+        }
+
+        //return les dégats reçu à ce tour
+        public int GetTurnDamage()
+        {
+            return turnDamage;
+        }
+
+        //reset les dégats reçu à ce tour
+        public void ResetTurnDamage()
+        {
+            turnDamage = 0;
         }
 
         /**
@@ -533,6 +549,13 @@ namespace GodMorgon.Player
             StopVisualEffect();
         }
 
+
+        //Reset block of the player
+        public void CancelBlock()
+        {
+            playerData.defense = 0;
+            UpdateHealthBar();
+        }
         #region Visual effect
 
         //launch player hit effect

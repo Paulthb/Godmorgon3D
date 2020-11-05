@@ -32,6 +32,12 @@ namespace GodMorgon.Models
         public int damagePoint = 0;
         public int attackRange = 0;
 
+        //attaque en fonction des dégats reçu pendant le tour
+        public bool BackAtYou = false;
+
+        //attaque l'enemy et le player
+        public bool Rush = false;
+
         //attaque tous les enemy dans la node du player
         public bool isCircular = false;
 
@@ -67,7 +73,7 @@ namespace GodMorgon.Models
         [Header("Sight")]
         //effect to sight card
         public bool Sight = false;
-        public int sightRange = 1;
+        public int sightRange = 0;
 
         [Header("Spell")]
         //effect to draw card
@@ -112,6 +118,8 @@ namespace GodMorgon.Models
         //pour la carte obstruction
         public bool isUseless = false;
 
+        //ajoute 1 au coût d'action de toutes les cartes de la main
+        public bool StickyFinger = false;
         
     }
 }

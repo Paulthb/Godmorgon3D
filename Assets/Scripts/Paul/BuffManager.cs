@@ -45,6 +45,9 @@ public class BuffManager
     //effet de player
     public bool isHalfLife = false;
 
+    //effet de curse
+    public bool isStickyFingersActivate = false;
+
     //active le killer instinct
     public void ActivateKillerInstinct()
     {
@@ -70,6 +73,17 @@ public class BuffManager
             GameManager.Instance.DrawCard(2);
             Debug.Log("Scarification effect : draw 2 card");
         }
+    }
+
+    //activate Sticky Fingers
+    public void ActivateStickyFinger()
+    {
+        isStickyFingersActivate = true;
+    }
+    //desactive Sticky Fingers
+    public void DesactivateStickyFinger()
+    {
+        isStickyFingersActivate = false;
     }
 
     //désactive tout les bonus

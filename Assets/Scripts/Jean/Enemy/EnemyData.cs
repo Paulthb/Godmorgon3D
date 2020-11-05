@@ -92,5 +92,12 @@ namespace GodMorgon.Enemy
             //return enemyScript.enemyHit.GetDuration();
             return 1;
         }
+
+        //Reset block of the enemy
+        public void CancelBlock()
+        {
+            defense = 0;
+            enemyScript.UpdateHealthBar(health, defense);
+        }
     }
 }
