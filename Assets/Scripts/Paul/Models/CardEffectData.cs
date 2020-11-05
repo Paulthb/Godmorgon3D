@@ -73,7 +73,7 @@ namespace GodMorgon.Models
         [Header("Sight")]
         //effect to sight card
         public bool Sight = false;
-        public int sightRange = 1;
+        public int sightRange = 0;
 
         [Header("Spell")]
         //effect to draw card
@@ -118,6 +118,8 @@ namespace GodMorgon.Models
         //pour la carte obstruction
         public bool isUseless = false;
 
+        //ajoute 1 au coût d'action de toutes les cartes de la main
+        public bool StickyFinger = false;
         
     }
 }

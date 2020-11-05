@@ -38,6 +38,15 @@ public class HandManager : MonoBehaviour
         cardDisplay.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);
         cardDisplay.UpdateCard(cardDraw);
         CardDisplayList.Add(cardDisplay);
+
+        //check for a curse effect
+        if(cardDraw.cardType == BasicCard.CARDTYPE.CURSE)
+        {
+            if(cardDraw.effectsData[0].StickyFinger)
+            {
+                BuffManager.Instance.ActivateStickyFinger();
+            }
+        }
     }
 
     /**
@@ -46,6 +55,14 @@ public class HandManager : MonoBehaviour
     public void DiscardCard(CardDisplay card)
     {
         CardDisplayList.Remove(card);
+        //check for a curse effect
+        if (card.card.cardType == BasicCard.CARDTYPE.CURSE)
+        {
+            if (card.card.effectsData[0].StickyFinger)
+            {
+                BuffManager.Instance.DesactivateStickyFinger();
+            }
+        }
     }
 
     /**
