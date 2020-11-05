@@ -42,16 +42,11 @@ public class HealthBar : MonoBehaviour
         else
         {
             defenseImage.fillAmount = currentDefense / maxDefensePoint;
-            //print(currentDefense + "     /     " + maxDefensePoint);
-            //print(currentDefense / maxDefensePoint + "     --------------");
         }
 
         if(currentHealth == 0)
             healthImage.fillAmount = 0;
         else
             healthImage.fillAmount = currentHealth / maxHealthPoint;
-
-        //print("la defense actuel est de : " + defense);
-        //print("la santé actuel est de : " + health);
     }
 }

@@ -430,9 +430,8 @@ namespace GodMorgon.Player
          */
         public void SetHealthToMax()
         {
-            _healthBar.SetBarPoints(playerData.healthMax, playerData.defenseMax);
             playerData.health = playerData.healthMax;
-            playerData.defense = playerData.defenseMax;
+            _healthBar.UpdateHealthBarDisplay(playerData.defense, playerData.health); 
         }
 
         /**

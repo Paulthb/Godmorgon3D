@@ -274,7 +274,6 @@ namespace GodMorgon.Enemy
                     if (enemy != this)
                     {
                         enemy.enemyData.TakeDamage(enemyData.attack, false);
-                        print(name + " attacks " + enemy.name);
                     }
                 }
             }
