@@ -32,6 +32,15 @@ namespace GodMorgon.CardEffect
             }
             else PlayerMgr.Instance.UpdateMultiplier(1);
 
+            //Goosebump
+            if(effectData.Goosebump)
+            {
+                if (PlayerMgr.Instance.GetTurnDamage() > 0)
+                    PlayerMgr.Instance.UpdateMultiplier(2);
+                else
+                    PlayerMgr.Instance.UpdateMultiplier(1);
+            }
+
             //add the move sequence
             GSA_PlayerMove playerMoveAction = new GSA_PlayerMove();
             GameSequencer.Instance.AddAction(playerMoveAction);

@@ -29,7 +29,7 @@ namespace GodMorgon.Player
         private bool firstInRoom = true;
 
         //dégats reçu à ce tour
-        public int turnDamage = 0;
+        private int turnDamage = 0;
 
         //Path count
         [NonSerialized]
@@ -430,9 +430,8 @@ namespace GodMorgon.Player
          */
         public void SetHealthToMax()
         {
-            _healthBar.SetBarPoints(playerData.healthMax, playerData.defenseMax);
             playerData.health = playerData.healthMax;
-            playerData.defense = playerData.defenseMax;
+            _healthBar.UpdateHealthBarDisplay(playerData.defense, playerData.health); 
         }
 
         /**
