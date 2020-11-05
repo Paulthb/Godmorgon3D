@@ -40,13 +40,7 @@ public class HandManager : MonoBehaviour
         CardDisplayList.Add(cardDisplay);
 
         //check for a curse effect
-        if(cardDraw.cardType == BasicCard.CARDTYPE.CURSE)
-        {
-            if(cardDraw.effectsData[0].StickyFinger)
-            {
-                BuffManager.Instance.ActivateStickyFinger();
-            }
-        }
+        CheckCurseCard(cardDraw, true);
     }
 
     /**
@@ -56,13 +50,7 @@ public class HandManager : MonoBehaviour
     {
         CardDisplayList.Remove(card);
         //check for a curse effect
-        if (card.card.cardType == BasicCard.CARDTYPE.CURSE)
-        {
-            if (card.card.effectsData[0].StickyFinger)
-            {
-                BuffManager.Instance.DesactivateStickyFinger();
-            }
-        }
+        CheckCurseCard(card.card, false);
     }
 
     /**
@@ -82,14 +70,16 @@ public class HandManager : MonoBehaviour
                 else
                 {
                     cardsToDestroy.Add(card);
+                    //check for a curse effect
+                    CheckCurseCard(card.card, false);
                 }
             }
 
             if (cardsToDestroy.Count > 0)
             {
-                foreach(Transform card in transform)
+                foreach (Transform card in transform)
                 {
-                    if(cardsToDestroy.Contains(card.GetComponent<CardDisplay>()))
+                    if (cardsToDestroy.Contains(card.GetComponent<CardDisplay>()))
                     {
                         GameManager.Instance.DiscardHandCard(card.GetComponent<CardDisplay>());
                         Destroy(card.gameObject);
@@ -113,7 +103,7 @@ public class HandManager : MonoBehaviour
         for (i = 0; i < GameEngine.Instance.GetHandCards().Count; i++)
         {
             //if there is missing card, we create it
-            if(CardDisplayList[i] == null)
+            if (CardDisplayList[i] == null)
             {
                 //----mettre les bonnes dimensions plus tard !
                 CardDisplay cardDisplay = Instantiate(cardDisplayPrefab, this.transform).GetComponent<CardDisplay>();
@@ -121,7 +111,7 @@ public class HandManager : MonoBehaviour
                 cardDisplay.UpdateCard(GameEngine.Instance.GetHandCards()[i]);
             }
             //if the cardDisplayed is different we modify it
-            else if(CardDisplayList[i].card != GameEngine.Instance.GetHandCards()[i])
+            else if (CardDisplayList[i].card != GameEngine.Instance.GetHandCards()[i])
                 CardDisplayList[i].UpdateCard(GameEngine.Instance.GetHandCards()[i]);
         }
     }
@@ -130,13 +120,16 @@ public class HandManager : MonoBehaviour
     public void UpdateCardDataDisplay()
     {
         foreach (CardDisplay cardDisplay in CardDisplayList)
+        {
             cardDisplay.UpdateDescription();
+            cardDisplay.UpdateCardCost();
+        }
     }
 
     //lock or unlock the dragging of all the card 
     public void UnlockCard(bool cardUnlock)
     {
-        foreach(CardDisplay card in CardDisplayList)
+        foreach (CardDisplay card in CardDisplayList)
         {
             card.isplayable = cardUnlock;
             card.GetComponent<DragCardHandler>().enabled = cardUnlock;
@@ -161,5 +154,20 @@ public class HandManager : MonoBehaviour
     {
         foreach (CardDisplay cardDisplay in CardDisplayList)
             cardDisplay.canBeDiscard = false;
+    }
+
+    //check for a curse effect
+    public void CheckCurseCard(BasicCard card, bool isDraw)
+    {
+        if (card.cardType == BasicCard.CARDTYPE.CURSE)
+        {
+            if (card.effectsData[0].StickyFinger)
+            {
+                if (isDraw)
+                    BuffManager.Instance.ActivateStickyFinger();
+                else
+                    BuffManager.Instance.DesactivateStickyFinger();
+            }
+        }
     }
 }

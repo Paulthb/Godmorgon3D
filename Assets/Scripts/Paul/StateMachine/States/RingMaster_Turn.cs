@@ -18,7 +18,6 @@ namespace GodMorgon.StateMachine
             //Debug.Log("On RingMaster turn State");
             GameManager.Instance.DownPanelBlock(true);
             GameManager.Instance.ShowRingmasterTurnImage();
-            EnemyMgr.Instance.UpdateEnemiesInSameRoom();
             GameManager.Instance.UnlockDragCardHandler(false);
 
             //TimelineManager.Instance.DoAction();

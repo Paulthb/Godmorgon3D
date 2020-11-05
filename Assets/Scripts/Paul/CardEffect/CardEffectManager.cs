@@ -60,7 +60,11 @@ namespace GodMorgon.CardEffect
             //on met à jour les infos des cartes affichées
             GameManager.Instance.UpdateCardDataDisplay();
             //on indique le nombre de tour que va jouer le RingMaster
-            TimelineManager.Instance.SetRingmasterActionRemain(context.card.actionCost);
+            //on check les possibles modificateurs
+            if(BuffManager.Instance.isStickyFingersActivate)
+                TimelineManager.Instance.SetRingmasterActionRemain(context.card.actionCost + 1);
+            else
+                TimelineManager.Instance.SetRingmasterActionRemain(context.card.actionCost);
         }
 
 

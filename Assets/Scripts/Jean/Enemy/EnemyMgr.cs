@@ -137,30 +137,6 @@ public class EnemyMgr : MonoBehaviour
         }
     }
 
-    /**
-     * Update for each enemy the list eof enemies in his room
-     */
-    public void UpdateEnemiesInSameRoom()
-    {
-        UpdateEnemiesList();
-
-        foreach (EnemyScript enemy in enemiesList)
-        {
-            foreach (EnemyScript otherEnemy in enemiesList)
-            {
-                if (enemy != otherEnemy)
-                {
-                    Vector3Int enemyPos = enemy.GetNodePosOfEnemy();
-                    Vector3Int otherEnemyPos = otherEnemy.GetNodePosOfEnemy();
-                    if (enemyPos == otherEnemyPos)
-                    {
-                        enemy.enemiesInNode.Add(otherEnemy);
-                    }
-                }
-            }
-        }
-    }
-
 
     #region FUNCTIONS FOR MOVEMENT
 
@@ -207,8 +183,7 @@ public class EnemyMgr : MonoBehaviour
                 yield return null;
             }
         }
-        UpdateMovableEnemiesList();
-        RecenterEnemiesAfterEnemyMove(); //On recentre les ennemis qui étaient dans la room d'un autre ennemi
+
         UpdateMovableEnemiesList();    //On met à jour la liste des ennemis déplaçables après recentrage
         enemiesHaveMoved = true;
     }
@@ -228,6 +203,7 @@ public class EnemyMgr : MonoBehaviour
     {
         UpdateEnemiesList();    //On met à jour la liste des ennemis
 
+        print("RecenterEnemiesAfterEnemyMove");
         //Pour tout les ennemis de la map
         foreach (EnemyScript enemy in enemiesList)
         {
@@ -249,6 +225,7 @@ public class EnemyMgr : MonoBehaviour
     {
         UpdateEnemiesOnPlayersNodeList();   //On réactualise la liste des ennemis présents dans la room du player
 
+
         //Si on a des ennemis dans la room du player
         if (enemiesOnPlayersNode.Count > 0)
         {
@@ -265,7 +242,7 @@ public class EnemyMgr : MonoBehaviour
 
 
     /**
-     * Spawn X enemies at a range from player
+     * Spawn a list of enemies at a range from player
      */
     public void SpawnEnemiesList()
     {
@@ -298,8 +275,11 @@ public class EnemyMgr : MonoBehaviour
     {
         Vector3 spawnPos = new Vector3(spawnNodePos.x + 1, spawnNodePos.y, spawnNodePos.z + 1);     // + 1 to place the enemy at the center of a node
 
-        Instantiate(enemy, spawnPos, Quaternion.identity, this.transform);  //Instantiate an enemy at spawn node, as a child of EnemyMgr
+        EnemyScript createdEnemy = Instantiate(enemy, spawnPos, Quaternion.identity, transform);  //Instantiate an enemy at spawn node, as a child of EnemyMgr
         //Instantiate(enemy.spawnParticule, spawnPos, Quaternion.identity, effectParent);    //Instantiate spawn effect
+
+        // Add created enemy to entities list of node
+        MapManager.Instance.GetNodeFromPos(spawnNodePos).GetComponent<NodeScript>().node.enemiesOnNode.Add(createdEnemy);
     }
 
     /**
@@ -316,7 +296,7 @@ public class EnemyMgr : MonoBehaviour
         enemy.transform.position = nodesAtSpecificRange[randIndex].position + new Vector3(1, 0, 1);
 
         //*
-        // *on check si l'enemie n'est pas déjà sur une node occupé par un autre enemy
+        //*on check si l'enemie n'est pas déjà sur une node occupé par un autre enemy
         //* si c'est le cas, on repositionne l'enemy à une autre node
         //*
         //* A CONFIRMER COMME MODEL!!
@@ -428,15 +408,15 @@ public class EnemyMgr : MonoBehaviour
     {
         foreach (EnemyScript enemy in enemiesList)
         {
-            if (enemy.enemyData.inPlayersNode || enemy.enemiesInNode.Count > 0)
+            // If the enemy has not already been destroyed
+            if(enemy != null)
             {                
                 enemy.Attack();
 
                 while (!enemy.IsAttackFinished())
                 {
                     yield return null;
-
-                }
+                }                
             }
         }
 

@@ -10,7 +10,6 @@ namespace GodMorgon.Enemy
         [Header("Enemy Settings")]
         public Models.Enemy _enemy; //Scriptable object Enemy
         public EnemyData enemyData = new EnemyData();
-        public List<EnemyScript> enemiesInNode = new List<EnemyScript>();
 
         [Header("Movement Settings")]
         public float moveSpeed = 5f; //Enemy speed
@@ -46,7 +45,6 @@ namespace GodMorgon.Enemy
         [SerializeField]
         private Transform enemyCanvas = null;
 
-        private PlayerMgr player;
         private Animator _animator;
         private HealthBar _healthBar;
 
@@ -64,7 +62,6 @@ namespace GodMorgon.Enemy
                 enemyData.speed = _enemy.speed;
                 enemyData.skin = _enemy.skin;
                 enemyData.inPlayersNode = false;
-                enemyData.inOtherEnemyNode = false;
                 enemyData.enemyScript = this;
             }
             else
@@ -76,8 +73,6 @@ namespace GodMorgon.Enemy
         // Start is called before the first frame update
         void Start()
         {
-            player = FindObjectOfType<PlayerMgr>();
-
             mainCamera = Camera.main;
             if (mainCamera)
                 shaker = mainCamera.GetComponent<CameraShaker>();
@@ -121,7 +116,7 @@ namespace GodMorgon.Enemy
                 bool isPlayerOnPath = false;
                 bool isOtherEnemyOnPath = false;
 
-                roadPath.Reverse(); //Reverse the list to begin at the closest 
+                roadPath.Reverse(); //Reverse the list to begin at the closest                 
 
                 foreach (Spot tile in roadPath)
                 {
@@ -129,7 +124,7 @@ namespace GodMorgon.Enemy
                     if (playerTilePos.x == tile.X && playerTilePos.z == tile.Y)
                     {
                         isPlayerOnPath = true;
-                        enemyData.inPlayersNode = true; //Enemy set as "in player's room"
+                        enemyData.inPlayersNode = true; //Enemy set as "in player's node"
                     }
 
                     // We check if there is an other enemy on path 
@@ -145,13 +140,9 @@ namespace GodMorgon.Enemy
                             if (enemyNodePos.x == tile.X && enemyNodePos.z == tile.Y)
                             {
                                 isOtherEnemyOnPath = true;
-                                enemyData.inOtherEnemyNode = true; //Used to remove the tile in roadpath
                             }
                         }
-
-
                     }
-
 
                     if (!isPlayerOnPath && !isOtherEnemyOnPath)
                     {
@@ -159,49 +150,51 @@ namespace GodMorgon.Enemy
                     }
                 }
 
+                if (enemyPath.Count == 0) return;
 
-                // We put the moving enemy out of other enemies enemiesInNode list
-                foreach (EnemyScript enemy in EnemyMgr.Instance.GetAllEnemies())
+                Node nextNode = MapManager.Instance.GetNodeFromPos(new Vector3Int(enemyPath[enemyPath.Count - 1].X, 0, enemyPath[enemyPath.Count - 1].Y)).GetComponent<NodeScript>().node;
+
+                // If to much enemies on next node or path to short, cancel move
+                if (nextNode.enemiesOnNode.Count >= 3 || enemyPath.Count < 3)
                 {
-                    if (enemy != this)
-                    {
-                        if (enemy.enemiesInNode.Count > 0)
-                        {
-                            bool shouldBeRemovedFromList = false;   //Should be removed from enemiesinNode list of other enemies
-                            foreach (EnemyScript otherEnemy in enemy.enemiesInNode)
-                            {
-                                if (otherEnemy == this)
-                                {
-                                    shouldBeRemovedFromList = true;
-                                }
-                            }
-
-                            if (shouldBeRemovedFromList) enemy.enemiesInNode.Remove(this);
-                        }
-                    }
+                    tileIndex = 0;
+                    canMove = false; //Allow the movement mechanic
+                    isMoveFinished = true; //Will be false until enemy move is not finished
+                    return;
                 }
 
-                enemiesInNode.Clear();
+                // The current node lost this enemy in its list
+                Node lastNode = GetNodeOfEnemy().GetComponent<NodeScript>().node;
+                lastNode.enemiesOnNode.Remove(this);
 
-                //Get the next node with last tile of path (used to know if enemies in that node, in that case we add them in list)
-                Vector3Int nextNode = MapManager.Instance.GetNodeFromPos(new Vector3Int(roadPath[0].X, 0, roadPath[0].Y)).GetComponent<NodeScript>().node.nodePosition;
-
-                //For each existing enemy
-                foreach (EnemyScript enemy in EnemyMgr.Instance.GetAllEnemies())
+                // If it was the enemy on center, check if we can recenter an enemy on it
+                if (lastNode.enemyOnCenter == this)
                 {
-                    //If it's not the enemy we are moving
-                    if (enemy != this)
+                    if (lastNode.enemiesOnNode.Count > 0)
                     {
-                        //Check if enemy in next node
-                        if (enemy.GetNodePosOfEnemy() == nextNode)
-                        {
-                            //Add enemy in list
-                            enemiesInNode.Add(enemy);
-                        }
+                        lastNode.enemiesOnNode[0].RecenterEnemy();
+                        lastNode.enemyOnCenter = lastNode.enemiesOnNode[0];
                     }
+                    else lastNode.enemyOnCenter = null;                    
+                }
+                                
+
+                // The next node get this enemy in its list
+                nextNode.enemiesOnNode.Add(this);
+
+
+                // Set enemy on center of next node to this enemy if there is nobody on it
+                if(nextNode.enemyOnCenter == null)
+                {
+                    nextNode.enemyOnCenter = this;
                 }
 
-                enemyPath.RemoveAt(0); //Remove the first which is the tile the enemy is on
+                // Rare possibility : When an enemy has to move 2 nodes, check with nb of tiles in path if an enemy not centered is on path
+                // In that case, his next node will be the node before the targeted, so remove the last tile to stop on center of real next node
+                if (enemyData.nbMoves == 2 && enemyPath.Count == 5)
+                    enemyPath.RemoveAt(enemyPath.Count - 1);
+
+                enemyPath.RemoveAt(0); //Remove the first which is the tile the enemy is on                
             }
 
             tileIndex = 0;
@@ -227,7 +220,7 @@ namespace GodMorgon.Enemy
                     isMoveFinished = true;  //Movement done, allowing the next enemy to move
                     enemyPath = new List<Spot>();   //Reset path
 
-                    if (enemyData.inPlayersNode || enemyPath.Count > 0)
+                    if (enemyData.inPlayersNode)
                     {
                         Attack();   //Attack there is someone in node
                     }
@@ -257,19 +250,32 @@ namespace GodMorgon.Enemy
          */
         public void Attack()
         {
+            // Don't attack if nobody to attack
+            if (!enemyData.inPlayersNode && GetNodeOfEnemy().GetComponent<NodeScript>().node.enemiesOnNode.Count == 1)
+            {
+                isAttackFinished = true;
+                return;
+            }
+
             //ShowAttackEffect(); //Décommenter qd on aura l'anim d'attaque
             StartCoroutine(AttackEffect());
-
+            
             //If player on node, player take damages
             if (enemyData.inPlayersNode)
-                PlayerMgr.Instance.TakeDamage(enemyData.attack);
+            PlayerMgr.Instance.TakeDamage(enemyData.attack);
+
+            Node currentNode = GetNodeOfEnemy().GetComponent<NodeScript>().node;
 
             //If enemies on node, they take damages
-            if (enemiesInNode.Count > 0)
+            if (currentNode.enemiesOnNode.Count > 1)
             {
-                foreach (EnemyScript enemy in enemiesInNode)
+                foreach (EnemyScript enemy in currentNode.enemiesOnNode)
                 {
-                    enemy.enemyData.TakeDamage(enemyData.attack, false);
+                    if (enemy != this)
+                    {
+                        enemy.enemyData.TakeDamage(enemyData.attack, false);
+                        print(name + " attacks " + enemy.name);
+                    }
                 }
             }
 
@@ -348,7 +354,7 @@ namespace GodMorgon.Enemy
                 return;
             }
 
-            enemyPath.Clear();
+            enemyPath = new List<Spot>();
 
             foreach (Spot tile in roadPath)
             {
@@ -417,14 +423,6 @@ namespace GodMorgon.Enemy
             yield return new WaitForSeconds(duration);   //On attend que la particule de hit soit terminée
 
 
-            foreach (Transform child in this.transform)
-            {
-                if (child.gameObject.GetComponent<SpriteRenderer>() != null)
-                {
-                    child.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
-                }
-            }
-
             //Instantiate(deathParticule, this.transform.position, Quaternion.identity, EnemyManager.Instance.effectParent);
 
             if (enemyData.killedByPlayer)
@@ -432,6 +430,19 @@ namespace GodMorgon.Enemy
                 yield return new WaitForSeconds(1f);
                 GameManager.Instance.DraftPanelActivation(true);
                 Debug.Log("Tué directement par le player, donc lance le draft");
+            }
+
+            // Remove this enemy from list of enemy on node, and recenter other enemy if this one was on center
+            Node currentNode = GetNodeOfEnemy().GetComponent<NodeScript>().node;
+            currentNode.enemiesOnNode.Remove(this);
+
+            //yield return new WaitForSeconds(3f);
+
+            if(currentNode.enemyOnCenter == this)
+            {
+                print(currentNode.enemiesOnNode[0] + " wants to recenter");
+                currentNode.enemiesOnNode[0].RecenterEnemy();
+                currentNode.enemyOnCenter = currentNode.enemiesOnNode[0];
             }
 
             Destroy(gameObject);    //Détruit le gameobject de l'ennemi
