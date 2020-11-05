@@ -596,13 +596,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341170106}
-  m_LocalRotation: {x: -0.14644654, y: 0.8535535, z: -0.3535534, w: -0.35355324}
-  m_LocalPosition: {x: 0.65, y: 2.84, z: 3.09}
+  m_LocalRotation: {x: -0.000000085557275, y: -0.9520634, z: 0.30590105, w: -0.00000016656499}
+  m_LocalPosition: {x: -0.1, y: 2.43, z: 3.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 225, z: 0}
+  m_LocalEulerAnglesHint: {x: 35.625, y: -179.99998, z: 0}
 --- !u!114 &341170111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1354,7 +1354,7 @@ PrefabInstance:
     - target: {fileID: 3268689141663439084, guid: 037245a4219903a4d95afe303727c6f2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.12
+      value: -6.21
       objectReference: {fileID: 0}
     - target: {fileID: 3268689141663439084, guid: 037245a4219903a4d95afe303727c6f2,
         type: 3}
@@ -11901,6 +11901,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5594890576326695106, guid: d5851479e4ad82440a0dd203f5a7dbca,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxGradient.key0.r
+      value: 0.43018296
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594890576326695106, guid: d5851479e4ad82440a0dd203f5a7dbca,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxGradient.key0.g
+      value: 0.17621931
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594890576326695106, guid: d5851479e4ad82440a0dd203f5a7dbca,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxGradient.key0.b
+      value: 0.6792453
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594890576326695106, guid: d5851479e4ad82440a0dd203f5a7dbca,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxGradient.key1.r
+      value: 0.16826165
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594890576326695106, guid: d5851479e4ad82440a0dd203f5a7dbca,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxGradient.key1.g
+      value: 0.15396936
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594890576326695106, guid: d5851479e4ad82440a0dd203f5a7dbca,
+        type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxGradient.key1.b
+      value: 0.18867922
+      objectReference: {fileID: 0}
+    - target: {fileID: 5594890576326695107, guid: d5851479e4ad82440a0dd203f5a7dbca,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03b5c9e46d2ef81409dd1df178fce5dd, type: 2}
     - target: {fileID: 5594890576326695108, guid: d5851479e4ad82440a0dd203f5a7dbca,
         type: 3}
       propertyPath: m_Name
@@ -12131,7 +12166,7 @@ PrefabInstance:
     - target: {fileID: 6766159567076046200, guid: 12cde914461dd0e4c822b4e150e44261,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12cde914461dd0e4c822b4e150e44261, type: 3}
