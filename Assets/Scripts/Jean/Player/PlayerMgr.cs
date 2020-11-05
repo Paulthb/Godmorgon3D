@@ -29,7 +29,7 @@ namespace GodMorgon.Player
         private bool firstInRoom = true;
 
         //dégats reçu à ce tour
-        public int turnDamage = 0;
+        private int turnDamage = 0;
 
         //Path count
         [NonSerialized]
