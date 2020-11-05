@@ -74,7 +74,6 @@ public class MapManager : MonoBehaviour
     public List<GameObject> deadendUpPrefabList = new List<GameObject>();
     public List<GameObject> deadendDownPrefabList = new List<GameObject>();
     public NodeMap map;
-    private Node[] _tempNodesArr;
 
     //===================== GRID CREATION ==============================
     [Header("Tiles")] public Vector3Int[,] grid;
@@ -83,6 +82,10 @@ public class MapManager : MonoBehaviour
     public GameObject walkablePoint;
     public Transform walkablePtHolder;
     public List<Transform> nodesList = new List<Transform>();
+
+    //===================== NODES CLEARED ==============================
+    [Header("Nodes cleared")]
+    public int nbNodesCleared = 0;
 
     //===================== PATHFINDING ================================
     private int nodeWidth = 3; //For 1 move, 3 tiles to go through
@@ -97,7 +100,7 @@ public class MapManager : MonoBehaviour
     private bool launchAccessibleEffect = false;
     private bool resetAccessibleEffect = false;
 
-    private float offset = 0.01f; //offset changing for shaders 
+    private float offset = 0.01f; //offset changing for shaders
 
     #region Singleton Pattern
 
@@ -277,18 +280,18 @@ public class MapManager : MonoBehaviour
 
         #region DEBUG : See walkable points
         
-        for (int i = 0; i < map.mapSize.x * 3; i++)
-        {
-            for (int j = 0; j < map.mapSize.y * 3; j++)
-            {
-                if (tilesMap[i, j].walkable)
-                {
-                    Instantiate(walkablePoint,
-                        new Vector3(tilesMap[i, j].tilePosition.x, 0, tilesMap[i, j].tilePosition.z),
-                        Quaternion.identity, walkablePtHolder);
-                }
-            }
-        }
+        //for (int i = 0; i < map.mapSize.x * 3; i++)
+        //{
+        //    for (int j = 0; j < map.mapSize.y * 3; j++)
+        //    {
+        //        if (tilesMap[i, j].walkable)
+        //        {
+        //            Instantiate(walkablePoint,
+        //                new Vector3(tilesMap[i, j].tilePosition.x, 0, tilesMap[i, j].tilePosition.z),
+        //                Quaternion.identity, walkablePtHolder);
+        //        }
+        //    }
+        //}
         
         #endregion
     }
