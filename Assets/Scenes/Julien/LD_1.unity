@@ -262,6 +262,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &7627914
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +330,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &8878823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -619,6 +623,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &15745250
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,6 +798,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &35955494
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +866,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &37191217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1074,6 +1084,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &54149873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1215,6 +1227,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &64943583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,6 +1295,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &74382575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1422,6 +1438,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &79290775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,6 +1506,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &81712822
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,6 +1574,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &85575652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1845,6 +1867,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &113209585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1986,6 +2010,8 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &135060076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,6 +2078,8 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &141331767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,6 +2146,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &154429608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2259,6 +2289,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &164238517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,6 +2357,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &172865407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2541,6 +2575,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &178561333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2682,6 +2718,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &190101832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,6 +2786,8 @@ MonoBehaviour:
     nodeEffect: 4
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &190125505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3114,6 +3154,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &204969141
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,6 +3222,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &208114609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3321,6 +3365,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &212480373
 GameObject:
   m_ObjectHideFlags: 0
@@ -3387,6 +3433,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &228122274
 GameObject:
   m_ObjectHideFlags: 0
@@ -3453,6 +3501,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &228287385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3669,6 +3719,8 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &238513616
 GameObject:
   m_ObjectHideFlags: 0
@@ -3735,6 +3787,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &242501368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3876,6 +3930,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &266398063
 GameObject:
   m_ObjectHideFlags: 0
@@ -3942,6 +3998,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &267029262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4083,6 +4141,8 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &275511406
 GameObject:
   m_ObjectHideFlags: 0
@@ -4149,6 +4209,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &278930551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4290,6 +4352,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &289050164
 GameObject:
   m_ObjectHideFlags: 0
@@ -4356,6 +4420,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &291004937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4728,6 +4794,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &311728860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4944,6 +5012,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &316095672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5460,6 +5530,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &330790517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5526,6 +5598,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &331822146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5667,6 +5741,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &331966487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5883,6 +5959,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &335114756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6384,6 +6462,8 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &373097910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6600,6 +6680,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &400967223
 GameObject:
   m_ObjectHideFlags: 0
@@ -6666,6 +6748,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &403296460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6960,6 +7044,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &413150031
 GameObject:
   m_ObjectHideFlags: 0
@@ -7026,6 +7112,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &418598974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7167,6 +7255,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &425265630
 GameObject:
   m_ObjectHideFlags: 0
@@ -7299,6 +7389,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &432577232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7656,6 +7748,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &478768876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7797,6 +7891,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &485109134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7938,6 +8034,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &487875640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8154,6 +8252,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &508984751
 GameObject:
   m_ObjectHideFlags: 0
@@ -8220,6 +8320,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &512666761
 GameObject:
   m_ObjectHideFlags: 0
@@ -8286,6 +8388,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &514692141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8562,6 +8666,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &518248501
 GameObject:
   m_ObjectHideFlags: 0
@@ -8661,6 +8767,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &532543748
 GameObject:
   m_ObjectHideFlags: 0
@@ -8727,6 +8835,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &533341007
 GameObject:
   m_ObjectHideFlags: 0
@@ -8793,6 +8903,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &533907008
 GameObject:
   m_ObjectHideFlags: 0
@@ -8992,6 +9104,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &555127293
 GameObject:
   m_ObjectHideFlags: 0
@@ -9058,6 +9172,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &558461069
 GameObject:
   m_ObjectHideFlags: 0
@@ -9124,6 +9240,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &562642607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9715,6 +9833,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &588179655
 GameObject:
   m_ObjectHideFlags: 0
@@ -9781,6 +9901,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &591532255
 GameObject:
   m_ObjectHideFlags: 0
@@ -9847,6 +9969,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &598805210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9988,6 +10112,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &611653080
 GameObject:
   m_ObjectHideFlags: 0
@@ -10054,6 +10180,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &620585159
 GameObject:
   m_ObjectHideFlags: 0
@@ -10120,6 +10248,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &624915047
 GameObject:
   m_ObjectHideFlags: 0
@@ -10252,6 +10382,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &628519845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10393,6 +10525,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &632948507
 GameObject:
   m_ObjectHideFlags: 0
@@ -10459,6 +10593,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &632977562
 GameObject:
   m_ObjectHideFlags: 0
@@ -10525,6 +10661,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &633073571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10897,6 +11035,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &662082562
 GameObject:
   m_ObjectHideFlags: 0
@@ -10963,6 +11103,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &666976257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11179,6 +11321,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &672422812
 GameObject:
   m_ObjectHideFlags: 0
@@ -11245,6 +11389,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &673286779
 GameObject:
   m_ObjectHideFlags: 0
@@ -11311,6 +11457,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &676890390
 GameObject:
   m_ObjectHideFlags: 0
@@ -11377,6 +11525,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &678399021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11743,6 +11893,8 @@ MonoBehaviour:
     nodeEffect: 5
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &698852992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12334,6 +12486,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &748443086
 GameObject:
   m_ObjectHideFlags: 0
@@ -12400,6 +12554,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &754426817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12799,6 +12955,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &772729241
 GameObject:
   m_ObjectHideFlags: 0
@@ -12865,6 +13023,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &773969298
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13156,6 +13316,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &791100811
 GameObject:
   m_ObjectHideFlags: 0
@@ -13222,6 +13384,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &792563713
 GameObject:
   m_ObjectHideFlags: 0
@@ -13288,6 +13452,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &806102774
 GameObject:
   m_ObjectHideFlags: 0
@@ -13354,6 +13520,8 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &810290879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13645,6 +13813,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &822833120
 GameObject:
   m_ObjectHideFlags: 0
@@ -13711,6 +13881,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &827477031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13852,6 +14024,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &829323446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14068,6 +14242,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &839990658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14509,6 +14685,8 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &855050242
 GameObject:
   m_ObjectHideFlags: 0
@@ -14575,6 +14753,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &856282095
 GameObject:
   m_ObjectHideFlags: 0
@@ -14641,6 +14821,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &858039236
 GameObject:
   m_ObjectHideFlags: 0
@@ -14707,6 +14889,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &867786277
 GameObject:
   m_ObjectHideFlags: 0
@@ -14773,6 +14957,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &867963398
 GameObject:
   m_ObjectHideFlags: 0
@@ -14839,6 +15025,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &872424134
 GameObject:
   m_ObjectHideFlags: 0
@@ -14905,6 +15093,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &876501363
 GameObject:
   m_ObjectHideFlags: 0
@@ -14971,6 +15161,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &877581296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15112,6 +15304,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &883320326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15478,6 +15672,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &890925235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16297,6 +16493,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &947478585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16594,6 +16792,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &957058070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16885,6 +17085,8 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &966359675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17026,6 +17228,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &968065537
 GameObject:
   m_ObjectHideFlags: 0
@@ -17288,6 +17492,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &989245921
 GameObject:
   m_ObjectHideFlags: 0
@@ -17501,6 +17707,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &999865864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17717,6 +17925,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1014663187
 GameObject:
   m_ObjectHideFlags: 0
@@ -17783,6 +17993,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1024817885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18068,6 +18280,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1052953695
 GameObject:
   m_ObjectHideFlags: 0
@@ -18391,6 +18605,8 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1065948989
 GameObject:
   m_ObjectHideFlags: 0
@@ -18457,6 +18673,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1066382116
 GameObject:
   m_ObjectHideFlags: 0
@@ -18523,6 +18741,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1069446147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18664,6 +18884,8 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1073816454
 GameObject:
   m_ObjectHideFlags: 0
@@ -18730,6 +18952,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1077119637
 GameObject:
   m_ObjectHideFlags: 0
@@ -18796,6 +19020,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1080737099
 GameObject:
   m_ObjectHideFlags: 0
@@ -18862,6 +19088,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1085372630
 GameObject:
   m_ObjectHideFlags: 0
@@ -18928,6 +19156,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1087525545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19144,6 +19374,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1094454249
 GameObject:
   m_ObjectHideFlags: 0
@@ -19210,6 +19442,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1094963050
 GameObject:
   m_ObjectHideFlags: 0
@@ -19562,6 +19796,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1097935927
 GameObject:
   m_ObjectHideFlags: 0
@@ -19628,6 +19864,8 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1106324320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20112,6 +20350,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1158274186
 GameObject:
   m_ObjectHideFlags: 0
@@ -20178,6 +20418,8 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1159383850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20608,6 +20850,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1176337118
 GameObject:
   m_ObjectHideFlags: 0
@@ -20674,6 +20918,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1178193698
 GameObject:
   m_ObjectHideFlags: 0
@@ -20740,6 +20986,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1179904062
 GameObject:
   m_ObjectHideFlags: 0
@@ -20863,6 +21111,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
   curseRange: 2
   cursedCard: {fileID: 11400000, guid: a8bc687686e0d8247bd221dbe4ac5007, type: 2}
   goldInChest: 10
@@ -20936,6 +21186,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1183557771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21077,6 +21329,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1187473435
 GameObject:
   m_ObjectHideFlags: 0
@@ -21143,6 +21397,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1192086838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21284,6 +21540,8 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1214419018
 GameObject:
   m_ObjectHideFlags: 0
@@ -21350,6 +21608,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1217287016
 GameObject:
   m_ObjectHideFlags: 0
@@ -21416,6 +21676,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1219203260
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21557,6 +21819,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1223376618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21698,6 +21962,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1224091405
 GameObject:
   m_ObjectHideFlags: 0
@@ -21764,6 +22030,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1225483993
 GameObject:
   m_ObjectHideFlags: 0
@@ -21830,6 +22098,8 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1227202763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22127,6 +22397,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1241809300
 GameObject:
   m_ObjectHideFlags: 0
@@ -22193,6 +22465,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!4 &1244951834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1342960658508235010, guid: 579a9a5566986ec44a54f7541499fe30,
@@ -22340,6 +22614,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1253732812
 GameObject:
   m_ObjectHideFlags: 0
@@ -22406,6 +22682,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1255141929
 GameObject:
   m_ObjectHideFlags: 0
@@ -22472,6 +22750,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1255760513
 GameObject:
   m_ObjectHideFlags: 0
@@ -22538,6 +22818,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1255893058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22745,6 +23027,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1269378522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22886,6 +23170,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1275809338
 GameObject:
   m_ObjectHideFlags: 0
@@ -22952,6 +23238,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1284753579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23093,6 +23381,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1298565447
 GameObject:
   m_ObjectHideFlags: 0
@@ -23159,6 +23449,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1304270930
 GameObject:
   m_ObjectHideFlags: 0
@@ -23225,6 +23517,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1304395940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23366,6 +23660,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1307536390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23582,6 +23878,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1328741716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23948,6 +24246,8 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1347303968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24239,6 +24539,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1364646570
 GameObject:
   m_ObjectHideFlags: 0
@@ -24305,6 +24607,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1373529958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24446,6 +24750,8 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1377773341
 GameObject:
   m_ObjectHideFlags: 0
@@ -24512,6 +24818,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1381878395
 GameObject:
   m_ObjectHideFlags: 0
@@ -24578,6 +24886,8 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1382348958
 GameObject:
   m_ObjectHideFlags: 0
@@ -24644,6 +24954,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1384652527
 GameObject:
   m_ObjectHideFlags: 0
@@ -24710,6 +25022,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1386146460
 GameObject:
   m_ObjectHideFlags: 0
@@ -24776,6 +25090,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1392774409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24929,6 +25245,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1401774302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25070,6 +25388,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1406141304
 GameObject:
   m_ObjectHideFlags: 0
@@ -25136,6 +25456,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1408229645
 GameObject:
   m_ObjectHideFlags: 0
@@ -25340,6 +25662,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1422262275
 GameObject:
   m_ObjectHideFlags: 0
@@ -25406,6 +25730,8 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1422586324
 GameObject:
   m_ObjectHideFlags: 0
@@ -25472,6 +25798,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1431084064
 GameObject:
   m_ObjectHideFlags: 0
@@ -25538,6 +25866,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1434912674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25904,6 +26234,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1463618281
 GameObject:
   m_ObjectHideFlags: 0
@@ -25970,6 +26302,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1463635715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26261,6 +26595,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1474918088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26402,6 +26738,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1485118658
 GameObject:
   m_ObjectHideFlags: 0
@@ -26468,6 +26806,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1489668793
 GameObject:
   m_ObjectHideFlags: 0
@@ -26534,6 +26874,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1491233293
 GameObject:
   m_ObjectHideFlags: 0
@@ -26666,6 +27008,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1510839225
 GameObject:
   m_ObjectHideFlags: 0
@@ -26732,6 +27076,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1515072657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26873,6 +27219,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1525596467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27164,6 +27512,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1537870103
 GameObject:
   m_ObjectHideFlags: 0
@@ -27230,6 +27580,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1541707280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27665,6 +28017,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1552643336
 GameObject:
   m_ObjectHideFlags: 0
@@ -27731,6 +28085,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1556783563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27872,6 +28228,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1573061006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28307,6 +28665,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1596440437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28523,6 +28883,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1608898014
 GameObject:
   m_ObjectHideFlags: 0
@@ -28589,6 +28951,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1610009733
 GameObject:
   m_ObjectHideFlags: 0
@@ -28655,6 +29019,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1611917929
 GameObject:
   m_ObjectHideFlags: 0
@@ -28721,6 +29087,8 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1614061591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28862,6 +29230,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1628190282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29078,6 +29448,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1635736599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29219,6 +29591,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1640405169
 GameObject:
   m_ObjectHideFlags: 0
@@ -29285,6 +29659,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1656266605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29426,6 +29802,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1658819273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29797,6 +30175,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1672449474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29938,6 +30318,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1680949675
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30154,6 +30536,8 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1684635254
 GameObject:
   m_ObjectHideFlags: 0
@@ -30267,6 +30651,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1698001243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30408,6 +30794,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1706705473
 GameObject:
   m_ObjectHideFlags: 0
@@ -30474,6 +30862,8 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1719030993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30615,6 +31005,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1730831242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30923,6 +31315,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1747285228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31064,6 +31458,8 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1752502958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31292,6 +31688,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1774118764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31433,6 +31831,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1782538124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31649,6 +32049,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1803718295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31940,6 +32342,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1810770997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32081,6 +32485,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1816447553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32222,6 +32628,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1817386897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32438,6 +32846,8 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1829248716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32654,6 +33064,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1854056511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32864,6 +33276,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1870595804
 GameObject:
   m_ObjectHideFlags: 0
@@ -32930,6 +33344,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1871134442
 GameObject:
   m_ObjectHideFlags: 0
@@ -32996,6 +33412,8 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1872657638
 GameObject:
   m_ObjectHideFlags: 0
@@ -33062,6 +33480,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1874222072
 GameObject:
   m_ObjectHideFlags: 0
@@ -33128,6 +33548,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!4 &1877340105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1342960658508235010, guid: 579a9a5566986ec44a54f7541499fe30,
@@ -33200,6 +33622,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1879910014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34191,6 +34615,8 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1936275286
 GameObject:
   m_ObjectHideFlags: 0
@@ -34323,6 +34749,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1944460695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34689,6 +35117,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1955536341
 GameObject:
   m_ObjectHideFlags: 0
@@ -34755,6 +35185,8 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1957686977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34896,6 +35328,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1968478274
 GameObject:
   m_ObjectHideFlags: 0
@@ -34962,6 +35396,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1969377967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35178,6 +35614,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &1986220516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35319,6 +35757,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2001409128
 GameObject:
   m_ObjectHideFlags: 0
@@ -35385,6 +35825,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2009302705
 GameObject:
   m_ObjectHideFlags: 0
@@ -35451,6 +35893,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &2012830628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35592,6 +36036,8 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2019526417
 GameObject:
   m_ObjectHideFlags: 0
@@ -35688,6 +36134,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2025084581
 GameObject:
   m_ObjectHideFlags: 0
@@ -35754,6 +36202,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2035255935
 GameObject:
   m_ObjectHideFlags: 0
@@ -35853,6 +36303,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2041748174
 GameObject:
   m_ObjectHideFlags: 0
@@ -35919,6 +36371,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &2046566262
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36066,6 +36520,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2055726758
 GameObject:
   m_ObjectHideFlags: 0
@@ -36132,6 +36588,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &2059133169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36351,6 +36809,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2074570566
 GameObject:
   m_ObjectHideFlags: 0
@@ -36448,6 +36908,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &2076899016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36589,6 +37051,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2079195560
 GameObject:
   m_ObjectHideFlags: 0
@@ -36655,6 +37119,8 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &2081855273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37021,6 +37487,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2112622064
 GameObject:
   m_ObjectHideFlags: 0
@@ -37087,6 +37555,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &2119148530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37228,6 +37698,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2123198305
 GameObject:
   m_ObjectHideFlags: 0
@@ -37294,6 +37766,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2123589917
 GameObject:
   m_ObjectHideFlags: 0
@@ -37426,6 +37900,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &2136707893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37567,6 +38043,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &2141420908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37708,6 +38186,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &2142893983
 PrefabInstance:
   m_ObjectHideFlags: 0

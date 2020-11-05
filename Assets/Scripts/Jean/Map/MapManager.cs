@@ -1,4 +1,5 @@
 ﻿using GodMorgon.CardEffect;
+using GodMorgon.Enemy;
 using GodMorgon.Models;
 using GodMorgon.Player;
 using System;
@@ -20,6 +21,9 @@ public class Node
 
     public bool effectLaunched = false;
     public bool isNodeCleared = false;
+
+    public List<EnemyScript> enemiesOnNode = new List<EnemyScript>();
+    public EnemyScript enemyOnCenter = null;
 }
 
 [Serializable]
