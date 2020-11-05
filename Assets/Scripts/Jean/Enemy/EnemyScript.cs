@@ -250,21 +250,31 @@ namespace GodMorgon.Enemy
          */
         public void Attack()
         {
+            // Don't attack if nobody to attack
+            if (!enemyData.inPlayersNode && GetNodeOfEnemy().GetComponent<NodeScript>().node.enemiesOnNode.Count == 1)
+            {
+                isAttackFinished = true;
+                return;
+            }
+
             //ShowAttackEffect(); //Décommenter qd on aura l'anim d'attaque
             StartCoroutine(AttackEffect());
-
+            
             //If player on node, player take damages
             if (enemyData.inPlayersNode)
-                PlayerMgr.Instance.TakeDamage(enemyData.attack);
+            PlayerMgr.Instance.TakeDamage(enemyData.attack);
 
             Node currentNode = GetNodeOfEnemy().GetComponent<NodeScript>().node;
 
             //If enemies on node, they take damages
-            if (currentNode.enemiesOnNode.Count > 2)
+            if (currentNode.enemiesOnNode.Count > 1)
             {
                 foreach (EnemyScript enemy in currentNode.enemiesOnNode)
                 {
-                    if(enemy != this) enemy.enemyData.TakeDamage(enemyData.attack, false);
+                    if (enemy != this)
+                    {
+                        enemy.enemyData.TakeDamage(enemyData.attack, false);
+                    }
                 }
             }
 
@@ -343,7 +353,7 @@ namespace GodMorgon.Enemy
                 return;
             }
 
-            enemyPath.Clear();
+            enemyPath = new List<Spot>();
 
             foreach (Spot tile in roadPath)
             {
@@ -412,14 +422,6 @@ namespace GodMorgon.Enemy
             yield return new WaitForSeconds(duration);   //On attend que la particule de hit soit terminée
 
 
-            foreach (Transform child in this.transform)
-            {
-                if (child.gameObject.GetComponent<SpriteRenderer>() != null)
-                {
-                    child.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
-                }
-            }
-
             //Instantiate(deathParticule, this.transform.position, Quaternion.identity, EnemyManager.Instance.effectParent);
 
             if (enemyData.killedByPlayer)
@@ -427,6 +429,19 @@ namespace GodMorgon.Enemy
                 yield return new WaitForSeconds(1f);
                 GameManager.Instance.DraftPanelActivation(true);
                 Debug.Log("Tué directement par le player, donc lance le draft");
+            }
+
+            // Remove this enemy from list of enemy on node, and recenter other enemy if this one was on center
+            Node currentNode = GetNodeOfEnemy().GetComponent<NodeScript>().node;
+            currentNode.enemiesOnNode.Remove(this);
+
+            //yield return new WaitForSeconds(3f);
+
+            if(currentNode.enemyOnCenter == this)
+            {
+                print(currentNode.enemiesOnNode[0] + " wants to recenter");
+                currentNode.enemiesOnNode[0].RecenterEnemy();
+                currentNode.enemyOnCenter = currentNode.enemiesOnNode[0];
             }
 
             Destroy(gameObject);    //Détruit le gameobject de l'ennemi
