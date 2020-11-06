@@ -105,9 +105,6 @@ public class FogMgr : MonoBehaviour
                 // Stop emitting
                 child.GetChild(1).GetComponent<ParticleSystem>().Stop();
 
-                // Add 1 to nbNodeCleared
-                MapManager.Instance.nbNodesCleared++;
-
                 // Change lifeTime of all existing particules
                 int particleCount = ps.particleCount;
                 ParticleSystem.Particle[] particles = new ParticleSystem.Particle[particleCount];
@@ -126,11 +123,13 @@ public class FogMgr : MonoBehaviour
             }
         }
 
-        // Set the node as cleared
-        foreach (Transform node in MapManager.Instance.nodesList)
+        if (!targetNode.GetComponent<NodeScript>().node.isNodeCleared)
         {
-            if (node.position.x == targetNode.position.x && node.position.z == targetNode.position.z)
-                node.GetComponent<NodeScript>().node.isNodeCleared = true;
+            targetNode.GetComponent<NodeScript>().node.isNodeCleared = true;
+
+            // Add 1 to nbNodeCleared
+            MapManager.Instance.nbNodesCleared++;
+            MapManager.Instance.nodesClearedList.Add(targetNode);
         }
     }
 
@@ -202,6 +201,7 @@ public class FogMgr : MonoBehaviour
         ParticleSystem ps;
 
         MapManager.Instance.nbNodesCleared = 0;
+        MapManager.Instance.nodesClearedList.Clear();
 
         //Play the particules of fog on every node
         foreach (Transform node in MapManager.Instance.nodesList)       // AJOUTER UNE LIST DES NODES DECOUVERTS
@@ -210,6 +210,8 @@ public class FogMgr : MonoBehaviour
 
             if (ps == null) print("Particle system not found");
             ps.Play();
+
+            node.GetComponent<NodeScript>().node.isNodeCleared = false;
         }
 
         //Remove fog on player's node and next to him 
