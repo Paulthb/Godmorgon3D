@@ -38,6 +38,9 @@ public class BuffManager
     //peut être activé pour ce tour (4 actions)
     public bool canScarification = false;
 
+    //+1 de dégats par cartes pioché à ce tour 
+    public bool possibilitiesActivate = false;
+
     //defense effet
     public bool isCounterActive = false;
     public int counterDamage = 0;
