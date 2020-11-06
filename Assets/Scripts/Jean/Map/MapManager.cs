@@ -86,6 +86,7 @@ public class MapManager : MonoBehaviour
     //===================== NODES CLEARED ==============================
     [Header("Nodes cleared")]
     public int nbNodesCleared = 0;
+    public List<Transform> nodesClearedList = new List<Transform>();
 
     //===================== PATHFINDING ================================
     private int nodeWidth = 3; //For 1 move, 3 tiles to go through
