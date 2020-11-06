@@ -95,26 +95,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4983964843096902271, guid: fd2268b55741e984f99e7adca2fde2b1,
         type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4983964843096902271, guid: fd2268b55741e984f99e7adca2fde2b1,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4983964843096902271, guid: fd2268b55741e984f99e7adca2fde2b1,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4983964843096902271, guid: fd2268b55741e984f99e7adca2fde2b1,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4983964843096902271, guid: fd2268b55741e984f99e7adca2fde2b1,
-        type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
@@ -252,26 +232,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 2.976
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948045654960490602, guid: e5bfcbfb00c083f45a14ff05cb079892,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948045654960490602, guid: e5bfcbfb00c083f45a14ff05cb079892,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948045654960490602, guid: e5bfcbfb00c083f45a14ff05cb079892,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948045654960490602, guid: e5bfcbfb00c083f45a14ff05cb079892,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2948045654960490602, guid: e5bfcbfb00c083f45a14ff05cb079892,
         type: 3}

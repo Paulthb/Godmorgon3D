@@ -91,23 +91,23 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RimOffset: 0.05
-    - _Rimpower: 1
+    - _Rimpower: 0.418
     - _SmoothnessTextureChannel: 0
-    - _Specintensity: 0
-    - _Specsmth: 0.629
+    - _Specintensity: 0.15
+    - _Specsmth: 0.405
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
-    - _max: 0
+    - _max: 1
     - _min: 0
     m_Colors:
     - _ASEOutlineColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive: {r: 0.3962264, g: 0.3509367, b: 0.28595585, a: 1}
-    - _GlobalTint: {r: 0.09732112, g: 0.15180433, b: 0.254717, a: 1}
-    - _RimTint: {r: 0.94509804, g: 0.4253739, b: 0.082352936, a: 1}
-    - _Speccolor: {r: 0.13185887, g: 0.043137245, b: 0.5294118, a: 1}
+    - _GlobalTint: {r: 0.09803922, g: 0.14570595, b: 0.25490198, a: 1}
+    - _RimTint: {r: 0.94509804, g: 0.4508047, b: 0.082352936, a: 1}
+    - _Speccolor: {r: 0.017012043, g: 0, b: 0.5188679, a: 1}
     - _Tint: {r: 0.9811321, g: 0.47640994, b: 0, a: 1}
