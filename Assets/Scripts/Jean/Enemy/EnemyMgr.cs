@@ -70,6 +70,11 @@ public class EnemyMgr : MonoBehaviour
         {
             ShowAttackableEnemies();
         }
+
+        if(resetAttackableEffect)
+        {
+            HideAttackableEnemies();
+        }
     }
 
     /**
@@ -334,9 +339,9 @@ public class EnemyMgr : MonoBehaviour
             float currentIntensity = rend.materials[0].GetFloat("_Intensity");
 
             if (currentIntensity > 0.70f)
-                offset = -0.01f;
+                offset = -0.02f;
             else if (currentIntensity <= 0)
-                offset = 0.01f;
+                offset = 0.02f;
 
             rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);
         }        
@@ -352,7 +357,7 @@ public class EnemyMgr : MonoBehaviour
         {
             rend = enemy.transform.GetChild(0).GetComponent<MeshRenderer>();
 
-            rend.materials[0].SetFloat("_Intensity", 2f);
+            rend.materials[0].SetFloat("_Intensity", 1f);
         }
 
         launchAttackableEffect = true;
@@ -377,13 +382,17 @@ public class EnemyMgr : MonoBehaviour
         foreach (EnemyScript enemy in attackableEnemiesList)
         {
             rend = enemy.transform.GetChild(0).GetComponent<MeshRenderer>();
+            float currentIntensity = rend.materials[0].GetFloat("_Intensity");
 
-            offset += 0.01f;
+            offset = 0.03f;
 
-            rend.materials[0].SetFloat("_Intensity", offset);
+            rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);
 
-            if (rend.materials[0].GetFloat("_Intensity") >= 5f)
+            if (rend.materials[0].GetFloat("_Intensity") >= 0.6f)
+            {
+                rend.materials[0].SetFloat("_Intensity", 5f);
                 resetAttackableEffect = false;
+            }
         }
     }
 

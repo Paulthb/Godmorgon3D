@@ -6396,6 +6396,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &370033559
 GameObject:
   m_ObjectHideFlags: 0
@@ -6891,6 +6893,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!114 &410769862 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6965676382236630678, guid: befb802f273720841b7d0981cc3dc664,
@@ -7323,6 +7327,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &430899508
 GameObject:
   m_ObjectHideFlags: 0
@@ -7607,6 +7613,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &465043002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10316,6 +10324,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &627291633
 GameObject:
   m_ObjectHideFlags: 0
@@ -16190,6 +16200,8 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!114 &929061717 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6965676384116521148, guid: befb802f273720841b7d0981cc3dc664,
@@ -17426,6 +17438,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &987555260
 GameObject:
   m_ObjectHideFlags: 0
@@ -17560,6 +17574,8 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!111 &989394858 stripped
 Animation:
   m_CorrespondingSourceObject: {fileID: 6965676382532262333, guid: befb802f273720841b7d0981cc3dc664,
@@ -21076,6 +21092,7 @@ MonoBehaviour:
     type: 3}
   walkablePtHolder: {fileID: 2019526418}
   nodesList: []
+  nbNodesCleared: 0
 --- !u!4 &1179904064
 Transform:
   m_ObjectHideFlags: 0
@@ -25524,6 +25541,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1415383410
 GameObject:
   m_ObjectHideFlags: 0
@@ -25590,6 +25609,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!4 &1421629636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1342960658508235010, guid: 579a9a5566986ec44a54f7541499fe30,
@@ -26942,6 +26963,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1510433648
 GameObject:
   m_ObjectHideFlags: 0
@@ -28521,6 +28544,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1586252637
 GameObject:
   m_ObjectHideFlags: 0
@@ -28587,6 +28612,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!114 &1586749072 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6965676383668658205, guid: befb802f273720841b7d0981cc3dc664,
@@ -34683,6 +34710,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1938286761
 GameObject:
   m_ObjectHideFlags: 0
@@ -36731,6 +36760,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!114 &2064498463 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
@@ -37834,6 +37865,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2134378907
 GameObject:
   m_ObjectHideFlags: 0
@@ -38329,6 +38362,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &6689561676831582981
 PrefabInstance:
   m_ObjectHideFlags: 0
