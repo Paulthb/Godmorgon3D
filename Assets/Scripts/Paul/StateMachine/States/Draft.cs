@@ -12,7 +12,8 @@ namespace GodMorgon.StateMachine
         {
             Debug.Log("On Draft State");
 
-            DeckBuildingManager.Instance.DraftStart();
+            ///USELESS
+            //DeckBuildingManager.Instance.DraftStart();
         }
     }
 }

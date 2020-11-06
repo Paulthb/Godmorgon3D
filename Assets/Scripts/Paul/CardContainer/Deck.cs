@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GodMorgon.Models;
+using System;
 
 namespace GodMorgon.CardContainer
 {
@@ -13,7 +14,7 @@ namespace GodMorgon.CardContainer
     {
         // ==== Attributes
 
-        protected new Stack<BasicCard> cards = new Stack<BasicCard>();
+        protected new List<BasicCard> cards = new List<BasicCard>();
 
         // ==== Methods
 
@@ -22,16 +23,37 @@ namespace GodMorgon.CardContainer
         {
             if (newCard != null)
             {
-                cards.Push(newCard);
+                cards.Add(newCard);
             }
             else
                 throw new InconsistentCardExecption();
         }
 
-        //draw the card on top of the stack
+        //draw random card of the deck
         public new BasicCard DrawCard()
         {
-            return cards.Count > 0 ? cards.Pop() : null;
+            if (cards.Count != 0)
+            {
+                int randIndex = UnityEngine.Random.Range(0, cards.Count);
+                //Debug.Log("card numéro : " + randIndex);
+                BasicCard drawCard = cards[randIndex];
+                cards.RemoveAt(randIndex);
+                return drawCard;
+            }
+            return null;
+        }
+
+        //draw card on top of the deck
+        public BasicCard DrawFirstCard()
+        {
+            if (cards.Count != 0)
+            {
+                BasicCard drawCard = cards[0];
+                //Debug.Log("première carte est: " + drawCard.name);
+                cards.RemoveAt(0);
+                return drawCard;
+            }
+            return null;
         }
 
         // For debug only
@@ -43,8 +65,7 @@ namespace GodMorgon.CardContainer
         //Get the cards list
         public List<BasicCard> GetCards()
         {
-            List<BasicCard> newList = new List<BasicCard>(cards);
-            return newList;
+            return cards;
         }
 
         //Return the count in the Stack

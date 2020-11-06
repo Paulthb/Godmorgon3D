@@ -16,9 +16,16 @@ public class BootStrapGameScene : MonoBehaviour
     [SerializeField]
     private string gameSceneName = null;
 
+    //DEBUG
+    //la pioche initiale est random 
+    public bool isHandRandom = true;
+
     //initialize data at start and launch first game function
     public void Start()
     {
+        //DEBUG
+        GameEngine.Instance.isDrawCardRandom = isHandRandom;
+
         if (GameEngine.Instance.gameLaunched == false)
         {
             GameEngine.Instance.SetSettings(gameSettings);

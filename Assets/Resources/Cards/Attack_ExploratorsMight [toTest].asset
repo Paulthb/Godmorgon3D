@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   id: 9
-  name: Circular Kick
+  name: Explorators Might
   dropTarget: 2
   description: Inflict [nbDamage] damages for each explored nodes this turn
   actionCost: 1

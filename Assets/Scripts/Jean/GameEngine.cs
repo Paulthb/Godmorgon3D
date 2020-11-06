@@ -44,6 +44,10 @@ public class GameEngine
      */
     public StateMachine stateMachine;
 
+    //DEBUG : is draw card random 
+    public bool isDrawCardRandom = false;
+
+
     #region Singleton Pattern
     private static GameEngine instance;
 
@@ -135,7 +139,7 @@ public class GameEngine
 
         while (playerDeck.Count() > 0)
         {
-            tempDeck.AddCard(playerDeck.DrawCard());
+            tempDeck.AddCard(playerDeck.DrawFirstCard());
         }
         playerDeck = tempDeck;
         //Debug.Log(playerDeck.GetCards().Count);
@@ -182,18 +186,19 @@ public class GameEngine
     //draw the card on top of the player deck and remove it from the deck
     public BasicCard DrawCard()
     {
-        // Check if We Can!
-        //if (hand.Count() >= settings.MaxHandCapability /*+ player.HandOverflow*/)//important pour le player
-        //    throw new HandIsFullException();
-
         //si le deck est vide on reprend toute les cartes dans la disposal pile pour remplir le deck en mélangeant les cartes.
         if (playerDeck.Count() == 0)
         {
             //throw new DeckIsEmptyException();
             ShuffleDeck();
         }
-        // Take from the deck
-        BasicCard myNewCard = playerDeck.DrawCard();
+        // Take from the deck + DEBUG
+        BasicCard myNewCard;
+        if (isDrawCardRandom)
+            myNewCard = playerDeck.DrawCard();
+        else
+            myNewCard = playerDeck.DrawFirstCard();
+
         hand.AddCard(myNewCard);
         return myNewCard;
     }
