@@ -18,6 +18,12 @@ namespace GodMorgon.CardEffect
         {
             int nbBlock = effectData.nbBlock;
 
+            //Explorer (on multiplie la défense par le nombre de nodes explorés)
+            if (effectData.Explorer)
+            {
+                nbBlock = nbBlock * MapManager.Instance.nbNodesCleared;
+            }
+
             //Shiver
             if (effectData.shiver)
             {

@@ -120,6 +120,9 @@ namespace GodMorgon.Models
         //Double les valeurs si le player a subit des dégats pendant ce tour
         public bool Goosebump = false;
 
+        //Prend en compte le nombre de node explorés actuellement
+        public bool Explorer = false;
+
         [Header("Curse")]
         //pour la carte obstruction
         public bool isUseless = false;
