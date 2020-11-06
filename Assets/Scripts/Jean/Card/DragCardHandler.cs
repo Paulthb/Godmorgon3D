@@ -120,7 +120,6 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 // Check if drop on node is ok 
                 dropPosManager.GetDropCardContext(_card, clickedNode, context);
             }
-
             else if (hit.collider.tag == "Enemy" && _card.dropTarget == BasicCard.DROP_TARGET.ENEMY)
             {
                 // Add enemy selected in context
@@ -130,6 +129,16 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 Vector3Int enemyNodePos = EnemyMgr.Instance.GetEnemyNodePos(hit.collider.transform);
 
                 dropPosManager.GetDropCardContext(_card, enemyNodePos, context);
+            }
+            // Select node even if the card is dropped on enemy (to avoid raycast filter)
+            // Used for sight card or move card
+            else if (hit.collider.tag == "Enemy" && _card.dropTarget == BasicCard.DROP_TARGET.NODE)         
+            {
+                // Get the node of the enemy where the card is dropped
+                Vector3Int clickedNode = hit.collider.gameObject.GetComponent<EnemyScript>().GetNodePosOfEnemy();
+                context.targetNodePos = clickedNode;
+
+                dropPosManager.GetDropCardContext(_card, clickedNode, context);
             }
             else if (hit.collider.tag == "Player" && _card.dropTarget == BasicCard.DROP_TARGET.PLAYER)
             {
