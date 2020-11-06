@@ -210,6 +210,8 @@ namespace GodMorgon.Timeline
 
                 //reset le nombre de dégat du player pris à ce tour
                 PlayerMgr.Instance.ResetTurnDamage();
+                //reset le nombre de cartes piocher à ce tour 
+                PlayerMgr.Instance.ResetTurnNbDrawCard();
 
                 //SFX end ringmaster Turn
                 //MusicManager.Instance.PlayCursorEnd();

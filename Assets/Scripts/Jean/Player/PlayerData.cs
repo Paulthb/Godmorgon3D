@@ -96,7 +96,12 @@ namespace GodMorgon.Player
          */
         public override int DoDamage(int baseDamagePoint)
         {
-            if(doubleDamageDone)
+            //si l'effet possibilities est activé 
+            if (BuffManager.Instance.possibilitiesActivate)
+            {
+                baseDamagePoint += PlayerMgr.Instance.GetTurnNbDrawCard();
+            }
+            if (doubleDamageDone)
             {
                 //Debug.Log("damage donné double !");
                 baseDamagePoint = baseDamagePoint * 2;
