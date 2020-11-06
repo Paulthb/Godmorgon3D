@@ -30,6 +30,8 @@ namespace GodMorgon.Player
 
         //dégats reçu à ce tour
         private int turnDamage = 0;
+        //nb carte tirer à ce tour 
+        private int turnNbCardDraw = 0;
 
         //Path count
         [NonSerialized]
@@ -460,6 +462,25 @@ namespace GodMorgon.Player
         public void ResetTurnDamage()
         {
             turnDamage = 0;
+        }
+
+        //return le nombre de cartes pioché pendant ce tour 
+        public int GetTurnNbDrawCard()
+        {
+            return turnNbCardDraw;
+        }
+
+        //incrémente le nombre de carte pioché à ce tour 
+        public void AddCardAtThisTurn()
+        {
+            turnNbCardDraw++;
+            Debug.Log("nb cartes piocher à ce tour : " + turnNbCardDraw);
+        }
+
+        //reset le nombre de carte pioché à ce tour 
+        public void ResetTurnNbDrawCard()
+        {
+            turnNbCardDraw = 0;
         }
 
         /**

@@ -132,6 +132,9 @@ public class GameManager : MonoBehaviour
 
         BasicCard cardDrawn = GameEngine.Instance.DrawCard();
         handManager.AddCard(cardDrawn);
+
+        //compteur des cartes piocher à ce tour pour le player 
+        PlayerMgr.Instance.AddCardAtThisTurn();
     }
 
     //Passe le tour du player ce qui lui permettra de tirer une carte supplémentaire
@@ -174,6 +177,9 @@ public class GameManager : MonoBehaviour
         {
             BasicCard cardDrawn = GameEngine.Instance.DrawCard();
             handManager.AddCard(cardDrawn);
+
+            //compteur des cartes piocher à ce tour pour le player 
+            PlayerMgr.Instance.AddCardAtThisTurn();
         }
         //on met à jour les infos dès qu'on pioche une carte
         UpdateCardDataDisplay();
@@ -188,6 +194,9 @@ public class GameManager : MonoBehaviour
             {
                 BasicCard cardDrawn = GameEngine.Instance.DrawCardFromDisposalPile();
                 handManager.AddCard(cardDrawn);
+
+                //compteur des cartes piocher à ce tour pour le player 
+                PlayerMgr.Instance.AddCardAtThisTurn();
             }
             else
                 Debug.Log("discard pile is empty");
@@ -202,6 +211,9 @@ public class GameManager : MonoBehaviour
         GameEngine.Instance.hand.AddCard(card);
         handManager.AddCard(card);
         UpdateCardDataDisplay();
+
+        //compteur des cartes piocher à ce tour pour le player 
+        PlayerMgr.Instance.AddCardAtThisTurn();
     }
 
     /**
