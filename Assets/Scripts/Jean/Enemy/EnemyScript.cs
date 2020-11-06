@@ -182,9 +182,8 @@ namespace GodMorgon.Enemy
                 // The next node get this enemy in its list
                 nextNode.enemiesOnNode.Add(this);
 
-
                 // Set enemy on center of next node to this enemy if there is nobody on it
-                if(nextNode.enemyOnCenter == null)
+                if (nextNode.enemyOnCenter == null && nextNode != PlayerMgr.Instance.GetNodeOfPlayer().GetComponent<NodeScript>().node)
                 {
                     nextNode.enemyOnCenter = this;
                 }
