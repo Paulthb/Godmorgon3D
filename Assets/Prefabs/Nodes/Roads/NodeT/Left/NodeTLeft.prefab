@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1342960658508235010}
-  - component: {fileID: 5482641207460977406}
   m_Layer: 0
   m_Name: NodeTLeft
   m_TagString: Untagged
@@ -32,40 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5482641207460977406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342960658508235011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb64e006291648428d5ad5a6dec5b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeName: 
-  nodePreview: {fileID: 2800000, guid: 8d1293f5442758d48a9c7dab8437fd10, type: 3}
-  roadType: 8
-  tiles:
-  - tilePosition: {x: 0, y: 0, z: 0}
-    walkable: 0
-  - tilePosition: {x: 0, y: 0, z: 0}
-    walkable: 1
-  - tilePosition: {x: 0, y: 0, z: 0}
-    walkable: 0
-  - tilePosition: {x: 0, y: 0, z: 0}
-    walkable: 1
-  - tilePosition: {x: 0, y: 0, z: 0}
-    walkable: 1
-  - tilePosition: {x: 0, y: 0, z: 0}
-    walkable: 1
-  - tilePosition: {x: 0, y: 0, z: 0}
-    walkable: 0
-  - tilePosition: {x: 0, y: 0, z: 0}
-    walkable: 0
-  - tilePosition: {x: 0, y: 0, z: 0}
-    walkable: 0
 --- !u!1001 &5311291104666346233
 PrefabInstance:
   m_ObjectHideFlags: 0
