@@ -6396,6 +6396,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &370033559
 GameObject:
   m_ObjectHideFlags: 0
@@ -6891,6 +6893,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!114 &410769862 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6965676382236630678, guid: befb802f273720841b7d0981cc3dc664,
@@ -7323,6 +7327,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &430899508
 GameObject:
   m_ObjectHideFlags: 0
@@ -7607,6 +7613,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &465043002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10316,6 +10324,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &627291633
 GameObject:
   m_ObjectHideFlags: 0
@@ -16190,6 +16200,8 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!114 &929061717 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6965676384116521148, guid: befb802f273720841b7d0981cc3dc664,
@@ -17426,6 +17438,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &987555260
 GameObject:
   m_ObjectHideFlags: 0
@@ -17560,6 +17574,8 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!111 &989394858 stripped
 Animation:
   m_CorrespondingSourceObject: {fileID: 6965676382532262333, guid: befb802f273720841b7d0981cc3dc664,
@@ -20652,6 +20668,215 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.size
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: a974e9864f6bbb947bee019eb6a2b791,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 754ce5244eb521545ba0f7c1451d2c08,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: b0562ec5940c64a4a99ce5b85bb8a373,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9d89adbf16c28b74ea41129ca443c5ca,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 13f8d87c8e3ab96498f8f4fbb7d878bd,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 53b746cb7c219e248a1cb9fa14b14678,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 177f81cdf98615742ba191a4f1c2def9,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: b8961a2b2ada3dd41972866bd5989335,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 81950e68cafaff14882139ba79901cbd,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e9371a1cf287a14891efde596badc7d,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: b9059be7a75c79242a71a3257ed552f3,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 89c72975e0cd20d4cafd072b0e7a03cc,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[12]
+      value: 
+      objectReference: {fileID: 11400000, guid: 06e2ee03369fa7140b6d1928da50e340,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[13]
+      value: 
+      objectReference: {fileID: 11400000, guid: 527b1e93c42d6074089a2a984b4dc08f,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[14]
+      value: 
+      objectReference: {fileID: 11400000, guid: 71cf12b0b6d4a5946a6b1762d1e3b44e,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[15]
+      value: 
+      objectReference: {fileID: 11400000, guid: c91ffa10c4282a1419efbbd422070d7c,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[16]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5544ee2d25306704ea80818478e64cb9,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[17]
+      value: 
+      objectReference: {fileID: 11400000, guid: f010c905af109b34fa385803359d15df,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[18]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a1d7ae860d3fd64897b7df615d8b432,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[19]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5b551602b56c5944198862458fb53010,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[20]
+      value: 
+      objectReference: {fileID: 11400000, guid: bf6ccb3df9eaf6e4b9473456c3e30157,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[21]
+      value: 
+      objectReference: {fileID: 11400000, guid: 78fdf3a25dc8cce4ea03d1900d27a8df,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[22]
+      value: 
+      objectReference: {fileID: 11400000, guid: 522413c2eb65dcc4ba56ae223f623355,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[23]
+      value: 
+      objectReference: {fileID: 11400000, guid: fbe3e48121328a04288b6ebf6f4e6a61,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[24]
+      value: 
+      objectReference: {fileID: 11400000, guid: fb6e585b189ad8a4c898cb335267f770,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[25]
+      value: 
+      objectReference: {fileID: 11400000, guid: 60358d3e6f39a9e4c8af3113a82fd3ea,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[26]
+      value: 
+      objectReference: {fileID: 11400000, guid: fb8bda0e1d686014b99131ccf151a1e7,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[27]
+      value: 
+      objectReference: {fileID: 11400000, guid: a225d234ef1acfa4c9947651c4d4cdd5,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[28]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c62e1028e72fb444ad296fb6185e7a7,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[29]
+      value: 
+      objectReference: {fileID: 11400000, guid: 82fc72e5353d19e42a2f8f5a75af5d36,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[30]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b79a606a75b3e947873ed03ef2ffaca,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[31]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f831d6f41852af40901315ed8c6d6f6,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[32]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b7e10571c9a6cd49bb3d3299cfa78e1,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[33]
+      value: 
+      objectReference: {fileID: 11400000, guid: 822fd2ac269d16240b7bb4fb5e1d2211,
+        type: 2}
     - target: {fileID: 6965676382809026211, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -21076,6 +21301,7 @@ MonoBehaviour:
     type: 3}
   walkablePtHolder: {fileID: 2019526418}
   nodesList: []
+  nbNodesCleared: 0
 --- !u!4 &1179904064
 Transform:
   m_ObjectHideFlags: 0
@@ -25524,6 +25750,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1415383410
 GameObject:
   m_ObjectHideFlags: 0
@@ -25590,6 +25818,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!4 &1421629636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1342960658508235010, guid: 579a9a5566986ec44a54f7541499fe30,
@@ -26942,6 +27172,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1510433648
 GameObject:
   m_ObjectHideFlags: 0
@@ -28521,6 +28753,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1586252637
 GameObject:
   m_ObjectHideFlags: 0
@@ -28587,6 +28821,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!114 &1586749072 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6965676383668658205, guid: befb802f273720841b7d0981cc3dc664,
@@ -34683,6 +34919,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &1938286761
 GameObject:
   m_ObjectHideFlags: 0
@@ -36731,6 +36969,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!114 &2064498463 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
@@ -37834,6 +38074,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &2134378907
 GameObject:
   m_ObjectHideFlags: 0
@@ -38329,6 +38571,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1001 &6689561676831582981
 PrefabInstance:
   m_ObjectHideFlags: 0

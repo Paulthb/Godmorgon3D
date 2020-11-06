@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MapJean
   m_EditorClassIdentifier: 
   mapName: MapJean
-  mapSize: {x: 11, y: 20}
+  mapSize: {x: 10, y: 10}
   nodeList: []
