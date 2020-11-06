@@ -19,6 +19,12 @@ namespace GodMorgon.CardEffect
         {
             int damagePoint = effectData.damagePoint;
 
+            //Explorer (on multiplie les dégats par le nombre de nodes explorés)
+            if(effectData.Explorer)
+            {
+                damagePoint = damagePoint * MapManager.Instance.nbNodesCleared;
+            }
+
             //Shiver
             if (effectData.shiver)
             {
@@ -30,7 +36,7 @@ namespace GodMorgon.CardEffect
             }
 
             //Trust
-            if(effectData.trust)
+            if (effectData.trust)
             {
                 if (BuffManager.Instance.IsTrustValidate(effectData.trustNb))
                 {

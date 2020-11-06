@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Power_Possibilities [a_tester]]
+  m_Name: Defense_Precautious [a_tester]
   m_EditorClassIdentifier: 
-  cardType: 3
+  cardType: 2
   id: 0
-  name: Possibilities
+  name: Precautious
   dropTarget: 1
-  description: Everytime you draw a card this turn, your attacks deals +1 damages
-    this turn
-  actionCost: 1
-  price: 0
-  template: {fileID: 21300000, guid: d130799b7e8210f41bf24082e411ab55, type: 3}
-  artwork: {fileID: 21300000, guid: c1bee892507aa684f903cb4fb1657b9a, type: 3}
+  description: Gain [nbBlock] block for each nodes discovered this turn
+  actionCost: 0
+  price: 95
+  template: {fileID: 21300000, guid: f44370d35cac10f4f805debd227b407b, type: 3}
+  artwork: {fileID: 0}
   effectsData:
-  - currentEffect: 3
+  - currentEffect: 2
     damagePoint: 0
     attackRange: 0
     BackAtYou: 0
@@ -34,15 +33,15 @@ MonoBehaviour:
     swift: 0
     noBrakes: 0
     ForcedWalk: 0
-    nbBlock: 0
+    nbBlock: 3
     isCounter: 0
     counterDamagePoint: 0
     KillerInstinct: 0
     FastShoes: 0
     Scarification: 0
-    Possibilities: 1
+    Possibilities: 0
     Sight: 0
-    sightRange: 1
+    sightRange: 0
     DrawCard: 0
     recycling: 0
     nbCardToDraw: 0
@@ -60,6 +59,6 @@ MonoBehaviour:
     rangeEffect: 0
     isDiscardHand: 0
     Goosebump: 0
-    Explorer: 0
+    Explorer: 1
     isUseless: 0
     StickyFinger: 0
