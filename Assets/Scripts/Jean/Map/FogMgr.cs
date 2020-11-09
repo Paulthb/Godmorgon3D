@@ -158,6 +158,8 @@ public class FogMgr : MonoBehaviour
             ClearFogOnNode(nearNode);
         }
 
+        EnemyMgr.Instance.UpdateAllEnemiesCanvasDisplay();  // Update enemies canvas if they were on the revealed zone 
+
         StartCoroutine(TimedAction(timeAfterAction));
 
         //SFX fog clear
@@ -173,6 +175,7 @@ public class FogMgr : MonoBehaviour
         if (!hasBeenRevealed) return false;
 
         hasBeenRevealed = false;
+
         return true;
     }
 
@@ -220,5 +223,8 @@ public class FogMgr : MonoBehaviour
             ClearFogOnNode(node);
         }
         ClearFogOnNode(PlayerMgr.Instance.GetNodeOfPlayer());
+
+        // Disable or not enemies healthbar
+        EnemyMgr.Instance.UpdateAllEnemiesCanvasDisplay();
     }
 }
