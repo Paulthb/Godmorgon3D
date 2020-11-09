@@ -9,12 +9,9 @@ public class EnemyMgr : MonoBehaviour
     public GameObject player;
 
     private List<EnemyScript> enemiesList;
-    private List<EnemyScript> movableEnemiesList;
     private List<EnemyScript> attackableEnemiesList;
     private List<EnemyScript> enemiesOnPlayersNode = new List<EnemyScript>();
-    private List<Vector3Int> attackableEnemiesTiles = new List<Vector3Int>();
 
-    //public List<Vector3Int> spawnList = new List<Vector3Int>();    //List of spawns for enemies
     public List<GameObject> enemiesPrefabsList = new List<GameObject>();    //All the prefabs of enemies that can be instantiated
 
     [Header("Spawn Settings")]
@@ -146,31 +143,15 @@ public class EnemyMgr : MonoBehaviour
     #region FUNCTIONS FOR MOVEMENT
 
     /**
-     * Put in a list just enemies out of player or other enemy node
-     */
-    private void UpdateMovableEnemiesList()
-    {
-        UpdateEnemiesList();
-
-        movableEnemiesList = new List<EnemyScript>();
-
-        foreach (EnemyScript enemy in enemiesList)
-        {
-            if (!enemy.enemyData.inPlayersNode && !enemy.enemyData.inOtherEnemyNode)
-                movableEnemiesList.Add(enemy);
-        }
-    }
-
-    /**
      * Launch the move of all movable enemies
      */
     public void MoveEnemies()
     {
         enemiesHaveMoved = false;
 
-        UpdateMovableEnemiesList();
+        UpdateEnemiesList();
 
-        if (movableEnemiesList.Count > 0)
+        if (enemiesList.Count > 0)
             StartCoroutine(TimedEnemiesMove());   //Lance la coroutine qui applique un par un le mouvement de chaque ennemi
         else enemiesHaveMoved = true;
     }
@@ -180,7 +161,7 @@ public class EnemyMgr : MonoBehaviour
      */
     IEnumerator TimedEnemiesMove()
     {
-        foreach (EnemyScript enemy in movableEnemiesList)    //Pour chaque ennemi de la liste
+        foreach (EnemyScript enemy in enemiesList)    //Pour chaque ennemi de la liste
         {
             enemy.CalculateEnemyPath();  //On lance le mouvement de l'ennemi
             while (!enemy.IsMoveFinished()) //Tant qu'il n'ont pas tous bougé on continue
@@ -189,7 +170,6 @@ public class EnemyMgr : MonoBehaviour
             }
         }
 
-        UpdateMovableEnemiesList();    //On met à jour la liste des ennemis déplaçables après recentrage
         enemiesHaveMoved = true;
     }
 
@@ -204,22 +184,15 @@ public class EnemyMgr : MonoBehaviour
             return false;
     }
 
-    public void RecenterEnemiesAfterEnemyMove()
+    public void RecenterAnEnemyOnNode(Node thisNode)
     {
-        UpdateEnemiesList();    //On met à jour la liste des ennemis
-
-        print("RecenterEnemiesAfterEnemyMove");
-        //Pour tout les ennemis de la map
-        foreach (EnemyScript enemy in enemiesList)
+        if (thisNode.enemiesOnNode.Count > 0 && thisNode.enemyOnCenter == null)
         {
-            //Si un ennemi est présent dans la room d'un ennemi et ne fait pas partie de la liste des ennemis déplaçables
-            if (enemy.enemyData.inOtherEnemyNode && !movableEnemiesList.Contains(enemy))
-            {
-                //Debug.Log("Recentrage d'un ennemi après un EnemyMove");
-                enemy.RecenterEnemy();  //On le recentre
-                enemy.enemyData.inOtherEnemyNode = false;   //L'ennemi n'est plus dans la room d'un autre ennemi
-            }
+            thisNode.enemiesOnNode[0].RecenterEnemy();
+            thisNode.enemyOnCenter = thisNode.enemiesOnNode[0];
+            print("Recenter an enemy");
         }
+        else thisNode.enemyOnCenter = null;
     }
 
     /**
@@ -300,22 +273,46 @@ public class EnemyMgr : MonoBehaviour
         List<Transform> nodesAtSpecificRange = MapManager.Instance.GetNodesAtRangeFromPlayer(spawnRangeFromPlayer);
 
         //on positionne l'enemy à une node random de la liste
-        int randIndex = Random.Range(0, nodesAtSpecificRange.Count);
-        enemy.transform.position = nodesAtSpecificRange[randIndex].position + new Vector3(1, 0, 1);
+        int randIndex;
 
-        //*
-        //*on check si l'enemie n'est pas déjà sur une node occupé par un autre enemy
-        //* si c'est le cas, on repositionne l'enemy à une autre node
-        //*
-        //* A CONFIRMER COMME MODEL!!
+        List<Transform> possibleNodes = new List<Transform>();
 
-        for (int i = 0; i < enemiesList.Count; i++)
+        // Select only nodes with nobody on it
+        foreach (Transform node in nodesAtSpecificRange)
         {
-            if(enemy.transform.position == enemiesList[i].transform.position)
-            {
-                randIndex = Random.Range(0, nodesAtSpecificRange.Count);
-                enemy.transform.position = nodesAtSpecificRange[randIndex].position;
-            }
+            if (node.GetComponent<NodeScript>().node.enemiesOnNode.Count == 0)
+                possibleNodes.Add(node);
+        }
+
+        // Check if there are empty nodes, then select one random to teleport the enemy
+        if (possibleNodes.Count > 0)
+        {
+            randIndex = Random.Range(0, possibleNodes.Count);
+            Node selectedNode = possibleNodes[randIndex].GetComponent<NodeScript>().node;
+
+            // Remove enemy from current node datas
+            Node previousNode = enemy.GetNodeOfEnemy().GetComponent<NodeScript>().node;
+            previousNode.enemiesOnNode.Remove(enemy);
+            previousNode.enemyOnCenter = null;
+
+            // Recenter an enemy if the teleported enemy was not alone and centered on node
+            RecenterAnEnemyOnNode(previousNode);            
+                      
+            // Add enemy in list of node and set as centered enemy
+            selectedNode.enemiesOnNode.Add(enemy);
+            selectedNode.enemyOnCenter = enemy;        
+
+            if (enemy.enemyData.inPlayersNode) enemy.enemyData.inPlayersNode = false;
+
+            // Teleport enemy at selected node
+            enemy.transform.position = possibleNodes[randIndex].position + new Vector3(1, 0, 1);
+
+            // Update enemy canvas visibility 
+            enemy.UpdateCanvasDisplay();
+        }
+        else
+        {
+            print("No node found to teleport enemy");
         }
     }
 

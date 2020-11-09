@@ -170,12 +170,9 @@ namespace GodMorgon.Enemy
                 // If it was the enemy on center, check if we can recenter an enemy on it
                 if (lastNode.enemyOnCenter == this)
                 {
-                    if (lastNode.enemiesOnNode.Count > 0)
-                    {
-                        lastNode.enemiesOnNode[0].RecenterEnemy();
-                        lastNode.enemyOnCenter = lastNode.enemiesOnNode[0];
-                    }
-                    else lastNode.enemyOnCenter = null;                    
+                    lastNode.enemyOnCenter = null;
+
+                    EnemyMgr.Instance.RecenterAnEnemyOnNode(lastNode);                    
                 }
                                 
 
