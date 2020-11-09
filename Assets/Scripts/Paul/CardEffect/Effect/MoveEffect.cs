@@ -31,7 +31,7 @@ namespace GodMorgon.CardEffect
                 }
             }
             //Shiver
-            if (effectData.shiver)
+            else if (effectData.shiver)
             {
                 if (BuffManager.Instance.IsShiverValidate())
                 {
