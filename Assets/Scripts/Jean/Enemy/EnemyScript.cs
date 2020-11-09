@@ -219,6 +219,8 @@ namespace GodMorgon.Enemy
                     isMoveFinished = true;  //Movement done, allowing the next enemy to move
                     enemyPath = new List<Spot>();   //Reset path
 
+                    UpdateCanvasDisplay(); //Display or not the canvas if there is fog or not
+
                     if (enemyData.inPlayersNode)
                     {
                         Attack();   //Attack there is someone in node
@@ -304,23 +306,12 @@ namespace GodMorgon.Enemy
                 if (state.name == "Enemy_Attack")
                 {
                     anim.Play(state.name);
-
-                    //Debug.Log("anim played");
                 }
             }
         }
 
         public bool IsAttackFinished()
         {
-            /*
-            if (IsAnimFinished())
-            {
-                isAttackFinished = true;
-            }
-            else isAttackFinished = false;
-            
-            return isAttackFinished;*/
-
             if (isAttackFinished)
             {
                 isAttackFinished = false;
@@ -444,6 +435,16 @@ namespace GodMorgon.Enemy
             }
 
             Destroy(gameObject);    //Détruit le gameobject de l'ennemi
+        }
+
+        /**
+         * Enable health bar when enemy out of fog and disable it when under fog
+         */
+        public void UpdateCanvasDisplay()
+        {
+            if (GetNodeOfEnemy().GetComponent<NodeScript>().node.isNodeCleared)
+                enemyCanvas.gameObject.SetActive(true);
+            else enemyCanvas.gameObject.SetActive(false);
         }
 
         #region ENEMY POSITIONS

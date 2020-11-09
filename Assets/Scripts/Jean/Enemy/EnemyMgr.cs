@@ -285,6 +285,9 @@ public class EnemyMgr : MonoBehaviour
 
         // Add created enemy to entities list of node
         MapManager.Instance.GetNodeFromPos(spawnNodePos).GetComponent<NodeScript>().node.enemiesOnNode.Add(createdEnemy);
+
+        // Disable enemy canvas if spawn under fog
+        createdEnemy.UpdateCanvasDisplay();
     }
 
     /**
@@ -508,12 +511,28 @@ public class EnemyMgr : MonoBehaviour
     }
 
 
-    //cacel the block of all enemy at end of turn
+    // Cancel the block of all enemy at end of turn
     public void CancelEnemyBlock()
     {
         foreach (EnemyScript enemyScript in enemiesList)
         {
             enemyScript.enemyData.CancelBlock();
+        }
+    }
+
+    /**
+     * Update the canvas of all enemies on map
+     * Used when :
+     *      sight card, to enable enemy canvas if their nodes are cleared of fog
+     *      cover map with fog, to disable enemies canvas
+     */
+    public void UpdateAllEnemiesCanvasDisplay()
+    {
+        UpdateEnemiesList();
+
+        foreach(EnemyScript enemy in enemiesList)
+        {
+            enemy.UpdateCanvasDisplay();
         }
     }
 }
