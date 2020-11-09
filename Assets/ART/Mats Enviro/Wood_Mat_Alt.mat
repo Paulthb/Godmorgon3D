@@ -91,10 +91,10 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RimOffset: 0.19
-    - _Rimpower: 1
+    - _Rimpower: 0.891
     - _SmoothnessTextureChannel: 0
-    - _Specintensity: 0.343
-    - _Specsmth: 0.293
+    - _Specintensity: 0.227
+    - _Specsmth: 0.564
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
@@ -109,5 +109,5 @@ Material:
     - _Emissive: {r: 0.2264151, g: 0.16276255, b: 0.06728373, a: 1}
     - _GlobalTint: {r: 0.16037738, g: 0.041239895, b: 0, a: 1}
     - _RimTint: {r: 0.5566038, g: 0.38957265, b: 0.118147045, a: 1}
-    - _Speccolor: {r: 0, g: 0, b: 0, a: 1}
+    - _Speccolor: {r: 0.5660378, g: 0.3062014, b: 0.120149545, a: 1}
     - _Tint: {r: 0.9811321, g: 0.47640994, b: 0, a: 1}

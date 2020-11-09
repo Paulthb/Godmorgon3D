@@ -47,6 +47,9 @@ public class GameManager : MonoBehaviour
     //nombre de carte à discard
     private int nbCardToDiscard = 0;
 
+    //bool pour savoir si le downPanel est verrouillé
+    private bool isDownPanelLock = false;
+
     //Booleen utilisé pour faire attendre le séquenceur
     [NonSerialized]
     public bool draftPanelActivated = false;
@@ -128,21 +131,27 @@ public class GameManager : MonoBehaviour
      */
     public void DrawCardButton()
     {
-        print("Draw card btn");
+        if (!isDownPanelLock)
+        {
+            print("Draw card btn");
 
-        BasicCard cardDrawn = GameEngine.Instance.DrawCard();
-        handManager.AddCard(cardDrawn);
+            BasicCard cardDrawn = GameEngine.Instance.DrawCard();
+            handManager.AddCard(cardDrawn);
 
-        //compteur des cartes piocher à ce tour pour le player 
-        PlayerMgr.Instance.AddCardAtThisTurn();
+            //compteur des cartes piocher à ce tour pour le player 
+            PlayerMgr.Instance.AddCardAtThisTurn();
+        }
     }
 
     //Passe le tour du player ce qui lui permettra de tirer une carte supplémentaire
     public void SkipPlayerTurn()
     {
-        lastPlayerTurnPassed = true;
-        TimelineManager.Instance.SetRingmasterActionRemain(1);
-        GameEngine.Instance.SetState(StateMachine.STATE.RINGMASTER_TURN);
+        if (!isDownPanelLock)
+        {
+            lastPlayerTurnPassed = true;
+            TimelineManager.Instance.SetRingmasterActionRemain(1);
+            GameEngine.Instance.SetState(StateMachine.STATE.RINGMASTER_TURN);
+        }
     }
 
     /**
@@ -151,13 +160,16 @@ public class GameManager : MonoBehaviour
      */
     public void OpenShop()
     {
-        //Si c'est au tour du joueur et qu'il nous reste des token
-        if (GameEngine.Instance.GetState() == StateMachine.STATE.PLAYER_TURN && PlayerData.Instance.token > 0)
+        if (!isDownPanelLock)
         {
-            PlayerMgr.Instance.TakeOffToken(); //Retire un token au player
-            shopManager.gameObject.SetActive(true);  //Affiche le shop
-            shopManager.ShopOpening();//on prépare les cartes pour le magasin
-            handManager.gameObject.SetActive(false);
+            //Si c'est au tour du joueur et qu'il nous reste des token
+            if (GameEngine.Instance.GetState() == StateMachine.STATE.PLAYER_TURN && PlayerData.Instance.token > 0)
+            {
+                PlayerMgr.Instance.TakeOffToken(); //Retire un token au player
+                shopManager.gameObject.SetActive(true);  //Affiche le shop
+                shopManager.ShopOpening();//on prépare les cartes pour le magasin
+                handManager.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -251,11 +263,13 @@ public class GameManager : MonoBehaviour
      */
     public void DownPanelBlock(bool isPanelBlock)
     {
+        isDownPanelLock = isPanelBlock;
+
         downPanelBlock.SetActive(isPanelBlock);
         handManager.HandUpdate();
 
         //Cards in hand become darker if the block is activated, normal if not
-        if(isPanelBlock)
+        if (isPanelBlock)
         {
             Color blockColor = new Color(0.5f, 0.5f, 0.5f, 1);
             foreach(CardDisplay card in handManager.GetCardsInHand())
