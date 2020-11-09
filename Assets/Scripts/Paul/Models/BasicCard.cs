@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GodMorgon.Player;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -70,7 +71,7 @@ namespace GodMorgon.Models
                     damageData += MapManager.Instance.nbNodesCleared;
 
                 //check pour les autres effets
-                if (effect.shiver)
+                if (effect.shiver && BuffManager.Instance.IsShiverValidate())
                     damageData = damageData * 2;
                 else if (effect.trust && BuffManager.Instance.IsTrustValidate(effect.trustNb))
                     damageData = damageData * 2;
@@ -101,7 +102,7 @@ namespace GodMorgon.Models
                 if (effect.Explorer)
                     blockData += MapManager.Instance.nbNodesCleared;
 
-                if (effect.shiver)
+                if (effect.shiver && BuffManager.Instance.IsShiverValidate())
                     blockData = blockData * 2;
                 else if (effect.trust && BuffManager.Instance.IsTrustValidate(effect.trustNb))
                     blockData = blockData * 2;
@@ -124,7 +125,7 @@ namespace GodMorgon.Models
             foreach (CardEffectData effect in effectsData)
             {
                 moveData += effect.nbMoves;
-                if (effect.shiver)
+                if (effect.shiver && BuffManager.Instance.IsShiverValidate())
                     moveData = moveData * 2;
                 else if (effect.trust && BuffManager.Instance.IsTrustValidate(effect.trustNb))
                     moveData = moveData * 2;
@@ -147,7 +148,7 @@ namespace GodMorgon.Models
             foreach (CardEffectData effect in effectsData)
             {
                 healData += effect.nbHeal;
-                if (effect.shiver)
+                if (effect.shiver && BuffManager.Instance.IsShiverValidate())
                     healData = healData * 2;
                 else if (effect.trust && BuffManager.Instance.IsTrustValidate(effect.trustNb))
                     healData = healData * 2;
@@ -170,7 +171,7 @@ namespace GodMorgon.Models
             foreach (CardEffectData effect in effectsData)
             {
                 nbDrawData += effect.nbCardToDraw;
-                if (effect.shiver)
+                if (effect.shiver && BuffManager.Instance.IsShiverValidate())
                     nbDrawData = nbDrawData * 2;
                 else if (effect.trust && BuffManager.Instance.IsTrustValidate(effect.trustNb))
                     nbDrawData = nbDrawData * 2;

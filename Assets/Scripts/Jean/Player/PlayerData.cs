@@ -23,6 +23,7 @@ namespace GodMorgon.Player
         public bool doubleDamageDone = false;
         public bool doubleDamageTaken = false;
 
+        public bool isHealtAtHalf = false;
         //--------------------------------------------------------
 
         #region Singleton Pattern
@@ -85,7 +86,7 @@ namespace GodMorgon.Player
                 health--;
                 damagePoint--;
             }
-            Debug.Log("player health after was : " + health);
+            Debug.Log("player health is : " + health);
 
             //apply scarification at every damage taken
             BuffManager.Instance.ApplyScarification();
