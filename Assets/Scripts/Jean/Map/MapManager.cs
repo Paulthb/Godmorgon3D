@@ -639,9 +639,9 @@ public class MapManager : MonoBehaviour
 
 
                 if (currentIntensity > 0.70f)
-                    offset = -0.01f;
+                    offset = -0.02f;
                 else if (currentIntensity <= 0)
-                    offset = 0.01f;
+                    offset = 0.02f;
 
                 rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);                
             }
