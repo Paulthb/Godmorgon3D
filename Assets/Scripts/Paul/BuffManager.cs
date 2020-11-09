@@ -122,8 +122,11 @@ public class BuffManager
     public int getModifiedDamage(int damagePoint)
     {
         int newDamagePoint = damagePoint;
+        if (possibilitiesActivate)
+            newDamagePoint += PlayerMgr.Instance.GetTurnNbDrawCard();
         if (isKillerInstinct)
-            newDamagePoint = damagePoint * 2;
+            newDamagePoint = newDamagePoint * 2;
+        
 
         return newDamagePoint;
     }
