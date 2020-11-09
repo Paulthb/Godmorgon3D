@@ -127,6 +127,8 @@ public class FogMgr : MonoBehaviour
         {
             targetNode.GetComponent<NodeScript>().node.isNodeCleared = true;
 
+            EnemyMgr.Instance.UpdateAllEnemiesCanvasDisplay();  // Update enemies canvas if they were on the revealed zone 
+
             // Add 1 to nbNodeCleared
             MapManager.Instance.nbNodesCleared++;
             MapManager.Instance.nodesClearedList.Add(targetNode);
@@ -173,6 +175,7 @@ public class FogMgr : MonoBehaviour
         if (!hasBeenRevealed) return false;
 
         hasBeenRevealed = false;
+
         return true;
     }
 
@@ -220,5 +223,8 @@ public class FogMgr : MonoBehaviour
             ClearFogOnNode(node);
         }
         ClearFogOnNode(PlayerMgr.Instance.GetNodeOfPlayer());
+
+        // Disable or not enemies healthbar
+        EnemyMgr.Instance.UpdateAllEnemiesCanvasDisplay();
     }
 }
