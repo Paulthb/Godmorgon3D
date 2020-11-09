@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 9
   name: Explorators Might
   dropTarget: 2
-  description: Inflict [nbDamage] damages for each explored nodes this turn
+  description: Inflict +1 damages for each explored nodes this turn  ([nbDamage])
   actionCost: 1
   price: 75
   template: {fileID: 21300000, guid: d914663f37f4d974aa4c14141b89f8c0, type: 3}
@@ -59,6 +59,6 @@ MonoBehaviour:
     rangeEffect: 0
     isDiscardHand: 0
     Goosebump: 0
-    Explorer: 0
+    Explorer: 1
     isUseless: 0
     StickyFinger: 0

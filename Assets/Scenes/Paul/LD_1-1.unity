@@ -20967,6 +20967,7 @@ MonoBehaviour:
   walkablePtHolder: {fileID: 2019526418}
   nodesList: []
   nbNodesCleared: 0
+  nodesClearedList: []
 --- !u!4 &1179904064
 Transform:
   m_ObjectHideFlags: 0
