@@ -64,6 +64,11 @@ namespace GodMorgon.Models
             foreach (CardEffectData effect in effectsData)
             {
                 damageData += effect.damagePoint;
+
+                //check pour explorer
+                if (effect.Explorer)
+                    damageData += MapManager.Instance.nbNodesCleared;
+
                 //check pour les autres effets
                 if (effect.shiver)
                     damageData = damageData * 2;
@@ -79,7 +84,9 @@ namespace GodMorgon.Models
         {
             int blockData = 0;
             foreach (CardEffectData effect in effectsData)
+            {
                 blockData += effect.nbBlock;
+            }
             return blockData;
         }
         //retourne les blocks avec bonus de la carte
@@ -89,6 +96,11 @@ namespace GodMorgon.Models
             foreach (CardEffectData effect in effectsData)
             {
                 blockData += effect.nbBlock;
+
+                //check pour explorer
+                if (effect.Explorer)
+                    blockData += MapManager.Instance.nbNodesCleared;
+
                 if (effect.shiver)
                     blockData = blockData * 2;
                 else if (effect.trust && BuffManager.Instance.IsTrustValidate(effect.trustNb))
