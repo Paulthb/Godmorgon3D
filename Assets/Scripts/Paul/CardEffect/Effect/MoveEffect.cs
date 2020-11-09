@@ -30,6 +30,14 @@ namespace GodMorgon.CardEffect
                     PlayerMgr.Instance.UpdateMultiplier(2);
                 }
             }
+            //Shiver
+            if (effectData.shiver)
+            {
+                if (BuffManager.Instance.IsShiverValidate())
+                {
+                    PlayerMgr.Instance.UpdateMultiplier(2);
+                }
+            }
             else PlayerMgr.Instance.UpdateMultiplier(1);
 
             //Goosebump
