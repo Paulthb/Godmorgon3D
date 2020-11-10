@@ -105,11 +105,17 @@ namespace GodMorgon.Enemy
             //If enemy not in player's node
             if (!enemyData.inPlayersNode)
             {
+                int nbTiles = nbTilesPerMove * enemyData.nbMoves;
+
+                // If this enemy was not centered, remove one tile to be centered on target node
+                if (GetNodeOfEnemy().GetComponent<NodeScript>().node.enemyOnCenter != this)
+                    nbTiles--;
+
                 //Path creation
                 roadPath = MapManager.Instance.astar.CreatePath(MapManager.Instance.grid,
                     new Vector2Int(enemyTilePos.x, enemyTilePos.z),
                     new Vector2Int(playerTilePos.x, playerTilePos.z),
-                    nbTilesPerMove * enemyData.nbMoves);
+                    nbTiles);
 
                 if (roadPath == null) return;
 
