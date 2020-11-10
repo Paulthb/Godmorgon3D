@@ -154,8 +154,9 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         
         if (context.isDropValidate)
         {
-            //on lock toutes les cartes en main
-            GameManager.Instance.UnlockDragCardHandler(false);            
+            //on lock toutes les cartes en main et tout le downPanel
+            GameManager.Instance.UnlockDragCardHandler(false);
+            GameManager.Instance.DownPanelBlock(true);
 
             //Play the card
             CardEffectManager.Instance.PlayCard(eventData.pointerDrag.GetComponent<CardDisplay>().card, context);

@@ -76,6 +76,10 @@ namespace GodMorgon.Player
         public ParticleSystemScript playerFastShoes = null;
 
 
+        //player Animator
+        [SerializeField]
+        private Animator playerAnimator = null;
+
         #region Singleton Pattern
         private static PlayerMgr _instance;
 
@@ -106,6 +110,8 @@ namespace GodMorgon.Player
                 InitializeHealthBar();
 
             UpdateGoldText();
+
+            //playerAnimator.SetBool("isIdle", true); 
         }
 
         // Update is called once per frame

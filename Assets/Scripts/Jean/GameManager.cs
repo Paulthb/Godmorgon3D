@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     private int nbCardToDiscard = 0;
 
     //bool pour savoir si le downPanel est verrouillé
-    private bool isDownPanelLock = false;
+    private bool AreButtonLock = false;
 
     //Booleen utilisé pour faire attendre le séquenceur
     [NonSerialized]
@@ -131,7 +131,7 @@ public class GameManager : MonoBehaviour
      */
     public void DrawCardButton()
     {
-        if (!isDownPanelLock)
+        if (!AreButtonLock)
         {
             print("Draw card btn");
 
@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
     //Passe le tour du player ce qui lui permettra de tirer une carte supplémentaire
     public void SkipPlayerTurn()
     {
-        if (!isDownPanelLock)
+        if (!AreButtonLock)
         {
             lastPlayerTurnPassed = true;
             TimelineManager.Instance.SetRingmasterActionRemain(1);
@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
      */
     public void OpenShop()
     {
-        if (!isDownPanelLock)
+        if (!AreButtonLock)
         {
             //Si c'est au tour du joueur et qu'il nous reste des token
             if (GameEngine.Instance.GetState() == StateMachine.STATE.PLAYER_TURN && PlayerData.Instance.token > 0)
@@ -243,7 +243,7 @@ public class GameManager : MonoBehaviour
         {
             nbCardToDiscard--;
             Debug.Log("card to discard : " + nbCardToDiscard);
-            //si il n'y a pu de carte à restart on continue
+            //si il n'y a pu de carte à restart on arrête la selection
             if (nbCardToDiscard <= 0)
                 DesactivateDiscardOnCard();
         }
@@ -259,11 +259,12 @@ public class GameManager : MonoBehaviour
     }
 
     /**
-     * active panel to block dawn panel during the ringmaster turn
+     * active panel to block dawn panel during the ringmaster turn 
+     * OR to prevent use card when it's forbidden
      */
     public void DownPanelBlock(bool isPanelBlock)
     {
-        isDownPanelLock = isPanelBlock;
+        AreButtonLock = isPanelBlock;
 
         downPanelBlock.SetActive(isPanelBlock);
         handManager.HandUpdate();
@@ -399,6 +400,11 @@ public class GameManager : MonoBehaviour
 
         //remet tout les gears à l'heure place
         TimelineManager.Instance.HideNextAction(4);
+
+        //on désactive le block pour pouvoir reselectionné les cartes à discard...
+        DownPanelBlock(false);
+        //Mais on lock les buttons in game pendant la sélection
+        AreButtonLock = true;
     }
 
     /**
@@ -411,6 +417,9 @@ public class GameManager : MonoBehaviour
         isDiscardCardSelectionOn = false;
         handManager.DesactivateCardDiscard();
         nbCardToDiscard = 0;
+
+        //on réactive le block
+        DownPanelBlock(true);
     }
 
     //indique au séquencer si une carte a été discard
