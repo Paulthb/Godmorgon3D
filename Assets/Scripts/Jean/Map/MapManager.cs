@@ -101,6 +101,9 @@ public class MapManager : MonoBehaviour
     private bool launchAccessibleEffect = false;
     private bool resetAccessibleEffect = false;
 
+    //===================== MOVE CARD ================================
+    public bool isSwiftMove = false;
+
     private float offset = 0.01f; //offset changing for shaders
 
     #region Singleton Pattern
@@ -561,13 +564,15 @@ public class MapManager : MonoBehaviour
         accessibleNodes.Clear();
         showableTilesList.Clear();
 
+        //Update card datas to know if it's a swift move card
+        
 
         if (null != tilesMap)
         {
             //If the path to nearest nodes is direct, add them to accessibles nodes 
             foreach (Transform node in nearestNodesList)
             {
-                //Get the middle tle of node
+                //Get the middle tile of node
                 Vector3Int targetTile = new Vector3Int((int)node.position.x + 1, (int)node.position.y, (int)node.position.z + 1); 
 
                 //Roadpath starting from the center of the node, with enemy on path or not, to calculate accessible tiles, and to not have an offset if the player is not in the center of the node
@@ -590,7 +595,7 @@ public class MapManager : MonoBehaviour
                         }
                     }
 
-                    if(!enemyOnPath)
+                    if(!enemyOnPath || isSwiftMove)
                     {
                         accessibleNodes.Add(node);
                     }

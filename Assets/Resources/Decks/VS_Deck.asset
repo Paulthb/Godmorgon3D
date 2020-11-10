@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Deck used for VS
   artwork: {fileID: 0}
   cards:
-  - {fileID: 11400000, guid: 822fd2ac269d16240b7bb4fb5e1d2211, type: 2}
+  - {fileID: 11400000, guid: 4927819fdade8f94ca883c795c053952, type: 2}
   - {fileID: 11400000, guid: fb8bda0e1d686014b99131ccf151a1e7, type: 2}
   - {fileID: 11400000, guid: 13f8d87c8e3ab96498f8f4fbb7d878bd, type: 2}
   - {fileID: 11400000, guid: 13f8d87c8e3ab96498f8f4fbb7d878bd, type: 2}

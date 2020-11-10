@@ -193,8 +193,7 @@ namespace GodMorgon.Player
 
             if (playerPath == null) return;
 
-            
-            //On ajoute les tiles par lesquelles il va devoir passer sauf celle où il y a un enemy
+            // S'il y a un enemy au bout du chemin, on retire la tile où il se situe
             if (null != EnemyMgr.Instance.GetEnemyByPosition(new Vector3Int(playerPath[0].X, 0, playerPath[0].Y)))
             {
                 EnemyMgr.Instance.GetEnemyByPosition(new Vector3Int(playerPath[0].X, 0, playerPath[0].Y)).enemyData.inPlayersNode = true;
@@ -204,8 +203,6 @@ namespace GodMorgon.Player
                 supposedPos = new Vector3Int(playerPath[0].X, 0, playerPath[0].Y);    //La position supposée est celle de l'ennemi sur le path
                 playerPath.Remove(playerPath[0]);
             }
-
-            //playerPath = roadPath;
 
             //Si on ETAIT le premier arrivé dans la room, alors un ennemi présent dans la room doit se recentrer au milieu de la room
             if (firstInRoom)
@@ -338,8 +335,11 @@ namespace GodMorgon.Player
                 nbMoveIterationCounter = 0;
                 multiplier = 1;
 
-                //yield return new WaitForSeconds(2f);
-
+                foreach (EnemyScript enemy in GetNodeOfPlayer().GetComponent<NodeScript>().node.enemiesOnNode)
+                {
+                    enemy.enemyData.inPlayersNode = true;
+                }
+                
                 playerHasMoved = true;
             }
         }
