@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GodMorgon.CardEffect;
+using GodMorgon.Player;
 
 namespace GodMorgon.GameSequencerSpace
 {
@@ -13,6 +14,8 @@ namespace GodMorgon.GameSequencerSpace
             //show damage effect
             context.targets.OnDamage();
 
+            //play player attack animation
+            PlayerMgr.Instance.PlayPlayerAnim("Attack");
 
             if(!context.targets.IsDead())
                 yield return new WaitForSeconds(context.targets.GetDamageHitDuration());    //wait the time of the hit particle effect

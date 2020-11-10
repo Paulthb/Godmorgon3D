@@ -111,7 +111,7 @@ namespace GodMorgon.Player
 
             UpdateGoldText();
 
-            //playerAnimator.SetBool("isIdle", true); 
+            
         }
 
         // Update is called once per frame
@@ -456,6 +456,8 @@ namespace GodMorgon.Player
 
             //launch player hit effect
             OnDamage();
+            //launch player take damage animation
+            PlayPlayerAnim("TakeDamage");
         }
 
         //return les dégats reçu à ce tour
@@ -582,6 +584,7 @@ namespace GodMorgon.Player
             playerData.defense = 0;
             UpdateHealthBar();
         }
+
         #region Visual effect
 
         //launch player hit effect
@@ -628,5 +631,16 @@ namespace GodMorgon.Player
         }
         #endregion
 
-        } 
+        #region PLAYER ANIMATION
+        /**
+         * play the player animation
+         * active the parameter give by the function parameter 
+         */
+        public void PlayPlayerAnim(string animName)
+        {
+            playerAnimator.SetTrigger(animName);
+        }
+
+        #endregion
     }
+}

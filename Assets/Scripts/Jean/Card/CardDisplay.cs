@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
-using TMPro;
-
-using GodMorgon.Models;
-using GodMorgon.StateMachine;
+﻿using GodMorgon.Models;
 using GodMorgon.Timeline;
 using System;
+using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 /**
  * Présent sur chaque carte
@@ -31,7 +27,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public Image template;
 
     public bool isHover = false;
-    public float timeHover = 1.0f;
+    public float timeHover = 1f;
     private static bool cardIsDragging = false;
 
     public GameObject display = null;
@@ -98,7 +94,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             if (actualDamage > card.GetDamage())
                 cardDescription = cardDescription.Replace("[nbDamage]", "<b><color=green>" + actualDamage.ToString() + "</color></b>");
             //si il n'y a rien, le texte est normale
-            else if(actualDamage == card.GetDamage())
+            else if (actualDamage == card.GetDamage())
                 cardDescription = cardDescription.Replace("[nbDamage]", "<b>" + actualDamage.ToString() + "</b>");
             //si il y a des malus, le texte est rouge
             else
@@ -172,7 +168,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
      */
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        if(!cardIsDragging)
+        if (!cardIsDragging)
         {
             isHover = true;
             StartCoroutine(ScaleCardIn());
@@ -188,7 +184,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
-    
+
     public void OnPointerExit(PointerEventData eventData)
     {
         if (!cardIsDragging)
@@ -234,12 +230,20 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         while (currentTime <= timeHover && isHover)
         {
-            display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime);
-            display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime);
-            currentTime += Time.deltaTime * 4;
+            //display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime/timeHover);
+            //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/timeHover);
+
+            display.transform.localScale = Vector3.Lerp(display.transform.localScale, destinationScale, Time.deltaTime * 10f);
+            display.transform.localPosition = Vector3.Lerp(display.transform.localPosition, destinationPosition, Time.deltaTime * 10f);
+
+
+            currentTime += Time.deltaTime;
             yield return null;
         }
     }
+
+
+
 
     public IEnumerator ScaleCardOut()
     {
@@ -255,9 +259,14 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         while (currentTime <= timeHover && !isHover)
         {
-            display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime);
-            display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime);
-            currentTime += Time.deltaTime * 4;
+            //display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / timeHover);
+            //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/ timeHover);
+
+            //Danping
+            display.transform.localScale = Vector3.Lerp(display.transform.localScale, destinationScale, Time.deltaTime * 10f);
+            display.transform.localPosition = Vector3.Lerp(display.transform.localPosition, destinationPosition, Time.deltaTime * 10f);
+
+            currentTime += Time.deltaTime;
             yield return null;
         }
     }
