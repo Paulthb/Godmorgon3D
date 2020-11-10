@@ -58,6 +58,23 @@ public class GameManager : MonoBehaviour
     public Image ThankYouImage = null;
     public float timeFade = 2;
 
+    //Canvas pour instancier les anime feedback
+    [SerializeField]
+    private GameObject canvasGAO = null;
+    /**
+     * il faut instancier cet object au dessus de la pile ou de la main qui reçoit une carte
+     */
+    [SerializeField]
+    private GameObject visualCardOnDeck = null;
+    [Header("Card On Deck Pos")]
+    [SerializeField]
+    private Transform cardOnDeck = null;
+    [SerializeField]
+    private Transform cardOnHand = null;
+    [SerializeField]
+    private Transform cardOnDiscardPile = null;
+
+    [Header("DEBUG")]
     /**
      * FOR DEBUG 
      * 
@@ -256,6 +273,9 @@ public class GameManager : MonoBehaviour
     public void AddCardToDiscardPile(BasicCard cardDiscarded)
     {
         GameEngine.Instance.AddCardToDiscardPile(cardDiscarded);
+
+        //active visual effect
+        GameManager.Instance.SetVisualCardOnDeck("DiscardPile");
     }
 
     /**
@@ -455,6 +475,31 @@ public class GameManager : MonoBehaviour
             ThankYouImage.color = Color.Lerp(originalColorThanks, targetColorThanks, currentTime);
             currentTime += Time.deltaTime;
             yield return null;
+        }
+    }
+
+    /**
+    * instancie cet object au dessus de la pile ou de la main qui reçoit une carte
+    */
+    public void SetVisualCardOnDeck(string pileName)
+    {
+        if(visualCardOnDeck != null)
+        {
+            switch(pileName)
+            {
+                case "DiscardPile":
+                    Instantiate(visualCardOnDeck, cardOnDiscardPile.position, Quaternion.identity, canvasGAO.transform);
+                    break;
+                case "Hand":
+                    Instantiate(visualCardOnDeck, cardOnHand.position, Quaternion.identity, canvasGAO.transform);
+                    break;
+                case "Deck":
+                    Instantiate(visualCardOnDeck, cardOnDeck.position, Quaternion.identity, canvasGAO.transform);
+                    break;
+                default:
+                    Debug.Log("wrong pile name");
+                    break;
+            }
         }
     }
 

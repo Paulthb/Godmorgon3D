@@ -39,6 +39,9 @@ public class HandManager : MonoBehaviour
         cardDisplay.UpdateCard(cardDraw);
         CardDisplayList.Add(cardDisplay);
 
+        //active visual effect
+        GameManager.Instance.SetVisualCardOnDeck("Hand");
+
         //check for a curse effect
         CheckCurseCard(cardDraw, true);
     }
@@ -51,6 +54,9 @@ public class HandManager : MonoBehaviour
         CardDisplayList.Remove(card);
         //check for a curse effect
         CheckCurseCard(card.card, false);
+
+        //active visual effect
+        GameManager.Instance.SetVisualCardOnDeck("DiscardPile");
     }
 
     /**

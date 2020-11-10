@@ -9348,6 +9348,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 569335138}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &576074183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6965676383302999650, guid: befb802f273720841b7d0981cc3dc664,
+    type: 3}
+  m_PrefabInstance: {fileID: 6965676384113499734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &578660487
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13952,6 +13958,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1342960658508235010, guid: 74324d4fcd5d9564cbaa54adee28dd46,
     type: 3}
   m_PrefabInstance: {fileID: 827477031}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &827737920 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 827737920, guid: befb802f273720841b7d0981cc3dc664,
+    type: 3}
+  m_PrefabInstance: {fileID: 6965676384113499734}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &828118982
 GameObject:
@@ -19948,6 +19960,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1106324320}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1107166341 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1107166341, guid: befb802f273720841b7d0981cc3dc664,
+    type: 3}
+  m_PrefabInstance: {fileID: 6965676384113499734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1114306299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20940,6 +20958,7 @@ MonoBehaviour:
   nodesList: []
   nbNodesCleared: 0
   nodesClearedList: []
+  isSwiftMove: 0
 --- !u!4 &1179904064
 Transform:
   m_ObjectHideFlags: 0
@@ -33014,6 +33033,12 @@ MonoBehaviour:
     isNodeCleared: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
+--- !u!224 &1852097756 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1852097756, guid: befb802f273720841b7d0981cc3dc664,
+    type: 3}
+  m_PrefabInstance: {fileID: 6965676384113499734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1854056511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33896,6 +33921,12 @@ MonoBehaviour:
   finalFade: {fileID: 462192203}
   ThankYouImage: {fileID: 1893941440}
   timeFade: 2
+  canvasGAO: {fileID: 576074183}
+  visualCardOnDeck: {fileID: 861312887466160947, guid: 7817ab0a2fccfec44bb3869803f59f64,
+    type: 3}
+  cardOnDeck: {fileID: 1852097756}
+  cardOnHand: {fileID: 827737920}
+  cardOnDiscardPile: {fileID: 1107166341}
   VisibleDeck: []
   VisibleDiscardPile: []
 --- !u!114 &1893941440 stripped
@@ -38436,30 +38467,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1915395102948723633, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2dbb226c7bbc6f747b7bb6a6b3495e94,
-        type: 3}
-    - target: {fileID: 1915395102959983810, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2dbb226c7bbc6f747b7bb6a6b3495e94,
-        type: 3}
-    - target: {fileID: 1915395103521626520, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2dbb226c7bbc6f747b7bb6a6b3495e94,
-        type: 3}
-    - target: {fileID: 1915395104341290579, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2dbb226c7bbc6f747b7bb6a6b3495e94,
-        type: 3}
     - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -38467,19 +38474,9 @@ PrefabInstance:
       objectReference: {fileID: 1887340685}
     - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DrawCardButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1887340685}
-    - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SkipPlayerTurn
-      objectReference: {fileID: 0}
     - target: {fileID: 6965676383302999650, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_Name

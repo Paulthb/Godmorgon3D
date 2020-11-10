@@ -111,5 +111,7 @@ public class CameraDrag : MonoBehaviour
             if (gameCamera.orthographicSize > maxScroll)
                 gameCamera.orthographicSize = maxScroll;
         }
+        //TODO
+        //(currentZoom, target, time.deltaTime * 2)
     }
 }

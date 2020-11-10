@@ -236,14 +236,12 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             display.transform.localScale = Vector3.Lerp(display.transform.localScale, destinationScale, Time.deltaTime * 10f);
             display.transform.localPosition = Vector3.Lerp(display.transform.localPosition, destinationPosition, Time.deltaTime * 10f);
 
-
             currentTime += Time.deltaTime;
             yield return null;
         }
+        display.transform.localScale = destinationScale;
+        display.transform.localPosition = destinationPosition;
     }
-
-
-
 
     public IEnumerator ScaleCardOut()
     {
@@ -269,6 +267,8 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             currentTime += Time.deltaTime;
             yield return null;
         }
+        display.transform.localScale = destinationScale;
+        display.transform.localPosition = destinationPosition;
     }
 
     //quand la carte est drag, elle reprend sa taille normale
