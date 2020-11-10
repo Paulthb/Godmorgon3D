@@ -74,6 +74,11 @@ public class FogMgr : MonoBehaviour
         foreach (Transform node in MapManager.Instance.nodesList)
         {
             AddFogOnNode(node);
+
+            if(node.GetComponent<NodeScript>().node.nodeEffect == NodeEffect.EXIT)
+            {
+                ClearFogOnNode(node);
+            }
         }
 
         //Remove fog on player's node and next to him 
