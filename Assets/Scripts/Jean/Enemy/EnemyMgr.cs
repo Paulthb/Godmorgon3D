@@ -161,6 +161,8 @@ public class EnemyMgr : MonoBehaviour
      */
     IEnumerator TimedEnemiesMove()
     {
+        SortEnemiesList();
+
         foreach (EnemyScript enemy in enemiesList)    //Pour chaque ennemi de la liste
         {
             enemy.CalculateEnemyPath();  //On lance le mouvement de l'ennemi
@@ -531,5 +533,34 @@ public class EnemyMgr : MonoBehaviour
         {
             enemy.UpdateCanvasDisplay();
         }
+    }
+
+    /**
+     * Sort enemies list by their distance to player
+     */
+    public void SortEnemiesList()
+    {
+        // Player pos is target position
+        Vector3Int playerTilePos = PlayerMgr.Instance.GetTilePosOfPlayer();
+
+        // Sort list 2 by 2
+        enemiesList.Sort(delegate (EnemyScript a, EnemyScript b)
+        {
+            Vector3Int aTilePos = a.GetTilePosOfEnemy();
+            Vector3Int bTilePos = b.GetTilePosOfEnemy();
+
+            // Path of enemy A to player
+            List<Spot> aPathToPlayer = MapManager.Instance.astar.CreatePath(MapManager.Instance.grid,
+                    new Vector2Int(aTilePos.x, aTilePos.z),
+                    new Vector2Int(playerTilePos.x, playerTilePos.z),
+                    100);
+            // Path of enemy B to player
+            List<Spot> bPathToPlayer = MapManager.Instance.astar.CreatePath(MapManager.Instance.grid,
+                    new Vector2Int(bTilePos.x, bTilePos.z),
+                    new Vector2Int(playerTilePos.x, playerTilePos.z),
+                    100);
+
+            return aPathToPlayer.Count.CompareTo(bPathToPlayer.Count);
+        });
     }
 }
