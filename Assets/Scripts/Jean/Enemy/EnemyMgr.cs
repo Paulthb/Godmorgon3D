@@ -189,7 +189,7 @@ public class EnemyMgr : MonoBehaviour
         if (thisNode.enemiesOnNode.Count > 0 && thisNode.enemyOnCenter == null)
         {
             thisNode.enemiesOnNode[0].RecenterEnemy();
-            thisNode.enemyOnCenter = thisNode.enemiesOnNode[0];
+            //thisNode.enemyOnCenter = thisNode.enemiesOnNode[0];
             print("Recenter an enemy");
         }
         else thisNode.enemyOnCenter = null;

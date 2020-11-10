@@ -172,9 +172,9 @@ namespace GodMorgon.Enemy
                 {
                     lastNode.enemyOnCenter = null;
 
-                    EnemyMgr.Instance.RecenterAnEnemyOnNode(lastNode);                    
+                    EnemyMgr.Instance.RecenterAnEnemyOnNode(lastNode);
                 }
-                                
+
 
                 // The next node get this enemy in its list
                 nextNode.enemiesOnNode.Add(this);
@@ -190,12 +190,13 @@ namespace GodMorgon.Enemy
                 if (enemyData.nbMoves == 2 && enemyPath.Count == 5)
                     enemyPath.RemoveAt(enemyPath.Count - 1);
 
-                enemyPath.RemoveAt(0); //Remove the first which is the tile the enemy is on                
-            }
+                enemyPath.RemoveAt(0); //Remove the first which is the tile the enemy is on 
 
-            tileIndex = 0;
-            canMove = true; //Allow the movement mechanic
-            isMoveFinished = false; //Will be false until enemy move is not finished
+                tileIndex = 0;
+                canMove = true; //Allow the movement mechanic
+                isMoveFinished = false; //Will be false until enemy move is not finished
+            }
+            else isMoveFinished = true;
         }
 
         private void LaunchMoveMechanic()
@@ -353,6 +354,9 @@ namespace GodMorgon.Enemy
             tileIndex = 0;
             canRecenter = true;
             enemyData.inPlayersNode = false;
+
+            // Set enemy as centered enemy on node
+            GetNodeOfEnemy().GetComponent<NodeScript>().node.enemyOnCenter = GetNodeOfEnemy().GetComponent<NodeScript>().node.enemiesOnNode[0];
         }
 
         private void LaunchRecenterMechanic()
@@ -426,9 +430,9 @@ namespace GodMorgon.Enemy
 
             if(currentNode.enemyOnCenter == this)
             {
-                print(currentNode.enemiesOnNode[0] + " wants to recenter");
+                //print(currentNode.enemiesOnNode[0] + " wants to recenter");
                 currentNode.enemiesOnNode[0].RecenterEnemy();
-                currentNode.enemyOnCenter = currentNode.enemiesOnNode[0];
+                //currentNode.enemyOnCenter = currentNode.enemiesOnNode[0];
             }
 
             Destroy(gameObject);    //Détruit le gameobject de l'ennemi
