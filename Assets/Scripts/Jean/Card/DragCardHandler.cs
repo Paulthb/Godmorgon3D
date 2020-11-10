@@ -189,7 +189,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             dropPosManager.HidePositionsToDrop(_card);
         }
     }
-
+    /*
     public void PlayTypeCardSFX(BasicCard.CARDTYPE type)
     {
         switch(type)
@@ -210,5 +210,5 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 MusicManager.Instance.PlayCardsSpell();
                 break;
         }
-    }
+    }*/
 }

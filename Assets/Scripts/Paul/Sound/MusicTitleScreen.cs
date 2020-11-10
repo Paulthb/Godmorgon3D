@@ -6,6 +6,7 @@ namespace GodMorgon.Sound
 {
     public class MusicTitleScreen : MonoBehaviour
     {
+        /*
         public AK.Wwise.Event Title_Screen;
         public AK.Wwise.Event Mus_Menu;
         public AK.Wwise.Event Mus_None;
@@ -18,6 +19,6 @@ namespace GodMorgon.Sound
         public void StopMusic()
         {
             Mus_None.Post(gameObject);
-        }
+        }*/
     }
 }

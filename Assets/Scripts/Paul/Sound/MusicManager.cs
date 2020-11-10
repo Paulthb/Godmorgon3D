@@ -9,7 +9,7 @@ namespace GodMorgon.Sound
      */
     public class MusicManager : MonoBehaviour
     {
-        
+        /*
 
         public AK.Wwise.Event Player_Hit;
         public AK.Wwise.Event Player_Move;
@@ -170,6 +170,6 @@ namespace GodMorgon.Sound
         public void PlayCursorEnd()
         {
             cursorEnd.Post(gameObject);
-        }
+        }*/
     }
 }
