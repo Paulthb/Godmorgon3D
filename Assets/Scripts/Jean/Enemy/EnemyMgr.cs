@@ -259,7 +259,9 @@ public class EnemyMgr : MonoBehaviour
         //Instantiate(enemy.spawnParticule, spawnPos, Quaternion.identity, effectParent);    //Instantiate spawn effect
 
         // Add created enemy to entities list of node
-        MapManager.Instance.GetNodeFromPos(spawnNodePos).GetComponent<NodeScript>().node.enemiesOnNode.Add(createdEnemy);
+        Node spawnNode = MapManager.Instance.GetNodeFromPos(spawnNodePos).GetComponent<NodeScript>().node;
+        spawnNode.enemiesOnNode.Add(createdEnemy);
+        spawnNode.enemyOnCenter = createdEnemy;
 
         // Disable enemy canvas if spawn under fog
         createdEnemy.UpdateCanvasDisplay();

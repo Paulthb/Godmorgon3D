@@ -350,7 +350,7 @@ namespace GodMorgon.Player
 
                     transform.GetChild(0).localEulerAngles = currentRotation;
 
-                    print(currentRotation.y);
+                    //print(currentRotation.y);
 
                     currentTime += Time.deltaTime;
                     yield return null;
