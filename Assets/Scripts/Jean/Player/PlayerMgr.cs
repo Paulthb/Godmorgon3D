@@ -11,6 +11,14 @@ using UnityEngine;
 
 namespace GodMorgon.Player
 {
+    public enum PlayerDir
+    {
+        Up,
+        Down,
+        Right,
+        Left
+    }
+
     public class PlayerMgr : MonoBehaviour
     {
         [Header("Movement Settings")]
@@ -27,6 +35,7 @@ namespace GodMorgon.Player
         private bool enemyOnPath = false;
         [SerializeField]
         private bool firstInRoom = true;
+        private bool canRotate = false;
 
         //dégats reçu à ce tour
         private int turnDamage = 0;
@@ -48,7 +57,11 @@ namespace GodMorgon.Player
 
         [NonSerialized]
         public PlayerData playerData;
-        
+
+        [Header("Player Rotation")]
+        public float rotationTime = 1f;
+        public PlayerDir nextPlayerDir = PlayerDir.Up;
+        public PlayerDir currentPlayerDir = PlayerDir.Up;
         
         /**
         * la healthBar sera enfant du canvas de cette objet
@@ -230,19 +243,41 @@ namespace GodMorgon.Player
                 }
             }
 
-            playerCanMove = true;  //on autorise le player à bouger
+            // Player is moving LEFT
+            if(playerPath[0].X > playerPath[1].X)
+            {
+                nextPlayerDir = PlayerDir.Left;
+            }
+            // Player is moving RIGHT
+            else if(playerPath[0].X < playerPath[1].X) 
+            {
+                nextPlayerDir = PlayerDir.Right;
+            }
+            // Player is moving DOWN
+            else if (playerPath[0].Y > playerPath[1].Y)
+            {
+                nextPlayerDir = PlayerDir.Down;
+            }
+            // Player is moving UP
+            else if (playerPath[0].Y < playerPath[1].Y)
+            {
+                nextPlayerDir = PlayerDir.Up;
+            }
+
+            StartCoroutine(RotatePlayer());
 
             tileIndex = 0;
 
             nbMoveIterationCounter++;   //On ajoute un move au compteur
+
 
             //SFX player move
             //MusicManager.Instance.PlayPlayerMove();
         }
 
         /**
-            * Launch player move if player can move
-            */
+         * Launch player move if player can move
+         */
         private void LaunchMoveMechanic()
         {
             isMoving = true;
@@ -274,6 +309,55 @@ namespace GodMorgon.Player
                 float speed = playerSpeed * ratio;   //Link ratio to modify speed
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(nextPos.x, this.transform.position.y, nextPos.z), speed * Time.deltaTime); //Go to next tile
             }
+        }
+
+        /**
+         * Update the rotation of player before moving
+         */
+        IEnumerator RotatePlayer()
+        {
+            float nextRotation = 0.0f;
+
+            // if we have to go to another direction
+            if (nextPlayerDir != currentPlayerDir)
+            {
+                switch (nextPlayerDir)
+                {
+                    case PlayerDir.Up:
+                        nextRotation = 0;
+                        break;
+                    case PlayerDir.Down:
+                        nextRotation = 180;
+                        break;
+                    case PlayerDir.Right:
+                        nextRotation = 90;
+                        break;
+                    case PlayerDir.Left:
+                        nextRotation = -90;
+                        break;
+                }
+
+                currentPlayerDir = nextPlayerDir;
+
+                float currentTime = 0.0f;
+                Vector3 currentRotation = transform.GetChild(0).localEulerAngles;
+
+                while (currentTime <= rotationTime)
+                {
+                    //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/timeHover);
+
+                    currentRotation.y = Mathf.Lerp(currentRotation.y, nextRotation, Time.deltaTime * 10f);
+
+                    transform.GetChild(0).localEulerAngles = currentRotation;
+
+                    print(currentRotation.y);
+
+                    currentTime += Time.deltaTime;
+                    yield return null;
+                }
+            }
+
+            playerCanMove = true;  //on autorise le player à bouger
         }
 
         /**

@@ -1379,7 +1379,7 @@ PrefabInstance:
     - target: {fileID: 7078950512023755573, guid: b825683ba07f76d4394d596cfef8245d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7078950512023755573, guid: b825683ba07f76d4394d596cfef8245d,
         type: 3}
@@ -1389,7 +1389,7 @@ PrefabInstance:
     - target: {fileID: 7078950512023755573, guid: b825683ba07f76d4394d596cfef8245d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7078950512023755573, guid: b825683ba07f76d4394d596cfef8245d,
         type: 3}
@@ -7919,9 +7919,8 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
-    enemiesOnNode:
-    - {fileID: 927432530}
-    enemyOnCenter: {fileID: 927432530}
+    enemiesOnNode: []
+    enemyOnCenter: {fileID: 0}
 --- !u!1 &933820121
 GameObject:
   m_ObjectHideFlags: 0
@@ -10498,6 +10497,7 @@ MonoBehaviour:
     isNodeCleared: 0
     enemiesOnNode:
     - {fileID: 2109514193}
+    - {fileID: 927432530}
     enemyOnCenter: {fileID: 2109514193}
 --- !u!1001 &1212606356
 PrefabInstance:
@@ -17059,6 +17059,11 @@ MonoBehaviour:
   finalFade: {fileID: 462192203}
   ThankYouImage: {fileID: 1893941440}
   timeFade: 2
+  canvasGAO: {fileID: 0}
+  visualCardOnDeck: {fileID: 0}
+  cardOnDeck: {fileID: 0}
+  cardOnHand: {fileID: 0}
+  cardOnDiscardPile: {fileID: 0}
   VisibleDeck: []
   VisibleDiscardPile: []
 --- !u!1 &1893941438
@@ -20033,10 +20038,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052953696}
     m_Modifications:
+    - target: {fileID: 1156500986555096504, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1949488490676098671, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583314445869162574, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583314445869162574, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583314445869162574, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
@@ -20106,7 +20131,7 @@ PrefabInstance:
     - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
@@ -20162,6 +20187,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120622543665433423, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.69591266
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120622543665433423, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120622543665433423, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7181265
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120622543665433423, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120622543665433423, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 268.2
       objectReference: {fileID: 0}
     - target: {fileID: 8616259129545103195, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
