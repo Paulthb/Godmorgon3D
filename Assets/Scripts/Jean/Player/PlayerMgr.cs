@@ -324,16 +324,16 @@ namespace GodMorgon.Player
                 switch (nextPlayerDir)
                 {
                     case PlayerDir.Up:
-                        nextRotation = 0;
-                        break;
-                    case PlayerDir.Down:
-                        nextRotation = 180;
-                        break;
-                    case PlayerDir.Right:
                         nextRotation = 90;
                         break;
-                    case PlayerDir.Left:
+                    case PlayerDir.Down:
                         nextRotation = -90;
+                        break;
+                    case PlayerDir.Right:
+                        nextRotation = 180;
+                        break;
+                    case PlayerDir.Left:
+                        nextRotation = 0;
                         break;
                 }
 
