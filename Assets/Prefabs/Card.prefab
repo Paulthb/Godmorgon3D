@@ -58,11 +58,19 @@ MonoBehaviour:
   nameText: {fileID: 2835690153264822842}
   descriptionText: {fileID: 2438409027753986816}
   costText: {fileID: 8668876835193253278}
+  typeCardText: {fileID: 3995056344373152824}
   artworkImage: {fileID: 2277794922001364697}
   template: {fileID: 5387282604749307338}
+  typeCardLogo: {fileID: 3991944428073288395}
   isHover: 0
   timeHover: 0.25
   display: {fileID: 5593500282200823629}
+  attackLogo: {fileID: 21300000, guid: c4234e8d8cea81b49831fa9b27d26ccd, type: 3}
+  defenseLogo: {fileID: 21300000, guid: 1402dfa00824eb14aa5acf0e97015fee, type: 3}
+  movementLogo: {fileID: 21300000, guid: 3eab9ad16a735f147803972fa302e2cf, type: 3}
+  spellLogo: {fileID: 21300000, guid: e43e11d8ed6ee41469f6d71b03282abb, type: 3}
+  powerUpLogo: {fileID: 21300000, guid: 2cf29931c9bbf76449aef5c10505b450, type: 3}
+  curseLogo: {fileID: 21300000, guid: 86fcacbc72f57a941ae87699073d418c, type: 3}
 --- !u!114 &8142491009890245540
 MonoBehaviour:
   m_ObjectHideFlags: 0

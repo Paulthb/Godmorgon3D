@@ -22,15 +22,31 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI costText;
+    public TextMeshProUGUI typeCardText;
 
     public Image artworkImage;
     public Image template;
+    public Image typeCardLogo;
 
     public bool isHover = false;
     public float timeHover = 1f;
     private static bool cardIsDragging = false;
 
     public GameObject display = null;
+
+    [Header("Logo")]
+    [SerializeField]
+    private Sprite attackLogo = null;
+    [SerializeField]
+    private Sprite defenseLogo = null;
+    [SerializeField]
+    private Sprite movementLogo = null;
+    [SerializeField]
+    private Sprite spellLogo = null;
+    [SerializeField]
+    private Sprite powerUpLogo = null;
+    [SerializeField]
+    private Sprite curseLogo = null;
 
     //la carte peut être joué
     [NonSerialized]
@@ -51,6 +67,33 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             artworkImage.sprite = card.artwork;
             cardId = card.id;
             costText.text = card.actionCost.ToString();
+            switch(card.cardType)
+            {
+                case BasicCard.CARDTYPE.ATTACK:
+                    typeCardText.text = "Attack";
+                    typeCardLogo.sprite = attackLogo;
+                    break;
+                case BasicCard.CARDTYPE.DEFENSE:
+                    typeCardText.text = "Defense";
+                    typeCardLogo.sprite = defenseLogo;
+                    break;
+                case BasicCard.CARDTYPE.MOVE:
+                    typeCardText.text = "Move";
+                    typeCardLogo.sprite = movementLogo;
+                    break;
+                case BasicCard.CARDTYPE.SPELL:
+                    typeCardText.text = "Spell";
+                    typeCardLogo.sprite = spellLogo;
+                    break;
+                case BasicCard.CARDTYPE.POWER_UP:
+                    typeCardText.text = "Power Up";
+                    typeCardLogo.sprite = powerUpLogo;
+                    break;
+                case BasicCard.CARDTYPE.CURSE:
+                    typeCardText.text = "Curse";
+                    typeCardLogo.sprite = curseLogo;
+                    break;
+            }
         }
         UpdateDescription();
         UpdateCardCost();
@@ -71,7 +114,34 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             template.sprite = cardData.template;
         if (cardData.artwork)
             artworkImage.sprite = cardData.artwork;
-        costText.text = card.actionCost.ToString();
+        costText.text = cardData.actionCost.ToString();
+        switch (cardData.cardType)
+        {
+            case BasicCard.CARDTYPE.ATTACK:
+                typeCardText.text = "Attack";
+                typeCardLogo.sprite = attackLogo;
+                break;
+            case BasicCard.CARDTYPE.DEFENSE:
+                typeCardText.text = "Defense";
+                typeCardLogo.sprite = defenseLogo;
+                break;
+            case BasicCard.CARDTYPE.MOVE:
+                typeCardText.text = "Move";
+                typeCardLogo.sprite = movementLogo;
+                break;
+            case BasicCard.CARDTYPE.SPELL:
+                typeCardText.text = "Spell";
+                typeCardLogo.sprite = spellLogo;
+                break;
+            case BasicCard.CARDTYPE.POWER_UP:
+                typeCardText.text = "Power Up";
+                typeCardLogo.sprite = powerUpLogo;
+                break;
+            case BasicCard.CARDTYPE.CURSE:
+                typeCardText.text = "Curse";
+                typeCardLogo.sprite = curseLogo;
+                break;
+        }
 
         UpdateDescription();
         UpdateCardCost();
