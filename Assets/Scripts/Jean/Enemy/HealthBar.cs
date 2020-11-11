@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using GodMorgon.Enemy;
+using TMPro;
 
 public class HealthBar : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class HealthBar : MonoBehaviour
     private Image defenseImage = null;
     [SerializeField]
     private Image healthImage = null;
+
+    [SerializeField]
+    private TextMeshProUGUI defenseText = null;
+    [SerializeField]
+    private TextMeshProUGUI healthText = null;
 
     private float maxHealthPoint = 1f;
     private float maxDefensePoint = 1f;
@@ -48,5 +54,12 @@ public class HealthBar : MonoBehaviour
             healthImage.fillAmount = 0;
         else
             healthImage.fillAmount = currentHealth / maxHealthPoint;
+
+        if (healthText)
+        {
+            //on met à jour le texte sur la healthbar
+            healthText.text = currentHealth.ToString();
+            defenseText.text = currentDefense.ToString();
+        }
     }
 }
