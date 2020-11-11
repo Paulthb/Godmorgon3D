@@ -194,7 +194,10 @@ namespace GodMorgon.Enemy
                 // Rare possibility : When an enemy has to move 2 nodes, check with nb of tiles in path if an enemy not centered is on path
                 // In that case, his next node will be the node before the targeted, so remove the last tile to stop on center of real next node
                 if (enemyData.nbMoves == 2 && enemyPath.Count == 5)
+                {
                     enemyPath.RemoveAt(enemyPath.Count - 1);
+                    print(name + " was not centered so remove one tile of path");
+                }
 
                 enemyPath.RemoveAt(0); //Remove the first which is the tile the enemy is on 
 
