@@ -22,9 +22,11 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
     public TextMeshProUGUI costText;
+    public TextMeshProUGUI typeCardText;
 
     public Image artworkImage;
     public Image template;
+    public Image typeCardLogo;
 
     public bool isHover = false;
     public float timeHover = 1f;
@@ -32,12 +34,29 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public GameObject display = null;
 
+    [Header("Logo")]
+    [SerializeField]
+    private Sprite attackLogo = null;
+    [SerializeField]
+    private Sprite defenseLogo = null;
+    [SerializeField]
+    private Sprite movementLogo = null;
+    [SerializeField]
+    private Sprite spellLogo = null;
+    [SerializeField]
+    private Sprite powerUpLogo = null;
+    [SerializeField]
+    private Sprite curseLogo = null;
+
     //la carte peut être joué
     [NonSerialized]
     public bool isplayable = false;
     //la carte est discard si on click dessus
     [NonSerialized]
     public bool canBeDiscard = false;
+
+    //référence to HoverHandler pour le dragHandler (a modifier plus tard !!)
+    public HoverCardHandler hoverCardHandler = null;
 
     /**
      * Load the data of the card in the gameObject at start, if the card exist.
@@ -51,6 +70,33 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             artworkImage.sprite = card.artwork;
             cardId = card.id;
             costText.text = card.actionCost.ToString();
+            switch(card.cardType)
+            {
+                case BasicCard.CARDTYPE.ATTACK:
+                    typeCardText.text = "Attack";
+                    typeCardLogo.sprite = attackLogo;
+                    break;
+                case BasicCard.CARDTYPE.DEFENSE:
+                    typeCardText.text = "Defense";
+                    typeCardLogo.sprite = defenseLogo;
+                    break;
+                case BasicCard.CARDTYPE.MOVE:
+                    typeCardText.text = "Move";
+                    typeCardLogo.sprite = movementLogo;
+                    break;
+                case BasicCard.CARDTYPE.SPELL:
+                    typeCardText.text = "Spell";
+                    typeCardLogo.sprite = spellLogo;
+                    break;
+                case BasicCard.CARDTYPE.POWER_UP:
+                    typeCardText.text = "Power Up";
+                    typeCardLogo.sprite = powerUpLogo;
+                    break;
+                case BasicCard.CARDTYPE.CURSE:
+                    typeCardText.text = "Curse";
+                    typeCardLogo.sprite = curseLogo;
+                    break;
+            }
         }
         UpdateDescription();
         UpdateCardCost();
@@ -71,7 +117,34 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             template.sprite = cardData.template;
         if (cardData.artwork)
             artworkImage.sprite = cardData.artwork;
-        costText.text = card.actionCost.ToString();
+        costText.text = cardData.actionCost.ToString();
+        switch (cardData.cardType)
+        {
+            case BasicCard.CARDTYPE.ATTACK:
+                typeCardText.text = "Attack";
+                typeCardLogo.sprite = attackLogo;
+                break;
+            case BasicCard.CARDTYPE.DEFENSE:
+                typeCardText.text = "Defense";
+                typeCardLogo.sprite = defenseLogo;
+                break;
+            case BasicCard.CARDTYPE.MOVE:
+                typeCardText.text = "Move";
+                typeCardLogo.sprite = movementLogo;
+                break;
+            case BasicCard.CARDTYPE.SPELL:
+                typeCardText.text = "Spell";
+                typeCardLogo.sprite = spellLogo;
+                break;
+            case BasicCard.CARDTYPE.POWER_UP:
+                typeCardText.text = "Power Up";
+                typeCardLogo.sprite = powerUpLogo;
+                break;
+            case BasicCard.CARDTYPE.CURSE:
+                typeCardText.text = "Curse";
+                typeCardLogo.sprite = curseLogo;
+                break;
+        }
 
         UpdateDescription();
         UpdateCardCost();
@@ -168,129 +241,130 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
      */
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        if (!cardIsDragging)
-        {
-            isHover = true;
-            StartCoroutine(ScaleCardIn());
+        //if (!cardIsDragging)
+        //{
+        //    isHover = true;
+        //    StartCoroutine(ScaleCardIn());
 
-            if (!canBeDiscard || isplayable)
-            {
-                //check des possibles modificateurs
-                if (BuffManager.Instance.isStickyFingersActivate)
-                    TimelineManager.Instance.ShowNextAction(card.actionCost + 1);
-                else
-                    TimelineManager.Instance.ShowNextAction(card.actionCost);
-            }
-        }
+        //    if (!canBeDiscard || isplayable)
+        //    {
+        //        //check des possibles modificateurs
+        //        if (BuffManager.Instance.isStickyFingersActivate)
+        //            TimelineManager.Instance.ShowNextAction(card.actionCost + 1);
+        //        else
+        //            TimelineManager.Instance.ShowNextAction(card.actionCost);
+        //    }
+        //}
     }
 
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!cardIsDragging)
-        {
-            isHover = false;
-            StartCoroutine(ScaleCardOut());
+        //if (!cardIsDragging)
+        //{
+        //    isHover = false;
+        //    StartCoroutine(ScaleCardOut());
 
-            if (!canBeDiscard || isplayable)
-            {
-                //check des possibles modificateurs
-                if (BuffManager.Instance.isStickyFingersActivate)
-                    TimelineManager.Instance.HideNextAction(card.actionCost + 1);
-                else
-                    TimelineManager.Instance.HideNextAction(card.actionCost);
-            }
-        }
+        //    if (!canBeDiscard || isplayable)
+        //    {
+        //        //check des possibles modificateurs
+        //        if (BuffManager.Instance.isStickyFingersActivate)
+        //            TimelineManager.Instance.HideNextAction(card.actionCost + 1);
+        //        else
+        //            TimelineManager.Instance.HideNextAction(card.actionCost);
+        //    }
+        //}
     }
 
     //Detect if a click occurs
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        //si la carte peut être discard
-        if (canBeDiscard && isHover)
-        {
-            //discard the select card
-            GameManager.Instance.DiscardHandCard(this);
+        ////si la carte peut être discard
+        //if (canBeDiscard && isHover)
+        //{
+        //    //discard the select card
+        //    GameManager.Instance.DiscardHandCard(this);
 
-            Destroy(this.gameObject);
-        }
+        //    Destroy(this.gameObject);
+        //}
     }
 
-    public IEnumerator ScaleCardIn()
-    {
-        GetComponent<Canvas>().sortingOrder = 1;
+    //public IEnumerator ScaleCardIn()
+    //{
+    //    GetComponent<Canvas>().sortingOrder = 1;
 
-        Vector3 originalScale = display.transform.localScale;
-        Vector3 destinationScale = new Vector3(2.0f, 2.0f, 0);
+    //    Vector3 originalScale = display.transform.localScale;
+    //    Vector3 destinationScale = new Vector3(2.0f, 2.0f, 0);
 
-        Vector3 originalPosition = display.transform.localPosition;
-        Vector3 destinationPosition = new Vector3(0, 215, -100);
+    //    Vector3 originalPosition = display.transform.localPosition;
+    //    Vector3 destinationPosition = new Vector3(0, 215, -100);
 
-        float currentTime = 0.0f;
+    //    float currentTime = 0.0f;
 
-        while (currentTime <= timeHover && isHover)
-        {
-            //display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime/timeHover);
-            //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/timeHover);
+    //    while (currentTime <= timeHover && isHover)
+    //    {
+    //        //display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime/timeHover);
+    //        //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/timeHover);
 
-            display.transform.localScale = Vector3.Lerp(display.transform.localScale, destinationScale, Time.deltaTime * 10f);
-            display.transform.localPosition = Vector3.Lerp(display.transform.localPosition, destinationPosition, Time.deltaTime * 10f);
+    //        display.transform.localScale = Vector3.Lerp(display.transform.localScale, destinationScale, Time.deltaTime * 10f);
+    //        display.transform.localPosition = Vector3.Lerp(display.transform.localPosition, destinationPosition, Time.deltaTime * 10f);
 
-            currentTime += Time.deltaTime;
-            yield return null;
-        }
-        display.transform.localScale = destinationScale;
-        display.transform.localPosition = destinationPosition;
-    }
+    //        currentTime += Time.deltaTime;
+    //        yield return null;
+    //    }
+    //    display.transform.localScale = destinationScale;
+    //    display.transform.localPosition = destinationPosition;
+    //}
 
-    public IEnumerator ScaleCardOut()
-    {
-        GetComponent<Canvas>().sortingOrder = 0;
+    //public IEnumerator ScaleCardOut()
+    //{
+    //    GetComponent<Canvas>().sortingOrder = 0;
 
-        Vector3 originalScale = display.transform.localScale;
-        Vector3 destinationScale = new Vector3(1, 1, 1);
+    //    Vector3 originalScale = display.transform.localScale;
+    //    Vector3 destinationScale = new Vector3(1, 1, 1);
 
-        Vector3 originalPosition = display.transform.localPosition;
-        Vector3 destinationPosition = new Vector3(0, 0, 0);
+    //    Vector3 originalPosition = display.transform.localPosition;
+    //    Vector3 destinationPosition = new Vector3(0, 0, 0);
 
-        float currentTime = 0.0f;
+    //    float currentTime = 0.0f;
 
-        while (currentTime <= timeHover && !isHover)
-        {
-            //display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / timeHover);
-            //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/ timeHover);
+    //    while (currentTime <= timeHover && !isHover)
+    //    {
+    //        //display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / timeHover);
+    //        //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/ timeHover);
 
-            //Danping
-            display.transform.localScale = Vector3.Lerp(display.transform.localScale, destinationScale, Time.deltaTime * 10f);
-            display.transform.localPosition = Vector3.Lerp(display.transform.localPosition, destinationPosition, Time.deltaTime * 10f);
+    //        //Danping
+    //        display.transform.localScale = Vector3.Lerp(display.transform.localScale, destinationScale, Time.deltaTime * 10f);
+    //        display.transform.localPosition = Vector3.Lerp(display.transform.localPosition, destinationPosition, Time.deltaTime * 10f);
 
-            currentTime += Time.deltaTime;
-            yield return null;
-        }
-        display.transform.localScale = destinationScale;
-        display.transform.localPosition = destinationPosition;
-    }
+    //        currentTime += Time.deltaTime;
+    //        yield return null;
+    //    }
+    //    display.transform.localScale = destinationScale;
+    //    display.transform.localPosition = destinationPosition;
+    //}
 
     //quand la carte est drag, elle reprend sa taille normale
     public void OnCardDrag(bool isCardDrag)
     {
-        if (isCardDrag)
-        {
-            cardIsDragging = true;
-            isHover = false;
-            StopCoroutine(ScaleCardIn());
-            StopCoroutine(ScaleCardOut());
+        hoverCardHandler.OnCardDrag(isCardDrag);
+        //if (isCardDrag)
+        //{
+        //    cardIsDragging = true;
+        //    isHover = false;
+        //    StopCoroutine(ScaleCardIn());
+        //    StopCoroutine(ScaleCardOut());
 
-            //check des possibles modificateurs
-            if (BuffManager.Instance.isStickyFingersActivate)
-                TimelineManager.Instance.HideNextAction(card.actionCost + 1);
-            else
-                TimelineManager.Instance.HideNextAction(card.actionCost);
+        //    //check des possibles modificateurs
+        //    if (BuffManager.Instance.isStickyFingersActivate)
+        //        TimelineManager.Instance.HideNextAction(card.actionCost + 1);
+        //    else
+        //        TimelineManager.Instance.HideNextAction(card.actionCost);
 
-            display.transform.localScale = new Vector3(1, 1, 1);
-            display.transform.localPosition = new Vector3(0, 0, 0);
-        }
-        else
-            cardIsDragging = false;
+        //    display.transform.localScale = new Vector3(1, 1, 1);
+        //    display.transform.localPosition = new Vector3(0, 0, 0);
+        //}
+        //else
+        //    cardIsDragging = false;
     }
 }
