@@ -437,9 +437,9 @@ namespace GodMorgon.Enemy
 
             //yield return new WaitForSeconds(3f);
 
-            if(currentNode.enemyOnCenter == this)
+            if(currentNode.enemyOnCenter == this && currentNode.enemiesOnNode.Count > 0)
             {
-                //print(currentNode.enemiesOnNode[0] + " wants to recenter");
+                print(currentNode.enemiesOnNode[0] + " wants to recenter");
                 currentNode.enemiesOnNode[0].RecenterEnemy();
                 //currentNode.enemyOnCenter = currentNode.enemiesOnNode[0];
             }
