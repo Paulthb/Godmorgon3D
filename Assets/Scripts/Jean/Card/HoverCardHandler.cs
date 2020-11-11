@@ -18,6 +18,9 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public float timeHover = 1f;
     private static bool cardIsDragging = false;
 
+    //is the card in draft
+    public bool inDraft = false;
+
     /**
      * Quand on passe la souris sur l'élément
      * doit activer l'animation de l'agrandissement de la carte
@@ -91,13 +94,16 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
             //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/timeHover);
 
             display.transform.localScale = Vector3.Lerp(display.transform.localScale, destinationScale, Time.deltaTime * 10f);
-            display.transform.localPosition = Vector3.Lerp(display.transform.localPosition, destinationPosition, Time.deltaTime * 10f);
+            //on change la position que si on est pas dans le draft
+            if(!inDraft)
+                display.transform.localPosition = Vector3.Lerp(display.transform.localPosition, destinationPosition, Time.deltaTime * 10f);
 
             currentTime += Time.deltaTime;
             yield return null;
         }
         display.transform.localScale = destinationScale;
-        display.transform.localPosition = destinationPosition;
+        if (!inDraft)
+            display.transform.localPosition = destinationPosition;
     }
 
     public IEnumerator ScaleCardOut()
@@ -119,13 +125,15 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
             //Danping
             display.transform.localScale = Vector3.Lerp(display.transform.localScale, destinationScale, Time.deltaTime * 10f);
-            display.transform.localPosition = Vector3.Lerp(display.transform.localPosition, destinationPosition, Time.deltaTime * 10f);
+            if (!inDraft)
+                display.transform.localPosition = Vector3.Lerp(display.transform.localPosition, destinationPosition, Time.deltaTime * 10f);
 
             currentTime += Time.deltaTime;
             yield return null;
         }
         display.transform.localScale = destinationScale;
-        display.transform.localPosition = destinationPosition;
+        if (!inDraft)
+            display.transform.localPosition = destinationPosition;
     }
 
     //quand la carte est drag, elle reprend sa taille normale

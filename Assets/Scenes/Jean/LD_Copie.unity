@@ -17164,7 +17164,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -20792,18 +20792,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 46968248, guid: befb802f273720841b7d0981cc3dc664, type: 3}
-      propertyPath: inDraft
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 62257980, guid: befb802f273720841b7d0981cc3dc664, type: 3}
-      propertyPath: inDraft
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 670378429, guid: befb802f273720841b7d0981cc3dc664, type: 3}
-      propertyPath: inDraft
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6965676382809026211, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -34187,8 +34175,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.703222, g: 0.4009434, b: 1, a: 1}
-  m_Intensity: 0.15
+  m_Color: {r: 0.8898697, g: 0.8349056, b: 1, a: 1}
+  m_Intensity: 0.05
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
