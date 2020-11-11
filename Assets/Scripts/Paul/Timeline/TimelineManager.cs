@@ -8,6 +8,7 @@ using GodMorgon.Models;
 using GodMorgon.StateMachine;
 using GodMorgon.Sound;
 using GodMorgon.Player;
+using TMPro;
 
 namespace GodMorgon.Timeline
 {
@@ -75,6 +76,9 @@ namespace GodMorgon.Timeline
         [SerializeField]
         private Transform newGearPos = null;
 
+        //text du trust sur la timeline
+        [SerializeField]
+        private TextMeshProUGUI trustText = null;
         #region Singleton Pattern
         private static TimelineManager _instance;
 
@@ -107,6 +111,9 @@ namespace GodMorgon.Timeline
         private void Update()
         {
             gearParticle.transform.position = gearsList[0].transform.position;
+
+            //on met le text du trust à jour
+            trustText.text = nbActualAction.ToString();
         }
 
         //Init the Timeline, function call in Initialization_Maze state
