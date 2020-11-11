@@ -93,7 +93,7 @@ Material:
     - _RimOffset: 0.2
     - _Rimpower: 0.57
     - _SmoothnessTextureChannel: 0
-    - _Specintensity: 0.145
+    - _Specintensity: 0.183
     - _Specsmth: 0.649
     - _SpecularHighlights: 1
     - _SrcBlend: 1
