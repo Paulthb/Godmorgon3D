@@ -71,6 +71,7 @@ MonoBehaviour:
   spellLogo: {fileID: 21300000, guid: e43e11d8ed6ee41469f6d71b03282abb, type: 3}
   powerUpLogo: {fileID: 21300000, guid: 2cf29931c9bbf76449aef5c10505b450, type: 3}
   curseLogo: {fileID: 21300000, guid: 86fcacbc72f57a941ae87699073d418c, type: 3}
+  hoverCardHandler: {fileID: 2476816518964033591}
 --- !u!114 &8142491009890245540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,6 +808,7 @@ GameObject:
   - component: {fileID: 6776996692473385492}
   - component: {fileID: 1384253587696906245}
   - component: {fileID: 8900382060977682555}
+  - component: {fileID: 2476816518964033591}
   m_Layer: 5
   m_Name: targetZone
   m_TagString: Untagged
@@ -870,6 +872,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2476816518964033591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8538119434714901428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61dec278200e114e90492abda8c30ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardDisplay: {fileID: 2277794921241343098}
+  display: {fileID: 5593500282200823629}
+  isHover: 0
+  timeHover: 0.25
 --- !u!1 &8559494481177662014
 GameObject:
   m_ObjectHideFlags: 0
