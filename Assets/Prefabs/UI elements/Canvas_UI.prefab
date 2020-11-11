@@ -4561,6 +4561,11 @@ PrefabInstance:
       propertyPath: gearsTranslateValue
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 8808992978091051960, guid: fd4a0e69f81ca77439c40e2e4e01df39,
+        type: 3}
+      propertyPath: trustText
+      value: 
+      objectReference: {fileID: 6965676383017785180}
     - target: {fileID: 8808992978115600091, guid: fd4a0e69f81ca77439c40e2e4e01df39,
         type: 3}
       propertyPath: m_Sprite
