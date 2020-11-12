@@ -352,6 +352,9 @@ namespace GodMorgon.Player
                 float currentTime = 0.0f;
                 Vector3 currentRotation = transform.GetChild(0).localEulerAngles;
 
+                //float deltaAngle = Mathf.DeltaAngle(m_CurrentYaw, m_TargetYaw);
+                //deltaAngle = Mathf.Abs(deltaAngle);
+
                 while (currentTime <= rotationTime)
                 {
                     //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/timeHover);
