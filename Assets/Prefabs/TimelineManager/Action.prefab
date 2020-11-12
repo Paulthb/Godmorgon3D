@@ -100,7 +100,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7559743564954202679}
-  - component: {fileID: 5691228069998175245}
   - component: {fileID: 1432518586766376465}
   m_Layer: 5
   m_Name: Action
@@ -130,25 +129,6 @@ RectTransform:
   m_AnchoredPosition: {x: -332.80002, y: -15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &5691228069998175245
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4606335281176769311}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c154a00af7b5149478f7281075212a19, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1432518586766376465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gear: {fileID: 9088513620445467663}
   logo: {fileID: 9168124236154724655}
+  downDistance: -120
+  showAnimSpeed: 10
 --- !u!1 &7259676067707324707
 GameObject:
   m_ObjectHideFlags: 0

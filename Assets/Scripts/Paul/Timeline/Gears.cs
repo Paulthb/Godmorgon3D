@@ -14,6 +14,12 @@ namespace GodMorgon.Timeline
         public Animation gear = null;
         public Image logo = null;
 
+        public float downDistance = -120;
+        public float showAnimSpeed = 10;
+
+        //coroutine de show action actuel
+        public IEnumerator currentShowCoroutine = null;
+
         public void MoveGear()
         {
             StartCoroutine(GoToLeft());
@@ -79,6 +85,38 @@ namespace GodMorgon.Timeline
                 yield return null;
             }
             transform.localScale = GotoScale;
+        }
+
+        /**
+         * lance la coroutine danping pour show ou hide action
+         * 
+         * stop l'ancienne coroutine pour juste relancer la nouvelle
+         */
+        public void ShowAction(bool isActionShow)
+        {
+            if (currentShowCoroutine != null)
+                StopCoroutine(currentShowCoroutine);
+
+            currentShowCoroutine = ShowActionCoroutine(isActionShow);
+            StartCoroutine(currentShowCoroutine);
+        }
+
+        public IEnumerator ShowActionCoroutine(bool isActionShow)
+        {
+            Vector3 destinationPosition;
+            if (isActionShow)
+                destinationPosition = new Vector3(transform.localPosition.x, downDistance, transform.localPosition.z);
+            else
+                destinationPosition = new Vector3(transform.localPosition.x, -15, transform.localPosition.z);
+
+            while ((transform.localPosition - destinationPosition).magnitude > 0.01f)
+            {
+                //Danping
+                transform.localPosition = Vector3.Lerp(transform.localPosition, destinationPosition, Time.deltaTime * showAnimSpeed);
+
+                yield return null;
+            }
+            transform.localPosition = destinationPosition;
         }
     }
 }
