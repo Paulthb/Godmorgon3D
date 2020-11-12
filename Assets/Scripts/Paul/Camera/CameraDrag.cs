@@ -14,17 +14,17 @@ public class CameraDrag : MonoBehaviour
     public float minScroll = 2;
     public float maxScroll = 4;
 
-
     [Header("keyboard parameter")]
     public float mainSpeed = 100.0f; //regular speed
 
-    [Header("mouse parameter")]
-    public float dragSpeed = 2;
-    private Vector3 dragOrigin;
-    public bool cameraDragging = true;
-
     private bool isDragging = false;
     private Camera gameCamera = null;
+
+    //
+    private bool previousValue = false;
+    //
+    private Vector3 previousGroundPoint;
+
 
     private void Start()
     {
@@ -37,14 +37,29 @@ public class CameraDrag : MonoBehaviour
         if(Input.mouseScrollDelta.y != 0)
             ZoomCam();
 
+        //mouse dragging
+        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            Vector3 planeIntersection = getProjectedPoint(gameCamera.ScreenPointToRay(Input.mousePosition));
 
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
-            isDragging = true;
-        if (Input.GetMouseButtonUp(0))
-            isDragging = false;
-
-        if (isDragging)
-            MoveCameraByDraging();
+            if (previousValue)
+            {
+                Vector3 move = planeIntersection - previousGroundPoint;
+                if (move.magnitude > Mathf.Epsilon)
+                {
+                    transform.position += -move;
+                }
+            }
+            else
+            {
+                previousValue = true;
+            }
+            previousGroundPoint = getProjectedPoint(gameCamera.ScreenPointToRay(Input.mousePosition));
+        }
+        else
+        {
+            previousValue = false;
+        }
 
         //Keyboard commands
         //float f = 0.0f;
@@ -53,6 +68,21 @@ public class CameraDrag : MonoBehaviour
         p = p * Time.deltaTime;
         Vector3 newPosition = transform.position;
         transform.Translate(p);
+    }
+
+    Vector3 getProjectedPoint(Ray cameraRay)
+    {
+        Vector3 planeNormal = new Vector3(0f, 1f, 0f);
+        Vector3 planeCenter = Vector3.zero; //  plane.transform.position;
+        Vector3 lineOrigin = cameraRay.origin;
+        Vector3 lineDirection = cameraRay.direction;
+
+        Vector3 difference = planeCenter - lineOrigin;
+        float denominator = Vector3.Dot(lineDirection, planeNormal);
+        float t = Vector3.Dot(difference, planeNormal) / denominator;
+
+        // INTERSECTION:
+        return lineOrigin + (lineDirection * t);
     }
 
     private Vector3 GetBaseInput()
@@ -79,24 +109,24 @@ public class CameraDrag : MonoBehaviour
 
     private void MoveCameraByDraging()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            dragOrigin = Input.mousePosition;
-            return;
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    dragOrigin = Input.mousePosition;
+        //    return;
+        //}
 
-        if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
-        {
-            Vector3 pos = Camera.main.ScreenToViewportPoint(dragOrigin - Input.mousePosition);
-            Vector3 move = new Vector3(pos.x * dragSpeed, pos.y * dragSpeed, 0);
+        //if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
+        //{
+        //    Vector3 pos = Camera.main.ScreenToViewportPoint(dragOrigin - Input.mousePosition);
+        //    Vector3 move = new Vector3(pos.x * dragSpeed, pos.y * dragSpeed, 0);
 
-            transform.position += transform.right * move.x;
-            transform.position += DRAG_Y_VECTOR * move.y;
+        //    transform.position += transform.right * move.x;
+        //    transform.position += DRAG_Y_VECTOR * move.y;
 
-            //transform.Translate(move, Space.World);
-            dragOrigin = Input.mousePosition;
-            return;
-        }
+        //    //transform.Translate(move, Space.World);
+        //    dragOrigin = Input.mousePosition;
+        //    return;
+        //}
     }
 
     //DeZoom and zoom between 2 and 4
