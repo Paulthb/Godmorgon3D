@@ -141,8 +141,9 @@ public class NodeEffectMgr : MonoBehaviour
                     break;
             }
 
-            // Remove particules on node
-            StartCoroutine(DeleteParticles(nodeObject));
+            // Remove particules on node if there are some
+            if(playerNode.nodeEffect != NodeEffect.EMPTY)
+                StartCoroutine(DeleteParticles(nodeObject));
 
             playerNode.effectLaunched = true;
         }
@@ -283,13 +284,26 @@ public class NodeEffectMgr : MonoBehaviour
             {
                 if (child.name.Contains(nodeFxList[i].name))
                 {
-                    currentParticleObject = child.GetComponent<ParticleSystem>();
+                    currentParticleObject = child.GetComponent<ParticleSystem>(); //Check if it's directly a particle system
+                    if (currentParticleObject == null) // Check in childs other particles system
+                    {
+                        foreach(Transform particleChild in child)
+                        {
+                            if(particleChild.GetComponent<ParticleSystem>())
+                            {
+                                particleChild.GetComponent<ParticleSystem>().Stop();
+                            }
+                        }
+                    }
                 }
             }
         }
 
-        if (currentParticleObject == null) yield break;
-
+        if (currentParticleObject == null)
+        {
+            print("No particule to delete");
+            yield break;
+        }
         currentParticleObject.Stop();
         yield return new WaitForSeconds(3f);
         Destroy(currentParticleObject.gameObject);

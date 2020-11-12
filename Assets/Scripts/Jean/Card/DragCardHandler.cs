@@ -23,6 +23,10 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private Transform effectsParent;
     private Transform hand;
     private GameContext context;
+    
+    //=================================
+    private CameraDrag mainCamera;
+    //=================================
 
     public delegate void CardDragDelegate(GameObject draggedCard, PointerEventData eventData);
 
@@ -45,6 +49,8 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         movingCardParent = GameObject.Find("MovingCardParent").transform;
         hand = GameObject.Find("Hand").transform;
         effectsParent = GameObject.Find("EffectsParent").transform;
+
+        mainCamera = Camera.main.GetComponent<CameraDrag>();
     }
 
 
@@ -73,7 +79,11 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         //On montre les positions disponibles pour le drop de la carte
         dropPosManager.ShowPositionsToDrop(_card);
-        
+
+
+        //================================================
+        mainCamera.isDraggingCard = true;
+        //================================================
     }
 
     //fonction lancée lorsqu'on a une carte en main
@@ -189,6 +199,10 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             //Cache les positions accessibles
             dropPosManager.HidePositionsToDrop(_card);
         }
+
+        //================================================
+        mainCamera.isDraggingCard = false;
+        //================================================
     }
     /*
     public void PlayTypeCardSFX(BasicCard.CARDTYPE type)

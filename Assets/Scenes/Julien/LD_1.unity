@@ -17145,8 +17145,6 @@ MonoBehaviour:
   minScroll: 2
   maxScroll: 10
   mainSpeed: 15
-  dragSpeed: 15
-  cameraDragging: 1
 --- !u!20 &968065539
 Camera:
   m_ObjectHideFlags: 0
@@ -20814,6 +20812,83 @@ PrefabInstance:
       propertyPath: inDraft
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.size
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: bd64f4c5d251a0e49a6d19859abe18d0,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[34]
+      value: 
+      objectReference: {fileID: 11400000, guid: f03bd81175737414284c4e00b7811478,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[25]
+      value: 
+      objectReference: {fileID: 11400000, guid: fb8bda0e1d686014b99131ccf151a1e7,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[23]
+      value: 
+      objectReference: {fileID: 11400000, guid: fb6e585b189ad8a4c898cb335267f770,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[24]
+      value: 
+      objectReference: {fileID: 11400000, guid: f03bd81175737414284c4e00b7811478,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[26]
+      value: 
+      objectReference: {fileID: 11400000, guid: a225d234ef1acfa4c9947651c4d4cdd5,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[27]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c62e1028e72fb444ad296fb6185e7a7,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[28]
+      value: 
+      objectReference: {fileID: 11400000, guid: 82fc72e5353d19e42a2f8f5a75af5d36,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[29]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b79a606a75b3e947873ed03ef2ffaca,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[30]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f831d6f41852af40901315ed8c6d6f6,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[31]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b7e10571c9a6cd49bb3d3299cfa78e1,
+        type: 2}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[32]
+      value: 
+      objectReference: {fileID: 11400000, guid: 822fd2ac269d16240b7bb4fb5e1d2211,
+        type: 2}
     - target: {fileID: 6965676382809026211, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -21307,6 +21382,7 @@ MonoBehaviour:
   nodeFxList:
   - {fileID: 5594890576326695108, guid: d5851479e4ad82440a0dd203f5a7dbca, type: 3}
   - {fileID: 4894572644564906817, guid: f55efadd2adce8144a0032126ffb8fac, type: 3}
+  - {fileID: 5263542100443915826, guid: 89ff23f43ec144042bcd8ab8827debeb, type: 3}
   nodeEffectsParent: {fileID: 516299484}
 --- !u!1 &1180738447
 GameObject:
