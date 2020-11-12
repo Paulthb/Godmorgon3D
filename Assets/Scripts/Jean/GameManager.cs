@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown("n"))
         {
-            StartCoroutine(LaunchFinalFade());
+            //StartCoroutine(LaunchFinalFade());
         }
         UpdateVisibleDeck();
     }

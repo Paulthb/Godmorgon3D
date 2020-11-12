@@ -137,7 +137,7 @@ public class NodeEffectMgr : MonoBehaviour
                     break;
                 case NodeEffect.EXIT:
                     // Lance la fin de la partie
-                    StartCoroutine(TimedNodeEffect());
+                    LaunchExitScreen();
                     break;
             }
 
@@ -232,6 +232,14 @@ public class NodeEffectMgr : MonoBehaviour
         PlayerMgr.Instance.SetHealthToMax();
 
         StartCoroutine(TimedNodeEffect());
+    }
+
+    /**
+     * Launch a black screen  and a thanks
+     */
+    public void LaunchExitScreen()
+    {
+        StartCoroutine(GameManager.Instance.LaunchFinalFade());
     }
 
 
