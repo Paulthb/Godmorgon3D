@@ -96,20 +96,20 @@ namespace GodMorgon.Timeline
         {
             if (currentShowCoroutine != null)
                 StopCoroutine(currentShowCoroutine);
+
             currentShowCoroutine = ShowActionCoroutine(isActionShow);
             StartCoroutine(currentShowCoroutine);
         }
 
         public IEnumerator ShowActionCoroutine(bool isActionShow)
         {
-
             Vector3 destinationPosition;
             if (isActionShow)
-                destinationPosition = new Vector3(transform.localScale.x, downDistance, transform.localScale.z);
+                destinationPosition = new Vector3(transform.localPosition.x, downDistance, transform.localPosition.z);
             else
-                destinationPosition = new Vector3(transform.localScale.x, -15, transform.localScale.z);
+                destinationPosition = new Vector3(transform.localPosition.x, -15, transform.localPosition.z);
 
-            while ((transform.localScale - destinationPosition).magnitude > 0.01f)
+            while ((transform.localPosition - destinationPosition).magnitude > 0.01f)
             {
                 //Danping
                 transform.localPosition = Vector3.Lerp(transform.localPosition, destinationPosition, Time.deltaTime * showAnimSpeed);

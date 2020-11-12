@@ -17145,6 +17145,7 @@ MonoBehaviour:
   minScroll: 2
   maxScroll: 10
   mainSpeed: 15
+  isDraggingCard: 0
 --- !u!20 &968065539
 Camera:
   m_ObjectHideFlags: 0
@@ -21019,7 +21020,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6965676383084831735, guid: befb802f273720841b7d0981cc3dc664, type: 3}
+    - {fileID: 6965676382089558389, guid: befb802f273720841b7d0981cc3dc664, type: 3}
+    - {fileID: 6965676383759869160, guid: befb802f273720841b7d0981cc3dc664, type: 3}
+    - {fileID: 6965676383150357295, guid: befb802f273720841b7d0981cc3dc664, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: befb802f273720841b7d0981cc3dc664, type: 3}
 --- !u!224 &1165564345 stripped
 RectTransform:

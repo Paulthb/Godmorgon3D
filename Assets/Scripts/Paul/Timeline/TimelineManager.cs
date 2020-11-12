@@ -290,8 +290,8 @@ namespace GodMorgon.Timeline
         {
             for (int i = 0; i < nbAction; i++)
             {
-                gearsList[i].GetComponent<Animator>().SetBool("cardHover", true);
-                //gearsList[i].ShowAction(true);
+                //gearsList[i].GetComponent<Animator>().SetBool("cardHover", true);
+                gearsList[i].ShowAction(true);
                 gearsList[i].gear.Play();
             }
         }
@@ -300,8 +300,8 @@ namespace GodMorgon.Timeline
         {
             for (int i = 0; i < nbAction; i++)
             {
-                gearsList[i].GetComponent<Animator>().SetBool("cardHover", false);
-                //gearsList[i].ShowAction(false);
+                //gearsList[i].GetComponent<Animator>().SetBool("cardHover", false);
+                gearsList[i].ShowAction(false);
                 gearsList[i].gear.Stop();
             }
         }
