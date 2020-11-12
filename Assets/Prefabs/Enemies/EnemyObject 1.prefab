@@ -78,7 +78,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 11400000, guid: 0e60e717b31fae944a70b9b629dcd8c8, type: 2}
-  enemiesInRoom: []
   moveSpeed: 5
   moveCurve:
     serializedVersion: 2
@@ -182,7 +181,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6d99964c6b299704399d4d77e50b086f, type: 2}
-  - {fileID: 2100000, guid: 567152f1793c82a42ace950c0fe1f7fb, type: 2}
+  - {fileID: 2100000, guid: 642cab2c45b6a474f9a4eb9b5f605c0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
