@@ -81,9 +81,8 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         dropPosManager.ShowPositionsToDrop(_card);
 
 
-        //================================================
-        mainCamera.isDraggingCard = true;
-        //================================================
+        //on désactive le drag de la caméra pour rester stabe pendant le drag d'une carte
+        mainCamera.ActiveCameraDrag(false);
     }
 
     //fonction lancée lorsqu'on a une carte en main
@@ -200,9 +199,9 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             dropPosManager.HidePositionsToDrop(_card);
         }
 
-        //================================================
-        mainCamera.isDraggingCard = false;
-        //================================================
+        //Réactive le drag de la caméra
+        mainCamera.ActiveCameraDrag(true);
+
     }
     /*
     public void PlayTypeCardSFX(BasicCard.CARDTYPE type)

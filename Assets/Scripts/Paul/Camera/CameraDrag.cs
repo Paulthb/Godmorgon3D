@@ -17,7 +17,7 @@ public class CameraDrag : MonoBehaviour
     [Header("keyboard parameter")]
     public float mainSpeed = 100.0f; //regular speed
 
-    public bool isDraggingCard = false;
+    private bool isdragActive = true;
     private Camera gameCamera = null;
 
     //
@@ -38,7 +38,7 @@ public class CameraDrag : MonoBehaviour
             ZoomCam();
 
         //mouse dragging
-        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject() && !isDraggingCard)
+        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject() && isdragActive)
         {
             Vector3 planeIntersection = getProjectedPoint(gameCamera.ScreenPointToRay(Input.mousePosition));
 
@@ -143,5 +143,11 @@ public class CameraDrag : MonoBehaviour
         }
         //TODO
         //(currentZoom, target, time.deltaTime * 2)
+    }
+
+    //active le camera drag
+    public void ActiveCameraDrag(bool canActivateDrag)
+    {
+        isdragActive = canActivateDrag;
     }
 }
