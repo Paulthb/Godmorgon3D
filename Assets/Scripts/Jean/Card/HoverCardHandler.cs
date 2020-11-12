@@ -21,6 +21,9 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
     //is the card in draft
     public bool inDraft = false;
 
+
+    private IEnumerator currentCoroutine = null;
+
     /**
      * Quand on passe la souris sur l'élément
      * doit activer l'animation de l'agrandissement de la carte
@@ -31,7 +34,11 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
         if (!cardIsDragging)
         {
             isHover = true;
-            StartCoroutine(ScaleCardIn());
+
+            if(currentCoroutine != null)
+                StopCoroutine(currentCoroutine);
+            currentCoroutine = ScaleCardIn();
+            StartCoroutine(currentCoroutine);
 
             if (!cardDisplay.canBeDiscard || cardDisplay.isplayable)
             {
@@ -50,7 +57,11 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
         if (!cardIsDragging)
         {
             isHover = false;
-            StartCoroutine(ScaleCardOut());
+
+            if(currentCoroutine != null)
+                StopCoroutine(currentCoroutine);
+            currentCoroutine = ScaleCardOut();
+            StartCoroutine(currentCoroutine);
 
             if (!cardDisplay.canBeDiscard || cardDisplay.isplayable)
             {
@@ -88,7 +99,7 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
         float currentTime = 0.0f;
 
-        while (currentTime <= timeHover && isHover)
+        while (/*currentTime <= timeHover && */ isHover && (display.transform.localScale - destinationScale).magnitude > 0.01f)
         {
             //display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime/timeHover);
             //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/timeHover);
@@ -118,7 +129,7 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
         float currentTime = 0.0f;
 
-        while (currentTime <= timeHover && !isHover)
+        while (/*currentTime <= timeHover &&*/ !isHover && (display.transform.localScale - destinationScale).magnitude > 0.01f)
         {
             //display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / timeHover);
             //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/ timeHover);
@@ -143,8 +154,11 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
         {
             cardIsDragging = true;
             isHover = false;
-            StopCoroutine(ScaleCardIn());
-            StopCoroutine(ScaleCardOut());
+            //StopCoroutine(ScaleCardIn());
+            //StopCoroutine(ScaleCardOut());
+
+            if (currentCoroutine != null)
+                StopCoroutine(currentCoroutine);
 
             //check des possibles modificateurs
             if (BuffManager.Instance.isStickyFingersActivate)
