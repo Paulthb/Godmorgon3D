@@ -17145,6 +17145,7 @@ MonoBehaviour:
   minScroll: 2
   maxScroll: 10
   mainSpeed: 15
+  isDraggingCard: 0
 --- !u!20 &968065539
 Camera:
   m_ObjectHideFlags: 0
@@ -21381,7 +21382,7 @@ MonoBehaviour:
   goldInChest: 10
   nodeFxList:
   - {fileID: 5594890576326695108, guid: d5851479e4ad82440a0dd203f5a7dbca, type: 3}
-  - {fileID: 4894572644564906817, guid: f55efadd2adce8144a0032126ffb8fac, type: 3}
+  - {fileID: 5263542100443915826, guid: b4ec10c5b11498649884dc3cb9eace45, type: 3}
   - {fileID: 5263542100443915826, guid: 89ff23f43ec144042bcd8ab8827debeb, type: 3}
   nodeEffectsParent: {fileID: 516299484}
 --- !u!1 &1180738447
