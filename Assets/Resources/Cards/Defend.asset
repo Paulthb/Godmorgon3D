@@ -16,7 +16,9 @@ MonoBehaviour:
   id: 8
   name: Defend
   dropTarget: 1
-  description: Add [nbBlock] blocks.
+  description: 'Trust 1.
+
+    Add [nbBlock] blocks.'
   actionCost: 1
   price: 200
   template: {fileID: 21300000, guid: f44370d35cac10f4f805debd227b407b, type: 3}
@@ -33,12 +35,13 @@ MonoBehaviour:
     swift: 0
     noBrakes: 0
     ForcedWalk: 0
-    nbBlock: 20
+    nbBlock: 10
     isCounter: 0
     counterDamagePoint: 0
     KillerInstinct: 0
     FastShoes: 0
     Scarification: 0
+    Possibilities: 0
     Sight: 0
     sightRange: 0
     DrawCard: 0
@@ -52,11 +55,12 @@ MonoBehaviour:
     nbHeal: 0
     SecondChance: 0
     shiver: 0
-    trust: 0
-    trustNb: 0
+    trust: 1
+    trustNb: 1
     retain: 0
     rangeEffect: 0
     isDiscardHand: 0
     Goosebump: 0
+    Explorer: 0
     isUseless: 0
     StickyFinger: 0
