@@ -23,7 +23,7 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: 809f8ec10a8eeb748895029d9c5d8a5e, type: 3}
   effectsData:
   - currentEffect: 0
-    damagePoint: 8
+    damagePoint: 5
     attackRange: 1
     BackAtYou: 0
     Rush: 0
@@ -39,6 +39,7 @@ MonoBehaviour:
     KillerInstinct: 0
     FastShoes: 0
     Scarification: 0
+    Possibilities: 0
     Sight: 0
     sightRange: 0
     DrawCard: 0
@@ -58,5 +59,6 @@ MonoBehaviour:
     rangeEffect: 0
     isDiscardHand: 0
     Goosebump: 0
+    Explorer: 0
     isUseless: 0
     StickyFinger: 0

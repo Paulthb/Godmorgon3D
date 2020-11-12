@@ -19,7 +19,7 @@ MonoBehaviour:
   description: 'Trust 2.
 
     Gain [nbBlock] block.'
-  actionCost: 0
+  actionCost: 1
   price: 200
   template: {fileID: 21300000, guid: f44370d35cac10f4f805debd227b407b, type: 3}
   artwork: {fileID: 21300000, guid: 238b2aa0354484144a958b22d915f128, type: 3}
@@ -35,12 +35,13 @@ MonoBehaviour:
     swift: 0
     noBrakes: 0
     ForcedWalk: 0
-    nbBlock: 5
+    nbBlock: 10
     isCounter: 0
     counterDamagePoint: 0
     KillerInstinct: 0
     FastShoes: 0
     Scarification: 0
+    Possibilities: 0
     Sight: 0
     sightRange: 0
     DrawCard: 0
@@ -60,5 +61,6 @@ MonoBehaviour:
     rangeEffect: 0
     isDiscardHand: 0
     Goosebump: 0
+    Explorer: 0
     isUseless: 0
     StickyFinger: 0
