@@ -100,7 +100,7 @@ public class NodeEffectMgr : MonoBehaviour
                     Instantiate(nodeFxList[0], nodeTransform);
                     break;
                 case NodeEffect.CHEST:
-
+                    Instantiate(nodeFxList[2], nodeTransform);
                     break;
                 case NodeEffect.REST:
                     Instantiate(nodeFxList[1], nodeTransform);
