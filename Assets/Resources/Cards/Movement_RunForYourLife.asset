@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 0
   name: Run For Your Life !
   dropTarget: 0
-  description: 'Shiver x2.
+  description: '[KeyShiver] x2.
 
     Move [nbMove] room.'
   actionCost: 2

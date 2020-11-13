@@ -30,7 +30,11 @@ public class BuffManager
     //effet de power Up
     public bool isKillerInstinct = false;
     public bool isSurvivor = false;
+    //effet pour le fast shoes
     public bool isFastShoes = false;
+    //check pour 1 fois par tour
+    public bool canFastShoes = false;
+
     public bool isHardHead = false;
 
     //each time player get hit, we draw 2 card at start of turn
@@ -56,6 +60,13 @@ public class BuffManager
     {
         isKillerInstinct = true;
         PlayerData.Instance.OnKillerInstinct();
+    }
+
+    //active les fast shoes (utilisable une fois par tour)
+    public void ActivateFastShoes()
+    {
+        isFastShoes = true;
+        canFastShoes = true;
     }
 
     //activate scarification
@@ -108,6 +119,8 @@ public class BuffManager
     {
         if(scarificationActivate)
             canScarification = true;
+        if (isFastShoes)
+            canFastShoes = true;
     }
 
     //appeler à chaque début de tour du player pour appliquer les effets conséquent
@@ -142,8 +155,9 @@ public class BuffManager
     public int getModifiedMove(int movePoint)
     {
         int newMovePoint = movePoint;
-        if (isFastShoes)
+        if (canFastShoes)
         {
+            canFastShoes = false;
             newMovePoint = newMovePoint * 2;
         }
             
