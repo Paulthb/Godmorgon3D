@@ -23,7 +23,13 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private Transform effectsParent;
     private Transform hand;
     private GameContext context;
-    
+
+    //position de la discard pile
+    private Transform discardPilePos = null;
+    //vitesse de l'animation de la carte vers la discard pile
+    [SerializeField]
+    private float speedCardDiscard = 5f;
+
     //=================================
     private CameraDrag mainCamera;
     //=================================
@@ -49,6 +55,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         movingCardParent = GameObject.Find("MovingCardParent").transform;
         hand = GameObject.Find("Hand").transform;
         effectsParent = GameObject.Find("EffectsParent").transform;
+        discardPilePos = GameObject.Find("discarPilePos").transform;
 
         mainCamera = Camera.main.GetComponent<CameraDrag>();
     }
@@ -102,19 +109,8 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         //onCardDragEndDelegate?.Invoke(this.gameObject, eventData);
 
-        this.transform.position = startPosition;    //Par défaut, la carte retourne dans la main
-        this.GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);  //La carte récupère sa taille normale
-
         eventData.pointerDrag.GetComponent<CardDisplay>().OnCardDrag(false);
 
-        /*
-        Vector3 dropPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
-        Vector3Int dropCellPosition = TilesManager.Instance.walkableTilemap.WorldToCell(dropPosition);
-
-        Vector3Int dropRoomCellPosition = new Vector3Int(0, 0, 0);
-        if (null != TilesManager.Instance.roomTilemap)  //Si le TilesManager possède bien la roomTilemap
-            dropRoomCellPosition = TilesManager.Instance.roomTilemap.WorldToCell(dropPosition);
-        */
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -172,7 +168,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
             //Effect + delete card
             //Instantiate(dropEffect, dropPosition, Quaternion.identity, effectsParent);
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
 
             //Cache les positions accessibles
             dropPosManager.HidePositionsToDrop(_card);
@@ -189,11 +185,15 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             //GameObject dropEffect = Instantiate(dropEffectPrefab, dropPosition, Quaternion.identity);
             //dropEffect.GetComponent<ParticleSystemScript>().PlayNDestroy();
 
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            StartCoroutine(PlayGoToDiscard());
         }
         else
         {
             this.transform.SetParent(hand);
+
+            this.transform.position = startPosition;    //Par défaut, la carte retourne dans la main
+            this.GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);  //La carte récupère sa taille normale
 
             //Cache les positions accessibles
             dropPosManager.HidePositionsToDrop(_card);
@@ -202,6 +202,20 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         //Réactive le drag de la caméra
         mainCamera.ActiveCameraDrag(true);
 
+    }
+
+    //coroutine, la carte se dirige vers la discard pile
+    public IEnumerator PlayGoToDiscard()
+    {
+        //active la trail renderer
+        this.gameObject.GetComponent<TrailRenderer>().enabled = true;
+        while ((this.transform.localPosition - discardPilePos.localPosition).magnitude > 0.01f)
+        {
+            this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, discardPilePos.localPosition, Time.deltaTime * speedCardDiscard);
+            yield return null;
+        }
+        this.transform.localPosition = discardPilePos.localPosition;
+        Destroy(this.gameObject);
     }
     /*
     public void PlayTypeCardSFX(BasicCard.CARDTYPE type)
