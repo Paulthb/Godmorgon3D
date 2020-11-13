@@ -40,7 +40,7 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
             currentCoroutine = ScaleCardIn();
             StartCoroutine(currentCoroutine);
 
-            if (!cardDisplay.canBeDiscard || cardDisplay.isplayable)
+            if ((!cardDisplay.canBeDiscard || cardDisplay.isplayable) && !inDraft)
             {
                 //check des possibles modificateurs
                 if (BuffManager.Instance.isStickyFingersActivate)
@@ -63,7 +63,7 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
             currentCoroutine = ScaleCardOut();
             StartCoroutine(currentCoroutine);
 
-            if (!cardDisplay.canBeDiscard || cardDisplay.isplayable)
+            if ((!cardDisplay.canBeDiscard || cardDisplay.isplayable) && !inDraft)
             {
                 //check des possibles modificateurs
                 if (BuffManager.Instance.isStickyFingersActivate)
