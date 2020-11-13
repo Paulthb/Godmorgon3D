@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 0
   name: Walking on eggs
   dropTarget: 0
-  description: Move [nbMove] node, Goosebump
+  description: Move [nbMove] node, [KeyGoosebump]
   actionCost: 1
   price: 0
   template: {fileID: 21300000, guid: ce453fab9acc07c4cbafa0b991d778fb, type: 3}
@@ -39,6 +39,7 @@ MonoBehaviour:
     KillerInstinct: 0
     FastShoes: 0
     Scarification: 0
+    Possibilities: 0
     Sight: 0
     sightRange: 0
     DrawCard: 0
@@ -58,5 +59,6 @@ MonoBehaviour:
     rangeEffect: 0
     isDiscardHand: 0
     Goosebump: 1
+    Explorer: 0
     isUseless: 0
     StickyFinger: 0

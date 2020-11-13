@@ -213,6 +213,13 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             //porté de l'effet de la carte
             cardDescription = cardDescription.Replace("[nbRangeEffect]", "<b>" + card.GetNbRangeEffect().ToString() + "</b>");
 
+
+            //KeyWord
+            cardDescription = cardDescription.Replace("[KeyTrust]", "<b><color=blue>Trust</color></b>");
+            cardDescription = cardDescription.Replace("[KeyShiver]", "<b><color=blue>Shiver</color></b>");
+            cardDescription = cardDescription.Replace("[KeyRetain]", "<b><color=blue>Retain</color></b>");
+            cardDescription = cardDescription.Replace("[KeyGoosebump]", "<b><color=blue>Goosebump</color></b>");
+
             descriptionText.text = cardDescription;
         }
     }

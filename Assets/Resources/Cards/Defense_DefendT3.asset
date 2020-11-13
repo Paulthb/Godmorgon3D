@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 0
   name: Defend
   dropTarget: 1
-  description: 'Trust 2.
+  description: '[KeyTrust] 2.
 
     Gain [nbBlock] block.'
   actionCost: 1
