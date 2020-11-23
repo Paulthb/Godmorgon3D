@@ -102,7 +102,7 @@ public class MapManager : MonoBehaviour
     private bool resetAccessibleEffect = false;
 
     //===================== MOVE CARD ================================
-    public bool isSwiftMove = false;
+    public bool ignoreEnemies = false; // Ignore enemies for accessibles node when use swift move card, or when player arrive on node with enemies
 
     private float offset = 0.01f; //offset changing for shaders
 
@@ -595,7 +595,7 @@ public class MapManager : MonoBehaviour
                         }
                     }
 
-                    if(!enemyOnPath || isSwiftMove)
+                    if(!enemyOnPath || ignoreEnemies)
                     {
                         accessibleNodes.Add(node);
                     }
