@@ -435,13 +435,14 @@ namespace GodMorgon.Enemy
             Node currentNode = GetNodeOfEnemy().GetComponent<NodeScript>().node;
             currentNode.enemiesOnNode.Remove(this);
 
-            //yield return new WaitForSeconds(3f);
-
-            if(currentNode.enemyOnCenter == this && currentNode.enemiesOnNode.Count > 0)
+            if(currentNode.enemyOnCenter == this)
             {
-                print(currentNode.enemiesOnNode[0] + " wants to recenter");
-                currentNode.enemiesOnNode[0].RecenterEnemy();
-                //currentNode.enemyOnCenter = currentNode.enemiesOnNode[0];
+                // Recenter player if he was on node
+                if (enemyData.inPlayersNode)
+                    PlayerMgr.Instance.RecenterPlayer();
+                // Else recenter an enemy if at least one is on node
+                else if (currentNode.enemiesOnNode.Count > 0)
+                    currentNode.enemiesOnNode[0].RecenterEnemy();
             }
 
             Destroy(gameObject);    //Détruit le gameobject de l'ennemi

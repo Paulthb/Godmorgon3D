@@ -78,8 +78,8 @@ namespace GodMorgon.CardEffect
             {
                 case BasicCard.CARDTYPE.MOVE:
                     // Say to MapManager if the card we want to play is swift or not, to change accessible nodes
-                    if (draggedCard.effectsData[0].swift) MapManager.Instance.isSwiftMove = true;
-                    else MapManager.Instance.isSwiftMove = false;
+                    if (draggedCard.effectsData[0].swift) MapManager.Instance.ignoreEnemies = true;
+                    else MapManager.Instance.ignoreEnemies = false;
 
                     // Display accessibles nodes effects
                     MapManager.Instance.UpdateAccessibleNodesList();

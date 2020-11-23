@@ -15,8 +15,9 @@ public class NodeDataEditor : Editor
         DrawPropertiesExcluding(serializedObject, new string[]{"tiles"});
 
 
-        GUILayout.Label("Walkable tiles");
+        //GUILayout.Label("Walkable tiles");
 
+        /*
         EditorGUILayout.BeginHorizontal();
         SerializedProperty tilesProperty = serializedObject.FindProperty("tiles");
         for (int i = 0; i < 3; i++)
@@ -38,6 +39,7 @@ public class NodeDataEditor : Editor
             EditorGUILayout.EndVertical();
         }
         EditorGUILayout.EndHorizontal();
+        */
 
         serializedObject.ApplyModifiedProperties();
     }
