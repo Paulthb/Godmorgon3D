@@ -55,7 +55,7 @@ public class FogMgr : MonoBehaviour
 
     private void Start()
     {
-        InitFog();
+        //InitFog();
     }
 
     private void Update()
