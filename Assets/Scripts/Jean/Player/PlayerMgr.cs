@@ -172,15 +172,15 @@ namespace GodMorgon.Player
                 }
             }
 
-            //test pour anim
-            if(Input.GetKeyDown("t"))
-            {
-                PlayPlayerAnim("TakeDamage");
-            }
-            if (Input.GetKeyDown("u"))
-            {
-                PlayPlayerAnim("Attack");
-            }
+            ////test pour anim
+            //if(Input.GetKeyDown("t"))
+            //{
+            //    PlayPlayerAnim("TakeDamage");
+            //}
+            //if (Input.GetKeyDown("u"))
+            //{
+            //    PlayPlayerAnim("Attack");
+            //}
 
             //la bar d'espace suit le player sur l'écran
             if (_healthBar != null)
