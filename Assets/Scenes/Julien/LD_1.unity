@@ -263,6 +263,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &7627914
@@ -331,6 +332,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &8917527
@@ -624,6 +626,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &15745250
@@ -724,6 +727,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &35955494
@@ -792,6 +796,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &38197073
@@ -935,6 +940,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &54149873
@@ -1078,6 +1084,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &57341046
@@ -1221,6 +1228,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &66996563
@@ -1514,6 +1522,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &79290775
@@ -1582,6 +1591,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &81712822
@@ -1650,6 +1660,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &85575652
@@ -1943,6 +1954,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &113209585
@@ -2086,6 +2098,7 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &120151818
@@ -2238,6 +2251,122 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 120551094}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &123236132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 123236134}
+  - component: {fileID: 123236133}
+  m_Layer: 0
+  m_Name: SoundMgr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &123236133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123236132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc222146f53e0284083f7b2302e3ac73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player_Hit:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9c66e6fab5700b84aa27c5ed53141e76,
+      type: 2}
+  Player_Move:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Feedback_Chest:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Cards_Play:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Cards_Attack:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Cards_Defens:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Cards_Move:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Cards_PowerUp:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Cards_Spell:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Cards_Buy:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Mechanical:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Park_Theme:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Enemy_Hit:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Enemy_Death:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Enemy_Moving:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Ringmaster_EndofTurn:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  Fog_Clear:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+  cursorEnd:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 0}
+--- !u!4 &123236134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123236132}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &124130621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2454,6 +2583,7 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &141331767
@@ -2522,6 +2652,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &154429608
@@ -2665,6 +2796,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &164238517
@@ -2733,6 +2865,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &175071375
@@ -2876,6 +3009,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &188264860
@@ -2944,6 +3078,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &190101832
@@ -3012,6 +3147,7 @@ MonoBehaviour:
     nodeEffect: 4
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &190125505
@@ -3305,6 +3441,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &204969141
@@ -3373,6 +3510,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &204974603
@@ -3516,6 +3654,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &212480373
@@ -3584,6 +3723,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &218445921
@@ -3727,6 +3867,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &228287385
@@ -3945,6 +4086,7 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &235435924
@@ -4088,6 +4230,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &242501368
@@ -4306,6 +4449,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &266398063
@@ -4374,6 +4518,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &267029262
@@ -4517,6 +4662,7 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &275511406
@@ -4585,6 +4731,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &287443341
@@ -4653,6 +4800,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &289050164
@@ -4721,6 +4869,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &291004937
@@ -4945,6 +5094,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &312736596
@@ -5088,6 +5238,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &317381703
@@ -5531,6 +5682,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &330790517
@@ -5599,6 +5751,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &331822146
@@ -5742,6 +5895,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &331966487
@@ -5960,6 +6114,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &339905334
@@ -6397,6 +6552,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &370033559
@@ -6465,6 +6621,7 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &374956609
@@ -6833,6 +6990,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &399238813
@@ -6976,6 +7134,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &403296460
@@ -7194,6 +7353,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!114 &410769862 stripped
@@ -7349,6 +7509,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &413150031
@@ -7417,6 +7578,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &423931419
@@ -7485,6 +7647,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &425265630
@@ -7553,6 +7716,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &426470515
@@ -7701,6 +7865,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &434948441
@@ -7844,6 +8009,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &465043002
@@ -7987,6 +8153,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &478768876
@@ -8130,6 +8297,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &485109134
@@ -8273,6 +8441,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &489037193
@@ -8491,6 +8660,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &508984751
@@ -8559,6 +8729,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &512666761
@@ -8627,6 +8798,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &515439098
@@ -8755,6 +8927,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &518248501
@@ -8856,6 +9029,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &532543748
@@ -8924,6 +9098,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &533341007
@@ -8992,6 +9167,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &546056904
@@ -9060,6 +9236,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &555127293
@@ -9128,6 +9305,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &558461069
@@ -9196,6 +9374,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &569335138
@@ -9564,6 +9743,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &588179655
@@ -9632,6 +9812,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &591532255
@@ -9700,6 +9881,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &598805210
@@ -9843,6 +10025,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &611653080
@@ -9911,6 +10094,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &620585159
@@ -9979,6 +10163,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &624915047
@@ -10047,6 +10232,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &627291633
@@ -10115,6 +10301,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &628519845
@@ -10333,6 +10520,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &632948507
@@ -10401,6 +10589,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &632977562
@@ -10469,6 +10658,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &648852225
@@ -10768,6 +10958,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &662082562
@@ -10836,6 +11027,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &669266786
@@ -10979,6 +11171,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &672422812
@@ -11047,6 +11240,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &673286779
@@ -11115,6 +11309,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &676890390
@@ -11183,6 +11378,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &687962177
@@ -11476,6 +11672,7 @@ MonoBehaviour:
     nodeEffect: 5
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &698852992
@@ -12219,6 +12416,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &748443086
@@ -12287,6 +12485,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &750750292
@@ -12693,6 +12892,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &771955270
@@ -12836,6 +13036,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &773969298
@@ -13204,6 +13405,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &791100811
@@ -13272,6 +13474,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &792563713
@@ -13340,6 +13543,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &806102774
@@ -13408,6 +13612,7 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &810290879
@@ -13626,6 +13831,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &822833120
@@ -13694,6 +13900,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &828118982
@@ -13762,6 +13969,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &834047443
@@ -13980,6 +14188,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &839990658
@@ -14403,6 +14612,7 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &855050242
@@ -14471,6 +14681,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &856282095
@@ -14539,6 +14750,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &858039236
@@ -14607,6 +14819,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &867786277
@@ -14675,6 +14888,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &867963398
@@ -14743,6 +14957,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &872424134
@@ -14811,6 +15026,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 1
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &876501363
@@ -14879,6 +15095,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &877581296
@@ -15022,6 +15239,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &883320326
@@ -15390,6 +15608,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &890925235
@@ -16058,6 +16277,7 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &925608060
@@ -16513,6 +16733,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &948925397
@@ -16737,6 +16958,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &957058070
@@ -16955,6 +17177,7 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &966359675
@@ -17098,6 +17321,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &968065537
@@ -17113,6 +17337,8 @@ GameObject:
   - component: {fileID: 968065538}
   - component: {fileID: 968065542}
   - component: {fileID: 968065541}
+  - component: {fileID: 968065544}
+  - component: {fileID: 968065543}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -17269,6 +17495,42 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &968065543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968065537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06508bb80385f44daedd38a81ec1295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDefaultListener: 1
+  listenerId: 0
+--- !u!114 &968065544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968065537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301a7aaa6dba7c74e82f3fc99b019f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 0
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1001 &968988479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17410,6 +17672,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &973239302
@@ -17553,6 +17816,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &989245921
@@ -17621,6 +17885,7 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!111 &989394858 stripped
@@ -17770,6 +18035,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &997868031
@@ -18063,6 +18329,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1014663187
@@ -18131,6 +18398,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1018244536
@@ -18493,6 +18761,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1052953695
@@ -18818,6 +19087,7 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1065948989
@@ -18886,6 +19156,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1066382116
@@ -18954,6 +19225,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1069446147
@@ -19097,6 +19369,7 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1073816454
@@ -19165,6 +19438,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1077119637
@@ -19233,6 +19507,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1080737099
@@ -19301,6 +19576,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1085372630
@@ -19369,6 +19645,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1090213261
@@ -19437,6 +19714,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1094454249
@@ -19505,6 +19783,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1094963050
@@ -19859,6 +20138,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1096829344
@@ -20002,6 +20282,7 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1106324320
@@ -20563,6 +20844,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1158274186
@@ -20631,6 +20913,7 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1160169974
@@ -21077,6 +21360,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1176337118
@@ -21145,6 +21429,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1178193698
@@ -21213,6 +21498,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1179904062
@@ -21304,7 +21590,7 @@ MonoBehaviour:
   nodesList: []
   nbNodesCleared: 0
   nodesClearedList: []
-  isSwiftMove: 0
+  ignoreEnemies: 0
 --- !u!4 &1179904064
 Transform:
   m_ObjectHideFlags: 0
@@ -21340,6 +21626,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
   curseRange: 2
@@ -21416,6 +21703,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1183557771
@@ -21559,6 +21847,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1187473435
@@ -21627,6 +21916,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1192086838
@@ -21770,6 +22060,7 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1214419018
@@ -21838,6 +22129,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1215550565
@@ -21981,6 +22273,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1219203260
@@ -22124,6 +22417,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1223376618
@@ -22267,6 +22561,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1224091405
@@ -22335,6 +22630,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1225483993
@@ -22403,6 +22699,7 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1228430716
@@ -22702,6 +22999,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1241809300
@@ -22770,6 +23068,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!4 &1244951834 stripped
@@ -22844,6 +23143,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1253732812
@@ -22912,6 +23212,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1255141929
@@ -22980,6 +23281,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1255760513
@@ -23048,6 +23350,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1261465633
@@ -23332,6 +23635,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1269378522
@@ -23475,6 +23779,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1275809338
@@ -23543,6 +23848,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1279679786
@@ -23686,6 +23992,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1298565447
@@ -23754,6 +24061,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1304270930
@@ -23822,6 +24130,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1304395940
@@ -23965,6 +24274,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1324177456
@@ -24033,6 +24343,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1324415899
@@ -24251,6 +24562,7 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1347303968
@@ -24544,6 +24856,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1359894676
@@ -24697,6 +25010,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1372850338
@@ -24915,6 +25229,7 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1377773341
@@ -24983,6 +25298,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1381878395
@@ -25051,6 +25367,7 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1382348958
@@ -25119,6 +25436,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1384652527
@@ -25187,6 +25505,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1386146460
@@ -25255,6 +25574,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1392774409
@@ -25485,6 +25805,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1401774302
@@ -25628,6 +25949,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1406141304
@@ -25696,6 +26018,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1408229645
@@ -25764,6 +26087,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1415383410
@@ -25832,6 +26156,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1417217506
@@ -25981,6 +26306,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1422262275
@@ -26049,6 +26375,7 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1422586324
@@ -26117,6 +26444,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1431084064
@@ -26185,6 +26513,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1434912674
@@ -26262,6 +26591,64 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1434912674}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1444489944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1444489946}
+  - component: {fileID: 1444489945}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1444489945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444489944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80fa972b4f6f8c84c9e89608e8d39978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationSettings: {fileID: 11400000, guid: 1f34b3b817b95a146b7af6e26cf9f793,
+    type: 2}
+  basePath: 
+  language: 
+  defaultPoolSize: 0
+  lowerPoolSize: 0
+  streamingPoolSize: 0
+  memoryCutoffThreshold: 0
+  monitorPoolSize: 0
+  monitorQueuePoolSize: 0
+  callbackManagerBufferSize: 0
+  spatialAudioPoolSize: 0
+  maxSoundPropagationDepth: 0
+  diffractionFlags: 11
+  engineLogging: 0
+--- !u!4 &1444489946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444489944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1449158769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26558,6 +26945,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1463618281
@@ -26626,6 +27014,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1463635715
@@ -26844,6 +27233,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1479997545
@@ -26912,6 +27302,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1480752031
@@ -27130,6 +27521,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1489668793
@@ -27198,6 +27590,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1491233293
@@ -27266,6 +27659,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1510433648
@@ -27334,6 +27728,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1510839225
@@ -27402,6 +27797,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1515072657
@@ -27545,6 +27941,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1534980435
@@ -27688,6 +28085,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1537870103
@@ -27756,6 +28154,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1542927345
@@ -28118,6 +28517,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1552643336
@@ -28186,6 +28586,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1556783563
@@ -28404,6 +28805,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1573061006
@@ -28622,6 +29024,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1586252637
@@ -28690,6 +29093,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!114 &1586749072 stripped
@@ -28770,6 +29174,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1597507011
@@ -28913,6 +29318,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1608898014
@@ -28981,6 +29387,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1610009733
@@ -29049,6 +29456,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1611917929
@@ -29117,6 +29525,7 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1614061591
@@ -29260,6 +29669,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1628190282
@@ -29478,6 +29888,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1638545256
@@ -29546,6 +29957,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1640405169
@@ -29614,6 +30026,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1651606384
@@ -29832,6 +30245,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1661873578
@@ -30055,6 +30469,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1672449474
@@ -30198,6 +30613,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1679633411
@@ -30491,6 +30907,7 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1684635254
@@ -30606,6 +31023,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1699736292
@@ -30674,6 +31092,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1706705473
@@ -30742,6 +31161,7 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1719030993
@@ -30885,6 +31305,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1734805419
@@ -31120,6 +31541,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1743623828
@@ -31263,6 +31685,7 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1752502958
@@ -31493,6 +31916,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1774118764
@@ -31636,6 +32060,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1782538124
@@ -31854,6 +32279,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1802298298
@@ -31997,6 +32423,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1810770997
@@ -32140,6 +32567,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1813455748
@@ -32433,6 +32861,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1822103258
@@ -32576,6 +33005,7 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1834822311
@@ -32869,6 +33299,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1854056511
@@ -33081,6 +33512,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1870595804
@@ -33149,6 +33581,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1871134442
@@ -33217,6 +33650,7 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 1
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1872657638
@@ -33285,6 +33719,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1874222072
@@ -33353,6 +33788,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!4 &1877340105 stripped
@@ -33427,6 +33863,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1879910014
@@ -34239,14 +34676,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.3820755, g: 0.43486604, b: 1, a: 1}
-  m_Intensity: 0.75
+  m_Color: {r: 0.504717, g: 0.5486028, b: 1, a: 1}
+  m_Intensity: 0.9
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: 3
     m_CustomResolution: -1
     m_Strength: 1
@@ -34369,6 +34806,7 @@ MonoBehaviour:
     nodeEffect: 3
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1934862844
@@ -34512,6 +34950,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1938286761
@@ -34580,6 +35019,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1940990898
@@ -34873,6 +35313,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1955536341
@@ -34941,6 +35382,7 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1961065859
@@ -35009,6 +35451,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1961731908
@@ -35227,6 +35670,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &1969377967
@@ -35445,6 +35889,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &1998337384
@@ -35513,6 +35958,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &2001409128
@@ -35581,6 +36027,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &2009302705
@@ -35649,6 +36096,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &2018213021
@@ -35717,6 +36165,7 @@ MonoBehaviour:
     nodeEffect: 1
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &2018844925
@@ -35890,6 +36339,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &2025084581
@@ -35958,6 +36408,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &2035255935
@@ -36059,6 +36510,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &2038694767
@@ -36277,6 +36729,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &2046566262
@@ -36576,6 +37029,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &2055726758
@@ -36644,6 +37098,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &2059133169
@@ -36787,6 +37242,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!114 &2064498463 stripped
@@ -36867,6 +37323,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &2074570566
@@ -36966,6 +37423,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &2076899016
@@ -37109,6 +37567,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &2079195560
@@ -37177,6 +37636,7 @@ MonoBehaviour:
     nodeEffect: 2
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &2081855273
@@ -37770,6 +38230,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &2112622064
@@ -37838,6 +38299,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &2119148530
@@ -37981,6 +38443,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &2123198305
@@ -38049,6 +38512,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &2123589917
@@ -38117,6 +38581,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &2134378907
@@ -38185,6 +38650,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &2136707893
@@ -38328,6 +38794,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &2141939000
@@ -38396,6 +38863,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &2142893983
@@ -38614,6 +39082,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &6689561676831582981
@@ -38630,79 +39099,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
-      propertyPath: playerMoveCurve.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: playerMoveCurve.m_Curve.Array.data[0].value
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: playerMoveCurve.m_Curve.Array.data[0].outSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: playerMoveCurve.m_Curve.Array.data[1].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: playerMoveCurve.m_Curve.Array.data[0].inSlope
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: playerMoveCurve.m_Curve.Array.data[0].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: playerMoveCurve.m_Curve.Array.data[0].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: playerMoveCurve.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: playerMoveCurve.m_Curve.Array.data[1].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: playerMoveCurve.m_Curve.Array.data[1].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: playerSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
       propertyPath: goldValueText
       value: 
       objectReference: {fileID: 929061717}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: tokenText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: nextPlayerDir
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: currentPlayerDir
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38763,35 +39162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7120622543665433423, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+    - target: {fileID: 7033059804924032127, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
-      propertyPath: m_LocalRotation.x
+      propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7120622543665433423, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7120622543665433423, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7120622543665433423, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7120622543665433423, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8820803825848528842, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f0f946f968c6ac4e844f63a0cfd8775, type: 3}

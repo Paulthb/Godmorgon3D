@@ -10,7 +10,7 @@ namespace GodMorgon.Timeline
         {
             //Debug.Log("ACTION Spawn FOW");
 
-            FogMgr.Instance.CoverMapWithFog();
+            //FogMgr.Instance.CoverMapWithFog();
 
             yield return new WaitForSeconds(2f);
 
