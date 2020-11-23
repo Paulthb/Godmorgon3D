@@ -19,9 +19,6 @@ public class FogMgr : MonoBehaviour
     public GameObject fogPrefab;
     public float speedClear = 4f;
 
-    private List<Vector3Int> nodesClearedAtStart = new List<Vector3Int>();
-    private List<Vector3Int> positionsToSpawn = new List<Vector3Int>();
-
     [Header("Sight Card Settings")]
     [SerializeField]
     private float timeAfterAction = 2f;
@@ -73,21 +70,14 @@ public class FogMgr : MonoBehaviour
         //Add fog on each node
         foreach (Transform node in MapManager.Instance.nodesList)
         {
-            AddFogOnNode(node);
+            if(node.GetComponent<NodeScript>().node.coveredAtStart)
+                AddFogOnNode(node);
 
             if(node.GetComponent<NodeScript>().node.nodeEffect == NodeEffect.EXIT)
             {
                 ClearFogOnNode(node);
             }
         }
-
-        //Remove fog on player's node and next to him 
-        foreach (Transform node in MapManager.Instance.GetAccessibleNodesList())
-        {
-            ClearFogOnNode(node);
-        }
-
-        ClearFogOnNode(PlayerMgr.Instance.GetNodeOfPlayer());
     }
 
     private void AddFogOnNode(Transform targetNode)

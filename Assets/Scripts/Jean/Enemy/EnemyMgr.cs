@@ -297,17 +297,26 @@ public class EnemyMgr : MonoBehaviour
             // Remove enemy from current node datas
             Node previousNode = enemy.GetNodeOfEnemy().GetComponent<NodeScript>().node;
             previousNode.enemiesOnNode.Remove(enemy);
-            previousNode.enemyOnCenter = null;
 
-            // Recenter an enemy if the teleported enemy was not alone and centered on node
-            RecenterAnEnemyOnNode(previousNode);            
+            if(previousNode.enemyOnCenter == enemy)
+            {
+                previousNode.enemyOnCenter = null;
+
+                // Check if we can recenter the player first
+                if (enemy.enemyData.inPlayersNode)
+                {
+                    PlayerMgr.Instance.RecenterPlayer();
+                }
+                // Recenter an enemy if the teleported enemy was not alone and centered on node
+                else RecenterAnEnemyOnNode(previousNode);
+            }
+
+            if (enemy.enemyData.inPlayersNode) enemy.enemyData.inPlayersNode = false;        
                       
             // Add enemy in list of node and set as centered enemy
             selectedNode.enemiesOnNode.Add(enemy);
-            selectedNode.enemyOnCenter = enemy;        
-
-            if (enemy.enemyData.inPlayersNode) enemy.enemyData.inPlayersNode = false;
-
+            selectedNode.enemyOnCenter = enemy;
+            
             // Teleport enemy at selected node
             enemy.transform.position = possibleNodes[randIndex].position + new Vector3(1, 0, 1);
 

@@ -35,7 +35,7 @@ namespace GodMorgon.Player
         private bool enemyOnPath = false;
         [SerializeField]
         private bool firstInRoom = true;
-        private bool canRotate = false;
+        private bool canRecenter = false;
 
         //dégats reçu à ce tour
         private int turnDamage = 0;
@@ -172,19 +172,22 @@ namespace GodMorgon.Player
                 }
             }
 
-            //test pour anim
-            if(Input.GetKeyDown("t"))
-            {
-                PlayPlayerAnim("TakeDamage");
-            }
-            if (Input.GetKeyDown("u"))
-            {
-                PlayPlayerAnim("Attack");
-            }
+            ////test pour anim
+            //if(Input.GetKeyDown("t"))
+            //{
+            //    PlayPlayerAnim("TakeDamage");
+            //}
+            //if (Input.GetKeyDown("u"))
+            //{
+            //    PlayPlayerAnim("Attack");
+            //}
 
             //la bar d'espace suit le player sur l'écran
             if (_healthBar != null)
                 _healthBar.transform.position = Camera.main.WorldToScreenPoint(healthBarPos.position);
+
+            if (canRecenter)
+                LaunchRecenterMechanic();
         }
             
         #region MOVEMENT
@@ -321,6 +324,53 @@ namespace GodMorgon.Player
             }
         }
 
+
+        /**
+         * 
+         */
+        public void RecenterPlayer()
+        {
+            //Take the tile in middle of node
+            Vector3Int middleTile = MapManager.Instance.GetTilePosInNode(GetNodeOfPlayer(), 1, 1);
+
+            //Tile position of player
+            Vector3Int playerPos = GetTilePosOfPlayer();
+
+            if (playerPath != null && playerPath.Count > 0) //reset le roadpath
+                playerPath.Clear();
+
+            //création du path
+            playerPath = MapManager.Instance.astar.CreatePath(MapManager.Instance.grid, new Vector2Int(playerPos.x, playerPos.z), new Vector2Int(middleTile.x, middleTile.z), 2);
+
+            if (playerPath == null)
+            {
+                print("playerPath has no tile, so can not recenter !");
+                return;
+            }
+
+            playerPath.Reverse();
+            playerPath.RemoveAt(0);
+
+            tileIndex = 0;
+            canRecenter = true;
+        }
+
+        private void LaunchRecenterMechanic()
+        {
+            //Next position is the next tile
+            Vector3Int nextPos = new Vector3Int(playerPath[tileIndex].X, 0, playerPath[tileIndex].Y);
+
+            float speed = 1f;
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(nextPos.x, transform.position.y, nextPos.z), speed * Time.deltaTime);   //on avance jusqu'à la prochaine tile
+
+            //If arrived
+            if (transform.position.x == nextPos.x && transform.position.z == nextPos.z)
+            {
+                Debug.Log("Player recentered");
+                canRecenter = false;
+            }
+        }
+
         /**
          * Update the rotation of player before moving
          */
@@ -424,6 +474,8 @@ namespace GodMorgon.Player
             NodeEffectMgr.Instance.LaunchRoomEffect(GetNodePosOfPlayer());   //Lance l'effet de room sur laquelle on vient d'arriver
             
             yield return new WaitForSeconds(.5f);
+
+            MapManager.Instance.ignoreEnemies = true; //Clear fog even if there are enemies on path
             FogMgr.Instance.ClearFogOnAccessibleNode(); // Clear the fog around the node we just arrived in
 
             while(!NodeEffectMgr.Instance.NodeEffectDone())
@@ -445,6 +497,8 @@ namespace GodMorgon.Player
                 
                 playerHasMoved = true;
             }
+
+            MapManager.Instance.ignoreEnemies = false;
         }
 
         #endregion
