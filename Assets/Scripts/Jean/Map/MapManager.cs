@@ -21,6 +21,7 @@ public class Node
 
     public bool effectLaunched = false;
     public bool isNodeCleared = false;
+    public bool coveredAtStart = false;
 
     public List<EnemyScript> enemiesOnNode = new List<EnemyScript>();
     public EnemyScript enemyOnCenter = null;

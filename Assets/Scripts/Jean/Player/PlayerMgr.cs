@@ -476,7 +476,7 @@ namespace GodMorgon.Player
             yield return new WaitForSeconds(.5f);
 
             MapManager.Instance.ignoreEnemies = true; //Clear fog even if there are enemies on path
-            //FogMgr.Instance.ClearFogOnAccessibleNode(); // Clear the fog around the node we just arrived in
+            FogMgr.Instance.ClearFogOnAccessibleNode(); // Clear the fog around the node we just arrived in
 
             while(!NodeEffectMgr.Instance.NodeEffectDone())
             {
