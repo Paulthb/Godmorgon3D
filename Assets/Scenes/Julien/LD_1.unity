@@ -2580,7 +2580,7 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: fcf6ec108eb62744b830665ec9ce713f,
       type: 3}
     roadType: 10
-    nodeEffect: 1
+    nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
     coveredAtStart: 0
@@ -17196,7 +17196,7 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 90abd2912926b944c9cfdfa58dc6aed7,
       type: 3}
     roadType: 0
-    nodeEffect: 1
+    nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
     coveredAtStart: 0
@@ -20301,7 +20301,7 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: d9f59d2ad397e734db486dc4179bdc25,
       type: 3}
     roadType: 8
-    nodeEffect: 1
+    nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
     coveredAtStart: 0
@@ -21095,6 +21095,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.size
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965676382178484268, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: cardsList.Array.data[33]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4927819fdade8f94ca883c795c053952,
+        type: 2}
     - target: {fileID: 6965676382178484270, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_IsActive
@@ -36184,7 +36195,7 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 1e3b5908f2d65274d866c67e11505488,
       type: 3}
     roadType: 9
-    nodeEffect: 1
+    nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
     coveredAtStart: 0
