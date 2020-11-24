@@ -173,7 +173,7 @@ namespace GodMorgon.Player
             }
 
             ////test pour anim
-            //if(Input.GetKeyDown("t"))
+            //if (Input.GetKeyDown("t"))
             //{
             //    PlayPlayerAnim("TakeDamage");
             //}

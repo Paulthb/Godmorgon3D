@@ -3012,6 +3012,28 @@ MonoBehaviour:
     coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
+--- !u!1 &182127970 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5347333447382026663, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+    type: 3}
+  m_PrefabInstance: {fileID: 6689561676831582981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &182127972
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182127970}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 1827226128182048838, guid: b0a75df3a22baaf40ac9501ff4d6eb70,
+    type: 3}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &188264860
 GameObject:
   m_ObjectHideFlags: 0
@@ -39102,6 +39124,11 @@ PrefabInstance:
       propertyPath: goldValueText
       value: 
       objectReference: {fileID: 929061717}
+    - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 6689561676831582983}
     - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39167,11 +39194,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7033059804924032127, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f0f946f968c6ac4e844f63a0cfd8775, type: 3}
 --- !u!4 &6689561676831582982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+    type: 3}
+  m_PrefabInstance: {fileID: 6689561676831582981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6689561676831582983 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7033059804924032127, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
     type: 3}
   m_PrefabInstance: {fileID: 6689561676831582981}
   m_PrefabAsset: {fileID: 0}
