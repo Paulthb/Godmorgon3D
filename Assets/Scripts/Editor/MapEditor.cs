@@ -472,7 +472,7 @@ public class MapEditor : EditorWindow
         }
 
         //If map should grow on Y
-        if (_mapManager.map.mapSize.y < newXValue)
+        if (_mapManager.map.mapSize.y < newYValue)
         {
             for (int x = 0; x < _mapManager.map.mapSize.x; x++)
             {
@@ -494,7 +494,7 @@ public class MapEditor : EditorWindow
         }
 
         //If map should decrease on Y
-        if (_mapManager.map.mapSize.y > newXValue)
+        if (_mapManager.map.mapSize.y > newYValue)
         {
             List<GameObject> nodesToDelete = new List<GameObject>();
 
