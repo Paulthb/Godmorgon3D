@@ -108,7 +108,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Coloralbedo: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Emissive: {r: 0.7176873, g: 0.252759, b: 0.754717, a: 1}
+    - _Emissive: {r: 0.3362595, g: 0.16420436, b: 0.7735849, a: 1}
     - _GlobalTint: {r: 0.27490205, g: 0.064613745, b: 0.41509432, a: 1}
     - _RimTint: {r: 0.084453516, g: 0.035733357, b: 0.103773594, a: 1}
     - _Speccolor: {r: 0, g: 0, b: 0, a: 1}
