@@ -103,7 +103,7 @@ Material:
     - _max: 1
     - _min: 0
     m_Colors:
-    - _ASEOutlineColor: {r: 0.3207547, g: 0.1599752, b: 0.15281239, a: 0}
+    - _ASEOutlineColor: {r: 0.15294118, g: 0.17091937, b: 0.32156864, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive: {r: 0.2264151, g: 0.16276255, b: 0.06728373, a: 1}
