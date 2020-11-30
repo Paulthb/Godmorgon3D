@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   id: 0
-  name: Run For Your Life !
+  name: Run For Your Life!
   dropTarget: 0
   description: '[KeyShiver] x2.
 

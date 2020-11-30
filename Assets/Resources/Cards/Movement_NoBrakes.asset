@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   id: 0
-  name: 'Where are the brakes ? '
+  name: 'Where are the brakes? '
   dropTarget: 0
   description: "Move [nbMove] room, inflict [nbDamage] damages to every enemies in
     the room where you arrive.\r"

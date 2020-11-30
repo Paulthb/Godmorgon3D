@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 1
   id: 9
-  name: BackAtYou
+  name: Back At You
   dropTarget: 2
   description: Inflict [nbDamage] damages for every damages taken this turn
   actionCost: 2

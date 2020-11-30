@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   id: 8
-  name: Defend
+  name: Shield Up
   dropTarget: 1
   description: '[KeyTrust] 1.
 
-    Add [nbBlock] blocks.'
+    Gain [nbBlock] block.'
   actionCost: 1
   price: 200
   template: {fileID: 21300000, guid: f44370d35cac10f4f805debd227b407b, type: 3}

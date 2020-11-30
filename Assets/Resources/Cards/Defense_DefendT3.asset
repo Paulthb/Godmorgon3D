@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 2
   id: 0
-  name: Defend
+  name: Shield Up
   dropTarget: 1
-  description: '[KeyTrust] 2.
+  description: '[KeyTrust] 3.
 
     Gain [nbBlock] block.'
   actionCost: 1
