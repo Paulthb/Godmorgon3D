@@ -50,8 +50,6 @@ namespace GodMorgon.Enemy
 
         public void Awake()
         {
-            //_enemy = enemies.enemiesSOList[Random.Range(0, enemies.enemiesSOList.Count)];
-
             if (_enemy != null && enemyData != null)
             {
                 enemyData.enemyId = _enemy.enemyId;
@@ -270,7 +268,7 @@ namespace GodMorgon.Enemy
             
             //If player on node, player take damages
             if (enemyData.inPlayersNode)
-            PlayerMgr.Instance.TakeDamage(enemyData.attack);
+                PlayerMgr.Instance.TakeDamage(enemyData.attack);
 
             Node currentNode = GetNodeOfEnemy().GetComponent<NodeScript>().node;
 
@@ -301,7 +299,7 @@ namespace GodMorgon.Enemy
         }
 
         /**
-         * Affiche les effets d'une attaque
+         * Launch attack animation
          */
         public void ShowAttackEffect()
         {
@@ -386,7 +384,7 @@ namespace GodMorgon.Enemy
         }
 
         /**
-         * Crée la healthbar dans le canvas
+         * Create and set health bar
          */
         public void InitializeHealthBar()
         {
@@ -396,21 +394,22 @@ namespace GodMorgon.Enemy
             _healthBar.SetBarPoints(enemyData.health, enemyData.defense);
         }
 
+        /**
+         * Update health bar with new health and defense
+         */
         public void UpdateHealthBar(int health, int defense)
         {
             _healthBar.UpdateHealthBarDisplay(defense, health);
-            //print("la defense actuel est de : " + defense);
-            //print("la santé actuel est de : " + health);
         }
 
 
         /**
-         * Tue un ennemi donné après une durée correspondant à la durée de la particule du hit
+         * Kill enemy after his hit animation duration
          */
         public void KillEnemy(float hitAnimDuration)
         {
             StartCoroutine(TimedDeath(hitAnimDuration));
-            EnemyMgr.Instance.UpdateEnemiesList();    //Update la liste des ennemis sur la map
+            EnemyMgr.Instance.UpdateEnemiesList();
             PlayerMgr.Instance.AddGold(15); //Add gold to player
 
             //SFX enemy death
@@ -419,7 +418,7 @@ namespace GodMorgon.Enemy
 
         IEnumerator TimedDeath(float duration)
         {
-            yield return new WaitForSeconds(duration);   //On attend que la particule de hit soit terminée
+            yield return new WaitForSeconds(duration);   // Wait for hit animation duration
 
 
             //Instantiate(deathParticule, this.transform.position, Quaternion.identity, EnemyManager.Instance.effectParent);
@@ -445,7 +444,7 @@ namespace GodMorgon.Enemy
                     currentNode.enemiesOnNode[0].RecenterEnemy();
             }
 
-            Destroy(gameObject);    //Détruit le gameobject de l'ennemi
+            Destroy(gameObject);    // Destroy enemy's gameobject
         }
 
         /**
@@ -489,7 +488,7 @@ namespace GodMorgon.Enemy
         }
 
         /**
-         * Return enemy's node position
+         * Return enemy's node
          */
         public Transform GetNodeOfEnemy()
         {
