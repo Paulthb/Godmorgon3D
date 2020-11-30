@@ -194,7 +194,7 @@ namespace GodMorgon.Player
 
         /**
             * Update the list of the tiles the player has to go through and then activate move mechanic
-            * The parameter targetPos is the target node position
+            * The parameter targetNodePos is the target node position
             */
         public void CalculatePlayerPath(Vector3Int targetNodePos)
         {
@@ -326,7 +326,7 @@ namespace GodMorgon.Player
 
 
         /**
-         * 
+         * Recenter player on middle of node
          */
         public void RecenterPlayer()
         {

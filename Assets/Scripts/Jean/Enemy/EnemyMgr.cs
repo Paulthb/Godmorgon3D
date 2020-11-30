@@ -340,7 +340,7 @@ public class EnemyMgr : MonoBehaviour
     }
 
     /**
-     * Montre les ennemis attaquables en activant l'effet (cible) enfant du gameObject de l'ennemi
+     * Montre les ennemis attaquables en activant l'effet shader
      */
     public void ShowAttackableEnemies()
     {
