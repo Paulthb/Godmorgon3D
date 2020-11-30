@@ -76,7 +76,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _ASEOutlineWidth: 0.005
+    - _ASEOutlineWidth: 0.05
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -93,7 +93,7 @@ Material:
     - _RimOffset: 0.19
     - _Rimpower: 0.891
     - _SmoothnessTextureChannel: 0
-    - _Specintensity: 0.317
+    - _Specintensity: 0.31
     - _Specsmth: 0.564
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -103,11 +103,11 @@ Material:
     - _max: 1
     - _min: 0
     m_Colors:
-    - _ASEOutlineColor: {r: 0.3207547, g: 0.1599752, b: 0.15281239, a: 0}
+    - _ASEOutlineColor: {r: 0.21960784, g: 0.17254902, b: 0.3764706, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive: {r: 0.2264151, g: 0.16276255, b: 0.06728373, a: 1}
-    - _GlobalTint: {r: 0.4339623, g: 0.11642891, b: 0, a: 1}
+    - _GlobalTint: {r: 0.33962262, g: 0.023315165, b: 0.008009966, a: 1}
     - _RimTint: {r: 0.5566038, g: 0.38957265, b: 0.118147045, a: 1}
-    - _Speccolor: {r: 0.5660378, g: 0.3062014, b: 0.120149545, a: 1}
+    - _Speccolor: {r: 0.5647059, g: 0.121568605, b: 0.17165555, a: 1}
     - _Tint: {r: 0.9811321, g: 0.47640994, b: 0, a: 1}
