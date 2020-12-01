@@ -74,7 +74,9 @@ namespace GodMorgon.Player
         [SerializeField]
         private Transform playerCanvas = null;
         [SerializeField]
-        private TextMeshProUGUI goldValueText;
+        private TextMeshProUGUI healthValueText;
+        [SerializeField]
+        private TextMeshProUGUI shieldValueText;
         [SerializeField]
         private TextMeshProUGUI tokenText;
         private HealthBar _healthBar = null;
@@ -122,9 +124,7 @@ namespace GodMorgon.Player
             if (healthBarPrefab != null)
                 InitializeHealthBar();
 
-            UpdateGoldText();
-
-            
+            UpdateHealth();
         }
 
         // Update is called once per frame
@@ -579,9 +579,19 @@ namespace GodMorgon.Player
         /**
         * Update Health Text
         */
-        public void UpdateHealthBar()
+        public void UpdateHealth()
         {
+            //Update bar
             _healthBar.UpdateHealthBarDisplay(playerData.defense, playerData.health);
+
+            //Update text
+            if(!healthValueText || !shieldValueText)
+            {
+                print("Pas de health et shield text renseigné dans PlayerMgr");
+                return;
+            }
+            healthValueText.text = playerData.health.ToString();
+            shieldValueText.text = playerData.defense.ToString();
         }
 
         /**
@@ -601,7 +611,7 @@ namespace GodMorgon.Player
             //considérer le shield du player
             playerData.TakeDamage(damage, false);
 
-            UpdateHealthBar();
+            UpdateHealth();
 
             turnDamage += damage;
 
@@ -664,8 +674,8 @@ namespace GodMorgon.Player
         public void AddBlock(int blockValue)
         {
             playerData.AddBlock(blockValue);
-            //UpdateBlockText();
-            UpdateHealthBar();
+            
+            UpdateHealth();
         }
 
         /**
@@ -675,7 +685,7 @@ namespace GodMorgon.Player
         {
             playerData.AddGold(goldValue);
 
-            UpdateGoldText();
+            //UpdateGoldText();
         }
 
         /**
@@ -683,7 +693,7 @@ namespace GodMorgon.Player
         */
         public void UpdateGoldText()
         {
-            goldValueText.text = playerData.goldValue.ToString();
+            //goldValueText.text = playerData.goldValue.ToString();
         }
 
         /**
@@ -733,7 +743,7 @@ namespace GodMorgon.Player
         public void CancelBlock()
         {
             playerData.defense = 0;
-            UpdateHealthBar();
+            UpdateHealth();
         }
 
         #region Visual effect
@@ -789,7 +799,7 @@ namespace GodMorgon.Player
          */
         public void PlayPlayerAnim(string animName)
         {
-            playerAnimator.SetTrigger(animName);
+            //playerAnimator.SetTrigger(animName);
         }
 
         #endregion

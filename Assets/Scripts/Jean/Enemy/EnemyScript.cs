@@ -410,7 +410,7 @@ namespace GodMorgon.Enemy
         {
             StartCoroutine(TimedDeath(hitAnimDuration));
             EnemyMgr.Instance.UpdateEnemiesList();
-            PlayerMgr.Instance.AddGold(15); //Add gold to player
+            //PlayerMgr.Instance.AddGold(15); //Add gold to player
 
             //SFX enemy death
             //MusicManager.Instance.PlayEnemyDeath();

@@ -47,19 +47,14 @@ namespace GodMorgon.Player
         public PlayerData()
         {
             //à configurer par le gameEngine
-            healthMax = 100;
-            defenseMax = 100;
+            healthMax = 99;
+            defenseMax = 99;
             startGold = 80;
             startToken = 3;
 
             health = healthMax;
             goldValue = startGold;
             token = startToken;
-        }
-
-        public void SetHealth(int newHealth)
-        {
-            health = newHealth;
         }
 
         /**
