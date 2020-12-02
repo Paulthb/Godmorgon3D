@@ -38,6 +38,14 @@ public class DraftPanel : MonoBehaviour
         GameManager.Instance.DraftPanelActivation(false);
     }
 
+    /**
+     * Fonction appelée lors du click sur le bouton Skip
+     */
+    public void SkipDraft()
+    {
+        GameManager.Instance.DraftPanelActivation(false);
+    }
+
     public static List<T> GetRandomItemsFromList<T>(List<T> list, int number)
     {
         List<T> tempList = new List<T>(list);

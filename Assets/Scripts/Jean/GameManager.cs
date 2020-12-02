@@ -275,7 +275,7 @@ public class GameManager : MonoBehaviour
         GameEngine.Instance.AddCardToDiscardPile(cardDiscarded);
 
         //active visual effect
-        GameManager.Instance.SetVisualCardOnDeck("DiscardPile");
+        //GameManager.Instance.SetVisualCardOnDeck("DiscardPile");
     }
 
     /**
