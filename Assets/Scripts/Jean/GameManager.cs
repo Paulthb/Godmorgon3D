@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
             //Si c'est au tour du joueur et qu'il nous reste des token
             if (GameEngine.Instance.GetState() == StateMachine.STATE.PLAYER_TURN && PlayerData.Instance.token > 0)
             {
-                PlayerMgr.Instance.TakeOffToken(); //Retire un token au player
+                //PlayerMgr.Instance.TakeOffToken(); //Retire un token au player
                 shopManager.gameObject.SetActive(true);  //Affiche le shop
                 shopManager.ShopOpening();//on prépare les cartes pour le magasin
                 handManager.gameObject.SetActive(false);

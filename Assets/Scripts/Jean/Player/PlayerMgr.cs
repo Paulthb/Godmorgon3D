@@ -74,11 +74,11 @@ namespace GodMorgon.Player
         [SerializeField]
         private Transform playerCanvas = null;
         [SerializeField]
-        private TextMeshProUGUI healthValueText;
+        private TextMeshProUGUI healthValueText = null;
         [SerializeField]
-        private TextMeshProUGUI shieldValueText;
-        [SerializeField]
-        private TextMeshProUGUI tokenText;
+        private TextMeshProUGUI shieldValueText = null;
+        //[SerializeField]
+        //private TextMeshProUGUI tokenText;
         private HealthBar _healthBar = null;
 
         //all visual effect for the player
@@ -704,7 +704,7 @@ namespace GodMorgon.Player
         {
             playerData.AddToken();
 
-            UpdateTokenText();
+            //UpdateTokenText();
         }
 
         /**
@@ -715,7 +715,7 @@ namespace GodMorgon.Player
         {
             playerData.TakeOffOneToken();
 
-            UpdateTokenText();
+            //UpdateTokenText();
         }
 
         /**
@@ -723,8 +723,8 @@ namespace GodMorgon.Player
          */
         private void UpdateTokenText()
         {
-            if(tokenText != null)
-                tokenText.text = playerData.token.ToString();
+            //if(tokenText != null)
+                //tokenText.text = playerData.token.ToString();
         }
 
 
