@@ -30,7 +30,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public bool isHover = false;
     public float timeHover = 1f;
-    private static bool cardIsDragging = false;
+    //private static bool cardIsDragging = false;
 
     public GameObject display = null;
 

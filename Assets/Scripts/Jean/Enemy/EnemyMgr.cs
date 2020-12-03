@@ -414,9 +414,14 @@ public class EnemyMgr : MonoBehaviour
         attackableEnemiesList = new List<EnemyScript>();
         UpdateEnemiesList();
 
+        float finalRange = 0f;
+        if (range == 0)
+            finalRange = 0.5f;
+        else finalRange = range;
+
         foreach(EnemyScript enemy in enemiesList)
         {
-            if(Vector3Int.Distance(PlayerMgr.Instance.GetNodePosOfPlayer(), GetEnemyNodePos(enemy.transform)) <= range * 3)
+            if(Vector3Int.Distance(PlayerMgr.Instance.GetNodePosOfPlayer(), GetEnemyNodePos(enemy.transform)) <= finalRange * 3)
             {
                 attackableEnemiesList.Add(enemy);
             }
