@@ -129,6 +129,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Turn_Node_1
       objectReference: {fileID: 0}
+    - target: {fileID: 4176033730943550740, guid: d8fea5ea3273cfd4d99a15517eb563a7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8fea5ea3273cfd4d99a15517eb563a7, type: 3}
 --- !u!4 &6342589682950705556 stripped
