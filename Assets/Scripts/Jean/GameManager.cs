@@ -74,6 +74,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Transform cardOnDiscardPile = null;
 
+    //dropzone pour les card handler
+    [SerializeField]
+    private Image dropZoneObject = null;
+
     [Header("DEBUG")]
     /**
      * FOR DEBUG 
@@ -501,6 +505,12 @@ public class GameManager : MonoBehaviour
                     break;
             }
         }
+    }
+
+    //active ou désactive la dropZone des cartes
+    public void ActiveDropZone(bool active)
+    {
+        dropZoneObject.raycastTarget = active;
     }
 
     /**
