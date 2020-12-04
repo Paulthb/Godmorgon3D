@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 0
   name: Fast shoes
   dropTarget: 1
-  description: Double every movement this turn.
+  description: The first movement you play this turn is doubled
   actionCost: 2
   price: 0
   template: {fileID: 21300000, guid: d130799b7e8210f41bf24082e411ab55, type: 3}
@@ -60,5 +60,5 @@ MonoBehaviour:
     isDiscardHand: 0
     Goosebump: 0
     Explorer: 0
-    isUseless: 1
+    isUseless: 0
     StickyFinger: 0

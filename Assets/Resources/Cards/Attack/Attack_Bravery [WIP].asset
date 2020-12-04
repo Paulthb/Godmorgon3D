@@ -16,7 +16,10 @@ MonoBehaviour:
   id: 9
   name: Bravery
   dropTarget: 2
-  description: "Shivers \n\nInflict [nbDamage] damages"
+  description: '[KeyShiver]
+
+
+    Inflict [nbDamage] damages'
   actionCost: 2
   price: 0
   template: {fileID: 21300000, guid: d914663f37f4d974aa4c14141b89f8c0, type: 3}

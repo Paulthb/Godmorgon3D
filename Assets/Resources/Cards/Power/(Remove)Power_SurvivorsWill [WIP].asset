@@ -10,21 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Defense_Abnegation
+  m_Name: (Remove)Power_SurvivorsWill [WIP]
   m_EditorClassIdentifier: 
-  cardType: 2
+  cardType: 3
   id: 0
-  name: Abnegation
-  dropTarget: 0
-  description: 'Discard all your cards, gain 3 block by card discarded ([nbBlock])
-
-'
+  name: Survivor's Will
+  dropTarget: 1
+  description: Your HP can't go under 1 this turn
   actionCost: 1
-  price: 72
-  template: {fileID: 21300000, guid: f44370d35cac10f4f805debd227b407b, type: 3}
-  artwork: {fileID: 21300000, guid: 47c3f3650abf10b43a4dec7c36d618bf, type: 3}
+  price: 0
+  template: {fileID: 21300000, guid: d130799b7e8210f41bf24082e411ab55, type: 3}
+  artwork: {fileID: 21300000, guid: c1bee892507aa684f903cb4fb1657b9a, type: 3}
   effectsData:
-  - currentEffect: 2
+  - currentEffect: 3
     damagePoint: 0
     attackRange: 0
     BackAtYou: 0
@@ -35,15 +33,15 @@ MonoBehaviour:
     swift: 0
     noBrakes: 0
     ForcedWalk: 0
-    nbBlock: 5
+    nbBlock: 0
     isCounter: 0
     counterDamagePoint: 0
-    KillerInstinct: 0
+    KillerInstinct: 1
     FastShoes: 0
     Scarification: 0
     Possibilities: 0
     Sight: 0
-    sightRange: 0
+    sightRange: 1
     DrawCard: 0
     recycling: 0
     nbCardToDraw: 0
@@ -59,8 +57,8 @@ MonoBehaviour:
     trustNb: 0
     retain: 0
     rangeEffect: 0
-    isDiscardHand: 1
+    isDiscardHand: 0
     Goosebump: 0
     Explorer: 0
-    isUseless: 0
+    isUseless: 1
     StickyFinger: 0
