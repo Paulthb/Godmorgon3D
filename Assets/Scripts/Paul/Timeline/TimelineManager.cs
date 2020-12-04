@@ -20,9 +20,10 @@ namespace GodMorgon.Timeline
         [SerializeField]
         private TimelineSettings settings = null;
 
-        //text indiquant le nombre de d'action restantes
+        //text indiquant le nombre de tours depuis le début de la partie
         [SerializeField]
-        private Text nbRemainingActionText = null;
+        private TextMeshProUGUI turnText = null;
+        private int nbTurn = 0;
 
         //Tell if the current action is running
         [System.NonSerialized]
@@ -102,8 +103,8 @@ namespace GodMorgon.Timeline
         // Start is called before the first frame update
         void Start()
         {
-            //set the nb remaining action text
-            nbRemainingActionText.text = nbRingmasterActionRemain.ToString();
+            //set the nb turn text
+            //turnText.text = indexCurrentAction.ToString();
 
             particulePos.gameObject.GetComponent<ParticleSystem>().Stop();
         }
@@ -163,7 +164,7 @@ namespace GodMorgon.Timeline
          */
         public void DoAction()
         {
-            nbRemainingActionText.text = nbRingmasterActionRemain.ToString();
+            //turnText.text = indexCurrentAction.ToString();
             StartCoroutine(ActionExecution());
         }
 
@@ -220,6 +221,9 @@ namespace GodMorgon.Timeline
                 //reset le nombre de cartes piocher à ce tour 
                 PlayerMgr.Instance.ResetTurnNbDrawCard();
 
+                //On ajoute 1 au nb de tours
+                nbTurn++;
+
                 //SFX end ringmaster Turn
                 //MusicManager.Instance.PlayCursorEnd();
             }
@@ -239,7 +243,7 @@ namespace GodMorgon.Timeline
 
             particulePos.gameObject.GetComponent<ParticleSystem>().Stop();
 
-            nbRemainingActionText.text = nbRingmasterActionRemain.ToString();
+            turnText.text = nbTurn.ToString();
         }
 
         //return the id of the current action in the list

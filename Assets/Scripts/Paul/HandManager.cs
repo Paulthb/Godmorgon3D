@@ -56,7 +56,7 @@ public class HandManager : MonoBehaviour
         CheckCurseCard(card.card, false);
 
         //active visual effect
-        GameManager.Instance.SetVisualCardOnDeck("DiscardPile");
+        //GameManager.Instance.SetVisualCardOnDeck("DiscardPile");
     }
 
     /**

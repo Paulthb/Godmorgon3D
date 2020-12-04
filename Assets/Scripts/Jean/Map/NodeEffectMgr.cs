@@ -208,10 +208,10 @@ public class NodeEffectMgr : MonoBehaviour
         if (null == playerNode) return;
 
         // Add gold to player
-        PlayerMgr.Instance.AddGold(goldInChest);
+        //PlayerMgr.Instance.AddGold(goldInChest);
 
         // Add a token
-        PlayerMgr.Instance.AddToken();
+        //PlayerMgr.Instance.AddToken();
 
         //SFX chest room
         //MusicManager.Instance.PlayFeedbackChest();

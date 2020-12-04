@@ -70,8 +70,9 @@ public class FogMgr : MonoBehaviour
         //Add fog on each node
         foreach (Transform node in MapManager.Instance.nodesList)
         {
-            if(node.GetComponent<NodeScript>().node.coveredAtStart)
+            if (node.GetComponent<NodeScript>().node.coveredAtStart)
                 AddFogOnNode(node);
+            else node.GetComponent<NodeScript>().node.isNodeCleared = true;
 
             if(node.GetComponent<NodeScript>().node.nodeEffect == NodeEffect.EXIT)
             {

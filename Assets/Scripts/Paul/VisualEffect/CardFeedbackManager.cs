@@ -6,8 +6,8 @@ using UnityEngine;
 public class CardFeedbackManager : MonoBehaviour
 {
     //sprite de carte pour l'animation
-    [SerializeField]
-    private Sprite spriteCard = null;
+    //[SerializeField]
+    //private Sprite spriteCard = null;
 
     //image de la carte
     [SerializeField]

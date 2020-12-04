@@ -616,8 +616,8 @@ public class MapManager : MonoBehaviour
 
         foreach (Transform node in accessibleNodes)
         {
-            int lastIndex = node.GetChild(0).GetChild(0).GetChild(0).childCount;
-            Transform groundOfNode = node.GetChild(0).GetChild(0).GetChild(0).GetChild(lastIndex - 1);
+            //int lastIndex = node.GetChild(0).GetChild(0).GetChild(0).childCount;
+            Transform groundOfNode = node.GetChild(0).GetChild(0).Find("Ground");
             if (groundOfNode != null)
             {
                 MeshRenderer rend = groundOfNode.GetComponent<MeshRenderer>();
@@ -636,8 +636,8 @@ public class MapManager : MonoBehaviour
     {
         foreach (Transform node in accessibleNodes)
         {
-            int lastIndex = node.GetChild(0).GetChild(0).GetChild(0).childCount;
-            Transform groundOfNode = node.GetChild(0).GetChild(0).GetChild(0).GetChild(lastIndex - 1);
+            //int lastIndex = node.GetChild(0).GetChild(0).GetChild(0).childCount;
+            Transform groundOfNode = node.GetChild(0).GetChild(0).Find("Ground");
             if (groundOfNode != null)
             {
                 MeshRenderer rend = groundOfNode.GetComponent<MeshRenderer>();
@@ -684,8 +684,8 @@ public class MapManager : MonoBehaviour
     {
         foreach (Transform node in accessibleNodes)
         {
-            int lastIndex = node.GetChild(0).GetChild(0).GetChild(0).childCount;
-            Transform groundOfNode = node.GetChild(0).GetChild(0).GetChild(0).GetChild(lastIndex - 1);
+            //int lastIndex = node.GetChild(0).GetChild(0).GetChild(0).childCount;
+            Transform groundOfNode = node.GetChild(0).GetChild(0).Find("Ground");
             if (groundOfNode != null)
             {
                 MeshRenderer rend = groundOfNode.GetComponent<MeshRenderer>();
@@ -700,7 +700,6 @@ public class MapManager : MonoBehaviour
                     rend.materials[0].SetFloat("_Intensity", 5f);
                     resetAccessibleEffect = false;
                 }
-                    
             }
             else
                 print("No ground found for node");

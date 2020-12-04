@@ -74,9 +74,11 @@ namespace GodMorgon.Player
         [SerializeField]
         private Transform playerCanvas = null;
         [SerializeField]
-        private TextMeshProUGUI goldValueText;
+        private TextMeshProUGUI healthValueText = null;
         [SerializeField]
-        private TextMeshProUGUI tokenText;
+        private TextMeshProUGUI shieldValueText = null;
+        //[SerializeField]
+        //private TextMeshProUGUI tokenText;
         private HealthBar _healthBar = null;
 
         //all visual effect for the player
@@ -122,9 +124,7 @@ namespace GodMorgon.Player
             if (healthBarPrefab != null)
                 InitializeHealthBar();
 
-            UpdateGoldText();
-
-            
+            UpdateHealth();
         }
 
         // Update is called once per frame
@@ -194,7 +194,7 @@ namespace GodMorgon.Player
 
         /**
             * Update the list of the tiles the player has to go through and then activate move mechanic
-            * The parameter targetPos is the target node position
+            * The parameter targetNodePos is the target node position
             */
         public void CalculatePlayerPath(Vector3Int targetNodePos)
         {
@@ -326,7 +326,7 @@ namespace GodMorgon.Player
 
 
         /**
-         * 
+         * Recenter player on middle of node
          */
         public void RecenterPlayer()
         {
@@ -579,9 +579,19 @@ namespace GodMorgon.Player
         /**
         * Update Health Text
         */
-        public void UpdateHealthBar()
+        public void UpdateHealth()
         {
+            //Update bar
             _healthBar.UpdateHealthBarDisplay(playerData.defense, playerData.health);
+
+            //Update text
+            if(!healthValueText || !shieldValueText)
+            {
+                print("Pas de health et shield text renseigné dans PlayerMgr");
+                return;
+            }
+            healthValueText.text = playerData.health.ToString();
+            shieldValueText.text = playerData.defense.ToString();
         }
 
         /**
@@ -601,7 +611,7 @@ namespace GodMorgon.Player
             //considérer le shield du player
             playerData.TakeDamage(damage, false);
 
-            UpdateHealthBar();
+            UpdateHealth();
 
             turnDamage += damage;
 
@@ -664,8 +674,8 @@ namespace GodMorgon.Player
         public void AddBlock(int blockValue)
         {
             playerData.AddBlock(blockValue);
-            //UpdateBlockText();
-            UpdateHealthBar();
+            
+            UpdateHealth();
         }
 
         /**
@@ -675,7 +685,7 @@ namespace GodMorgon.Player
         {
             playerData.AddGold(goldValue);
 
-            UpdateGoldText();
+            //UpdateGoldText();
         }
 
         /**
@@ -683,7 +693,7 @@ namespace GodMorgon.Player
         */
         public void UpdateGoldText()
         {
-            goldValueText.text = playerData.goldValue.ToString();
+            //goldValueText.text = playerData.goldValue.ToString();
         }
 
         /**
@@ -694,7 +704,7 @@ namespace GodMorgon.Player
         {
             playerData.AddToken();
 
-            UpdateTokenText();
+            //UpdateTokenText();
         }
 
         /**
@@ -705,7 +715,7 @@ namespace GodMorgon.Player
         {
             playerData.TakeOffOneToken();
 
-            UpdateTokenText();
+            //UpdateTokenText();
         }
 
         /**
@@ -713,8 +723,8 @@ namespace GodMorgon.Player
          */
         private void UpdateTokenText()
         {
-            if(tokenText != null)
-                tokenText.text = playerData.token.ToString();
+            //if(tokenText != null)
+                //tokenText.text = playerData.token.ToString();
         }
 
 
@@ -733,7 +743,7 @@ namespace GodMorgon.Player
         public void CancelBlock()
         {
             playerData.defense = 0;
-            UpdateHealthBar();
+            UpdateHealth();
         }
 
         #region Visual effect
@@ -789,7 +799,7 @@ namespace GodMorgon.Player
          */
         public void PlayPlayerAnim(string animName)
         {
-            playerAnimator.SetTrigger(animName);
+            //playerAnimator.SetTrigger(animName);
         }
 
         #endregion
