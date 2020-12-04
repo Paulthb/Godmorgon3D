@@ -21,7 +21,13 @@ namespace GodMorgon.Models
             CURSE,
             MOVE_ENEMY,
             SPAWN_ENEMY,
-            SPAWN_FOW
+            SPAWN_FOW,
+            ATTACK_BOOST,
+            DEFEND_BOOST,
+            CURSE_BOOST,
+            MOVE_ENEMY_BOOST,
+            SPAWN_ENEMY_BOOST,
+            SPAWN_FOW_BOOST
         }
 
         public List<ACTION_TYPE> ActionInTimeline;
@@ -85,6 +91,54 @@ namespace GodMorgon.Models
                         {
                             SpawnFOW spawnFOW = new SpawnFOW();
                             spawnFOW.actionLogo = spawnFOWLogo;
+                            actionList.Add(spawnFOW);
+                        }
+                        break;
+                    case ACTION_TYPE.ATTACK_BOOST:
+                        {
+                            Attack attack = new Attack();
+                            attack.actionLogo = attackLogo;
+                            attack.Boosted = true;
+                            actionList.Add(attack);
+                        }
+                        break;
+                    case ACTION_TYPE.DEFEND_BOOST:
+                        {
+                            Defend defend = new Defend();
+                            defend.actionLogo = defendLogo;
+                            defend.Boosted = true;
+                            actionList.Add(defend);
+                        }
+                        break;
+                    case ACTION_TYPE.CURSE_BOOST:
+                        {
+                            Curse curse = new Curse();
+                            curse.actionLogo = curseLogo;
+                            curse.Boosted = true;
+                            actionList.Add(curse);
+                        }
+                        break;
+                    case ACTION_TYPE.MOVE_ENEMY_BOOST:
+                        {
+                            MoveEnemy moveEnemy = new MoveEnemy();
+                            moveEnemy.actionLogo = moveEnemyLogo;
+                            moveEnemy.Boosted = true;
+                            actionList.Add(moveEnemy);
+                        }
+                        break;
+                    case ACTION_TYPE.SPAWN_ENEMY_BOOST:
+                        {
+                            SpawnEnemy spawnEnemy = new SpawnEnemy();
+                            spawnEnemy.actionLogo = spawnEnemyLogo;
+                            spawnEnemy.Boosted = true;
+                            actionList.Add(spawnEnemy);
+                        }
+                        break;
+                    case ACTION_TYPE.SPAWN_FOW_BOOST:
+                        {
+                            SpawnFOW spawnFOW = new SpawnFOW();
+                            spawnFOW.actionLogo = spawnFOWLogo;
+                            spawnFOW.Boosted = true;
                             actionList.Add(spawnFOW);
                         }
                         break;

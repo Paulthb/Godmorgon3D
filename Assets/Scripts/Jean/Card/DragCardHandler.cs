@@ -64,12 +64,14 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     //fonction lancée au drag d'une carte
     public void OnBeginDrag(PointerEventData eventData)
     {
+        //on active la dropZone pour les cartes
+        GameManager.Instance.ActiveDropZone(true);
+
         startPosition = this.transform.position;
 
         if (eventData.pointerDrag.GetComponent<CardDisplay>().card.cardType != BasicCard.CARDTYPE.CURSE)
         {
             this.transform.SetParent(movingCardParent);
-
             eventData.pointerDrag.GetComponent<CardDisplay>().OnCardDrag(true);
         }
         _card = eventData.pointerDrag.GetComponent<CardDisplay>().card;
@@ -79,7 +81,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             card = _card
         };
 
-        if(_card.cardType == BasicCard.CARDTYPE.MOVE)
+        if (_card.cardType == BasicCard.CARDTYPE.MOVE)
         {
             PlayerMgr.Instance.UpdateMoveDatas(context.card.effectsData);   //On envoie les datas de la carte au playerMgr pour gérer les cas d'accessibilités des nodes voisins
         }
@@ -107,10 +109,39 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     //fonction lancée au drop d'une carte
     public void OnEndDrag(PointerEventData eventData)
     {
-        //onCardDragEndDelegate?.Invoke(this.gameObject, eventData);
-
         eventData.pointerDrag.GetComponent<CardDisplay>().OnCardDrag(false);
 
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, raycastResults);
+
+        if (raycastResults.Count > 0)
+        {
+            foreach (RaycastResult result in raycastResults)
+            {
+                if (result.gameObject.tag == "DropZone")
+                    Debug.Log("ON DROP ZONE !!");
+            }
+        }
+
+        //on désactive la dropZone pour les cartes
+        GameManager.Instance.ActiveDropZone(false);
+
+        this.transform.SetParent(hand);
+
+        this.transform.position = startPosition;    //Par défaut, la carte retourne dans la main
+        this.GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);  //La carte récupère sa taille normale
+
+        //Cache les positions accessibles
+        dropPosManager.HidePositionsToDrop(_card);
+
+        //Réactive le drag de la caméra
+        mainCamera.ActiveCameraDrag(true);
+    }
+
+    //applique l'effet de la dernière carte droppé si la cible est validé
+    public void ValidateCardTarget()
+    {
+        //eventData.pointerDrag.GetComponent<CardDisplay>().OnCardDrag(false);
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
@@ -137,7 +168,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             }
             // Select node even if the card is dropped on enemy (to avoid raycast filter)
             // Used for sight card or move card
-            else if (hit.collider.tag == "Enemy" && _card.dropTarget == BasicCard.DROP_TARGET.NODE)         
+            else if (hit.collider.tag == "Enemy" && _card.dropTarget == BasicCard.DROP_TARGET.NODE)
             {
                 // Get the node of the enemy where the card is dropped
                 Vector3Int clickedNode = hit.collider.gameObject.GetComponent<EnemyScript>().GetNodePosOfEnemy();
@@ -156,7 +187,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 dropPosManager.GetDropCardContext(_card, playerNodePos, context);
             }
         }
-        
+
         if (context.isDropValidate)
         {
             //on lock toutes les cartes en main et tout le downPanel
@@ -164,7 +195,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             GameManager.Instance.DownPanelBlock(true);
 
             //Play the card
-            CardEffectManager.Instance.PlayCard(eventData.pointerDrag.GetComponent<CardDisplay>().card, context);
+            //CardEffectManager.Instance.PlayCard(eventData.pointerDrag.GetComponent<CardDisplay>().card, context);
 
             //Effect + delete card
             //Instantiate(dropEffect, dropPosition, Quaternion.identity, effectsParent);
@@ -198,9 +229,6 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             //Cache les positions accessibles
             dropPosManager.HidePositionsToDrop(_card);
         }
-
-        //Réactive le drag de la caméra
-        mainCamera.ActiveCameraDrag(true);
 
     }
 

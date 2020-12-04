@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/StreamingAssets/Audio/GeneratedSoundBanks.meta
+guid: 6f434243aa36f954b86346ef15d77fad
+folderAsset: yes
+=======
 guid: 0a9fc6836592551428d587a9065d69be
+>>>>>>> master:Assets/Scenes/Julien/New_LD_1.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

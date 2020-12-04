@@ -9,7 +9,10 @@ namespace GodMorgon.Timeline
      */
     public abstract class Action : ITimelineAction
     {
+        //image de l'action dans la Timeline
         public Sprite actionLogo;
+        //bool pour savoir si l'action est boosté
+        public bool Boosted = false;
 
         public virtual IEnumerator Execute()
         {

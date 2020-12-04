@@ -70,7 +70,7 @@ namespace GodMorgon.CardEffect
             else if(effectData.Rush)
             {
                 context.targets.TakeDamage(PlayerMgr.Instance.playerData.DoDamage(damagePoint), true);
-                PlayerMgr.Instance.TakeDamage(damagePoint);
+                PlayerMgr.Instance.TakeDamage(effectData.PlayerDamage);
             }
             else
             {

@@ -37,6 +37,7 @@ namespace GodMorgon.Models
 
         //attaque l'enemy et le player
         public bool Rush = false;
+        public int PlayerDamage = 0;
 
         //attaque tous les enemy dans la node du player
         public bool isCircular = false;
