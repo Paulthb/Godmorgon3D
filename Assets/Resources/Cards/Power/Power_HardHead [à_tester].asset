@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Power_HardHead [WIP]
+  m_Name: "Power_HardHead [\xE0_tester]"
   m_EditorClassIdentifier: 
   cardType: 3
   id: 0
@@ -28,6 +28,7 @@ MonoBehaviour:
     attackRange: 0
     BackAtYou: 0
     Rush: 0
+    PlayerDamage: 0
     isCircular: 0
     nbMoves: 0
     rolling: 0
@@ -37,12 +38,13 @@ MonoBehaviour:
     nbBlock: 0
     isCounter: 0
     counterDamagePoint: 0
-    KillerInstinct: 1
+    KillerInstinct: 0
     FastShoes: 0
     Scarification: 0
     Possibilities: 0
+    HardHead: 1
     Sight: 0
-    sightRange: 1
+    sightRange: 0
     DrawCard: 0
     recycling: 0
     nbCardToDraw: 0
@@ -61,5 +63,5 @@ MonoBehaviour:
     isDiscardHand: 0
     Goosebump: 0
     Explorer: 0
-    isUseless: 1
+    isUseless: 0
     StickyFinger: 0

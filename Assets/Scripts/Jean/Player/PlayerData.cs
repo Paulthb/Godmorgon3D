@@ -69,6 +69,10 @@ namespace GodMorgon.Player
                 damagePoint = damagePoint * 2;
                 //Debug.Log("damage reçu doublé !");
             }
+            //apply power up like hard head
+            BuffManager.Instance.ApplyModifiedDamageTaken(damagePoint);
+            Debug.Log("damage after modificaters : " + damagePoint);
+
             //Debug.Log("player health before was : " + health);
             while (damagePoint > 0 && defense > 0)
             {
