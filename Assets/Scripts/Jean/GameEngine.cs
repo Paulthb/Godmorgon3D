@@ -292,4 +292,28 @@ public class GameEngine
     {
         return hand.GetCards();
     }
+
+    /**
+     * delete card from PlayerDeck
+     */
+    public void TakeCardOutFromDeck(BasicCard card)
+    {
+        playerDeck.TakeOut(card);
+    }
+
+    /**
+     * delete card from discardPile
+     */
+    public void TakeCardOutFromDiscardPile(BasicCard card)
+    {
+        disposalPile.TakeOut(card);
+    }
+
+    /**
+     * delete card from Hand
+     */
+    public void TakeCardOutHand(BasicCard card)
+    {
+        hand.TakeOut(card);
+    }
 }

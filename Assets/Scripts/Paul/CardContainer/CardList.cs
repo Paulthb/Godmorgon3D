@@ -71,5 +71,11 @@ namespace GodMorgon.CardContainer
         {
             return cards;
         }
+
+        //Take card out of deck
+        public void TakeOut(BasicCard card)
+        {
+            cards.Remove(card);
+        }
     }
 }

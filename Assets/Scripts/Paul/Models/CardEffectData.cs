@@ -74,6 +74,9 @@ namespace GodMorgon.Models
         //+1 de dégats par carte piocher à ce tour (sans compter les cartes de base dans la main) 
         public bool Possibilities = false;
 
+        //activate Hard head
+        public bool HardHead = false;
+
         [Header("Sight")]
         //effect to sight card
         public bool Sight = false;

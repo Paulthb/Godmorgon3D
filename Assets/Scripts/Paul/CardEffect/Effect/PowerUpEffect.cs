@@ -32,7 +32,7 @@ namespace GodMorgon.CardEffect
 
             if(effectData.FastShoes)
             {
-                BuffManager.Instance.isFastShoes = true;
+                BuffManager.Instance.ActivateFastShoes();
 
                 //add the Power Up sequence
                 GSA_FastShoes fastShoesAction = new GSA_FastShoes();
@@ -54,6 +54,15 @@ namespace GodMorgon.CardEffect
                 BuffManager.Instance.possibilitiesActivate = true;
                 //visual effect 
             }
+
+            //Hard head
+            if(effectData.HardHead)
+            {
+                BuffManager.Instance.ActivateHardHead();
+            }
+
+            //supprime les autres cartes identiques présente dans les deck in-game
+            GameManager.Instance.TakeCardOutFromDeck(context.card.name);
         }
     }
 }
