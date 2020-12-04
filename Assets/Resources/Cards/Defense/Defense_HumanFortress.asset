@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Defense_Abnegation
+  m_Name: Defense_HumanFortress
   m_EditorClassIdentifier: 
   cardType: 2
   id: 0
-  name: Abnegation
+  name: Human Fortress
   dropTarget: 0
-  description: 'Discard all your cards, gain 3 block by card discarded ([nbBlock])
+  description: 'Gain [nbBlock] blocks.
 
 '
-  actionCost: 1
-  price: 72
-  template: {fileID: 21300000, guid: f44370d35cac10f4f805debd227b407b, type: 3}
-  artwork: {fileID: 21300000, guid: 47c3f3650abf10b43a4dec7c36d618bf, type: 3}
+  actionCost: 4
+  price: 0
+  template: {fileID: 0}
+  artwork: {fileID: 0}
   effectsData:
   - currentEffect: 2
     damagePoint: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
     swift: 0
     noBrakes: 0
     ForcedWalk: 0
-    nbBlock: 5
+    nbBlock: 22
     isCounter: 0
     counterDamagePoint: 0
     KillerInstinct: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
     trustNb: 0
     retain: 0
     rangeEffect: 0
-    isDiscardHand: 1
+    isDiscardHand: 0
     Goosebump: 0
     Explorer: 0
     isUseless: 0

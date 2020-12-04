@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
   m_Name: Defense_LastStand [WIP]
   m_EditorClassIdentifier: 
-  cardType: 0
+  cardType: 2
   id: 0
-  name: 
+  name: Last Stand
   dropTarget: 0
-  description: 'Shivers
+  description: '[KeyShiver]
 
 
     Gain [nbBlock] blocks.
@@ -24,8 +24,8 @@ MonoBehaviour:
 '
   actionCost: 1
   price: 0
-  template: {fileID: 0}
-  artwork: {fileID: 0}
+  template: {fileID: 21300000, guid: f44370d35cac10f4f805debd227b407b, type: 3}
+  artwork: {fileID: 21300000, guid: 9a239aa739ace534f871bae45295920b, type: 3}
   effectsData:
   - currentEffect: 2
     damagePoint: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
     swift: 0
     noBrakes: 0
     ForcedWalk: 0
-    nbBlock: 0
+    nbBlock: 5
     isCounter: 0
     counterDamagePoint: 0
     KillerInstinct: 0

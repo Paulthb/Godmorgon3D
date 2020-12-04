@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 0
   name: Counter
   dropTarget: 1
-  description: "Gain [nbBlock] block, enemies that attack you this turn take 4 damages.\r"
+  description: "Gain [nbBlock] block, enemies that attack you this turn take 6 damages.\r"
   actionCost: 2
   price: 96
   template: {fileID: 21300000, guid: f44370d35cac10f4f805debd227b407b, type: 3}
@@ -35,7 +35,7 @@ MonoBehaviour:
     ForcedWalk: 0
     nbBlock: 10
     isCounter: 1
-    counterDamagePoint: 4
+    counterDamagePoint: 6
     KillerInstinct: 0
     FastShoes: 0
     Scarification: 0

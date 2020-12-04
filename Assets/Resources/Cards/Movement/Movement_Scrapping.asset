@@ -10,20 +10,60 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Defense_Abnegation
+  m_Name: Movement_Scrapping
   m_EditorClassIdentifier: 
-  cardType: 2
+  cardType: 0
   id: 0
-  name: Abnegation
+  name: FuelingUp
   dropTarget: 0
-  description: 'Discard all your cards, gain 3 block by card discarded ([nbBlock])
+  description: 'Move to [nbMove] Room.
 
-'
+    Gain [nbBlock] blocks.'
   actionCost: 1
-  price: 72
-  template: {fileID: 21300000, guid: f44370d35cac10f4f805debd227b407b, type: 3}
-  artwork: {fileID: 21300000, guid: 47c3f3650abf10b43a4dec7c36d618bf, type: 3}
+  price: 0
+  template: {fileID: 21300000, guid: ce453fab9acc07c4cbafa0b991d778fb, type: 3}
+  artwork: {fileID: 21300000, guid: 55632c0e90a51cb4a9cda76143e70ae3, type: 3}
   effectsData:
+  - currentEffect: 1
+    damagePoint: 0
+    attackRange: 0
+    BackAtYou: 0
+    Rush: 0
+    isCircular: 0
+    nbMoves: 1
+    rolling: 1
+    swift: 0
+    noBrakes: 0
+    ForcedWalk: 0
+    nbBlock: 0
+    isCounter: 0
+    counterDamagePoint: 0
+    KillerInstinct: 0
+    FastShoes: 0
+    Scarification: 0
+    Possibilities: 0
+    Sight: 0
+    sightRange: 0
+    DrawCard: 0
+    recycling: 0
+    nbCardToDraw: 0
+    Teleport: 0
+    Overtake: 0
+    DiscardCard: 0
+    nbDiscardCard: 0
+    isHeal: 0
+    nbHeal: 0
+    SecondChance: 0
+    shiver: 0
+    trust: 0
+    trustNb: 0
+    retain: 0
+    rangeEffect: 0
+    isDiscardHand: 0
+    Goosebump: 0
+    Explorer: 0
+    isUseless: 0
+    StickyFinger: 0
   - currentEffect: 2
     damagePoint: 0
     attackRange: 0
@@ -59,7 +99,7 @@ MonoBehaviour:
     trustNb: 0
     retain: 0
     rangeEffect: 0
-    isDiscardHand: 1
+    isDiscardHand: 0
     Goosebump: 0
     Explorer: 0
     isUseless: 0
