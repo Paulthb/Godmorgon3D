@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rails_Mat
+  m_Name: Gold_Mat_Alt
   m_Shader: {fileID: 4800000, guid: e9139893135752842abe9302f85aa8d4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -93,7 +93,7 @@ Material:
     - _RimOffset: 0.1
     - _Rimpower: 1
     - _SmoothnessTextureChannel: 0
-    - _Specintensity: 0.666
+    - _Specintensity: 0.206
     - _Specsmth: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -106,8 +106,8 @@ Material:
     - _ASEOutlineColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Emissive: {r: 0.6603774, g: 0.38791147, b: 0, a: 1}
-    - _GlobalTint: {r: 0, g: 0, b: 0, a: 1}
+    - _Emissive: {r: 0.9283198, g: 1, b: 0, a: 1}
+    - _GlobalTint: {r: 0.5188679, g: 0.42260244, b: 0, a: 1}
     - _RimTint: {r: 1, g: 0.6829522, b: 0.36320752, a: 1}
-    - _Speccolor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
+    - _Speccolor: {r: 0.8113208, g: 0.77314097, b: 0, a: 1}
     - _Tint: {r: 0.9811321, g: 0.47640994, b: 0, a: 1}
