@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 using GodMorgon.Models;
@@ -78,6 +79,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Image dropZoneObject = null;
 
+    //text nb card in pile
+    [SerializeField]
+    private TextMeshProUGUI nbCardInDeck = null;
+    [SerializeField]
+    private TextMeshProUGUI nbCardInDiscardPile = null;
+
+
     [Header("DEBUG")]
     /**
      * FOR DEBUG 
@@ -123,6 +131,7 @@ public class GameManager : MonoBehaviour
         {
             //StartCoroutine(LaunchFinalFade());
         }
+        UpdateNbCardText();
         UpdateVisibleDeck();
     }
 
@@ -536,8 +545,15 @@ public class GameManager : MonoBehaviour
                 GameEngine.Instance.TakeCardOutHand(card);
         }
         handManager.HandUpdate();
-
     }
+
+    //update les textes du nombres de cartes dans chaque deck
+    public void UpdateNbCardText()
+    {
+        nbCardInDeck.text = GameEngine.Instance.GetPlayerDeck().Count.ToString();
+        nbCardInDiscardPile.text = GameEngine.Instance.GetDisposalPile().Count.ToString();
+    }
+
 
     /**
      * FOR DEBUG
