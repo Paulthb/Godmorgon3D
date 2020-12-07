@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using GodMorgon.Sound;
+
 namespace GodMorgon.Enemy
 {
     public class EnemyData : Entity
@@ -68,7 +70,8 @@ namespace GodMorgon.Enemy
         //launch hit visual effect
         public override void OnDamage()
         {
-            //enemyScript.OnDamage();
+            //SFX enemy hit
+            MusicManager.Instance.PlayEnemyHit();
         }
 
         /**

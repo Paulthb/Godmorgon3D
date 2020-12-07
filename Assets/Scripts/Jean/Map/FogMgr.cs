@@ -143,6 +143,8 @@ public class FogMgr : MonoBehaviour
                 ClearFogOnNode(accessibleNode);
             }
         }
+        //SFX fog clear
+        MusicManager.Instance.PlayFogClear();
     }
 
 

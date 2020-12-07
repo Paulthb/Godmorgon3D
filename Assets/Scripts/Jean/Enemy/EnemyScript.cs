@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using GodMorgon.Sound;
+
 namespace GodMorgon.Enemy
 {
     public class EnemyScript : MonoBehaviour
@@ -209,6 +211,9 @@ namespace GodMorgon.Enemy
                 isMoveFinished = false; //Will be false until enemy move is not finished
             }
             else isMoveFinished = true;
+
+            //SFX fog clear
+            MusicManager.Instance.PlayEnemyMoving();
         }
 
         private void LaunchMoveMechanic()
@@ -460,7 +465,7 @@ namespace GodMorgon.Enemy
             //PlayerMgr.Instance.AddGold(15); //Add gold to player
 
             //SFX enemy death
-            //MusicManager.Instance.PlayEnemyDeath();
+            MusicManager.Instance.PlayEnemyDeath();
         }
 
         IEnumerator TimedDeath(float duration)

@@ -12,14 +12,687 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bb6e312e4fb4a4cba9628517c26f9a, type: 3}
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
-  AcousticTextureWwu: []
-  AuxBusWwu: []
-  BankWwu: []
-  EventWwu: []
-  RtpcWwu: []
-  StateWwu: []
-  SwitchWwu: []
-  TriggerWwu: []
-  ExpandedItems: []
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
+    guid: d220adce33713443b6353c1aa5503967
+    GuidInternal: 
+    m_lastTime: -8585954577287382738
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
+    guid: b21c0c948f26d849a09dd53859f93695
+    GuidInternal: 
+    m_lastTime: -8585954577289523221
+    List:
+    - name: Master Audio Bus
+      guid: d8a41415a61d2a41a17e75ca0c2149f3
+      id: 3803692087
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+      Path: Default Work Unit\Master Audio Bus
+  BankWwu:
+  - PhysicalPath: SoundBanks\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
+    guid: 373ae5b7949aa14c9a49a81c65bfa4fb
+    GuidInternal: 
+    m_lastTime: -8585954577287432748
+    List:
+    - name: Main
+      guid: 6003b9fee289174ebe946e7b0909e0ba
+      id: 3161908922
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Main
+        ObjectType: 7
+      Path: Default Work Unit\Main
+  EventWwu:
+  - PhysicalPath: Events\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
+    guid: 18df17eb1a42a94fb2768ca9fbe003fe
+    GuidInternal: 
+    m_lastTime: -8585954577289683256
+    List:
+    - name: Ambiances
+      guid: 60263c82c526bc478ccdce9b6a484871
+      id: 1404066300
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ambiances
+        ObjectType: 4
+      Path: Default Work Unit\Ambiances
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cards
+      guid: 5ab7d753d665b64dbf72ad2a9e233be6
+      id: 4256484138
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Cards
+        ObjectType: 4
+      Path: Default Work Unit\Cards
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cards_Buy
+      guid: 0ddd47f8e69e1b488bc674ba8d0eab9f
+      id: 577725723
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Cards
+        ObjectType: 4
+      - ElementName: Cards_Buy
+        ObjectType: 3
+      Path: Default Work Unit\Cards\Cards_Buy
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cards_Draw
+      guid: 38df3a9d122b5942b9ca08358e17065c
+      id: 3390165243
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Cards
+        ObjectType: 4
+      - ElementName: Cards_Draw
+        ObjectType: 3
+      Path: Default Work Unit\Cards\Cards_Draw
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cards_Play
+      guid: e7e419aaaec5fc48a736127727d89a9f
+      id: 1545901747
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Cards
+        ObjectType: 4
+      - ElementName: Cards_Play
+        ObjectType: 3
+      Path: Default Work Unit\Cards\Cards_Play
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cards_Remove
+      guid: 274c673231828a43be9a0e61edbdc203
+      id: 4284303397
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Cards
+        ObjectType: 4
+      - ElementName: Cards_Remove
+        ObjectType: 3
+      Path: Default Work Unit\Cards\Cards_Remove
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cards_Specials
+      guid: 3d41d379869ae241ad0011546d5832dd
+      id: 2488458585
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Cards
+        ObjectType: 4
+      - ElementName: Cards_Specials
+        ObjectType: 4
+      Path: Default Work Unit\Cards\Cards_Specials
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cards_Specials_Attack
+      guid: 42bc26cf0df8e946b3517210d39b0bec
+      id: 1823055960
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Cards
+        ObjectType: 4
+      - ElementName: Cards_Specials
+        ObjectType: 4
+      - ElementName: Cards_Specials_Attack
+        ObjectType: 3
+      Path: Default Work Unit\Cards\Cards_Specials\Cards_Specials_Attack
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cards_Specials_Defense
+      guid: 35f2efbed6e68340a3397f3422e43b5d
+      id: 1772719216
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Cards
+        ObjectType: 4
+      - ElementName: Cards_Specials
+        ObjectType: 4
+      - ElementName: Cards_Specials_Defense
+        ObjectType: 3
+      Path: Default Work Unit\Cards\Cards_Specials\Cards_Specials_Defense
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cards_Specials_Movement
+      guid: a42459f1f2a21f4b945b562111097042
+      id: 2367690171
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Cards
+        ObjectType: 4
+      - ElementName: Cards_Specials
+        ObjectType: 4
+      - ElementName: Cards_Specials_Movement
+        ObjectType: 3
+      Path: Default Work Unit\Cards\Cards_Specials\Cards_Specials_Movement
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cards_Specials_Power_Up
+      guid: b44c41ff3d4a60448649ae20d6c9b454
+      id: 22477185
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Cards
+        ObjectType: 4
+      - ElementName: Cards_Specials
+        ObjectType: 4
+      - ElementName: Cards_Specials_Power_Up
+        ObjectType: 3
+      Path: Default Work Unit\Cards\Cards_Specials\Cards_Specials_Power_Up
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cards_Specials_Spell
+      guid: ab768773845bd3459147fdcbaca0081a
+      id: 2777435730
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Cards
+        ObjectType: 4
+      - ElementName: Cards_Specials
+        ObjectType: 4
+      - ElementName: Cards_Specials_Spell
+        ObjectType: 3
+      Path: Default Work Unit\Cards\Cards_Specials\Cards_Specials_Spell
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Cursor_EndofTurn
+      guid: c8176b3cf34ad247a9de24b37c5ea4de
+      id: 626715967
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Feedback
+        ObjectType: 4
+      - ElementName: Cursor_EndofTurn
+        ObjectType: 3
+      Path: Default Work Unit\Feedback\Cursor_EndofTurn
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Enemy
+      guid: dee2513d9146734aa17cc61353884e3b
+      id: 2299321487
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Enemy
+        ObjectType: 4
+      Path: Default Work Unit\Enemy
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Enemy_Death
+      guid: e058e97160ede341a055a4665c28fd7b
+      id: 1205999388
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Enemy
+        ObjectType: 4
+      - ElementName: Enemy_Death
+        ObjectType: 3
+      Path: Default Work Unit\Enemy\Enemy_Death
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Enemy_Hit
+      guid: 225aa1867587104190bfd8d9ec132356
+      id: 1010055213
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Enemy
+        ObjectType: 4
+      - ElementName: Enemy_Hit
+        ObjectType: 3
+      Path: Default Work Unit\Enemy\Enemy_Hit
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Enemy_Hit_Block
+      guid: 9cdd7d9f5031c54784f6c87fbe958c54
+      id: 2041288531
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Enemy
+        ObjectType: 4
+      - ElementName: Enemy_Hit_Block
+        ObjectType: 3
+      Path: Default Work Unit\Enemy\Enemy_Hit_Block
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Enemy_Moving
+      guid: a8d0529f82ba1447a4d5e1534b767317
+      id: 3438446492
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Enemy
+        ObjectType: 4
+      - ElementName: Enemy_Moving
+        ObjectType: 3
+      Path: Default Work Unit\Enemy\Enemy_Moving
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Feeback_Gold
+      guid: 3ef93fb8f7704c47a6de178cbc2723a2
+      id: 1737977583
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Feedback
+        ObjectType: 4
+      - ElementName: Feeback_Gold
+        ObjectType: 3
+      Path: Default Work Unit\Feedback\Feeback_Gold
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Feedback
+      guid: 5dadcc97201a164f8618faf7a0620e44
+      id: 4228153068
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Feedback
+        ObjectType: 4
+      Path: Default Work Unit\Feedback
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Feedback_Chest
+      guid: e116faff0c7c5e4884d1f18ae92599c6
+      id: 365110558
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Feedback
+        ObjectType: 4
+      - ElementName: Feedback_Chest
+        ObjectType: 3
+      Path: Default Work Unit\Feedback\Feedback_Chest
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Fog_Clear
+      guid: ff692fa1090cf34abb9c810d3a22f17e
+      id: 3349601745
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ambiances
+        ObjectType: 4
+      - ElementName: Fog_Clear
+        ObjectType: 3
+      Path: Default Work Unit\Ambiances\Fog_Clear
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Mechanical
+      guid: eeebe6bc30ae334a8aa56363608eacca
+      id: 192460720
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ambiances
+        ObjectType: 4
+      - ElementName: Mechanical
+        ObjectType: 3
+      Path: Default Work Unit\Ambiances\Mechanical
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Mus_Menu
+      guid: 60c2cd17846bab4cbb71d72bc1e1e9d1
+      id: 3149643052
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 4
+      - ElementName: Mus_Menu
+        ObjectType: 3
+      Path: Default Work Unit\Music\Mus_Menu
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Mus_None
+      guid: b7eb4e8cc0c499479b86d5d1e5fa9074
+      id: 1825203175
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 4
+      - ElementName: Mus_None
+        ObjectType: 3
+      Path: Default Work Unit\Music\Mus_None
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Mus_Player
+      guid: 778fb549d8b0b64a8a5baf4b923284de
+      id: 1587987990
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 4
+      - ElementName: Mus_Player
+        ObjectType: 3
+      Path: Default Work Unit\Music\Mus_Player
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Mus_Ringmaster
+      guid: 0232b6fd9169284a9386f3658eceec5d
+      id: 1880655969
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 4
+      - ElementName: Mus_Ringmaster
+        ObjectType: 3
+      Path: Default Work Unit\Music\Mus_Ringmaster
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Music
+      guid: 1453543a002d4e46a8aa38b9ed64330c
+      id: 3991942870
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 4
+      Path: Default Work Unit\Music
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Park_Theme
+      guid: e94f8c35ed55ee499f1e2eab55424ca6
+      id: 1752074195
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ambiances
+        ObjectType: 4
+      - ElementName: Park_Theme
+        ObjectType: 3
+      Path: Default Work Unit\Ambiances\Park_Theme
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Play_Amb_General_BC
+      guid: cca05adf8e27c04da96a86dd271277a2
+      id: 1006941571
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Ambiances
+        ObjectType: 4
+      - ElementName: Play_Amb_General_BC
+        ObjectType: 3
+      Path: Default Work Unit\Ambiances\Play_Amb_General_BC
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Player
+      guid: f7a20d7d9354c547958659ea48215d29
+      id: 1069431850
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Player
+        ObjectType: 4
+      Path: Default Work Unit\Player
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Player_Death
+      guid: e37167458eea5e44b27857b073a89ff0
+      id: 3083087645
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Player
+        ObjectType: 4
+      - ElementName: Player_Death
+        ObjectType: 3
+      Path: Default Work Unit\Player\Player_Death
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Player_Hit
+      guid: 18a66a9d6886ef41985325734377a7aa
+      id: 871813740
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Player
+        ObjectType: 4
+      - ElementName: Player_Hit
+        ObjectType: 3
+      Path: Default Work Unit\Player\Player_Hit
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Player_Hit_Block
+      guid: 7da783d2be015c48b7fba2711ceb114a
+      id: 2142322930
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Player
+        ObjectType: 4
+      - ElementName: Player_Hit_Block
+        ObjectType: 3
+      Path: Default Work Unit\Player\Player_Hit_Block
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Player_Move
+      guid: 2140075d2bdf4c4ba410dd8d9b651568
+      id: 2248092158
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Player
+        ObjectType: 4
+      - ElementName: Player_Move
+        ObjectType: 3
+      Path: Default Work Unit\Player\Player_Move
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: RingMaster
+      guid: 12fbb0feb35d1440920d85818dabcd58
+      id: 1506151517
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: RingMaster
+        ObjectType: 4
+      Path: Default Work Unit\RingMaster
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Ringmaster_EndofTurn
+      guid: d5fbbe88812d9641879b1dbbfc914996
+      id: 4061952277
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: RingMaster
+        ObjectType: 4
+      - ElementName: Ringmaster_EndofTurn
+        ObjectType: 3
+      Path: Default Work Unit\RingMaster\Ringmaster_EndofTurn
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: SFX_Feedback_Cursor_Comeback
+      guid: 3ef04f97fe9dd144b855f80297b40dd5
+      id: 2677054925
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Feedback
+        ObjectType: 4
+      - ElementName: SFX_Feedback_Cursor_Comeback
+        ObjectType: 3
+      Path: Default Work Unit\Feedback\SFX_Feedback_Cursor_Comeback
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Title_Screen
+      guid: 44c4f8189d5e9d4b90946dee724672e7
+      id: 3853285476
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Music
+        ObjectType: 4
+      - ElementName: Title_Screen
+        ObjectType: 3
+      Path: Default Work Unit\Music\Title_Screen
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+  RtpcWwu:
+  - PhysicalPath: Game Parameters\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
+    guid: e8ed79a78084244ea3a2708de730abd5
+    GuidInternal: 
+    m_lastTime: -8585954577289693255
+    List: []
+  StateWwu:
+  - PhysicalPath: States\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
+    guid: 0fa91cb90daeb14dbacee7b04132a4d2
+    GuidInternal: 
+    m_lastTime: -8585954577287412746
+    List:
+    - name: TurnState
+      guid: cb84467e0b6a94439f3081482398c12b
+      id: 3653852827
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: TurnState
+        ObjectType: 9
+      Path: Default Work Unit\TurnState
+      values:
+      - name: Menu
+        guid: 7101a356e6296d40b7fadb348b9916f3
+        id: 2607556080
+        PathAndIcons:
+        - ElementName: Menu
+          ObjectType: 8
+      - name: None
+        guid: 6e895663c37e014fa3670283cf9da656
+        id: 748895195
+        PathAndIcons:
+        - ElementName: None
+          ObjectType: 8
+      - name: Player
+        guid: 4ac3febcb532834bb516000d4e65b916
+        id: 1069431850
+        PathAndIcons:
+        - ElementName: Player
+          ObjectType: 8
+      - name: Ringmaster
+        guid: a7b205709ce5bd4ea950d7f1d3b52e2a
+        id: 1506151517
+        PathAndIcons:
+        - ElementName: Ringmaster
+          ObjectType: 8
+      ValueGuids: []
+      ValueIcons: []
+      valuesInternal: []
+  SwitchWwu:
+  - PhysicalPath: Switches\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
+    guid: 983f95c515a2f44cb6ee7bf5aece0106
+    GuidInternal: 
+    m_lastTime: -8585954577287392741
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers\Default Work Unit.wwu
+    PathAndIcons:
+    - ElementName: Default Work Unit
+      ObjectType: 12
+    ParentPath: Default Work Unit
+    guid: 7c3990d46ce63044979e0355f208c74a
+    GuidInternal: 
+    m_lastTime: -8585954577287382738
+    List: []
+  ExpandedItems:
+  - /Godmorgon3D_WwiseProject
+  - /Godmorgon3D_WwiseProject/Events
+  - /Godmorgon3D_WwiseProject/SoundBanks
+  - /Godmorgon3D_WwiseProject/SoundBanks/Default Work Unit
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

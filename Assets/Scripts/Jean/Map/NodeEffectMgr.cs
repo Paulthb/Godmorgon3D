@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using GodMorgon.Sound;
+
 public enum NodeEffect
 {
     EMPTY,
@@ -214,7 +216,7 @@ public class NodeEffectMgr : MonoBehaviour
         //PlayerMgr.Instance.AddToken();
 
         //SFX chest room
-        //MusicManager.Instance.PlayFeedbackChest();
+        MusicManager.Instance.PlayFeedbackChest();
 
         GameManager.Instance.DraftPanelActivation(true);
 

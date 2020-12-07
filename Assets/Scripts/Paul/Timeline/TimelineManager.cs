@@ -227,7 +227,7 @@ namespace GodMorgon.Timeline
                 nbTurn++;
 
                 //SFX end ringmaster Turn
-                //MusicManager.Instance.PlayCursorEnd();
+                MusicManager.Instance.PlayRingMasterEndTurn();
             }
             else
                 gearsList[0].gear.Stop();

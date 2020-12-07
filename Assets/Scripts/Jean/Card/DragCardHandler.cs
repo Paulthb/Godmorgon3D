@@ -128,8 +128,8 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                     //CardEffectManager.Instance.PlayCard(eventData.pointerDrag.GetComponent<CardDisplay>().card, context);
 
                     //======================sound=========================
-                    //MusicManager.Instance.PlayCardsPlay();
-                    //PlayTypeCardSFX(_card.cardType);
+                    MusicManager.Instance.PlayCardsPlay();
+                    PlayTypeCardSFX(_card.cardType);
 
 
                     //discard the used card
@@ -222,10 +222,10 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         transform.localPosition = discardPilePos.localPosition;
         Destroy(gameObject);
     }
-    /*
+
     public void PlayTypeCardSFX(BasicCard.CARDTYPE type)
     {
-        switch(type)
+        switch (type)
         {
             case BasicCard.CARDTYPE.ATTACK:
                 MusicManager.Instance.PlayCardsAttack();
@@ -243,5 +243,5 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 MusicManager.Instance.PlayCardsSpell();
                 break;
         }
-    }*/
+    }
 }
