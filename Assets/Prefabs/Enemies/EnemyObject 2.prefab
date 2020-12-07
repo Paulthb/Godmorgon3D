@@ -192,7 +192,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   shakeDuration: 1
-  healthBarPrefab: {fileID: 5174257765683543531, guid: faf3234c119acaf43adca13e1572bd79,
+  healthBarPrefab: {fileID: 8034885372768079765, guid: cc7ee9355cfdf204886e55e20ce66ff4,
     type: 3}
   healthBarPos: {fileID: 1668198383776553363}
   enemyCanvas: {fileID: 7957440271945707652}

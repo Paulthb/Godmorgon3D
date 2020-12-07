@@ -9,8 +9,6 @@ using TMPro;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField]
-    private Image defenseImage = null;
-    [SerializeField]
     private Image healthImage = null;
 
     [SerializeField]
@@ -43,12 +41,12 @@ public class HealthBar : MonoBehaviour
         {
             maxDefensePoint = currentDefense;
         }
-        if (currentDefense == 0)
-            defenseImage.fillAmount = 0;
-        else
-        {
-            defenseImage.fillAmount = currentDefense / maxDefensePoint;
-        }
+        //if (currentDefense == 0)
+        //    defenseImage.fillAmount = 0;
+        //else
+        //{
+        //    defenseImage.fillAmount = currentDefense / maxDefensePoint;
+        //}
 
         if(currentHealth == 0)
             healthImage.fillAmount = 0;
