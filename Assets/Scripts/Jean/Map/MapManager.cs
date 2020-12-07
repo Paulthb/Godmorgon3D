@@ -707,7 +707,17 @@ public class MapManager : MonoBehaviour
     }
 
     /**
-     * TEMP : check when click on room if can move, and active the move in player mgr
+     * Send true if there are accessible nodes
+     */
+    public bool AccessibleNodesAvailable()
+    {
+        if (accessibleNodes.Count > 0)
+            return true;
+        else return false;
+    }
+
+    /**
+     * Check when click on room if can move, and active the move in player mgr
      */
     public bool CheckClickedNode(Vector3Int clickedNode)
     {

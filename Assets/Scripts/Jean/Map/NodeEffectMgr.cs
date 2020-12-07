@@ -301,12 +301,11 @@ public class NodeEffectMgr : MonoBehaviour
 
         if (currentParticleObject == null)
         {
-            print("No particule to delete");
             yield break;
         }
+
         currentParticleObject.Stop();
         yield return new WaitForSeconds(3f);
         Destroy(currentParticleObject.gameObject);
-
     }
 }

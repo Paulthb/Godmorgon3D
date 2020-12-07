@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 using GodMorgon.Models;
 using GodMorgon.GameSequencerSpace;
@@ -66,7 +67,6 @@ namespace GodMorgon.CardEffect
             else
                 TimelineManager.Instance.SetRingmasterActionRemain(context.card.actionCost);
         }
-
 
         /**
          * Factory of card effect

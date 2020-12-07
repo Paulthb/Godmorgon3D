@@ -86,9 +86,6 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             PlayerMgr.Instance.UpdateMoveDatas(context.card.effectsData);   //On envoie les datas de la carte au playerMgr pour gérer les cas d'accessibilités des nodes voisins
         }
 
-        //On montre les positions disponibles pour le drop de la carte
-        dropPosManager.ShowPositionsToDrop(_card);
-
 
         //on désactive le drag de la caméra pour rester stabe pendant le drag d'une carte
         mainCamera.ActiveCameraDrag(false);
@@ -97,12 +94,12 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     //fonction lancée lorsqu'on a une carte en main
     public void OnDrag(PointerEventData eventData)
     {
-        if (eventData.pointerDrag.GetComponent<CardDisplay>().card.cardType != BasicCard.CARDTYPE.CURSE)
+        if (_card.cardType != BasicCard.CARDTYPE.CURSE)
         {
             //onCardDragDelegate?.Invoke(this.gameObject, eventData);
 
-            this.transform.position = eventData.position;   //La carte prend la position de la souris
-            this.GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth / 3, cardHeight / 3);  //On réduit la taille de la carte lors du drag
+            transform.position = eventData.position;   //La carte prend la position de la souris
+            GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth / 3, cardHeight / 3);  //On réduit la taille de la carte lors du drag
         }
     }
 
@@ -118,132 +115,112 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         {
             foreach (RaycastResult result in raycastResults)
             {
-                if (result.gameObject.tag == "DropZone")
-                    Debug.Log("ON DROP ZONE !!");
+                if (result.gameObject.tag == "DropZone" && ValidatePlayableCard())
+                {
+                    //On montre les positions disponibles pour le drop de la carte
+                    dropPosManager.ShowPositionsToDrop(_card);
+
+                    //on lock toutes les cartes en main et tout le downPanel
+                    GameManager.Instance.UnlockDragCardHandler(false);
+                    GameManager.Instance.DownPanelBlock(true);
+
+                    //Play the card
+                    //CardEffectManager.Instance.PlayCard(eventData.pointerDrag.GetComponent<CardDisplay>().card, context);
+
+                    //======================sound=========================
+                    //MusicManager.Instance.PlayCardsPlay();
+                    //PlayTypeCardSFX(_card.cardType);
+
+
+                    //discard the used card
+                    GameManager.Instance.DiscardHandCard(gameObject.GetComponent<CardDisplay>());
+
+                    //La carte va à la discard visuellement
+                    StartCoroutine(PlayGoToDiscard());
+
+                    //Si la carte n'a pas de cible, on play la card directement
+                    if (_card.dropTarget == BasicCard.DROP_TARGET.PLAYER)
+                        CardEffectManager.Instance.PlayCard(_card, context);
+                    //Sinon attend de choisir une cible avant de jouer la carte
+                    else
+                        StartCoroutine(ChooseTargetBeforePlayCard());
+
+
+                    //On désactive la dropZone pour les cartes
+                    GameManager.Instance.ActiveDropZone(false);
+
+                    //Réactive le drag de la caméra
+                    mainCamera.ActiveCameraDrag(true);
+
+                    return;
+                }                
             }
+            
+            //La carte n'est pas posée sur la drop zone ou n'est pas validée : on la remet dans la main
+            transform.SetParent(hand);
+
+            transform.position = startPosition;    //Par défaut, la carte retourne dans la main
+            GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);  //La carte récupère sa taille normale
+
+            //On désactive la dropZone pour les cartes
+            GameManager.Instance.ActiveDropZone(false);
         }
 
-        //on désactive la dropZone pour les cartes
-        GameManager.Instance.ActiveDropZone(false);
-
-        this.transform.SetParent(hand);
-
-        this.transform.position = startPosition;    //Par défaut, la carte retourne dans la main
-        this.GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);  //La carte récupère sa taille normale
-
         //Cache les positions accessibles
-        dropPosManager.HidePositionsToDrop(_card);
+        //dropPosManager.HidePositionsToDrop(_card);
 
         //Réactive le drag de la caméra
         mainCamera.ActiveCameraDrag(true);
     }
 
-    //applique l'effet de la dernière carte droppé si la cible est validé
-    public void ValidateCardTarget()
+    /**
+     * Vérifie que la carte peut être jouée, càd qu'il y a un ennemi attackable ou un node accessible (les autres sont jouables)
+     */
+    public bool ValidatePlayableCard()
     {
-        //eventData.pointerDrag.GetComponent<CardDisplay>().OnCardDrag(false);
+        //Si la carte n'a pas de cible, on valide sa jouabilité
+        if (_card.dropTarget == BasicCard.DROP_TARGET.PLAYER)
+            context.isDropValidate = true;
+        //Sinon on vérifie qu'on a un node accessible ou un ennemi attackable
+        else if(_card.dropTarget == BasicCard.DROP_TARGET.ENEMY || _card.dropTarget == BasicCard.DROP_TARGET.NODE)
+            dropPosManager.GetDropCardContext(_card, context);
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100))
+        return context.isDropValidate;
+    }
+
+    /**
+     * Coroutine qui attend que le joueur choisisse un ennemi avant de lancer l'attaque
+     */
+    IEnumerator ChooseTargetBeforePlayCard()
+    {
+        if (_card.dropTarget == BasicCard.DROP_TARGET.ENEMY)
         {
-            //On check à chaque fois si on drop la carte sur une cible du même type que le type précisé par la carte
-            if (hit.collider.tag == "Node" && _card.dropTarget == BasicCard.DROP_TARGET.NODE)
+            PlayerMgr.Instance.LaunchEnemyChoice();
+            yield return new WaitForSeconds(1f);
+            while(!PlayerMgr.Instance.ChosenEnemy())
             {
-                Vector3Int clickedNode = hit.collider.gameObject.GetComponent<NodeScript>().node.nodePosition;
-                context.targetNodePos = clickedNode;
-
-                // Check if drop on node is ok 
-                dropPosManager.GetDropCardContext(_card, clickedNode, context);
+                yield return new WaitForSeconds(0.1f);  //Le yield return null empêche parfois la coroutine de se poursuivre
             }
-            else if (hit.collider.tag == "Enemy" && _card.dropTarget == BasicCard.DROP_TARGET.ENEMY)
-            {
-                // Add enemy selected in context
-                context.targets = hit.collider.GetComponentInParent<EnemyScript>().enemyData;
-
-                // Get node position of this enemy
-                Vector3Int enemyNodePos = EnemyMgr.Instance.GetEnemyNodePos(hit.collider.transform);
-
-                dropPosManager.GetDropCardContext(_card, enemyNodePos, context);
-            }
-            // Select node even if the card is dropped on enemy (to avoid raycast filter)
-            // Used for sight card or move card
-            else if (hit.collider.tag == "Enemy" && _card.dropTarget == BasicCard.DROP_TARGET.NODE)
-            {
-                // Get the node of the enemy where the card is dropped
-                Vector3Int clickedNode = hit.collider.gameObject.GetComponent<EnemyScript>().GetNodePosOfEnemy();
-                context.targetNodePos = clickedNode;
-
-                dropPosManager.GetDropCardContext(_card, clickedNode, context);
-            }
-            else if (hit.collider.tag == "Player" && _card.dropTarget == BasicCard.DROP_TARGET.PLAYER)
-            {
-                // put player in context
-                context.targets = hit.collider.GetComponentInParent<PlayerMgr>().playerData;
-
-                // Get node position of the player
-                Vector3Int playerNodePos = PlayerMgr.Instance.GetNodePosOfPlayer();
-
-                dropPosManager.GetDropCardContext(_card, playerNodePos, context);
-            }
-        }
-
-        if (context.isDropValidate)
-        {
-            //on lock toutes les cartes en main et tout le downPanel
-            GameManager.Instance.UnlockDragCardHandler(false);
-            GameManager.Instance.DownPanelBlock(true);
-
-            //Play the card
-            //CardEffectManager.Instance.PlayCard(eventData.pointerDrag.GetComponent<CardDisplay>().card, context);
-
-            //Effect + delete card
-            //Instantiate(dropEffect, dropPosition, Quaternion.identity, effectsParent);
-            //this.gameObject.SetActive(false);
-
-            //Cache les positions accessibles
+            context.targets = PlayerMgr.Instance.GetChosenEnemyEntity();
             dropPosManager.HidePositionsToDrop(_card);
-
-            //======================sound=========================
-            //MusicManager.Instance.PlayCardsPlay();
-            //PlayTypeCardSFX(_card.cardType);
-
-
-            //discard the used card
-            GameManager.Instance.DiscardHandCard(this.gameObject.GetComponent<CardDisplay>());
-
-            //on lance la particle de card drop
-            //GameObject dropEffect = Instantiate(dropEffectPrefab, dropPosition, Quaternion.identity);
-            //dropEffect.GetComponent<ParticleSystemScript>().PlayNDestroy();
-
-            //Destroy(this.gameObject);
-            StartCoroutine(PlayGoToDiscard());
+            CardEffectManager.Instance.PlayCard(_card, context);
         }
-        else
-        {
-            this.transform.SetParent(hand);
-
-            this.transform.position = startPosition;    //Par défaut, la carte retourne dans la main
-            this.GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);  //La carte récupère sa taille normale
-
-            //Cache les positions accessibles
-            dropPosManager.HidePositionsToDrop(_card);
-        }
-
+        else if(_card.dropTarget == BasicCard.DROP_TARGET.NODE)
+            CardEffectManager.Instance.PlayCard(_card, context);
     }
 
     //coroutine, la carte se dirige vers la discard pile
     public IEnumerator PlayGoToDiscard()
     {
         //active la trail renderer
-        this.gameObject.GetComponent<TrailRenderer>().enabled = true;
-        while ((this.transform.localPosition - discardPilePos.localPosition).magnitude > 0.01f)
+        gameObject.GetComponent<TrailRenderer>().enabled = true;
+        while ((transform.localPosition - discardPilePos.localPosition).magnitude > 0.01f)
         {
-            this.transform.localPosition = Vector3.Lerp(this.transform.localPosition, discardPilePos.localPosition, Time.deltaTime * speedCardDiscard);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, discardPilePos.localPosition, Time.deltaTime * speedCardDiscard);
             yield return null;
         }
-        this.transform.localPosition = discardPilePos.localPosition;
-        Destroy(this.gameObject);
+        transform.localPosition = discardPilePos.localPosition;
+        Destroy(gameObject);
     }
     /*
     public void PlayTypeCardSFX(BasicCard.CARDTYPE type)

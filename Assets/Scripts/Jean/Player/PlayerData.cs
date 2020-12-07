@@ -67,7 +67,6 @@ namespace GodMorgon.Player
             if (doubleDamageTaken)
             {
                 damagePoint = damagePoint * 2;
-                //Debug.Log("damage reçu doublé !");
             }
             //apply power up like hard head
             BuffManager.Instance.ApplyModifiedDamageTaken(damagePoint);
@@ -85,7 +84,6 @@ namespace GodMorgon.Player
                 health--;
                 damagePoint--;
             }
-            Debug.Log("player health is : " + health);
 
             //apply scarification at every damage taken
             BuffManager.Instance.ApplyScarification();
@@ -103,7 +101,6 @@ namespace GodMorgon.Player
             }
             if (doubleDamageDone)
             {
-                //Debug.Log("damage donné double !");
                 baseDamagePoint = baseDamagePoint * 2;
             }
             return baseDamagePoint;
