@@ -625,7 +625,7 @@ namespace GodMorgon.Player
             //Update text
             if(!healthValueText || !shieldValueText)
             {
-                print("Pas de health et shield text renseigné dans PlayerMgr");
+                //print("Pas de health et shield text renseigné dans PlayerMgr");
                 return;
             }
             healthValueText.text = playerData.health.ToString();
@@ -688,6 +688,7 @@ namespace GodMorgon.Player
 
             //launch player hit effect
             OnDamage();
+
             //launch player take damage animation
             PlayPlayerAnim("TakeDamage");
         }

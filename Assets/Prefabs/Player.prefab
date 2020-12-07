@@ -3338,6 +3338,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCounterPerm
       objectReference: {fileID: 0}
+    - target: {fileID: 4993559789997950431, guid: 6fb483e3287c27f4fa98ed8a92ef4cd2,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761444949204321944, guid: 6fb483e3287c27f4fa98ed8a92ef4cd2,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8761444949219533430, guid: 6fb483e3287c27f4fa98ed8a92ef4cd2,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -3374,6 +3384,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 977715838340599380, guid: eb0e298752797bb42ad21b5a515f627d,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 977715838340629858, guid: eb0e298752797bb42ad21b5a515f627d,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8138207959426972066, guid: eb0e298752797bb42ad21b5a515f627d,
         type: 3}
@@ -3467,6 +3487,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6689561675992876977}
     m_Modifications:
+    - target: {fileID: 236612460341659389, guid: 238cbf2b2d7402842811a6a3e5c04a03,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 236612460360016403, guid: 238cbf2b2d7402842811a6a3e5c04a03,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -3578,6 +3603,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 625643173617246015, guid: 0b62e5eea88392e46a2baac0d0065b47,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625643173617246015, guid: 0b62e5eea88392e46a2baac0d0065b47,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625643173617276411, guid: 0b62e5eea88392e46a2baac0d0065b47,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 625643173617276411, guid: 0b62e5eea88392e46a2baac0d0065b47,
+        type: 3}
+      propertyPath: looping
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8138207959426972066, guid: 0b62e5eea88392e46a2baac0d0065b47,
         type: 3}
