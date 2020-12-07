@@ -21,6 +21,8 @@ namespace GodMorgon.Enemy
         private List<Spot> roadPath; //First path calculated
         private List<Spot> enemyPath; //Final path calculated, without player's tile if he's on path
 
+        private Node lastNode;
+
         private int tileIndex;  //Index used for the movement mechanic, one tile after another
         private int nbTilesPerMove = 3;  //Nb tiles for 1 move
 
@@ -65,6 +67,7 @@ namespace GodMorgon.Enemy
                 enemyData.nbMoves = _enemy.nbMoves;
                 enemyData.speed = _enemy.speed;
                 enemyData.attackRange = _enemy.attackRange;
+                enemyData.isCursed = _enemy.isCursed;
                 enemyData.skin = _enemy.skin;
                 enemyData.inPlayersNode = false;
                 enemyData.enemyScript = this;
@@ -108,7 +111,7 @@ namespace GodMorgon.Enemy
             Vector3Int enemyTilePos = GetTilePosOfEnemy();
 
             //If enemy not in player's node
-            if (!enemyData.inPlayersNode)
+            if (!enemyData.inPlayersNode && enemyData.nbMoves != 0)
             {
                 int nbTiles = nbTilesPerMove * enemyData.nbMoves;
 
@@ -185,6 +188,10 @@ namespace GodMorgon.Enemy
 
                     EnemyMgr.Instance.RecenterAnEnemyOnNode(lastNode);
                 }
+
+                //If enemy is Curse-Occhio, we add fog on last node
+                if (enemyData.isCursed)
+                    FogMgr.Instance.AddFogOnNode(GetNodeOfEnemy());
 
 
                 // The next node get this enemy in its list

@@ -16,6 +16,7 @@ namespace GodMorgon.Enemy
         public int attackRange = 0;
         public float speed = 0;
         public Sprite skin = null;
+        public bool isCursed = false;
         public bool inPlayersNode = false;
         public bool inOtherEnemyNode = false;
         public bool killedByPlayer = false;
