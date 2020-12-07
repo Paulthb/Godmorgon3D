@@ -62,6 +62,7 @@ namespace GodMorgon.Enemy
                 enemyData.defense = _enemy.defense;
                 enemyData.nbMoves = _enemy.nbMoves;
                 enemyData.speed = _enemy.speed;
+                enemyData.attackRange = _enemy.attackRange;
                 enemyData.skin = _enemy.skin;
                 enemyData.inPlayersNode = false;
                 enemyData.enemyScript = this;
@@ -260,8 +261,12 @@ namespace GodMorgon.Enemy
          */
         public void Attack()
         {
+            Node currentNode = GetNodeOfEnemy().GetComponent<NodeScript>().node;
+
+            GameObject attackableEntity = GetAttackableEntity(currentNode);
+
             // Don't attack if nobody to attack
-            if (!enemyData.inPlayersNode && GetNodeOfEnemy().GetComponent<NodeScript>().node.enemiesOnNode.Count == 1)
+            if (attackableEntity == null)
             {
                 isAttackFinished = true;
                 return;
@@ -269,27 +274,64 @@ namespace GodMorgon.Enemy
 
             ShowAttackEffect(); //Décommenter qd on aura l'anim d'attaque
             StartCoroutine(AttackEffect());
-            
-            //If player on node, player take damages
-            if (enemyData.inPlayersNode)
+
+            if (attackableEntity == PlayerMgr.Instance.gameObject)
                 PlayerMgr.Instance.TakeDamage(enemyData.attack);
+            else
+                attackableEntity.GetComponent<EnemyScript>().enemyData.TakeDamage(enemyData.attack, false);
 
-            Node currentNode = GetNodeOfEnemy().GetComponent<NodeScript>().node;
+            print("ENEMY " + gameObject.name + " has attacked " + attackableEntity.name);
 
-            //If enemies on node, they take damages
-            if (currentNode.enemiesOnNode.Count > 1)
+            //Take damage if counter activated
+            enemyData.TakeDamage(PlayerMgr.Instance.Counter(), false);
+        }
+
+        /**
+         * Return list of attackable entity, player or enemies
+         */
+        public GameObject GetAttackableEntity(Node currentNode)
+        {
+            //If range == 0, we look on node if there is a player or an enemy
+            if(enemyData.attackRange == 0)
             {
-                foreach (EnemyScript enemy in currentNode.enemiesOnNode)
+                if (PlayerMgr.Instance.GetNodeOfPlayer() == GetNodeOfEnemy())
                 {
-                    if (enemy != this)
+                    return PlayerMgr.Instance.gameObject; //Attack the player if on node
+                }
+                else if(currentNode.enemiesOnNode.Count > 1)
+                {
+                    foreach (EnemyScript enemy in currentNode.enemiesOnNode)
                     {
-                        enemy.enemyData.TakeDamage(enemyData.attack, false);
+                        if (enemy != this)
+                        {
+                            return enemy.gameObject; //Attack the first accessible enemy if no player
+                        }
+                    }
+                }
+            } 
+            //The range is at one node or more
+            else
+            {
+                //Attack the player if in range
+                if (Vector3Int.Distance(PlayerMgr.Instance.GetNodePosOfPlayer(), GetNodePosOfEnemy()) <= enemyData.attackRange * 3)
+                {
+                    return PlayerMgr.Instance.gameObject;
+                }
+                //Else attack an enemy in range
+                foreach (EnemyScript enemy in EnemyMgr.Instance.GetAllEnemies())
+                {
+                    if(enemy != this)
+                    {
+                        if (Vector3Int.Distance(enemy.GetNodePosOfEnemy(), GetNodePosOfEnemy()) <= enemyData.attackRange * 3)
+                        {
+                            return enemy.gameObject;
+                        }
                     }
                 }
             }
 
-            //Take damage if counter activated
-            enemyData.TakeDamage(PlayerMgr.Instance.Counter(), false);
+            //We have nodody to attack so return null
+            return null;
         }
 
         /**

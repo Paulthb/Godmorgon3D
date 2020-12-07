@@ -138,6 +138,8 @@ public class HandManager : MonoBehaviour
             {
                 if (cardsToDestroy.Contains(card.GetComponent<CardDisplay>()))
                 {
+                    //Debug.Log("destroy " + card.GetComponent<CardDisplay>().card.name);
+
                     GameManager.Instance.DiscardHandCard(card.GetComponent<CardDisplay>());
                     Destroy(card.gameObject);
                 }

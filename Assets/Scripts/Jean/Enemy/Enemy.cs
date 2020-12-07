@@ -14,5 +14,6 @@ namespace GodMorgon.Models
         public float speed = 5;
         public int attack = 0;
         public int defense = 0;
+        public int attackRange = 0;
     }
 }
