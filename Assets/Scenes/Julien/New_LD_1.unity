@@ -13285,6 +13285,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 861327699}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &866574920 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4497467645376288415, guid: befb802f273720841b7d0981cc3dc664,
+    type: 3}
+  m_PrefabInstance: {fileID: 1165564344}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &871404142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18358,6 +18370,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1915395102834923669, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: turnText
+      value: 
+      objectReference: {fileID: 866574920}
     - target: {fileID: 2678367107928848180, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_Text
@@ -18666,30 +18683,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1165564344}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1165564349 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2459485199097911856, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1165564350 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2430562996214616623, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1167401454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36109,12 +36102,12 @@ PrefabInstance:
         type: 3}
       propertyPath: healthValueText
       value: 
-      objectReference: {fileID: 1165564350}
+      objectReference: {fileID: 0}
     - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
       propertyPath: shieldValueText
       value: 
-      objectReference: {fileID: 1165564349}
+      objectReference: {fileID: 0}
     - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
       propertyPath: m_LocalPosition.x
