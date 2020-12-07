@@ -72,6 +72,11 @@ namespace GodMorgon.CardEffect
                 context.targets.TakeDamage(PlayerMgr.Instance.playerData.DoDamage(damagePoint), true);
                 PlayerMgr.Instance.TakeDamage(effectData.PlayerDamage);
             }
+            //inflige des dégâts au player tout court
+            else if(!effectData.Rush && effectData.PlayerDamage > 0)
+            {
+                PlayerMgr.Instance.TakeDamage(effectData.PlayerDamage);
+            }
             else
             {
                 //toujours passer par le playerData pour infliger les dégats correspondant au stats actuel du player
