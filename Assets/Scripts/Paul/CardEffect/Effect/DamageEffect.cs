@@ -45,7 +45,7 @@ namespace GodMorgon.CardEffect
                 }
             }
 
-            //if player attack an enemy
+            //Si pas de target
             if (context.targets == null)
                 Debug.Log("il manque une target dans le contexte !");
 

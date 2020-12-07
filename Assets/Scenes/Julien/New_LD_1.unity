@@ -10332,6 +10332,18 @@ MonoBehaviour:
     coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
+--- !u!114 &646532443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1931830477, guid: befb802f273720841b7d0981cc3dc664,
+    type: 3}
+  m_PrefabInstance: {fileID: 1165564344}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &649509034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31001,6 +31013,7 @@ MonoBehaviour:
   cardOnDeck: {fileID: 1165564347}
   cardOnHand: {fileID: 1165564346}
   cardOnDiscardPile: {fileID: 1165564345}
+  dropZoneObject: {fileID: 646532443}
   VisibleDeck: []
   VisibleDiscardPile: []
 --- !u!1001 &1887391978

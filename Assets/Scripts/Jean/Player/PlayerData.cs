@@ -67,9 +67,8 @@ namespace GodMorgon.Player
             if (doubleDamageTaken)
             {
                 damagePoint = damagePoint * 2;
-                //Debug.Log("damage reçu doublé !");
             }
-            //Debug.Log("player health before was : " + health);
+
             while (damagePoint > 0 && defense > 0)
             {
                 defense--;
@@ -81,7 +80,6 @@ namespace GodMorgon.Player
                 health--;
                 damagePoint--;
             }
-            Debug.Log("player health is : " + health);
 
             //apply scarification at every damage taken
             BuffManager.Instance.ApplyScarification();
@@ -99,7 +97,6 @@ namespace GodMorgon.Player
             }
             if (doubleDamageDone)
             {
-                //Debug.Log("damage donné double !");
                 baseDamagePoint = baseDamagePoint * 2;
             }
             return baseDamagePoint;

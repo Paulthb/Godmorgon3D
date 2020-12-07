@@ -9,7 +9,7 @@ public class EnemyMgr : MonoBehaviour
     public GameObject player;
 
     private List<EnemyScript> enemiesList;
-    private List<EnemyScript> attackableEnemiesList;
+    public List<EnemyScript> attackableEnemiesList;
     private List<EnemyScript> enemiesOnPlayersNode = new List<EnemyScript>();
 
     public List<GameObject> enemiesPrefabsList = new List<GameObject>();    //All the prefabs of enemies that can be instantiated
@@ -414,7 +414,7 @@ public class EnemyMgr : MonoBehaviour
         attackableEnemiesList = new List<EnemyScript>();
         UpdateEnemiesList();
 
-        float finalRange = 0f;
+        float finalRange;
         if (range == 0)
             finalRange = 0.5f;
         else finalRange = range;
@@ -426,6 +426,25 @@ public class EnemyMgr : MonoBehaviour
                 attackableEnemiesList.Add(enemy);
             }
         }
+    }
+
+    /**
+     * Return list of attackable enemies
+     */
+    public List<EnemyScript> GetAttackableEnemiesList()
+    {
+        return attackableEnemiesList;
+    }
+
+    /**
+     * Send true if there are attackable enemies in range
+     */
+    public bool AttackableEnemiesAvailable(int range)
+    {
+        UpdateAttackableEnemiesList(range);
+
+        if (attackableEnemiesList.Count > 0) return true;
+        else return false;
     }
 
     /**

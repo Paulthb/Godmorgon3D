@@ -36,6 +36,8 @@ namespace GodMorgon.Player
         [SerializeField]
         private bool firstInRoom = true;
         private bool canRecenter = false;
+        public bool canChooseEnemyToAttack = false;
+        public bool enemyIsChosen = false;
 
         //dégats reçu à ce tour
         private int turnDamage = 0;
@@ -94,6 +96,9 @@ namespace GodMorgon.Player
         //player Animator
         [SerializeField]
         private Animator playerAnimator = null;
+
+        //Player attack
+        private Entity enemyToAttack;
 
         #region Singleton Pattern
         private static PlayerMgr _instance;
@@ -172,6 +177,38 @@ namespace GodMorgon.Player
                 }
             }
 
+            if(canChooseEnemyToAttack)
+            {
+                if (Input.GetMouseButtonDown(0))    //If click
+                {
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, 100))
+                    {
+                        if (hit.collider.tag == "Enemy")
+                        {
+                            EnemyScript clickedEnemy = hit.collider.gameObject.GetComponent<EnemyScript>();
+                            
+                            // If clicked enemy is attackable
+                            if (EnemyMgr.Instance.GetAttackableEnemiesList().Contains(clickedEnemy))
+                            {
+                                enemyToAttack = clickedEnemy.enemyData;
+                                enemyIsChosen = true;
+                                canChooseEnemyToAttack = false;
+                                EnemyMgr.Instance.HideAttackableEnemies();
+                            }
+                        }
+                    }
+                }
+            }
+
+            //la bar d'espace suit le player sur l'écran
+            if (_healthBar != null)
+                _healthBar.transform.position = Camera.main.WorldToScreenPoint(healthBarPos.position);
+
+            if (canRecenter)
+                LaunchRecenterMechanic();
+
             ////test pour anim
             //if (Input.GetKeyDown("t"))
             //{
@@ -181,16 +218,17 @@ namespace GodMorgon.Player
             //{
             //    PlayPlayerAnim("Attack");
             //}
-
-            //la bar d'espace suit le player sur l'écran
-            if (_healthBar != null)
-                _healthBar.transform.position = Camera.main.WorldToScreenPoint(healthBarPos.position);
-
-            if (canRecenter)
-                LaunchRecenterMechanic();
         }
-            
+
         #region MOVEMENT
+
+        /**
+         * When card drop is validated, it is called to allow the click on accessible node
+         */
+        public void StartMovement()
+        {
+            canLaunchOtherMove = true;
+        }
 
         /**
             * Update the list of the tiles the player has to go through and then activate move mechanic
@@ -602,6 +640,39 @@ namespace GodMorgon.Player
             playerData.health = playerData.healthMax;
             _healthBar.UpdateHealthBarDisplay(playerData.defense, playerData.health); 
         }
+
+        /**
+         * Allow selection of an enemy to attack
+         */
+        public void LaunchEnemyChoice()
+        {
+            enemyToAttack = null;
+            enemyIsChosen = false;
+            canChooseEnemyToAttack = true;
+        }
+
+        /**
+         * Return false if player has not clicked on an enemy to attack yet
+         */
+        public bool ChosenEnemy()
+        {
+            if (!enemyIsChosen) return false;
+            else
+            {
+                enemyIsChosen = false;
+                return true;
+            }
+        }
+
+        /**
+         * Return the enemy to attack, choosed with a click on it
+         */
+        public Entity GetChosenEnemyEntity()
+        {
+            return enemyToAttack;
+        }
+
+
 
         /**
         * Inflige des damages au player

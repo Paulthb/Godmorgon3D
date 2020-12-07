@@ -15,7 +15,7 @@ namespace GodMorgon.GameSequencerSpace
         public override IEnumerator ExecuteAction(GameContext context)
         {
             //PlayerManager.Instance.UpdateMoveDatas(context.card.effectsData);   //On envoie les datas de la carte au playerMgr
-            PlayerMgr.Instance.CalculatePlayerPath(context.targetNodePos); //Lance le premier move du player
+            PlayerMgr.Instance.StartMovement();
             while (!PlayerMgr.Instance.PlayerMoveDone())
                 yield return null;
         }

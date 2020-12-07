@@ -9,12 +9,9 @@ namespace GodMorgon.Timeline
     {
         public override IEnumerator Execute()
         {
-            Debug.Log("ACTION spawn enemy");
             EnemyMgr.Instance.SpawnEnemiesList();
 
             yield return new WaitForSeconds(2f);
-
-            //yield return null;
         }
 
         public override void Finish()
