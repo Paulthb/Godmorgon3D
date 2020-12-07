@@ -404,7 +404,6 @@ namespace GodMorgon.Player
             //If arrived
             if (transform.position.x == nextPos.x && transform.position.z == nextPos.z)
             {
-                Debug.Log("Player recentered");
                 canRecenter = false;
             }
         }
@@ -511,7 +510,16 @@ namespace GodMorgon.Player
         {
             NodeEffectMgr.Instance.LaunchRoomEffect(GetNodePosOfPlayer());   //Lance l'effet de room sur laquelle on vient d'arriver
             
-            yield return new WaitForSeconds(.5f);
+            //yield return new WaitForSeconds(.5f);
+
+            //If card no brakes, do damage to every enemies on new node 
+            if(_cardEffectDatas[0].noBrakes)
+            {
+                foreach(EnemyScript enemy in GetNodeOfPlayer().GetComponent<NodeScript>().node.enemiesOnNode)
+                {
+                    enemy.enemyData.TakeDamage(_cardEffectDatas[0].damagePoint, true);
+                }
+            }
 
             MapManager.Instance.ignoreEnemies = true; //Clear fog even if there are enemies on path
             FogMgr.Instance.ClearFogOnAccessibleNode(); // Clear the fog around the node we just arrived in
