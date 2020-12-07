@@ -15,5 +15,6 @@ namespace GodMorgon.Models
         public int attack = 0;
         public int defense = 0;
         public int attackRange = 0;
+        public bool isCursed = false;
     }
 }
