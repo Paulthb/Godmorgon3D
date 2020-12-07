@@ -45,6 +45,10 @@ namespace GodMorgon.Enemy
         [SerializeField]
         private Transform enemyCanvas = null;
 
+        //animator pour gérer le squelette
+        [SerializeField]
+        private Animator enemyAnimator = null;
+
         private Animator _animator;
         private HealthBar _healthBar;
 
@@ -263,7 +267,7 @@ namespace GodMorgon.Enemy
                 return;
             }
 
-            //ShowAttackEffect(); //Décommenter qd on aura l'anim d'attaque
+            ShowAttackEffect(); //Décommenter qd on aura l'anim d'attaque
             StartCoroutine(AttackEffect());
             
             //If player on node, player take damages
@@ -303,16 +307,17 @@ namespace GodMorgon.Enemy
          */
         public void ShowAttackEffect()
         {
-            //_animator.SetTrigger("LaunchAttack");
-            Animation anim = this.transform.GetComponentInChildren<Animation>();
+            Debug.Log("Play enemy attack anim");
+            enemyAnimator.SetTrigger("attacking");
+            //Animation anim = this.transform.GetComponentInChildren<Animation>();
 
-            foreach (AnimationState state in anim)
-            {
-                if (state.name == "Enemy_Attack")
-                {
-                    anim.Play(state.name);
-                }
-            }
+            //foreach (AnimationState state in anim)
+            //{
+            //    if (state.name == "Enemy_Attack")
+            //    {
+            //        anim.Play(state.name);
+            //    }
+            //}
         }
 
         public bool IsAttackFinished()
