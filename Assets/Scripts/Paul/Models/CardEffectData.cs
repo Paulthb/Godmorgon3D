@@ -37,6 +37,7 @@ namespace GodMorgon.Models
 
         //attaque l'enemy et le player
         public bool Rush = false;
+        public int PlayerDamage = 0;
 
         //attaque tous les enemy dans la node du player
         public bool isCircular = false;
@@ -72,6 +73,9 @@ namespace GodMorgon.Models
 
         //+1 de dégats par carte piocher à ce tour (sans compter les cartes de base dans la main) 
         public bool Possibilities = false;
+
+        //activate Hard head
+        public bool HardHead = false;
 
         [Header("Sight")]
         //effect to sight card

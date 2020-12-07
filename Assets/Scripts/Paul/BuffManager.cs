@@ -52,6 +52,10 @@ public class BuffManager
     //effet de player
     public bool isHalfLife = false;
 
+    //effet HardHead  dégat réduit à 1 à la premère attaque reçu pendant ce tour
+    public bool hardHeadActivate = false;
+    public bool canHardHead = false;
+
     //effet de curse
     public bool isStickyFingersActivate = false;
 
@@ -77,6 +81,14 @@ public class BuffManager
         canScarification = true;
     }
 
+    //activate Hard Head
+    public void ActivateHardHead()
+    {
+        Debug.Log("Hard head activate");
+        hardHeadActivate = true;
+        canHardHead = true;
+    }
+
     //apply scarification
     public void ApplyScarification()
     {
@@ -100,27 +112,15 @@ public class BuffManager
         isStickyFingersActivate = false;
     }
 
-    //désactive tout les bonus
-    //public void ResetAllBonus()
-    //{
-    //    isKillerInstinct = false;
-    //    isSurvivor = false;
-    //    isFastShoes = false;
-    //    isHardHead = false;
-
-    //    isCounterActive = false;
-    //    counterDamage = 0;
-
-    //    PlayerMgr.Instance.ResetBonus();
-    //}
-
     //réactive les effets à chaque nouveaux tours
     public void ReffillBonus()
     {
-        if(scarificationActivate)
+        if (scarificationActivate)
             canScarification = true;
         if (isFastShoes)
             canFastShoes = true;
+        if (hardHeadActivate)
+            canHardHead = true;
     }
 
     //appeler à chaque début de tour du player pour appliquer les effets conséquent
@@ -157,11 +157,33 @@ public class BuffManager
         int newMovePoint = movePoint;
         if (canFastShoes)
         {
-            canFastShoes = false;
             newMovePoint = newMovePoint * 2;
         }
             
         return newMovePoint;
+    }
+
+    public int ApplyModifiedMove(int movePoint)
+    {
+        int newMovePoint = movePoint;
+        if (canFastShoes)
+        {
+            canFastShoes = false;
+            newMovePoint = newMovePoint * 2;
+        }
+
+        return newMovePoint;
+    }
+
+    public int ApplyModifiedDamageTaken(int damagePoint)
+    {
+        int newDamagePoint = damagePoint;
+        if(canHardHead)
+        {
+            canHardHead = false;
+            newDamagePoint = 1;
+        }
+        return newDamagePoint;
     }
 
     public int getModifiedHeal(int healPoint)

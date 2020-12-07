@@ -236,7 +236,7 @@ namespace GodMorgon.Player
             */
         public void CalculatePlayerPath(Vector3Int targetNodePos)
         {
-            nbNodesToMove = BuffManager.Instance.getModifiedMove(_cardEffectDatas[0].nbMoves);  //Update le nombre de rooms à parcourir, qui changera en fct du nb sur la carte et si un fast shoes a été joué
+            nbNodesToMove = BuffManager.Instance.ApplyModifiedMove(_cardEffectDatas[0].nbMoves);  //Update le nombre de rooms à parcourir, qui changera en fct du nb sur la carte et si un fast shoes a été joué
 
             GameManager.Instance.DownPanelBlock(true);  //Block le down panel pour que le joueur ne puisse pas jouer de carte pendant le mouvement
 
