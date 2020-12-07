@@ -120,6 +120,32 @@ public class HandManager : MonoBehaviour
             else if (CardDisplayList[i].card != GameEngine.Instance.GetHandCards()[i])
                 CardDisplayList[i].UpdateCard(GameEngine.Instance.GetHandCards()[i]);
         }
+
+        /**
+         * on check si les carte en main sont bien valide
+         */
+        List<CardDisplay> cardsToDestroy = new List<CardDisplay>();
+        for (i = 0; i < CardDisplayList.Count; i++)
+        {
+            if (!GameEngine.Instance.GetHandCards().Contains(CardDisplayList[i].card))
+            {
+                cardsToDestroy.Add(CardDisplayList[i]);
+            }
+        }
+        if (cardsToDestroy.Count > 0)
+        {
+            foreach (Transform card in transform)
+            {
+                if (cardsToDestroy.Contains(card.GetComponent<CardDisplay>()))
+                {
+                    //Debug.Log("destroy " + card.GetComponent<CardDisplay>().card.name);
+
+                    GameManager.Instance.DiscardHandCard(card.GetComponent<CardDisplay>());
+                    Destroy(card.gameObject);
+                }
+            }
+        }
+
     }
 
     //Update les infos de toutes les cartes

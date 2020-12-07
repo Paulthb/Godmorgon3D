@@ -527,23 +527,10 @@ public class GameManager : MonoBehaviour
      * supprime de tous les deck in-game les carte avec le nom en parametre
      * sert pour les cartes power up dont les effet sont persistant tout le long de la partie
      */
-    public void TakeCardOutFromDeck(string cardOutName)
+    public void TakeCardOutFromDeck(BasicCard cardOut)
     {
-        foreach (BasicCard card in GameEngine.Instance.GetPlayerDeck())
-        {
-            if (card.name == cardOutName)
-                GameEngine.Instance.TakeCardOutFromDeck(card);
-        }
-        foreach (BasicCard card in GameEngine.Instance.GetDisposalPile())
-        {
-            if (card.name == cardOutName)
-                GameEngine.Instance.TakeCardOutFromDiscardPile(card);
-        }
-        foreach (BasicCard card in GameEngine.Instance.GetHandCards())
-        {
-            if (card.name == cardOutName)
-                GameEngine.Instance.TakeCardOutHand(card);
-        }
+        Debug.Log("take card : " + cardOut.name);
+        GameEngine.Instance.TakeCardOutFromDeck(cardOut);
         handManager.HandUpdate();
     }
 
