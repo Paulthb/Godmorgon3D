@@ -401,6 +401,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: heavy_enemy_idle
       objectReference: {fileID: 0}
+    - target: {fileID: 3374498653215726366, guid: ae61eb8ac1cea2e4ba5ecc6505d2b5fe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 99dd0b6759dbc8a4986690cb71ac447a, type: 2}
+    - target: {fileID: 3374498653215726366, guid: ae61eb8ac1cea2e4ba5ecc6505d2b5fe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5cef5f57842a9a8408987544543d471b, type: 2}
+    - target: {fileID: 3374498653215726366, guid: ae61eb8ac1cea2e4ba5ecc6505d2b5fe,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d57b21fc15ceb4b47b90cd557306203d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae61eb8ac1cea2e4ba5ecc6505d2b5fe, type: 3}
 --- !u!1 &2324615769959776046 stripped
