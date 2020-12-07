@@ -344,19 +344,19 @@ public class EnemyMgr : MonoBehaviour
      */
     public void ShowAttackableEnemies()
     {
-        MeshRenderer rend;
+        SkinnedMeshRenderer rend;
 
         foreach (EnemyScript enemy in attackableEnemiesList)
         {
-            rend = enemy.transform.GetChild(0).GetComponent<MeshRenderer>();
-            float currentIntensity = rend.materials[0].GetFloat("_Intensity");
+            rend = enemy.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
+            float currentIntensity = rend.materials[rend.materials.Length - 1].GetFloat("_Intensity");
 
             if (currentIntensity > 0.70f)
                 offset = -0.02f;
             else if (currentIntensity <= 0)
                 offset = 0.02f;
 
-            rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);
+            rend.materials[rend.materials.Length - 1].SetFloat("_Intensity", currentIntensity + offset);
         }        
     }
 
@@ -364,13 +364,13 @@ public class EnemyMgr : MonoBehaviour
     {
         UpdateAttackableEnemiesList(range);
 
-        MeshRenderer rend;
+        SkinnedMeshRenderer rend;
 
         foreach (EnemyScript enemy in attackableEnemiesList)
         {
-            rend = enemy.transform.GetChild(0).GetComponent<MeshRenderer>();
+            rend = enemy.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
 
-            rend.materials[0].SetFloat("_Intensity", 1f);
+            rend.materials[rend.materials.Length - 1].SetFloat("_Intensity", 1f);
         }
 
         launchAttackableEffect = true;
@@ -390,20 +390,20 @@ public class EnemyMgr : MonoBehaviour
     */
     public void HideAttackableEnemies()
     {
-        MeshRenderer rend;
+        SkinnedMeshRenderer rend;
 
         foreach (EnemyScript enemy in attackableEnemiesList)
         {
-            rend = enemy.transform.GetChild(0).GetComponent<MeshRenderer>();
-            float currentIntensity = rend.materials[0].GetFloat("_Intensity");
+            rend = enemy.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
+            float currentIntensity = rend.materials[rend.materials.Length - 1].GetFloat("_Intensity");
 
             offset = 0.03f;
 
-            rend.materials[0].SetFloat("_Intensity", currentIntensity + offset);
+            rend.materials[rend.materials.Length - 1].SetFloat("_Intensity", currentIntensity + offset);
 
-            if (rend.materials[0].GetFloat("_Intensity") >= 0.6f)
+            if (rend.materials[rend.materials.Length - 1].GetFloat("_Intensity") >= 0.6f)
             {
-                rend.materials[0].SetFloat("_Intensity", 5f);
+                rend.materials[rend.materials.Length - 1].SetFloat("_Intensity", 5f);
                 resetAttackableEffect = false;
             }
         }
