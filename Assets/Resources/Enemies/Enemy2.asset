@@ -19,3 +19,5 @@ MonoBehaviour:
   speed: 5
   attack: 15
   defense: 0
+  attackRange: 1
+  isCursed: 0

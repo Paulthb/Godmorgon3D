@@ -81,11 +81,29 @@ public class FogMgr : MonoBehaviour
         }
     }
 
-    private void AddFogOnNode(Transform targetNode)
+    public void AddFogOnNode(Transform targetNode)
     {
         Vector3 spawnPos = targetNode.position;
+        bool hasFogObject = false;
 
-        Instantiate(fogPrefab, spawnPos, Quaternion.identity, targetNode);
+        foreach (Transform child in targetNode)
+        {
+            if (child.name == "Fog_Tile(Clone)")
+                hasFogObject = true;
+        }
+
+        //If the node has already a fog_tile object in children, we just play the particles, else we instantiate a fog_tile prefab 
+        if(!hasFogObject)
+            Instantiate(fogPrefab, spawnPos, Quaternion.identity, targetNode);
+        else
+        {
+            ParticleSystem ps = targetNode.Find("Fog_Tile(Clone)").GetChild(1).GetComponent<ParticleSystem>();
+
+            if (ps == null) print("Particle system not found");
+
+            ps.Play();
+        }
+
         targetNode.GetComponent<NodeScript>().node.isNodeCleared = false;
     }
 
@@ -143,6 +161,8 @@ public class FogMgr : MonoBehaviour
                 ClearFogOnNode(accessibleNode);
             }
         }
+        //SFX fog clear
+        MusicManager.Instance.PlayFogClear();
     }
 
 
@@ -208,6 +228,7 @@ public class FogMgr : MonoBehaviour
             ps = node.Find("Fog_Tile(Clone)").GetChild(1).GetComponent<ParticleSystem>();
 
             if (ps == null) print("Particle system not found");
+            
             ps.Play();
 
             node.GetComponent<NodeScript>().node.isNodeCleared = false;

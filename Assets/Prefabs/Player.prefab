@@ -2125,6 +2125,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   firstInRoom: 1
+  canChooseEnemyToAttack: 0
+  enemyIsChosen: 0
   rotationTime: 1
   nextPlayerDir: 3
   currentPlayerDir: 3
@@ -2132,15 +2134,15 @@ MonoBehaviour:
     type: 3}
   healthBarPos: {fileID: 6257369199387859399}
   playerCanvas: {fileID: 1949488490676098671}
-  goldValueText: {fileID: 0}
-  tokenText: {fileID: 0}
+  healthValueText: {fileID: 0}
+  shieldValueText: {fileID: 0}
   playerHit: {fileID: 8344887089167636493}
   playerShield: {fileID: 3686634644782998829}
   playerPowerUp: {fileID: 6121842023106894011}
   playerKillerInstinct: {fileID: 1138592826565409536}
   playerCounter: {fileID: 2436575355655294336}
   playerFastShoes: {fileID: 4142877405149301925}
-  playerAnimator: {fileID: 0}
+  playerAnimator: {fileID: 7033059804924032127}
 --- !u!1 &6795287613565108842
 GameObject:
   m_ObjectHideFlags: 0

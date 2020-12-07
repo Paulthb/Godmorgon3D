@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using GodMorgon.Sound;
+
 namespace GodMorgon.Enemy
 {
     public class EnemyScript : MonoBehaviour
@@ -18,6 +20,8 @@ namespace GodMorgon.Enemy
 
         private List<Spot> roadPath; //First path calculated
         private List<Spot> enemyPath; //Final path calculated, without player's tile if he's on path
+
+        private Node lastNode;
 
         private int tileIndex;  //Index used for the movement mechanic, one tile after another
         private int nbTilesPerMove = 3;  //Nb tiles for 1 move
@@ -45,6 +49,10 @@ namespace GodMorgon.Enemy
         [SerializeField]
         private Transform enemyCanvas = null;
 
+        //animator pour gérer le squelette
+        [SerializeField]
+        private Animator enemyAnimator = null;
+
         private Animator _animator;
         private HealthBar _healthBar;
 
@@ -58,6 +66,8 @@ namespace GodMorgon.Enemy
                 enemyData.defense = _enemy.defense;
                 enemyData.nbMoves = _enemy.nbMoves;
                 enemyData.speed = _enemy.speed;
+                enemyData.attackRange = _enemy.attackRange;
+                enemyData.isCursed = _enemy.isCursed;
                 enemyData.skin = _enemy.skin;
                 enemyData.inPlayersNode = false;
                 enemyData.enemyScript = this;
@@ -101,7 +111,7 @@ namespace GodMorgon.Enemy
             Vector3Int enemyTilePos = GetTilePosOfEnemy();
 
             //If enemy not in player's node
-            if (!enemyData.inPlayersNode)
+            if (!enemyData.inPlayersNode && enemyData.nbMoves != 0)
             {
                 int nbTiles = nbTilesPerMove * enemyData.nbMoves;
 
@@ -179,6 +189,10 @@ namespace GodMorgon.Enemy
                     EnemyMgr.Instance.RecenterAnEnemyOnNode(lastNode);
                 }
 
+                //If enemy is Curse-Occhio, we add fog on last node
+                if (enemyData.isCursed)
+                    FogMgr.Instance.AddFogOnNode(GetNodeOfEnemy());
+
 
                 // The next node get this enemy in its list
                 nextNode.enemiesOnNode.Add(this);
@@ -204,6 +218,9 @@ namespace GodMorgon.Enemy
                 isMoveFinished = false; //Will be false until enemy move is not finished
             }
             else isMoveFinished = true;
+
+            //SFX fog clear
+            MusicManager.Instance.PlayEnemyMoving();
         }
 
         private void LaunchMoveMechanic()
@@ -256,36 +273,77 @@ namespace GodMorgon.Enemy
          */
         public void Attack()
         {
+            Node currentNode = GetNodeOfEnemy().GetComponent<NodeScript>().node;
+
+            GameObject attackableEntity = GetAttackableEntity(currentNode);
+
             // Don't attack if nobody to attack
-            if (!enemyData.inPlayersNode && GetNodeOfEnemy().GetComponent<NodeScript>().node.enemiesOnNode.Count == 1)
+            if (attackableEntity == null)
             {
                 isAttackFinished = true;
                 return;
             }
 
-            //ShowAttackEffect(); //Décommenter qd on aura l'anim d'attaque
+            ShowAttackEffect(); //Décommenter qd on aura l'anim d'attaque
             StartCoroutine(AttackEffect());
-            
-            //If player on node, player take damages
-            if (enemyData.inPlayersNode)
+
+            if (attackableEntity == PlayerMgr.Instance.gameObject)
                 PlayerMgr.Instance.TakeDamage(enemyData.attack);
+            else
+                attackableEntity.GetComponent<EnemyScript>().enemyData.TakeDamage(enemyData.attack, false);
 
-            Node currentNode = GetNodeOfEnemy().GetComponent<NodeScript>().node;
+            print("ENEMY " + gameObject.name + " has attacked " + attackableEntity.name);
 
-            //If enemies on node, they take damages
-            if (currentNode.enemiesOnNode.Count > 1)
+            //Take damage if counter activated
+            enemyData.TakeDamage(PlayerMgr.Instance.Counter(), false);
+        }
+
+        /**
+         * Return list of attackable entity, player or enemies
+         */
+        public GameObject GetAttackableEntity(Node currentNode)
+        {
+            //If range == 0, we look on node if there is a player or an enemy
+            if(enemyData.attackRange == 0)
             {
-                foreach (EnemyScript enemy in currentNode.enemiesOnNode)
+                if (PlayerMgr.Instance.GetNodeOfPlayer() == GetNodeOfEnemy())
                 {
-                    if (enemy != this)
+                    return PlayerMgr.Instance.gameObject; //Attack the player if on node
+                }
+                else if(currentNode.enemiesOnNode.Count > 1)
+                {
+                    foreach (EnemyScript enemy in currentNode.enemiesOnNode)
                     {
-                        enemy.enemyData.TakeDamage(enemyData.attack, false);
+                        if (enemy != this)
+                        {
+                            return enemy.gameObject; //Attack the first accessible enemy if no player
+                        }
+                    }
+                }
+            } 
+            //The range is at one node or more
+            else
+            {
+                //Attack the player if in range
+                if (Vector3Int.Distance(PlayerMgr.Instance.GetNodePosOfPlayer(), GetNodePosOfEnemy()) <= enemyData.attackRange * 3)
+                {
+                    return PlayerMgr.Instance.gameObject;
+                }
+                //Else attack an enemy in range
+                foreach (EnemyScript enemy in EnemyMgr.Instance.GetAllEnemies())
+                {
+                    if(enemy != this)
+                    {
+                        if (Vector3Int.Distance(enemy.GetNodePosOfEnemy(), GetNodePosOfEnemy()) <= enemyData.attackRange * 3)
+                        {
+                            return enemy.gameObject;
+                        }
                     }
                 }
             }
 
-            //Take damage if counter activated
-            enemyData.TakeDamage(PlayerMgr.Instance.Counter(), false);
+            //We have nodody to attack so return null
+            return null;
         }
 
         /**
@@ -303,16 +361,17 @@ namespace GodMorgon.Enemy
          */
         public void ShowAttackEffect()
         {
-            //_animator.SetTrigger("LaunchAttack");
-            Animation anim = this.transform.GetComponentInChildren<Animation>();
+            Debug.Log("Play enemy attack anim");
+            enemyAnimator.SetTrigger("attacking");
+            //Animation anim = this.transform.GetComponentInChildren<Animation>();
 
-            foreach (AnimationState state in anim)
-            {
-                if (state.name == "Enemy_Attack")
-                {
-                    anim.Play(state.name);
-                }
-            }
+            //foreach (AnimationState state in anim)
+            //{
+            //    if (state.name == "Enemy_Attack")
+            //    {
+            //        anim.Play(state.name);
+            //    }
+            //}
         }
 
         public bool IsAttackFinished()
@@ -413,7 +472,7 @@ namespace GodMorgon.Enemy
             //PlayerMgr.Instance.AddGold(15); //Add gold to player
 
             //SFX enemy death
-            //MusicManager.Instance.PlayEnemyDeath();
+            MusicManager.Instance.PlayEnemyDeath();
         }
 
         IEnumerator TimedDeath(float duration)

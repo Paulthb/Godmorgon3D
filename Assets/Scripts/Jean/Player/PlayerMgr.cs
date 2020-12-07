@@ -323,7 +323,7 @@ namespace GodMorgon.Player
 
 
             //SFX player move
-            //MusicManager.Instance.PlayPlayerMove();
+            MusicManager.Instance.PlayPlayerMove();
         }
 
         /**
@@ -825,7 +825,7 @@ namespace GodMorgon.Player
             playerHit.launchParticle();
 
             //SFX player hit
-            //MusicManager.Instance.PlayPlayerHit();
+            MusicManager.Instance.PlayPlayerHit();
         }
 
         //launch player Shield effect
@@ -870,7 +870,7 @@ namespace GodMorgon.Player
          */
         public void PlayPlayerAnim(string animName)
         {
-            //playerAnimator.SetTrigger(animName);
+            playerAnimator.SetTrigger(animName);
         }
 
         #endregion

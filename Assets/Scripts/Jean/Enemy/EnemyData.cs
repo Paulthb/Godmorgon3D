@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using GodMorgon.Sound;
+
 namespace GodMorgon.Enemy
 {
     public class EnemyData : Entity
@@ -11,8 +13,10 @@ namespace GodMorgon.Enemy
         public int attack = 0;
         public int defense = 0;
         public int nbMoves = 0;
+        public int attackRange = 0;
         public float speed = 0;
         public Sprite skin = null;
+        public bool isCursed = false;
         public bool inPlayersNode = false;
         public bool inOtherEnemyNode = false;
         public bool killedByPlayer = false;
@@ -67,7 +71,8 @@ namespace GodMorgon.Enemy
         //launch hit visual effect
         public override void OnDamage()
         {
-            //enemyScript.OnDamage();
+            //SFX enemy hit
+            MusicManager.Instance.PlayEnemyHit();
         }
 
         /**

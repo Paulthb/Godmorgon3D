@@ -62,7 +62,7 @@ namespace GodMorgon.CardEffect
             }
 
             //supprime les autres cartes identiques présente dans les deck in-game
-            GameManager.Instance.TakeCardOutFromDeck(context.card.name);
+            GameManager.Instance.TakeCardOutFromDeck(context.card);
         }
     }
 }

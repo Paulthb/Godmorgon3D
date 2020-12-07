@@ -294,26 +294,13 @@ public class GameEngine
     }
 
     /**
-     * delete card from PlayerDeck
+     * supprime de tous les deck in-game les carte avec le nom en parametre
+     * sert pour les cartes power up dont les effet sont persistant tout le long de la partie
      */
-    public void TakeCardOutFromDeck(BasicCard card)
+    public void TakeCardOutFromDeck(BasicCard cardOut)
     {
-        playerDeck.TakeOut(card);
-    }
-
-    /**
-     * delete card from discardPile
-     */
-    public void TakeCardOutFromDiscardPile(BasicCard card)
-    {
-        disposalPile.TakeOut(card);
-    }
-
-    /**
-     * delete card from Hand
-     */
-    public void TakeCardOutHand(BasicCard card)
-    {
-        hand.TakeOut(card);
+        playerDeck.GetCards().RemoveAll(BasicCard => BasicCard == cardOut);
+        disposalPile.GetCards().RemoveAll(BasicCard => BasicCard == cardOut);
+        hand.GetCards().RemoveAll(BasicCard => BasicCard == cardOut);
     }
 }

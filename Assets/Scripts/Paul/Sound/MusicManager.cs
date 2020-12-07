@@ -19,7 +19,6 @@ namespace GodMorgon.Sound
         public AK.Wwise.Event Cards_Move;
         public AK.Wwise.Event Cards_PowerUp;
         public AK.Wwise.Event Cards_Spell;
-        public AK.Wwise.Event Cards_Buy;
 
         public AK.Wwise.Event Mechanical;
         public AK.Wwise.Event Park_Theme;
@@ -123,11 +122,6 @@ namespace GodMorgon.Sound
         public void PlayCardsSpell()
         {
             Cards_Spell.Post(gameObject);
-        }
-
-        public void PlayCardsBuy()
-        {
-            Cards_Buy.Post(gameObject);
         }
 
         public void PlayMechanical()
