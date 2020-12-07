@@ -23,7 +23,7 @@ namespace GodMorgon.Timeline
         //text indiquant le nombre de tours depuis le début de la partie
         [SerializeField]
         private TextMeshProUGUI turnText = null;
-        private int nbTurn = 0;
+        private int nbTurn = 1;
 
         //Tell if the current action is running
         [System.NonSerialized]
@@ -80,6 +80,8 @@ namespace GodMorgon.Timeline
         //text du trust sur la timeline
         [SerializeField]
         private TextMeshProUGUI trustText = null;
+
+
         #region Singleton Pattern
         private static TimelineManager _instance;
 

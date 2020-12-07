@@ -11218,6 +11218,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 707898374}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &713427470 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 196389512553122547, guid: befb802f273720841b7d0981cc3dc664,
+    type: 3}
+  m_PrefabInstance: {fileID: 1165564344}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &720355581
 GameObject:
   m_ObjectHideFlags: 0
@@ -18654,30 +18666,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1165564344}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1165564349 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2459485199097911856, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1165564350 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2430562996214616623, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1167401454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28853,6 +28841,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1752502958}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1752729592 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1608314841581015184, guid: befb802f273720841b7d0981cc3dc664,
+    type: 3}
+  m_PrefabInstance: {fileID: 1165564344}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1764069628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31032,6 +31032,8 @@ MonoBehaviour:
   cardOnHand: {fileID: 1165564346}
   cardOnDiscardPile: {fileID: 1165564345}
   dropZoneObject: {fileID: 0}
+  nbCardInDeck: {fileID: 1752729592}
+  nbCardInDiscardPile: {fileID: 713427470}
   VisibleDeck: []
   VisibleDiscardPile: []
 --- !u!1001 &1887391978
@@ -36097,12 +36099,12 @@ PrefabInstance:
         type: 3}
       propertyPath: healthValueText
       value: 
-      objectReference: {fileID: 1165564350}
+      objectReference: {fileID: 0}
     - target: {fileID: 6689561675992876976, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
       propertyPath: shieldValueText
       value: 
-      objectReference: {fileID: 1165564349}
+      objectReference: {fileID: 0}
     - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
       propertyPath: m_LocalPosition.x
