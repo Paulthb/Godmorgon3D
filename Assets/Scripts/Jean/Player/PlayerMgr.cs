@@ -870,7 +870,7 @@ namespace GodMorgon.Player
          */
         public void PlayPlayerAnim(string animName)
         {
-            //playerAnimator.SetTrigger(animName);
+            playerAnimator.SetTrigger(animName);
         }
 
         #endregion
