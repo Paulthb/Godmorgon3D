@@ -217,6 +217,8 @@ public class EnemyMgr : MonoBehaviour
             }
             enemiesOnPlayersNode.Clear();   //On clear la liste car plus d'ennemis présents dans la room du player
         }
+        else
+            print("Pas d'ennemis dans le node du player au moment du recentrage après move du player.");
     }
 
     #endregion
