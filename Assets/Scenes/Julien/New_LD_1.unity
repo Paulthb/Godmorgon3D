@@ -6416,6 +6416,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 380344414}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &382959675 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1911739580145264003, guid: befb802f273720841b7d0981cc3dc664,
+    type: 3}
+  m_PrefabInstance: {fileID: 1165564344}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &393375602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18311,6 +18323,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1911739580145264003, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339421850780169071, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -39.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339421850780169071, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -174.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -30896,7 +30923,7 @@ MonoBehaviour:
   cardOnDeck: {fileID: 1165564347}
   cardOnHand: {fileID: 1165564346}
   cardOnDiscardPile: {fileID: 1165564345}
-  dropZoneObject: {fileID: 0}
+  dropZoneObject: {fileID: 382959675}
   nbCardInDeck: {fileID: 1752729592}
   nbCardInDiscardPile: {fileID: 713427470}
   VisibleDeck: []

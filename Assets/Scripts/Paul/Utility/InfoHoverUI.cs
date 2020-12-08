@@ -23,7 +23,6 @@ public class InfoHoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     //private Transform windowPos = null;
 
     //temps avant apparition de l'info bulle
-    [SerializeField]
     private float timeBeforeShow = 1f;
 
     private TextMeshProUGUI textMesh = null;
@@ -44,6 +43,8 @@ public class InfoHoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             StopCoroutine(currentCoroutine);
         currentCoroutine = ShowWindow();
         StartCoroutine(currentCoroutine);
+
+        print("lIQOEDFEH");
     }
 
     public void OnPointerExit(PointerEventData pointerEventData)
@@ -57,6 +58,7 @@ public class InfoHoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public IEnumerator ShowWindow()
     {
         yield return new WaitForSeconds(timeBeforeShow);
+        print("ALOOOOOOOOOOOOOO");
         infoWindowGAO.SetActive(true);
     }
 
