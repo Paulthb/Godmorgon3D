@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: (Removed)Attack_ExploratorsMight
+  m_Name: Attack_KaratePunch
   m_EditorClassIdentifier: 
   cardType: 1
   id: 9
-  name: Explorators Might
+  name: Karate Punch
   dropTarget: 2
-  description: Inflict +1 damages for each explored nodes this turn  ([nbDamage])
+  description: "[KeyRetain]\nRanged 1 \n\nInflict [nbDamage]"
   actionCost: 1
-  price: 75
+  price: 80
   template: {fileID: 21300000, guid: d914663f37f4d974aa4c14141b89f8c0, type: 3}
-  artwork: {fileID: 21300000, guid: de2d7361aa9d9e94989404c462180341, type: 3}
+  artwork: {fileID: 21300000, guid: 1a556b3bfd668c54f833b9c4dd82c232, type: 3}
   effectsData:
   - currentEffect: 0
-    damagePoint: 2
-    attackRange: 0
+    damagePoint: 5
+    attackRange: 1
     BackAtYou: 0
     Rush: 0
+    PlayerDamage: 0
     isCircular: 0
     nbMoves: 0
     rolling: 0
@@ -40,8 +41,9 @@ MonoBehaviour:
     FastShoes: 0
     Scarification: 0
     Possibilities: 0
+    HardHead: 0
     Sight: 0
-    sightRange: 1
+    sightRange: 0
     DrawCard: 0
     recycling: 0
     nbCardToDraw: 0
@@ -55,10 +57,10 @@ MonoBehaviour:
     shiver: 0
     trust: 0
     trustNb: 0
-    retain: 0
+    retain: 1
     rangeEffect: 0
     isDiscardHand: 0
     Goosebump: 0
-    Explorer: 1
+    Explorer: 0
     isUseless: 0
     StickyFinger: 0

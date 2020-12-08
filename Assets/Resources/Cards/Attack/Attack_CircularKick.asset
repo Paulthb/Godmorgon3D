@@ -10,24 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Attack_BackAtYou[a_tester]
+  m_Name: Attack_CircularKick
   m_EditorClassIdentifier: 
   cardType: 1
   id: 9
-  name: Back At You
+  name: Circular Kick
   dropTarget: 2
-  description: Inflict 4 damages for every time you took damages this turn. ([nbDamage])
+  description: Inflict [nbDamage] damages to every enemies in the room
   actionCost: 2
-  price: 0
+  price: 70
   template: {fileID: 21300000, guid: d914663f37f4d974aa4c14141b89f8c0, type: 3}
-  artwork: {fileID: 21300000, guid: 809f8ec10a8eeb748895029d9c5d8a5e, type: 3}
+  artwork: {fileID: 21300000, guid: 5628ecb6eedc5e74ca25f0ded95089f8, type: 3}
   effectsData:
   - currentEffect: 0
-    damagePoint: 4
-    attackRange: 1
-    BackAtYou: 1
+    damagePoint: 15
+    attackRange: 0
+    BackAtYou: 0
     Rush: 0
-    isCircular: 0
+    PlayerDamage: 0
+    isCircular: 1
     nbMoves: 0
     rolling: 0
     swift: 0
@@ -40,6 +41,7 @@ MonoBehaviour:
     FastShoes: 0
     Scarification: 0
     Possibilities: 0
+    HardHead: 0
     Sight: 0
     sightRange: 1
     DrawCard: 0
