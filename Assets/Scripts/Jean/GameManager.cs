@@ -86,6 +86,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI nbCardInDiscardPile = null;
 
+    //texte a afficher lorsqu'on est en phase de discard card
+    [SerializeField]
+    private GameObject discardPhaseText = null;
+
 
     [Header("DEBUG")]
     /**
@@ -439,6 +443,7 @@ public class GameManager : MonoBehaviour
         DownPanelBlock(false);
         //Mais on lock les buttons in game pendant la sélection
         AreButtonLock = true;
+        discardPhaseText.SetActive(true);
     }
 
     /**
@@ -454,6 +459,7 @@ public class GameManager : MonoBehaviour
 
         //on réactive le block
         DownPanelBlock(true);
+        discardPhaseText.SetActive(false);
     }
 
     //indique au séquencer si une carte a été discard
