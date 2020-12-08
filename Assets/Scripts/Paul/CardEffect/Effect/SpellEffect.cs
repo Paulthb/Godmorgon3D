@@ -40,7 +40,7 @@ namespace GodMorgon.CardEffect
             {
                 int nbCardToDraw = effectData.nbCardToDraw;
                 if (isTrustActivate)
-                    nbCardToDraw = nbCardToDraw * 2;
+                    nbCardToDraw *= 2;
 
                 GameManager.Instance.DrawCard(nbCardToDraw);
                 Debug.Log(" - Draw " + nbCardToDraw + " cards");
@@ -55,7 +55,7 @@ namespace GodMorgon.CardEffect
             {
                 int nbCardToDraw = effectData.nbCardToDraw;
                 if (isTrustActivate)
-                    nbCardToDraw = nbCardToDraw * 2;
+                    nbCardToDraw *= 2;
 
                 GameManager.Instance.DrawCardFromDiscardPile(nbCardToDraw);
 

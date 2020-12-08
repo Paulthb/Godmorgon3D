@@ -35,6 +35,7 @@ public class InfoHoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         infoWindowGAO.SetActive(false);
         textMesh = infoWindowGAO.GetComponentInChildren<TextMeshProUGUI>();
+        textMesh.text = infoText;
     }
 
     public void OnPointerEnter(PointerEventData pointerEventData)
@@ -43,8 +44,6 @@ public class InfoHoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             StopCoroutine(currentCoroutine);
         currentCoroutine = ShowWindow();
         StartCoroutine(currentCoroutine);
-
-        print("lIQOEDFEH");
     }
 
     public void OnPointerExit(PointerEventData pointerEventData)
@@ -58,7 +57,6 @@ public class InfoHoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public IEnumerator ShowWindow()
     {
         yield return new WaitForSeconds(timeBeforeShow);
-        print("ALOOOOOOOOOOOOOO");
         infoWindowGAO.SetActive(true);
     }
 
