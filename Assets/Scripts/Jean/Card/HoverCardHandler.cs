@@ -21,6 +21,7 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
     //is the card in draft
     public bool inDraft = false;
 
+    public bool isDrawBtn = false;
 
     private IEnumerator currentCoroutine = null;
 
@@ -40,13 +41,19 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
             currentCoroutine = ScaleCardIn();
             StartCoroutine(currentCoroutine);
 
-            if ((!cardDisplay.canBeDiscard || cardDisplay.isplayable) && !inDraft)
+            if(isDrawBtn)
+                TimelineManager.Instance.ShowNextAction(1);
+            
+            if(cardDisplay)
             {
-                //check des possibles modificateurs
-                if (BuffManager.Instance.isStickyFingersActivate)
-                    TimelineManager.Instance.ShowNextAction(cardDisplay.card.actionCost + 1);
-                else
-                    TimelineManager.Instance.ShowNextAction(cardDisplay.card.actionCost);
+                if ((!cardDisplay.canBeDiscard || cardDisplay.isplayable) && !inDraft)
+                {
+                    //check des possibles modificateurs
+                    if (BuffManager.Instance.isStickyFingersActivate)
+                        TimelineManager.Instance.ShowNextAction(cardDisplay.card.actionCost + 1);
+                    else
+                        TimelineManager.Instance.ShowNextAction(cardDisplay.card.actionCost);
+                }
             }
         }
     }
@@ -63,13 +70,19 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
             currentCoroutine = ScaleCardOut();
             StartCoroutine(currentCoroutine);
 
-            if ((!cardDisplay.canBeDiscard || cardDisplay.isplayable) && !inDraft)
+            if(isDrawBtn)
+                TimelineManager.Instance.HideNextAction(1);
+
+            if (cardDisplay)
             {
-                //check des possibles modificateurs
-                if (BuffManager.Instance.isStickyFingersActivate)
-                    TimelineManager.Instance.HideNextAction(cardDisplay.card.actionCost + 1);
-                else
-                    TimelineManager.Instance.HideNextAction(cardDisplay.card.actionCost);
+                if ((!cardDisplay.canBeDiscard || cardDisplay.isplayable) && !inDraft)
+                {
+                    //check des possibles modificateurs
+                    if (BuffManager.Instance.isStickyFingersActivate)
+                        TimelineManager.Instance.HideNextAction(cardDisplay.card.actionCost + 1);
+                    else
+                        TimelineManager.Instance.HideNextAction(cardDisplay.card.actionCost);
+                }
             }
         }
     }
@@ -77,29 +90,43 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
     //Detect if a click occurs
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        //si la carte peut être discard
-        if (cardDisplay.canBeDiscard && isHover)
-        {
-            //discard the select card
-            GameManager.Instance.DiscardHandCard(cardDisplay);
+        if (!isDrawBtn)
+        {       
+            //si la carte peut être discard
+            if (cardDisplay.canBeDiscard && isHover)
+            {
+                //discard the select card
+                GameManager.Instance.DiscardHandCard(cardDisplay);
 
-            Destroy(this.gameObject);
+                Destroy(this.gameObject);
+            }
         }
     }
 
     public IEnumerator ScaleCardIn()
     {
-        cardDisplay.gameObject.GetComponent<Canvas>().sortingOrder = 1;
+        if(cardDisplay)
+            cardDisplay.gameObject.GetComponent<Canvas>().sortingOrder = 1;
 
         Vector3 originalScale = display.transform.localScale;
-        Vector3 destinationScale = new Vector3(2.0f, 2.0f, 0);
-
+        Vector3 destinationScale;
         Vector3 originalPosition = display.transform.localPosition;
-        Vector3 destinationPosition = new Vector3(0, 215, -100);
+        Vector3 destinationPosition;
+
+        if (!isDrawBtn)
+        {
+            destinationScale = new Vector3(1.8f, 1.8f, 0);
+            destinationPosition = new Vector3(0, 230, -100);
+        }
+        else
+        {
+            destinationScale = new Vector3(1f, 1f, 1f);
+            destinationPosition = new Vector3(0, 25, -100);
+        }
 
         float currentTime = 0.0f;
 
-        while (/*currentTime <= timeHover && */ isHover && (display.transform.localScale - destinationScale).magnitude > 0.01f)
+        while (/*currentTime <= timeHover && */ isHover && (display.transform.localPosition - destinationPosition).magnitude > 0.01f)
         {
             //display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime/timeHover);
             //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/timeHover);
@@ -119,7 +146,8 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public IEnumerator ScaleCardOut()
     {
-        cardDisplay.gameObject.GetComponent<Canvas>().sortingOrder = 0;
+        if (cardDisplay)
+            cardDisplay.gameObject.GetComponent<Canvas>().sortingOrder = 0;
 
         Vector3 originalScale = display.transform.localScale;
         Vector3 destinationScale = new Vector3(1, 1, 1);
@@ -129,7 +157,7 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
         float currentTime = 0.0f;
 
-        while (/*currentTime <= timeHover &&*/ !isHover && (display.transform.localScale - destinationScale).magnitude > 0.01f)
+        while (/*currentTime <= timeHover &&*/ !isHover && (display.transform.localPosition - destinationPosition).magnitude > 0.01f)
         {
             //display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / timeHover);
             //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/ timeHover);
