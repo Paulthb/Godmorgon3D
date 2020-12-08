@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 410b9136b0ddc5d46a1e88223a6c0224, type: 3}
-  m_Name: Enemy3
+  m_Name: Enemy_RangeOcchio
   m_EditorClassIdentifier: 
-  enemyId: Butcher
-  health: 20
+  enemyId: Speed_Occhio
+  health: 12
   skin: {fileID: 0}
   nbMoves: 1
   speed: 5
-  attack: 5
+  attack: 10
   defense: 0
   attackRange: 1
   isCursed: 0

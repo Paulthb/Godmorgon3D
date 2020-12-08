@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 6920085247163396658}
   - component: {fileID: 5813749571202574481}
   m_Layer: 0
-  m_Name: EnemyObject
+  m_Name: Enemy_RangeOcchio
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   shakeDuration: 1
   playersNode: 0
-  healthBarPrefab: {fileID: 8034885372768079765, guid: cc7ee9355cfdf204886e55e20ce66ff4,
+  healthBarPrefab: {fileID: 6451166031207722562, guid: 75003c1cf5bdd634d95338d308261882,
     type: 3}
   healthBarPos: {fileID: 8313733256646328067}
   enemyCanvas: {fileID: 350411251326830549}
