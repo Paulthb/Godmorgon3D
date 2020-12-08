@@ -49,6 +49,12 @@ namespace GodMorgon.CardEffect
             if (context.targets == null)
                 Debug.Log("il manque une target dans le contexte !");
 
+            //inflige des dégâts au player tout court
+            if (effectData.PlayerDamage > 0)
+            {
+                PlayerMgr.Instance.TakeDamage(effectData.PlayerDamage);
+            }
+
             //attaque tout les enemy dans la node du player
             if (effectData.isCircular)
             {
@@ -70,12 +76,6 @@ namespace GodMorgon.CardEffect
             else if(effectData.Rush)
             {
                 context.targets.TakeDamage(PlayerMgr.Instance.playerData.DoDamage(damagePoint), true);
-                PlayerMgr.Instance.TakeDamage(effectData.PlayerDamage);
-            }
-            //inflige des dégâts au player tout court
-            else if(!effectData.Rush && effectData.PlayerDamage > 0)
-            {
-                PlayerMgr.Instance.TakeDamage(effectData.PlayerDamage);
             }
             else
             {
