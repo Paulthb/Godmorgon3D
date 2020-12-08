@@ -133,7 +133,6 @@ namespace GodMorgon.Timeline
          * Set the display of the Timeline
          * We take the picture of the 4 next actions in the timeline
          * On réactive les logos
-         * -------------TODO : peut en coroutine pour faire une animation---------------------------
          */
         public void SetTimeline()
         {
@@ -199,6 +198,9 @@ namespace GodMorgon.Timeline
             //actualise le numéro pour l'action actuel et l'index de la list d'action;
             nbActualAction++;
             indexCurrentAction++;
+            //si on a atteint la fin de la liste d'action, on recommence au debout de la liste
+            if (indexCurrentAction > actionlist.Count - 1)
+                indexCurrentAction = 0;
 
             //on décale les engrenages
             UpdateGearPos();
