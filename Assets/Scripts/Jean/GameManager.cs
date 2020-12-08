@@ -13,6 +13,7 @@ using GodMorgon.Timeline;
 using GodMorgon.Player;
 using GodMorgon.Shop;
 using GodMorgon.Sound;
+using GodMorgon.Enemy;
 
 public class GameManager : MonoBehaviour
 {
@@ -555,6 +556,67 @@ public class GameManager : MonoBehaviour
         }
         foreach (BasicCard card in GameEngine.Instance.GetDisposalPile()){
             VisibleDiscardPile.Add(card);
+        }
+    }
+
+    /**
+     * At the beginning of ringmaster, analyse and fix uncorrect status of enemies (to avoid all the shit of not recentering)
+     */
+    public void UpdateEnemiesStatus()
+    {
+        List<Transform> concernedNodesList = new List<Transform>();
+
+        //Add in list the nodes that are concerned and update enemiesOnNode of those nodes
+        foreach(EnemyScript enemy in EnemyMgr.Instance.GetAllEnemies())
+        {
+            Transform enemyNode = enemy.GetNodeOfEnemy();
+            //node is not known yet
+            if (!concernedNodesList.Contains(enemyNode))
+            {
+                //Clear the list enemiesOnNode
+                enemyNode.GetComponent<NodeScript>().node.enemiesOnNode = new List<EnemyScript>();
+
+                //Add the node in list
+                concernedNodesList.Add(enemyNode);
+
+                //Add the enemy to enmiesOnNode
+                enemyNode.GetComponent<NodeScript>().node.enemiesOnNode.Add(enemy);
+            } 
+            //node is already known in list
+            else
+            {
+                //Just add the enemy to enemiesOnNode
+                enemyNode.GetComponent<NodeScript>().node.enemiesOnNode.Add(enemy);
+            }
+
+            //Update enemyCentered if this enemy is on middle of node
+            if (enemy.GetTilePosOfEnemy() == (enemy.GetNodePosOfEnemy() + new Vector3Int(1, 0, 1)))
+                enemyNode.GetComponent<NodeScript>().node.enemyOnCenter = enemy;
+
+            //Player is on this node
+            if (PlayerMgr.Instance.GetNodeOfPlayer() == enemyNode)
+            {
+                //Set bool inPlayersNode to true if there are enemies on this node
+                enemy.enemyData.inPlayersNode = true;
+            }
+        }
+
+        foreach(Transform node in concernedNodesList)
+        {
+            //If a node has nobody on center but enemies on node, there is a problem
+            if(node.GetComponent<NodeScript>().node.enemiesOnNode.Count > 0 && node.GetComponent<NodeScript>().node.enemyOnCenter == null && PlayerMgr.Instance.GetNodeOfPlayer() != node)
+            {
+                Debug.LogWarning("There is a problem with node datas at position " + node.position);
+            }
+
+
+        }
+
+        foreach(EnemyScript enemy in EnemyMgr.Instance.GetAllEnemies())
+        {
+            //If an enemy is not on players node but his bool InPlayersNode is at true, there is a problem
+            if (enemy.GetNodePosOfEnemy() != PlayerMgr.Instance.GetNodePosOfPlayer() && enemy.enemyData.inPlayersNode)
+                Debug.LogWarning(enemy.gameObject.name + " is set as inPlayersNode, but isn't.");
         }
     }
 }

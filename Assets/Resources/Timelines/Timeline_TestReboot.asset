@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00796b083ad86774dabfe11e1ddb69ef, type: 3}
+  m_Name: Timeline_TestReboot
+  m_EditorClassIdentifier: 
+  ActionInTimeline: 0400000003000000030000000300000001000000
+  attackLogo: {fileID: 21300000, guid: 1a5cb4bd35c412f4dbc3169fc7ae5e58, type: 3}
+  defendLogo: {fileID: 21300000, guid: e3268a9b06b3e7f4299a188e580ea282, type: 3}
+  curseLogo: {fileID: 21300000, guid: 1e9cc976722ab904cb368f8b212f51be, type: 3}
+  moveEnemyLogo: {fileID: 21300000, guid: c556d6a5041a993468ea1f8d0c822a4b, type: 3}
+  spawnEnemyLogo: {fileID: 21300000, guid: 1eba5224ff19043449d7da6812753d3a, type: 3}
+  spawnFOWLogo: {fileID: 21300000, guid: e230f56d26bbcf248ab3ee70dddb610e, type: 3}

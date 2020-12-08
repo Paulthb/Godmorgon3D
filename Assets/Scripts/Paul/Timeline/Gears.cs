@@ -68,7 +68,7 @@ namespace GodMorgon.Timeline
                 yield return null;
             }
             transform.localScale = GotoScale;
-            Destroy(this);
+            Destroy(this.gameObject);
         }
 
         public IEnumerator FadeIn()
@@ -103,20 +103,30 @@ namespace GodMorgon.Timeline
 
         public IEnumerator ShowActionCoroutine(bool isActionShow)
         {
-            Vector3 destinationPosition;
-            if (isActionShow)
-                destinationPosition = new Vector3(transform.localPosition.x, downDistance, transform.localPosition.z);
-            else
-                destinationPosition = new Vector3(transform.localPosition.x, -15, transform.localPosition.z);
+            float targetPosY;
+            float actualPosY = transform.localPosition.y;
+            //if (isActionShow)
+            //    destinationPosition = new Vector3(transform.localPosition.x, downDistance, transform.localPosition.z);
+            //else
+            //    destinationPosition = new Vector3(transform.localPosition.x, -15, transform.localPosition.z);
 
-            while ((transform.localPosition - destinationPosition).magnitude > 0.01f)
-            {
+            if (isActionShow)
+                targetPosY = downDistance;
+            else
+                targetPosY = -15;
+
+            //while ((transform.localPosition - destinationPosition).magnitude > 0.01f)
+            while (Mathf.Abs(actualPosY - targetPosY) > 0.01f)
+                {
                 //Danping
-                transform.localPosition = Vector3.Lerp(transform.localPosition, destinationPosition, Time.deltaTime * showAnimSpeed);
+                //transform.localPosition = Vector3.Lerp(transform.localPosition, destinationPosition, Time.deltaTime * showAnimSpeed);
+                actualPosY = Mathf.Lerp(actualPosY, targetPosY, Time.deltaTime * showAnimSpeed);
+
+                transform.localPosition = new Vector3(transform.localPosition.x, actualPosY, transform.localPosition.z);
 
                 yield return null;
             }
-            transform.localPosition = destinationPosition;
+            transform.localPosition = new Vector3(transform.localPosition.x, targetPosY, transform.localPosition.z); ;
         }
     }
 }

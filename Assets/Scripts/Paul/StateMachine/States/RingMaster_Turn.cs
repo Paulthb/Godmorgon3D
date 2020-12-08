@@ -20,6 +20,8 @@ namespace GodMorgon.StateMachine
             GameManager.Instance.ShowRingmasterTurnImage();
             GameManager.Instance.UnlockDragCardHandler(false);
 
+            GameManager.Instance.UpdateEnemiesStatus();
+
             //TimelineManager.Instance.DoAction();
         }
     }
