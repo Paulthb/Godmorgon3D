@@ -6700,7 +6700,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1124376633, guid: fd4a0e69f81ca77439c40e2e4e01df39, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -52
+      value: -67
       objectReference: {fileID: 0}
     - target: {fileID: 94621678514618339, guid: fd4a0e69f81ca77439c40e2e4e01df39,
         type: 3}
@@ -6863,17 +6863,33 @@ PrefabInstance:
       propertyPath: turnText
       value: 
       objectReference: {fileID: 4497467645376288415}
+    - target: {fileID: 8808992978091051960, guid: fd4a0e69f81ca77439c40e2e4e01df39,
+        type: 3}
+      propertyPath: gearsTranslateValue
+      value: 305
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808992978091051960, guid: fd4a0e69f81ca77439c40e2e4e01df39,
+        type: 3}
+      propertyPath: actionContainer
+      value: 
+      objectReference: {fileID: 4556548260966717973}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd4a0e69f81ca77439c40e2e4e01df39, type: 3}
---- !u!224 &1915395102834923690 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8808992978091051911, guid: fd4a0e69f81ca77439c40e2e4e01df39,
-    type: 3}
-  m_PrefabInstance: {fileID: 6965676382730359597}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2425931182788766161 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4684216733501913852, guid: fd4a0e69f81ca77439c40e2e4e01df39,
+    type: 3}
+  m_PrefabInstance: {fileID: 6965676382730359597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4556548260966717973 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6887993138240080184, guid: fd4a0e69f81ca77439c40e2e4e01df39,
+    type: 3}
+  m_PrefabInstance: {fileID: 6965676382730359597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1915395102834923690 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8808992978091051911, guid: fd4a0e69f81ca77439c40e2e4e01df39,
     type: 3}
   m_PrefabInstance: {fileID: 6965676382730359597}
   m_PrefabAsset: {fileID: 0}

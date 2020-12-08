@@ -16242,12 +16242,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1056068534}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1064072917 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4556548260966717973, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1065948989
 GameObject:
   m_ObjectHideFlags: 0
@@ -18260,16 +18254,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1915395102834923669, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: actionContainer
-      value: 
-      objectReference: {fileID: 1064072917}
-    - target: {fileID: 1915395102834923669, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: gearsTranslateValue
-      value: 305
-      objectReference: {fileID: 0}
     - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -18389,11 +18373,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6965676383854670612, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -67
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: befb802f273720841b7d0981cc3dc664, type: 3}
