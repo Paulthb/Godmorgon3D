@@ -24,6 +24,12 @@ namespace GodMorgon.CardEffect
                 nbBlock = nbBlock * MapManager.Instance.nbNodesCleared;
             }
 
+            //inflige des dégâts au player tout court
+            if (effectData.PlayerDamage > 0)
+            {
+                PlayerMgr.Instance.TakeDamage(effectData.PlayerDamage);
+            }
+
             //Shiver
             if (effectData.shiver)
             {

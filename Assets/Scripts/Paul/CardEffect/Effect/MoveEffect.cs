@@ -22,6 +22,12 @@ namespace GodMorgon.CardEffect
                 Debug.Log("player receive 20 damages points for Forced Walk");
             }
 
+            //inflige des dégâts au player tout court
+            if (effectData.PlayerDamage > 0)
+            {
+                PlayerMgr.Instance.TakeDamage(effectData.PlayerDamage);
+            }
+
             //Trust
             if (effectData.trust)
             {

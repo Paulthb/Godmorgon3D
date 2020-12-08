@@ -29,7 +29,12 @@ namespace GodMorgon.CardEffect
                 }
             }
 
-            Debug.Log("Spell : ");
+            //inflige des dégâts au player tout court
+            if (effectData.PlayerDamage > 0)
+            {
+                PlayerMgr.Instance.TakeDamage(effectData.PlayerDamage);
+            }
+
             //effect to draw X card
             if (effectData.DrawCard)
             {
