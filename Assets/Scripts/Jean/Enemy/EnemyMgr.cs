@@ -154,6 +154,7 @@ public class EnemyMgr : MonoBehaviour
         if (enemiesList.Count > 0)
             StartCoroutine(TimedEnemiesMove());   //Lance la coroutine qui applique un par un le mouvement de chaque ennemi
         else enemiesHaveMoved = true;
+
     }
 
     /**

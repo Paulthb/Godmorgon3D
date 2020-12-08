@@ -81,6 +81,10 @@ namespace GodMorgon.Timeline
         [SerializeField]
         private TextMeshProUGUI trustText = null;
 
+        //transform where to instantiate the action gameObject
+        [SerializeField]
+        private Transform actionContainer = null;
+
 
         #region Singleton Pattern
         private static TimelineManager _instance;
@@ -329,7 +333,7 @@ namespace GodMorgon.Timeline
             gearsList.RemoveAt(0);
 
             //nouveau gear
-            GameObject gearGAO = Instantiate(gearPrefab, newGearPos.position, Quaternion.identity, this.transform);
+            GameObject gearGAO = Instantiate(gearPrefab, newGearPos.position, Quaternion.identity, actionContainer);
             gearGAO.GetComponent<Gears>().CreateGear();
             gearGAO.GetComponent<Gears>().MoveGear();
             gearsList.Add(gearGAO.GetComponent<Gears>());
