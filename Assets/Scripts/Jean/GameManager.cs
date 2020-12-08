@@ -565,6 +565,7 @@ public class GameManager : MonoBehaviour
     public void UpdateEnemiesStatus()
     {
         List<Transform> concernedNodesList = new List<Transform>();
+        EnemyScript enemyToDelete = null;
 
         //Add in list the nodes that are concerned and update enemiesOnNode of those nodes
         foreach(EnemyScript enemy in EnemyMgr.Instance.GetAllEnemies())
@@ -608,8 +609,6 @@ public class GameManager : MonoBehaviour
             {
                 Debug.LogWarning("There is a problem with node datas at position " + node.position);
             }
-
-
         }
 
         foreach(EnemyScript enemy in EnemyMgr.Instance.GetAllEnemies())
@@ -617,6 +616,35 @@ public class GameManager : MonoBehaviour
             //If an enemy is not on players node but his bool InPlayersNode is at true, there is a problem
             if (enemy.GetNodePosOfEnemy() != PlayerMgr.Instance.GetNodePosOfPlayer() && enemy.enemyData.inPlayersNode)
                 Debug.LogWarning(enemy.gameObject.name + " is set as inPlayersNode, but isn't.");
+
+            //Avoid enemies to be at the same position
+            foreach (EnemyScript otherEnemy in EnemyMgr.Instance.GetAllEnemies())
+            {
+                //If 2 different enemies are at the same position
+                if (enemy != otherEnemy && enemy.GetTilePosOfEnemy() == otherEnemy.GetTilePosOfEnemy())
+                {
+
+                    //Do not delete the one set on center
+                    if (enemy.GetNodeOfEnemy().GetComponent<NodeScript>().node.enemyOnCenter == enemy)
+                    {
+                        enemyToDelete = otherEnemy;
+                        Debug.LogWarning("2 enemies have the same position, we have to delete one. The survivor is " + enemy.gameObject.name);
+                    }
+                    else
+                    {
+                        enemyToDelete = enemy;
+                        Debug.LogWarning("2 enemies have the same position, we have to delete one. The survivor is " + otherEnemy.gameObject.name);
+                    }
+                }
+            }
+        }
+
+        //If we have someone to delete, destroy the gameobject and remove it from list
+        if(enemyToDelete != null)
+        {
+            Node enemyNode = enemyToDelete.GetNodeOfEnemy().GetComponent<NodeScript>().node;
+            enemyNode.enemiesOnNode.Remove(enemyToDelete);
+            Destroy(enemyToDelete.gameObject);
         }
     }
 }
