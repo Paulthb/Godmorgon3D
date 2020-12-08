@@ -58,14 +58,23 @@ namespace GodMorgon.CardEffect
 
             //Une fois que les effets ont été appliqués, on lance les actions 
             GameSequencer.Instance.ExecuteActions(context);
+            
             //on met à jour les infos des cartes affichées
             GameManager.Instance.UpdateCardDataDisplay();
+
             //on indique le nombre de tour que va jouer le RingMaster
             //on check les possibles modificateurs
             if(BuffManager.Instance.isStickyFingersActivate)
                 TimelineManager.Instance.SetRingmasterActionRemain(context.card.actionCost + 1);
             else
                 TimelineManager.Instance.SetRingmasterActionRemain(context.card.actionCost);
+
+            if(context.card.actionCost == 0)
+            {
+                //on lock toutes les cartes en main et tout le downPanel
+                GameManager.Instance.UnlockDragCardHandler(true);
+                GameManager.Instance.DownPanelBlock(false);
+            }
         }
 
         /**
