@@ -173,6 +173,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             else
                 cardDescription = cardDescription.Replace("[nbDamage]", "<b><color=red>" + actualDamage.ToString() + "</color></b>");
 
+            cardDescription = cardDescription.Replace("[playerDamage]", "<b>" + card.effectsData[0].PlayerDamage + "</b>");
 
             //block
             int actualBlock = BuffManager.Instance.getModifiedBlock(card.GetBlockOnBonus());
