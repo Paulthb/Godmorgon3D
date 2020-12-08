@@ -10660,6 +10660,12 @@ MonoBehaviour:
     coveredAtStart: 1
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
+--- !u!1 &678258034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 678258034, guid: befb802f273720841b7d0981cc3dc664,
+    type: 3}
+  m_PrefabInstance: {fileID: 1165564344}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &688753209
 GameObject:
   m_ObjectHideFlags: 0
@@ -18323,21 +18329,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1911739580145264003, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421850780169071, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -39.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421850780169071, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -174.7
-      objectReference: {fileID: 0}
     - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -30926,6 +30917,7 @@ MonoBehaviour:
   dropZoneObject: {fileID: 382959675}
   nbCardInDeck: {fileID: 1752729592}
   nbCardInDiscardPile: {fileID: 713427470}
+  discardPhaseText: {fileID: 678258034}
   VisibleDeck: []
   VisibleDiscardPile: []
 --- !u!1001 &1887391978
