@@ -442,49 +442,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &27832087 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6909561689929085999, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &27832088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27832087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &27832089
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27832087}
-  m_CullTransparentMesh: 0
 --- !u!4 &31236617 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1342960658508235010, guid: d19c07597a9485c4c879e5d75fbb836a,
@@ -2604,136 +2561,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d19c07597a9485c4c879e5d75fbb836a, type: 3}
---- !u!1001 &175609690
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1165564349}
-    m_Modifications:
-    - target: {fileID: 863537688862113093, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_Name
-      value: InfoBulle_Turn
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 82
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -110
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 233.91187
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 159.03632
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7018200493647756503, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_text
-      value: 'Every 4 actions a new turn start. All your card are discarded and you
-        draw 5 new cards. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 7018200493647756503, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 27.65
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7b480e1654570474aa747ea0ac21d702, type: 3}
 --- !u!1 &179556258
 GameObject:
   m_ObjectHideFlags: 0
@@ -7477,12 +7304,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 855082251}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &445308743 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 863537688862113093, guid: 7b480e1654570474aa747ea0ac21d702,
-    type: 3}
-  m_PrefabInstance: {fileID: 175609690}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &445694572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10200,136 +10021,6 @@ MonoBehaviour:
     coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
---- !u!1001 &626551636
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 725455099}
-    m_Modifications:
-    - target: {fileID: 863537688862113093, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_Name
-      value: InfoBulle_DrawPile
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 107
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 148
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 233.91187
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 159.03632
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7018200493647756503, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_text
-      value: 'Every 4 actions a new turn start. All your card are discarded and you
-        draw 5 new cards. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 7018200493647756503, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 27.65
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7b480e1654570474aa747ea0ac21d702, type: 3}
 --- !u!1 &632466323
 GameObject:
   m_ObjectHideFlags: 0
@@ -11510,34 +11201,6 @@ MonoBehaviour:
     coveredAtStart: 1
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
---- !u!1 &725455098 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5931483757241405263, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &725455099 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7247645258192213976, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &725455102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 725455098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22f800b2ef7da1b45b6b6e79f56fddb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  infoText: 'Draw Pile : You draw cards from you draw pile every turn. When your
-    draw pile is empty, all the cards from your discard pile are shuffelled into
-    your draw pile.'
-  infoWindowGAO: {fileID: 1539760838}
 --- !u!1001 &726704449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18771,133 +18434,90 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 985820476, guid: befb802f273720841b7d0981cc3dc664, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -7
+    - target: {fileID: 6617833079891357125, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1887340685}
+    - target: {fileID: 6617833079891357125, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1887340685}
+    - target: {fileID: 6936557211364694500, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1887340685}
+    - target: {fileID: 6936557211364694500, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1887340685}
+    - target: {fileID: 6965676382178484270, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1999962380, guid: befb802f273720841b7d0981cc3dc664, type: 3}
-      propertyPath: infoText
-      value: This is your deck, it contains every card you have (Draw, Hand, Discard)
+    - target: {fileID: 6965676382226473589, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 541547578707950545, guid: befb802f273720841b7d0981cc3dc664,
+    - target: {fileID: 6965676382226473589, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965676382226473589, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.6000977
+      value: 700
       objectReference: {fileID: 0}
-    - target: {fileID: 541547578707950545, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -189.4472
-      objectReference: {fileID: 0}
-    - target: {fileID: 541547578707950545, guid: befb802f273720841b7d0981cc3dc664,
+    - target: {fileID: 6965676382226473589, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.657837
+      value: -200
       objectReference: {fileID: 0}
-    - target: {fileID: 541547578707950545, guid: befb802f273720841b7d0981cc3dc664,
+    - target: {fileID: 6965676383055571881, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 5.315613
-      objectReference: {fileID: 0}
-    - target: {fileID: 863537687600863783, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_Name
-      value: InfoBulle_Deck
-      objectReference: {fileID: 0}
-    - target: {fileID: 2784598356957832938, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617833079891357125, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1887340685}
-    - target: {fileID: 6617833079891357125, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SkipPlayerTurn
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617833079891357125, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1887340685}
-    - target: {fileID: 6617833079891357125, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: DrawCardButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617833079891357125, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6936557211364694500, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1887340685}
-    - target: {fileID: 6936557211364694500, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1887340685}
-    - target: {fileID: 6936557211364694500, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DrawCardButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 6936557211364694500, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6936557211364694500, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SkipPlayerTurn
-      objectReference: {fileID: 0}
-    - target: {fileID: 6936557211364694500, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_Enabled
+      propertyPath: m_AnchorMin.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
+    - target: {fileID: 6965676383055571881, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1887340685}
-    - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DrawCardButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1887340685}
-    - target: {fileID: 6965676382984481398, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SkipPlayerTurn
-      objectReference: {fileID: 0}
-    - target: {fileID: 6965676382984481399, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_Enabled
+      propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6965676382984481399, guid: befb802f273720841b7d0981cc3dc664,
+    - target: {fileID: 6965676383055571881, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
-      propertyPath: m_Color.a
-      value: 0
+      propertyPath: m_AnchoredPosition.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965676383055571881, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965676383191558312, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965676383191558312, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965676383191558312, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6965676383191558312, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 6965676383302999650, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
@@ -19009,60 +18629,20 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9200678037575182132, guid: befb802f273720841b7d0981cc3dc664,
+    - target: {fileID: 7464985316586173606, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9200678037575182132, guid: befb802f273720841b7d0981cc3dc664,
+    - target: {fileID: 7464985317382135271, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9200678037575182132, guid: befb802f273720841b7d0981cc3dc664,
+    - target: {fileID: 7464985317488679841, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9200678037575182132, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9200678037575182132, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9200678037575182132, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1887340685}
-    - target: {fileID: 9200678037575182132, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1887340685}
-    - target: {fileID: 9200678037575182132, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DrawCardButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 9200678037575182132, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 9200678037575182132, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SkipPlayerTurn
-      objectReference: {fileID: 0}
-    - target: {fileID: 9200678037575182132, guid: befb802f273720841b7d0981cc3dc664,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: befb802f273720841b7d0981cc3dc664, type: 3}
@@ -19090,33 +18670,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1165564344}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &1165564349 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4849381460978495028, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1165564350 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4311162618852498370, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1165564351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165564350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22f800b2ef7da1b45b6b6e79f56fddb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  infoText: 'Every 4 actions a new turn start. All your card are discarded and you
-    draw 5 new cards. '
-  infoWindowGAO: {fileID: 445308743}
 --- !u!1001 &1167401454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20451,136 +20004,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1227581430}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1228625915
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1311991181}
-    m_Modifications:
-    - target: {fileID: 863537688862113093, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_Name
-      value: InfoBulle_DiscardPile
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -148
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 145.70001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 233.91187
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 159.03632
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3339421848981525517, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7018200493647756503, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_text
-      value: 'Every 4 actions a new turn start. All your card are discarded and you
-        draw 5 new cards. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 7018200493647756503, guid: 7b480e1654570474aa747ea0ac21d702,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 27.65
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7b480e1654570474aa747ea0ac21d702, type: 3}
 --- !u!1001 &1228865692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21787,32 +21210,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1567172976}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1311991180 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8779968445964005827, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1311991181 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7077828988890557293, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1311991184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1311991180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22f800b2ef7da1b45b6b6e79f56fddb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  infoText: 'Discard Pile : Every cards you play goes to your discard. '
-  infoWindowGAO: {fileID: 2120145506}
 --- !u!1 &1316691188
 GameObject:
   m_ObjectHideFlags: 0
@@ -22308,49 +21705,6 @@ MonoBehaviour:
     coveredAtStart: 1
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
---- !u!1 &1337530111 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8771300352805381452, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1337530112
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337530111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1337530113
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337530111}
-  m_CullTransparentMesh: 0
 --- !u!1001 &1340705317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22420,49 +21774,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d19c07597a9485c4c879e5d75fbb836a, type: 3}
---- !u!1 &1341392167 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 233713933149648180, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1341392171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341392167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1341392172
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341392167}
-  m_CullTransparentMesh: 0
 --- !u!1 &1347203598
 GameObject:
   m_ObjectHideFlags: 0
@@ -25662,12 +24973,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1522202242}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1539760838 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 863537688862113093, guid: 7b480e1654570474aa747ea0ac21d702,
-    type: 3}
-  m_PrefabInstance: {fileID: 626551636}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1543370476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27553,49 +26858,6 @@ MonoBehaviour:
     coveredAtStart: 1
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
---- !u!1 &1630199113 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3998256192563657469, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1630199114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630199113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1630199115
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630199113}
-  m_CullTransparentMesh: 0
 --- !u!1 &1630290904
 GameObject:
   m_ObjectHideFlags: 0
@@ -31641,7 +30903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514388b7edc64bd499781eb632db43bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSettings: {fileID: 11400000, guid: 5beb8f97f66c4b344b7f9d80618b4f8d, type: 2}
+  gameSettings: {fileID: 11400000, guid: 9e3253d90904af94f8266959a0600962, type: 2}
   gameSceneName: TEST_Tilemap
   isHandRandom: 0
 --- !u!1001 &1884178478
@@ -33199,89 +32461,6 @@ MonoBehaviour:
     coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
---- !u!1 &1959277605 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3272624934862570060, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1959277606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959277605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1959277608}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1959277608 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4247150521175138009, guid: befb802f273720841b7d0981cc3dc664,
-    type: 3}
-  m_PrefabInstance: {fileID: 1165564344}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959277605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1961065859
 GameObject:
   m_ObjectHideFlags: 0
@@ -36180,12 +35359,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1342960658508235010, guid: d19c07597a9485c4c879e5d75fbb836a,
     type: 3}
   m_PrefabInstance: {fileID: 2119148530}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2120145506 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 863537688862113093, guid: 7b480e1654570474aa747ea0ac21d702,
-    type: 3}
-  m_PrefabInstance: {fileID: 1228625915}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2123048726
 GameObject:
