@@ -212,10 +212,9 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         //active la trail renderer
         gameObject.GetComponent<TrailRenderer>().enabled = true;
-        gameObject.transform.parent = gameObject.transform.parent.parent;
+
+        gameObject.transform.SetParent(gameObject.transform.parent.parent);
         GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth / 3, cardHeight / 3);  //On réduit la taille de la carte lors du drag
-        
-        //transform.position = mousePos;   //La carte prend la position de la souris
 
         while ((transform.position - discardPilePos.position).magnitude > 0.01f)
         {
