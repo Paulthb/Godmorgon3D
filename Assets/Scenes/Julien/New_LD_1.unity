@@ -3476,7 +3476,7 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 9ea571a5294a99346b078880ca0790cc,
       type: 3}
     roadType: 13
-    nodeEffect: 0
+    nodeEffect: 5
     effectLaunched: 0
     isNodeCleared: 0
     coveredAtStart: 0
@@ -30825,7 +30825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSettings: {fileID: 11400000, guid: 9e3253d90904af94f8266959a0600962, type: 2}
   gameSceneName: TEST_Tilemap
-  isHandRandom: 0
+  isHandRandom: 1
 --- !u!1001 &1884178478
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -251,7 +251,7 @@ public class NodeEffectMgr : MonoBehaviour
      */
     IEnumerator TimedNodeEffect()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
 
         // Wait for the player to choose a card in draft panel (activated with Chest node)
         while (GameManager.Instance.draftPanelActivated)
@@ -260,7 +260,7 @@ public class NodeEffectMgr : MonoBehaviour
         }
 
         isNodeEffectDone = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         isNodeEffectDone = false;
     }
 
