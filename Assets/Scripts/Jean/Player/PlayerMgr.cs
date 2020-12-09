@@ -99,6 +99,7 @@ namespace GodMorgon.Player
 
         //Player attack
         private Entity enemyToAttack;
+        private EnemyScript clickedEnemy;
 
         #region Singleton Pattern
         private static PlayerMgr _instance;
@@ -187,12 +188,15 @@ namespace GodMorgon.Player
                     {
                         if (hit.collider.tag == "Enemy")
                         {
-                            EnemyScript clickedEnemy = hit.collider.gameObject.GetComponent<EnemyScript>();
+                            clickedEnemy = hit.collider.gameObject.GetComponent<EnemyScript>();
                             
                             // If clicked enemy is attackable
                             if (EnemyMgr.Instance.GetAttackableEnemiesList().Contains(clickedEnemy))
                             {
                                 enemyToAttack = clickedEnemy.enemyData;
+
+                                //transform.GetChild(0).LookAt(clickedEnemy.transform.GetChild(0).position, Vector3.up);
+
                                 enemyIsChosen = true;
                                 canChooseEnemyToAttack = false;
                                 EnemyMgr.Instance.HideAttackableEnemies();
@@ -679,7 +683,6 @@ namespace GodMorgon.Player
         {
             return enemyToAttack;
         }
-
 
 
         /**
