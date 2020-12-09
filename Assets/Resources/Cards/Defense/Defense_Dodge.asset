@@ -22,13 +22,14 @@ MonoBehaviour:
   actionCost: 0
   price: 200
   template: {fileID: 21300000, guid: f44370d35cac10f4f805debd227b407b, type: 3}
-  artwork: {fileID: 21300000, guid: 9a239aa739ace534f871bae45295920b, type: 3}
+  artwork: {fileID: 21300000, guid: f916020d97d3d0d4b86858c411e0da83, type: 3}
   effectsData:
   - currentEffect: 2
     damagePoint: 0
     attackRange: 0
     BackAtYou: 0
     Rush: 0
+    PlayerDamage: 0
     isCircular: 0
     nbMoves: 0
     rolling: 0
@@ -42,6 +43,7 @@ MonoBehaviour:
     FastShoes: 0
     Scarification: 0
     Possibilities: 0
+    HardHead: 0
     Sight: 0
     sightRange: 0
     DrawCard: 0
@@ -69,6 +71,7 @@ MonoBehaviour:
     attackRange: 0
     BackAtYou: 0
     Rush: 0
+    PlayerDamage: 0
     isCircular: 0
     nbMoves: 0
     rolling: 0
@@ -82,6 +85,7 @@ MonoBehaviour:
     FastShoes: 0
     Scarification: 0
     Possibilities: 0
+    HardHead: 0
     Sight: 0
     sightRange: 0
     DrawCard: 0
