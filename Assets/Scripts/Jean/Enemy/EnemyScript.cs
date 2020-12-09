@@ -69,7 +69,7 @@ namespace GodMorgon.Enemy
                 enemyData.nbMoves = _enemy.nbMoves;
                 enemyData.speed = _enemy.speed;
                 enemyData.attackRange = _enemy.attackRange;
-                enemyData.isCursed = _enemy.isCursed;
+                enemyData.isCursed = _enemy.doFog;
                 enemyData.skin = _enemy.skin;
                 enemyData.inPlayersNode = false;
                 enemyData.enemyScript = this;
