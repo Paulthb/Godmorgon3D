@@ -7,6 +7,11 @@ namespace GodMorgon.Timeline
 {
     public class SpawnEnemy : Action
     {
+        public SpawnEnemy()
+        {
+            currentType = ACTION_TYPE.SPAWN_ENEMY;
+        }
+
         public override IEnumerator Execute()
         {
             EnemyMgr.Instance.SpawnEnemiesList();
