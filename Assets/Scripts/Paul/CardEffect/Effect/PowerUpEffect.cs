@@ -61,6 +61,12 @@ namespace GodMorgon.CardEffect
                 BuffManager.Instance.ActivateHardHead();
             }
 
+            //inflige des dégâts au player tout court
+            if (effectData.PlayerDamage > 0)
+            {
+                PlayerMgr.Instance.TakeDamage(effectData.PlayerDamage);
+            }
+
             //supprime les autres cartes identiques présente dans les deck in-game
             GameManager.Instance.TakeCardOutFromDeck(context.card);
         }

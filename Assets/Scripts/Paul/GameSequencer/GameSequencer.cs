@@ -65,7 +65,8 @@ namespace GodMorgon.GameSequencerSpace
             }
             _actionsList.Clear();
 
-            GameEngine.Instance.SetState(StateMachine.StateMachine.STATE.RINGMASTER_TURN);
+            if (context.card.actionCost > 0)
+                GameEngine.Instance.SetState(StateMachine.StateMachine.STATE.RINGMASTER_TURN);
         }
     }
 }

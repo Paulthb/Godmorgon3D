@@ -29,6 +29,7 @@ public class InfoHoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         infoWindowGAO.SetActive(false);
         textMesh = infoWindowGAO.GetComponentInChildren<TextMeshProUGUI>();
+        textMesh.text = infoText;
     }
 
     public void OnPointerEnter(PointerEventData pointerEventData)

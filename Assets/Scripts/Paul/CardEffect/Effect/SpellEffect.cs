@@ -29,13 +29,18 @@ namespace GodMorgon.CardEffect
                 }
             }
 
-            Debug.Log("Spell : ");
+            //inflige des dégâts au player tout court
+            if (effectData.PlayerDamage > 0)
+            {
+                PlayerMgr.Instance.TakeDamage(effectData.PlayerDamage);
+            }
+
             //effect to draw X card
             if (effectData.DrawCard)
             {
                 int nbCardToDraw = effectData.nbCardToDraw;
                 if (isTrustActivate)
-                    nbCardToDraw = nbCardToDraw * 2;
+                    nbCardToDraw *= 2;
 
                 GameManager.Instance.DrawCard(nbCardToDraw);
                 Debug.Log(" - Draw " + nbCardToDraw + " cards");
@@ -50,7 +55,7 @@ namespace GodMorgon.CardEffect
             {
                 int nbCardToDraw = effectData.nbCardToDraw;
                 if (isTrustActivate)
-                    nbCardToDraw = nbCardToDraw * 2;
+                    nbCardToDraw *= 2;
 
                 GameManager.Instance.DrawCardFromDiscardPile(nbCardToDraw);
 

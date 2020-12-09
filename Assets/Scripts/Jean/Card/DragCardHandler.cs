@@ -166,9 +166,6 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             GameManager.Instance.ActiveDropZone(false);
         }
 
-        //Cache les positions accessibles
-        //dropPosManager.HidePositionsToDrop(_card);
-
         //Réactive le drag de la caméra
         mainCamera.ActiveCameraDrag(true);
     }
