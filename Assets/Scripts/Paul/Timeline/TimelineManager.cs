@@ -139,27 +139,31 @@ namespace GodMorgon.Timeline
             nbActualAction = 1;
 
             int idx = indexCurrentAction;
-            idx = SetNextActions(gearsList[0].logo, idx);
+            idx = SetNextActions(gearsList[0].logo, idx, gearsList[0]);
             gearsList[0].logo.gameObject.SetActive(true);
 
-            idx = SetNextActions(gearsList[1].logo, idx);
+            idx = SetNextActions(gearsList[1].logo, idx, gearsList[1]);
             gearsList[1].logo.gameObject.SetActive(true);
 
-            idx = SetNextActions(gearsList[2].logo, idx);
+            idx = SetNextActions(gearsList[2].logo, idx, gearsList[2]);
             gearsList[2].logo.gameObject.SetActive(true);
 
-            idx = SetNextActions(gearsList[3].logo, idx);
+            idx = SetNextActions(gearsList[3].logo, idx, gearsList[3]);
             gearsList[3].logo.gameObject.SetActive(true);
         }
 
         /**
          * Set the next action and the display
          */
-        private int SetNextActions(Image image, int initIdx)
+        private int SetNextActions(Image image, int initIdx, Gears target)
         {
             //si initIdx > actionlist.Count, alors idx = 0
             int idx = (initIdx >= actionlist.Count) ? 0 : initIdx;
-            image.sprite = actionlist[idx++].actionLogo;//ici idx = idx;
+            image.sprite = actionlist[idx].actionLogo;//ici idx = idx;
+
+            //set the action type for the info bulle on the gear
+            target.actionType = actionlist[idx++].currentType;
+
             //ici idx = idx + 1; 
             return idx;
         }

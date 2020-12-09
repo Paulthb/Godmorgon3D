@@ -7,6 +7,12 @@ namespace GodMorgon.Timeline
 {
     public class Attack : Action
     {
+        
+        public Attack()
+        {
+            currentType = ACTION_TYPE.ATTACK;
+        }
+
         public override IEnumerator Execute()
         {
             EnemyMgr.Instance.Attack();

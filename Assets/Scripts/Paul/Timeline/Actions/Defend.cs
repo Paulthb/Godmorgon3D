@@ -8,6 +8,12 @@ namespace GodMorgon.Timeline
 {
     public class Defend : Action
     {
+
+        public Defend()
+        {
+            currentType = ACTION_TYPE.DEFEND;
+        }
+
         //tout les enemies de la scene gagne de la defense
         public override IEnumerator Execute()
         {
