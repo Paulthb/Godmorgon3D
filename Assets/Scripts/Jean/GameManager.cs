@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
      */
     public List<BasicCard> VisibleDeck = new List<BasicCard>();
     public List<BasicCard> VisibleDiscardPile = new List<BasicCard>();
+    public List<BasicCard> VisibleHand = new List<BasicCard>();
 
 
     #region Singleton Pattern
@@ -436,7 +437,7 @@ public class GameManager : MonoBehaviour
         isDiscardCardSelectionOn = true;
         handManager.ActivateCardDiscard();
 
-        //remet tout les gears à l'heure place
+        //remet tout les gears à leur place
         TimelineManager.Instance.HideNextAction(4);
 
         //on désactive le block pour pouvoir reselectionné les cartes à discard...
@@ -453,6 +454,7 @@ public class GameManager : MonoBehaviour
      */
     public void DesactivateDiscardOnCard()
     {
+        print("DesactivateDiscardOnCard");
         isDiscardCardSelectionOn = false;
         handManager.DesactivateCardDiscard();
         nbCardToDiscard = 0;
@@ -557,11 +559,16 @@ public class GameManager : MonoBehaviour
     {
         VisibleDeck.Clear();
         VisibleDiscardPile.Clear();
+        VisibleHand.Clear();
         foreach (BasicCard card in GameEngine.Instance.GetPlayerDeck()){
             VisibleDeck.Add(card);
         }
         foreach (BasicCard card in GameEngine.Instance.GetDisposalPile()){
             VisibleDiscardPile.Add(card);
+        }
+        foreach (BasicCard card in GameEngine.Instance.GetHandCards())
+        {
+            VisibleHand.Add(card);
         }
     }
 

@@ -97,8 +97,9 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
             {
                 //discard the select card
                 GameManager.Instance.DiscardHandCard(cardDisplay);
-
-                Destroy(this.gameObject);
+                
+                //Pour empecher le hover ?
+                //Destroy(gameObject);
             }
         }
     }
