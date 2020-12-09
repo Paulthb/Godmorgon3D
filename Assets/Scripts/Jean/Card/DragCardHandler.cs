@@ -29,6 +29,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     //vitesse de l'animation de la carte vers la discard pile
     [SerializeField]
     private float speedCardDiscard = 5f;
+    private Vector3 mousePos;
 
     //=================================
     private CameraDrag mainCamera;
@@ -136,7 +137,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                     GameManager.Instance.DiscardHandCard(gameObject.GetComponent<CardDisplay>());
 
                     //La carte va à la discard visuellement
-                    StartCoroutine(PlayGoToDiscard());
+                    //StartCoroutine(PlayGoToDiscard());
 
                     //Si la carte n'a pas de cible, on play la card directement
                     if (_card.dropTarget == BasicCard.DROP_TARGET.PLAYER)
@@ -211,12 +212,17 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         //active la trail renderer
         gameObject.GetComponent<TrailRenderer>().enabled = true;
-        while ((transform.localPosition - discardPilePos.localPosition).magnitude > 0.01f)
+        gameObject.transform.parent = gameObject.transform.parent.parent;
+        GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth / 3, cardHeight / 3);  //On réduit la taille de la carte lors du drag
+        
+        //transform.position = mousePos;   //La carte prend la position de la souris
+
+        while ((transform.position - discardPilePos.position).magnitude > 0.01f)
         {
-            transform.localPosition = Vector3.Lerp(transform.localPosition, discardPilePos.localPosition, Time.deltaTime * speedCardDiscard);
+            transform.position = Vector3.Lerp(transform.position, discardPilePos.position, Time.deltaTime * speedCardDiscard);
             yield return null;
         }
-        transform.localPosition = discardPilePos.localPosition;
+        transform.position = discardPilePos.position;
         Destroy(gameObject);
     }
 
