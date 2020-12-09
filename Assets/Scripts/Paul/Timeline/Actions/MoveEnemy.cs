@@ -7,6 +7,11 @@ namespace GodMorgon.Timeline
 {
     public class MoveEnemy : Action
     {
+        public MoveEnemy()
+        {
+            currentType = ACTION_TYPE.MOVE_ENEMY;
+        }
+
         public override IEnumerator Execute()
         {
             //Debug.Log("ACTION Move Enemy");

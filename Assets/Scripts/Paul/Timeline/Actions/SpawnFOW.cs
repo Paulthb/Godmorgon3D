@@ -6,6 +6,11 @@ namespace GodMorgon.Timeline
 {
     public class SpawnFOW : Action
     {
+        public SpawnFOW()
+        {
+            currentType = ACTION_TYPE.SPAWN_FOW;
+        }
+
         public override IEnumerator Execute()
         {
             //Debug.Log("ACTION Spawn FOW");

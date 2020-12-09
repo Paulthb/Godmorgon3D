@@ -20,6 +20,10 @@ namespace GodMorgon.Timeline
         //coroutine de show action actuel
         public IEnumerator currentShowCoroutine = null;
 
+        //type of action of the gear
+        [System.NonSerialized]
+        public ACTION_TYPE actionType = ACTION_TYPE.NONE;
+
         public void MoveGear()
         {
             StartCoroutine(GoToLeft());
