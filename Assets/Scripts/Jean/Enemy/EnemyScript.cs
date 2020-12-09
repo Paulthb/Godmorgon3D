@@ -104,6 +104,9 @@ namespace GodMorgon.Enemy
                 _healthBar.transform.position = Camera.main.WorldToScreenPoint(healthBarPos.position);
 
             playersNode = enemyData.inPlayersNode;
+
+            // Rotate the enemy in the direction of the player
+            transform.GetChild(0).LookAt(PlayerMgr.Instance.transform, Vector3.up);
         }
 
         public void CalculateEnemyPath()
