@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 6920085247163396658}
   - component: {fileID: 5813749571202574481}
   m_Layer: 0
-  m_Name: Enemy_BaseOcchio
+  m_Name: Enemy_FoggOcchio
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,17 +316,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5cef5f57842a9a8408987544543d471b, type: 2}
+      objectReference: {fileID: 2100000, guid: 76b7087c771e13748a67c7f35ae53715, type: 2}
     - target: {fileID: -1741047253627938715, guid: 53e652aabb65b1e4aace842ee2594da1,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: d57b21fc15ceb4b47b90cd557306203d, type: 2}
+      objectReference: {fileID: 2100000, guid: 83e0b30516ae910429105e701598c95a, type: 2}
     - target: {fileID: -1741047253627938715, guid: 53e652aabb65b1e4aace842ee2594da1,
         type: 3}
       propertyPath: m_Materials.Array.data[3]
       value: 
-      objectReference: {fileID: 2100000, guid: 6d99964c6b299704399d4d77e50b086f, type: 2}
+      objectReference: {fileID: 2100000, guid: c959aa6d022fcdc459fb3271a658eb2d, type: 2}
     - target: {fileID: 919132149155446097, guid: 53e652aabb65b1e4aace842ee2594da1,
         type: 3}
       propertyPath: m_Name
