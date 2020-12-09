@@ -25,6 +25,12 @@ public class CameraDrag : MonoBehaviour
     //
     private Vector3 previousGroundPoint;
 
+    //indique quand on est en dragging
+    private bool onDrag = false;
+
+    //active le move on edge camera
+    [SerializeField]
+    private bool isMoveEdgeActive = true;
 
     private void Start()
     {
@@ -47,8 +53,11 @@ public class CameraDrag : MonoBehaviour
                 Vector3 move = planeIntersection - previousGroundPoint;
                 if (move.magnitude > Mathf.Epsilon)
                 {
+                    onDrag = true;
                     transform.position += -move;
                 }
+                //else
+                //    onDrag = false;
             }
             else
             {
@@ -58,12 +67,17 @@ public class CameraDrag : MonoBehaviour
         }
         else
         {
+            onDrag = false;
             previousValue = false;
         }
 
         //Keyboard commands
         //float f = 0.0f;
         Vector3 p = GetBaseInput();
+
+        //mouse pos
+        if (isMoveEdgeActive && !onDrag)
+            p += GetMoveOnEdge();
 
         p = p * Time.deltaTime;
         Vector3 newPosition = transform.position;
@@ -86,7 +100,8 @@ public class CameraDrag : MonoBehaviour
     }
 
     private Vector3 GetBaseInput()
-    { //returns the basic values, if it's 0 than it's not active.
+    {
+        //returns the basic values, if it's 0 than it's not active.
         Vector3 p_Velocity = new Vector3();
         if (Input.GetKey(KeyCode.Z))
         {
@@ -107,26 +122,36 @@ public class CameraDrag : MonoBehaviour
         return p_Velocity;
     }
 
-    private void MoveCameraByDraging()
+    //move camera when mouse is on edge of the screen
+    private Vector3 GetMoveOnEdge()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    dragOrigin = Input.mousePosition;
-        //    return;
-        //}
+        Vector3 p_Velocity = new Vector3();
+        //Top
+        if (Input.mousePosition.y >= Screen.height * 0.999)
+        {
+            p_Velocity += new Vector3(0, 1 * mainSpeed, 0);
+            print("TOP");
+        }
+        //Down
+        if (Input.mousePosition.y <= Screen.height * 0.001)
+        {
+            p_Velocity += new Vector3(0, -1 * mainSpeed, 0);
+            print("DOWN");
+        }
+        //Left
+        if (Input.mousePosition.x <= Screen.width * 0.001)
+        {
+            p_Velocity += new Vector3(-1 * mainSpeed, 0, 0);
+            print("LEFT");
+        }
+        //Right
+        if (Input.mousePosition.x >= Screen.width * 0.999)
+        {
+            p_Velocity += new Vector3(1 * mainSpeed, 0, 0);
+            print("RIGHT");
+        }
 
-        //if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
-        //{
-        //    Vector3 pos = Camera.main.ScreenToViewportPoint(dragOrigin - Input.mousePosition);
-        //    Vector3 move = new Vector3(pos.x * dragSpeed, pos.y * dragSpeed, 0);
-
-        //    transform.position += transform.right * move.x;
-        //    transform.position += DRAG_Y_VECTOR * move.y;
-
-        //    //transform.Translate(move, Space.World);
-        //    dragOrigin = Input.mousePosition;
-        //    return;
-        //}
+        return p_Velocity;
     }
 
     //DeZoom and zoom between 2 and 4
@@ -141,8 +166,6 @@ public class CameraDrag : MonoBehaviour
             if (gameCamera.orthographicSize > maxScroll)
                 gameCamera.orthographicSize = maxScroll;
         }
-        //TODO
-        //(currentZoom, target, time.deltaTime * 2)
     }
 
     //active le camera drag
