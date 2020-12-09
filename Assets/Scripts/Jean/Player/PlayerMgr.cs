@@ -446,7 +446,7 @@ namespace GodMorgon.Player
                 {
                     //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/timeHover);
 
-                    currentRotation.y = Mathf.Lerp(currentRotation.y, nextRotation, Time.deltaTime * 10f);
+                    currentRotation.y = Mathf.Lerp(currentRotation.y, nextRotation, Time.deltaTime * 15f);
 
                     transform.GetChild(0).localEulerAngles = currentRotation;
 
