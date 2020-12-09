@@ -111,6 +111,10 @@ namespace GodMorgon.Timeline
         {
             //set the nb turn text
             //turnText.text = indexCurrentAction.ToString();
+            gearsList[0].actionType = actionlist[0].currentType;
+            gearsList[1].actionType = actionlist[1].currentType;
+            gearsList[2].actionType = actionlist[2].currentType;
+            gearsList[3].actionType = actionlist[3].currentType;
 
             particulePos.gameObject.GetComponent<ParticleSystem>().Stop();
         }

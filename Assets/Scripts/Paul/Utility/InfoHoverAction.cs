@@ -23,8 +23,6 @@ public class InfoHoverAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
     //public bool isHover = false;
     private IEnumerator currentCoroutine = null;
 
-    //pour les engrenages de départ leur actions sont déjà définis
-
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +31,6 @@ public class InfoHoverAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        Debug.Log("pqsodhjf");
-
         SetText();
 
         if (currentCoroutine != null)
@@ -55,7 +51,7 @@ public class InfoHoverAction : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         yield return new WaitForSeconds(timeBeforeShow);
 
-        if(GetComponent<Gears>().actionType == ACTION_TYPE.NONE)
+        if(GetComponent<Gears>().actionType != ACTION_TYPE.NONE)
             infoWindowObject.SetActive(true);
     }
 
