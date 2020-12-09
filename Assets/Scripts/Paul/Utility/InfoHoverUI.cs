@@ -12,15 +12,9 @@ public class InfoHoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [SerializeField]
     private string infoText = null;
 
-    //objet de l'objet qu'il faudra présenter lorsque que les conditions seront validées
-    //[SerializeField]
-    //private GameObject infoWindowPrefab = null;
+    //objet de l'objet qu'il faudra activer lorsque que les conditions seront validées
     [SerializeField]
     private GameObject infoWindowGAO = null;
-
-    //position de la fenêtre
-    //[SerializeField]
-    //private Transform windowPos = null;
 
     //temps avant apparition de l'info bulle
     private float timeBeforeShow = 1f;
@@ -43,8 +37,6 @@ public class InfoHoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             StopCoroutine(currentCoroutine);
         currentCoroutine = ShowWindow();
         StartCoroutine(currentCoroutine);
-
-        print("lIQOEDFEH");
     }
 
     public void OnPointerExit(PointerEventData pointerEventData)
@@ -58,7 +50,6 @@ public class InfoHoverUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public IEnumerator ShowWindow()
     {
         yield return new WaitForSeconds(timeBeforeShow);
-        print("ALOOOOOOOOOOOOOO");
         infoWindowGAO.SetActive(true);
     }
 
