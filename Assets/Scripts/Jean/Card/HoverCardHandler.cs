@@ -143,12 +143,20 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
         display.transform.localScale = destinationScale;
         if (!inDraft)
             display.transform.localPosition = destinationPosition;
+
+        //active l'info bulle
+        if(cardDisplay)
+            cardDisplay.ActiveInfoWindow();
     }
 
     public IEnumerator ScaleCardOut()
     {
+        //désactive l'info bulle
         if (cardDisplay)
+        {
+            cardDisplay.DesactiveInfoWindow();
             cardDisplay.gameObject.GetComponent<Canvas>().sortingOrder = 0;
+        }
 
         Vector3 originalScale = display.transform.localScale;
         Vector3 destinationScale = new Vector3(1, 1, 1);

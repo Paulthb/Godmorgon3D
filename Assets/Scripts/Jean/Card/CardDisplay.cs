@@ -58,6 +58,23 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     //référence to HoverHandler pour le dragHandler (a modifier plus tard !!)
     public HoverCardHandler hoverCardHandler = null;
 
+    //script pour l'info bulle des cartes
+    public InfoHoverCard infoHoverCard = null;
+
+    //texte pour remplir les info bulles
+    [TextArea]
+    [SerializeField]
+    private string shiverInfo;
+    [TextArea]
+    [SerializeField]
+    private string trustInfo;
+    [TextArea]
+    [SerializeField]
+    private string retainInfo;
+    [TextArea]
+    [SerializeField]
+    private string goosebumpInfo;
+
     /**
      * Load the data of the card in the gameObject at start, if the card exist.
      */
@@ -249,130 +266,60 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
      */
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        //if (!cardIsDragging)
-        //{
-        //    isHover = true;
-        //    StartCoroutine(ScaleCardIn());
 
-        //    if (!canBeDiscard || isplayable)
-        //    {
-        //        //check des possibles modificateurs
-        //        if (BuffManager.Instance.isStickyFingersActivate)
-        //            TimelineManager.Instance.ShowNextAction(card.actionCost + 1);
-        //        else
-        //            TimelineManager.Instance.ShowNextAction(card.actionCost);
-        //    }
-        //}
     }
 
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //if (!cardIsDragging)
-        //{
-        //    isHover = false;
-        //    StartCoroutine(ScaleCardOut());
 
-        //    if (!canBeDiscard || isplayable)
-        //    {
-        //        //check des possibles modificateurs
-        //        if (BuffManager.Instance.isStickyFingersActivate)
-        //            TimelineManager.Instance.HideNextAction(card.actionCost + 1);
-        //        else
-        //            TimelineManager.Instance.HideNextAction(card.actionCost);
-        //    }
-        //}
     }
 
     //Detect if a click occurs
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        ////si la carte peut être discard
-        //if (canBeDiscard && isHover)
-        //{
-        //    //discard the select card
-        //    GameManager.Instance.DiscardHandCard(this);
 
-        //    Destroy(this.gameObject);
-        //}
     }
-
-    //public IEnumerator ScaleCardIn()
-    //{
-    //    GetComponent<Canvas>().sortingOrder = 1;
-
-    //    Vector3 originalScale = display.transform.localScale;
-    //    Vector3 destinationScale = new Vector3(2.0f, 2.0f, 0);
-
-    //    Vector3 originalPosition = display.transform.localPosition;
-    //    Vector3 destinationPosition = new Vector3(0, 215, -100);
-
-    //    float currentTime = 0.0f;
-
-    //    while (currentTime <= timeHover && isHover)
-    //    {
-    //        //display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime/timeHover);
-    //        //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/timeHover);
-
-    //        display.transform.localScale = Vector3.Lerp(display.transform.localScale, destinationScale, Time.deltaTime * 10f);
-    //        display.transform.localPosition = Vector3.Lerp(display.transform.localPosition, destinationPosition, Time.deltaTime * 10f);
-
-    //        currentTime += Time.deltaTime;
-    //        yield return null;
-    //    }
-    //    display.transform.localScale = destinationScale;
-    //    display.transform.localPosition = destinationPosition;
-    //}
-
-    //public IEnumerator ScaleCardOut()
-    //{
-    //    GetComponent<Canvas>().sortingOrder = 0;
-
-    //    Vector3 originalScale = display.transform.localScale;
-    //    Vector3 destinationScale = new Vector3(1, 1, 1);
-
-    //    Vector3 originalPosition = display.transform.localPosition;
-    //    Vector3 destinationPosition = new Vector3(0, 0, 0);
-
-    //    float currentTime = 0.0f;
-
-    //    while (currentTime <= timeHover && !isHover)
-    //    {
-    //        //display.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / timeHover);
-    //        //display.transform.localPosition = Vector3.Lerp(originalPosition, destinationPosition, currentTime/ timeHover);
-
-    //        //Danping
-    //        display.transform.localScale = Vector3.Lerp(display.transform.localScale, destinationScale, Time.deltaTime * 10f);
-    //        display.transform.localPosition = Vector3.Lerp(display.transform.localPosition, destinationPosition, Time.deltaTime * 10f);
-
-    //        currentTime += Time.deltaTime;
-    //        yield return null;
-    //    }
-    //    display.transform.localScale = destinationScale;
-    //    display.transform.localPosition = destinationPosition;
-    //}
 
     //quand la carte est drag, elle reprend sa taille normale
     public void OnCardDrag(bool isCardDrag)
     {
         hoverCardHandler.OnCardDrag(isCardDrag);
-        //if (isCardDrag)
-        //{
-        //    cardIsDragging = true;
-        //    isHover = false;
-        //    StopCoroutine(ScaleCardIn());
-        //    StopCoroutine(ScaleCardOut());
+    }
 
-        //    //check des possibles modificateurs
-        //    if (BuffManager.Instance.isStickyFingersActivate)
-        //        TimelineManager.Instance.HideNextAction(card.actionCost + 1);
-        //    else
-        //        TimelineManager.Instance.HideNextAction(card.actionCost);
+    //active l'info bulle si des keyword sont présent dans la description
+    public void ActiveInfoWindow()
+    {
+        bool isKeyWordOn = false;
+        string textInfo = "";
 
-        //    display.transform.localScale = new Vector3(1, 1, 1);
-        //    display.transform.localPosition = new Vector3(0, 0, 0);
-        //}
-        //else
-        //    cardIsDragging = false;
+        if (card.description.Contains("KeyShiver"))
+        {
+            isKeyWordOn = true;
+            textInfo += shiverInfo;
+        }
+        if (card.description.Contains("KeyTrust"))
+        {
+            isKeyWordOn = true;
+            textInfo += trustInfo;
+        }
+        if (card.description.Contains("KeyRetain"))
+        {
+            isKeyWordOn = true;
+            textInfo += retainInfo;
+        }
+        if (card.description.Contains("KeyGoosebump"))
+        {
+            isKeyWordOn = true;
+            textInfo += goosebumpInfo;
+        }
+
+        if (isKeyWordOn)
+            infoHoverCard.ActiveWindow(textInfo);
+    }
+
+    public void DesactiveInfoWindow()
+    {
+        infoHoverCard.DesactiveWindow();
     }
 }
