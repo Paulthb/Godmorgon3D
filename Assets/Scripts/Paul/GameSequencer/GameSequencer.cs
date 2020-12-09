@@ -67,6 +67,12 @@ namespace GodMorgon.GameSequencerSpace
 
             if (context.card.actionCost > 0)
                 GameEngine.Instance.SetState(StateMachine.StateMachine.STATE.RINGMASTER_TURN);
+            else
+            {
+                //on lock toutes les cartes en main et tout le downPanel
+                GameManager.Instance.UnlockDragCardHandler(true);
+                GameManager.Instance.DownPanelBlock(false);
+            }
         }
     }
 }

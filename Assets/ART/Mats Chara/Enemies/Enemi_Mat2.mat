@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemi_Mat
+  m_Name: Enemi_Mat2
   m_Shader: {fileID: 4800000, guid: e9139893135752842abe9302f85aa8d4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -93,7 +93,7 @@ Material:
     - _RimOffset: 0.2
     - _Rimpower: 1
     - _SmoothnessTextureChannel: 0
-    - _Specintensity: 0.589
+    - _Specintensity: 0.33
     - _Specsmth: 0.463
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -107,7 +107,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive: {r: 0.6603774, g: 0.38791147, b: 0, a: 1}
-    - _GlobalTint: {r: 0.12890154, g: 0.09723212, b: 0.1792453, a: 1}
+    - _GlobalTint: {r: 0.35294122, g: 0.8392157, b: 0.65636945, a: 1}
     - _RimTint: {r: 0.5566038, g: 0.34758952, b: 0, a: 1}
-    - _Speccolor: {r: 0.8396226, g: 0.43634444, b: 0.1544589, a: 1}
+    - _Speccolor: {r: 0.8392157, g: 0.4678162, b: 0.15294118, a: 1}
     - _Tint: {r: 0.9811321, g: 0.47640994, b: 0, a: 1}

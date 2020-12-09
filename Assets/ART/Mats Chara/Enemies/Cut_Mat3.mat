@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemi_Mat_Alt 1
+  m_Name: Cut_Mat3
   m_Shader: {fileID: 4800000, guid: e9139893135752842abe9302f85aa8d4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -90,11 +90,11 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimOffset: 0.19
-    - _Rimpower: 0.891
+    - _RimOffset: 0.1
+    - _Rimpower: 1
     - _SmoothnessTextureChannel: 0
-    - _Specintensity: 0.317
-    - _Specsmth: 0.564
+    - _Specintensity: 0.482
+    - _Specsmth: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
@@ -103,11 +103,11 @@ Material:
     - _max: 1
     - _min: 0
     m_Colors:
-    - _ASEOutlineColor: {r: 0.15294118, g: 0.17091937, b: 0.32156864, a: 0}
+    - _ASEOutlineColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Emissive: {r: 0.2264151, g: 0.16276255, b: 0.06728373, a: 1}
-    - _GlobalTint: {r: 0.11440557, g: 0.08851016, b: 0.16037738, a: 1}
-    - _RimTint: {r: 0.5566038, g: 0.38957265, b: 0.118147045, a: 1}
-    - _Speccolor: {r: 0, g: 0, b: 0, a: 1}
+    - _Emissive: {r: 0.6603774, g: 0.38791147, b: 0, a: 1}
+    - _GlobalTint: {r: 0.21698111, g: 0, b: 0, a: 1}
+    - _RimTint: {r: 1, g: 0.6829522, b: 0.36320752, a: 1}
+    - _Speccolor: {r: 0.38152334, g: 0, b: 0.6117647, a: 1}
     - _Tint: {r: 0.9811321, g: 0.47640994, b: 0, a: 1}

@@ -52,7 +52,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [NonSerialized]
     public bool isplayable = false;
     //la carte est discard si on click dessus
-    [NonSerialized]
+    //[NonSerialized]
     public bool canBeDiscard = false;
 
     //référence to HoverHandler pour le dragHandler (a modifier plus tard !!)
