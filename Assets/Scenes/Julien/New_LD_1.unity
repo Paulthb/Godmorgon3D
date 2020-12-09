@@ -3476,7 +3476,7 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: 9ea571a5294a99346b078880ca0790cc,
       type: 3}
     roadType: 13
-    nodeEffect: 0
+    nodeEffect: 5
     effectLaunched: 0
     isNodeCleared: 0
     coveredAtStart: 0
