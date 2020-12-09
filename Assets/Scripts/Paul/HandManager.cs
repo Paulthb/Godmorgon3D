@@ -88,7 +88,6 @@ public class HandManager : MonoBehaviour
                     if (cardsToDestroy.Contains(card.GetComponent<CardDisplay>()))
                     {
                         GameManager.Instance.DiscardHandCard(card.GetComponent<CardDisplay>());
-                        Destroy(card.gameObject);
                     }
                 }
             }
@@ -104,7 +103,10 @@ public class HandManager : MonoBehaviour
      */
     public void HandUpdate()
     {
-        int i = 0;
+        int i;
+
+        if (GameEngine.Instance.GetHandCards().Count != CardDisplayList.Count)
+            print(GameEngine.Instance.GetHandCards().Count + "/" + CardDisplayList.Count);
 
         for (i = 0; i < GameEngine.Instance.GetHandCards().Count; i++)
         {
@@ -138,7 +140,7 @@ public class HandManager : MonoBehaviour
             {
                 if (cardsToDestroy.Contains(card.GetComponent<CardDisplay>()))
                 {
-                    //Debug.Log("destroy " + card.GetComponent<CardDisplay>().card.name);
+                    Debug.Log("destroy " + card.GetComponent<CardDisplay>().card.name);
 
                     GameManager.Instance.DiscardHandCard(card.GetComponent<CardDisplay>());
                     Destroy(card.gameObject);
