@@ -285,6 +285,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnCardDrag(bool isCardDrag)
     {
         hoverCardHandler.OnCardDrag(isCardDrag);
+        infoHoverCard.DesactiveWindow();
     }
 
     //active l'info bulle si des keyword sont présent dans la description

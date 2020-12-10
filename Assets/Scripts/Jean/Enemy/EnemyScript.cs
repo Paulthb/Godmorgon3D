@@ -69,7 +69,7 @@ namespace GodMorgon.Enemy
                 enemyData.nbMoves = _enemy.nbMoves;
                 enemyData.speed = _enemy.speed;
                 enemyData.attackRange = _enemy.attackRange;
-                enemyData.isCursed = _enemy.isCursed;
+                enemyData.isCursed = _enemy.doFog;
                 enemyData.skin = _enemy.skin;
                 enemyData.inPlayersNode = false;
                 enemyData.enemyScript = this;
@@ -104,6 +104,9 @@ namespace GodMorgon.Enemy
                 _healthBar.transform.position = Camera.main.WorldToScreenPoint(healthBarPos.position);
 
             playersNode = enemyData.inPlayersNode;
+
+            // Rotate the enemy in the direction of the player
+            transform.GetChild(0).LookAt(PlayerMgr.Instance.transform, Vector3.up);
         }
 
         public void CalculateEnemyPath()

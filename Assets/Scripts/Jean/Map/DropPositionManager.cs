@@ -51,19 +51,15 @@ namespace GodMorgon.CardEffect
                         context.isDropValidate = true;
                         //Debug.Log("POWER_UP");
                     }
-                    break;
+                    break;*/
                 case BasicCard.CARDTYPE.SPELL:
                     //s'il y a une porté spécifié et que la cible est à porté OU s'il n'y a pas de porté spécifié, alors le spell peut être joué
-                    if ((droppedCard.GetNbRangeEffect() != 0 && Vector3Int.Distance(PlayerMgr.Instance.GetNodePosOfPlayer(), dropPosition) <= droppedCard.effectsData[0].rangeEffect * 3)
-                        || droppedCard.GetNbRangeEffect() == 0)
+                    if (EnemyMgr.Instance.AttackableEnemiesAvailable(droppedCard.effectsData[0].attackRange))
                     {
                         context.isDropValidate = true;
-                        //Debug.Log("SPELL");
                     }
-                    else
-                        Debug.Log("target is out of range of the card");
                     break;
-                case BasicCard.CARDTYPE.SIGHT:
+                /*case BasicCard.CARDTYPE.SIGHT:
                     context.targetNodePos = MapManager.Instance.GetNodeFromPos(dropPosition).GetComponent<NodeScript>().node.nodePosition;
                     context.isDropValidate = true;
                     break;*/
