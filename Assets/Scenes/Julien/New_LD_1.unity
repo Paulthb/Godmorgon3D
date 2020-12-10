@@ -10462,7 +10462,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
-    coveredAtStart: 1
+    coveredAtStart: 0
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1 &661759046
@@ -22576,6 +22576,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EmptyNode
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342960658508235011, guid: d19c07597a9485c4c879e5d75fbb836a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d19c07597a9485c4c879e5d75fbb836a, type: 3}
