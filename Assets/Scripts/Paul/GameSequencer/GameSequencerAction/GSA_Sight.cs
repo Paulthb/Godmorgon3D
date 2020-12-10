@@ -12,9 +12,9 @@ namespace GodMorgon.GameSequencerSpace
     {
         public override IEnumerator ExecuteAction(GameContext context)
         {
-            //FogMgr.Instance.RevealZoneAtPosition(context.targetNodePos);
-            //while (!FogMgr.Instance.RevealDone())
-            //yield return null;
+            FogMgr.Instance.RevealZoneAtPosition(context.targetNodePos);
+            while (!FogMgr.Instance.RevealDone())
+                yield return null;
             yield return new WaitForSeconds(1f);
         }
     }

@@ -179,7 +179,7 @@ public class FogMgr : MonoBehaviour
         StartCoroutine(TimedAction(timeAfterAction));
 
         //SFX fog clear
-        //MusicManager.Instance.PlayFogClear();
+        MusicManager.Instance.PlayFogClear();
     }
 
 

@@ -255,9 +255,10 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             Debug.Log(gameObject.name + " : dicardpos null");
             Init();
         }
+        if (transform == null)
+            return true;
 
         return (transform.position - discardPilePos.position).magnitude > 0.01f;
-
     }
 
     public void PlayTypeCardSFX(BasicCard.CARDTYPE type)
