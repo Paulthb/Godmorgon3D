@@ -109,12 +109,13 @@ namespace GodMorgon.Models
                 if (effect.Explorer)
                     blockData += MapManager.Instance.nbNodesCleared;
 
-                ////back at you effect
-                //if (effect.abn)
-                //{
-                //    for (int i = 0; i < PlayerMgr.Instance.GetTurnDamage(); i++)
-                //        damageData += effect.damagePoint;
-                //}
+                //abnegation effect
+                if (effect.isDiscardHand)
+                {
+                    for (int i = 0; i < GameEngine.Instance.GetHandCards().Count - 1; i++)
+                        blockData += effect.nbBlock;
+                    blockData = blockData - 3;
+                }
 
                 if (effect.shiver && BuffManager.Instance.IsShiverValidate())
                     blockData = blockData * 2;
