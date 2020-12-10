@@ -714,7 +714,7 @@ namespace GodMorgon.Player
 
             UpdateHealth();
 
-            turnDamage += damage;
+            turnDamage++;
 
             //launch player hit effect
             OnDamage();

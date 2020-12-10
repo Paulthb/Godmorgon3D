@@ -109,6 +109,13 @@ namespace GodMorgon.Models
                 if (effect.Explorer)
                     blockData += MapManager.Instance.nbNodesCleared;
 
+                ////back at you effect
+                //if (effect.abn)
+                //{
+                //    for (int i = 0; i < PlayerMgr.Instance.GetTurnDamage(); i++)
+                //        damageData += effect.damagePoint;
+                //}
+
                 if (effect.shiver && BuffManager.Instance.IsShiverValidate())
                     blockData = blockData * 2;
                 else if (effect.trust && BuffManager.Instance.IsTrustValidate(effect.trustNb))

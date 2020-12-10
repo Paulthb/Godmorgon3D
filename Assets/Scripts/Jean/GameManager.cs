@@ -90,6 +90,22 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject discardPhaseText = null;
 
+    [Header("End Game Objects")]
+    //image de fade à la fin de la partie
+    [SerializeField]
+    private Image fadeImage = null;
+
+    //win and loose game
+    [SerializeField]
+    private GameObject winText = null;
+    [SerializeField]
+    private GameObject looseText = null;
+
+    //Button of game
+    [SerializeField]
+    private GameObject menuButton = null;
+    [SerializeField]
+    private GameObject quitButton = null;
 
     [Header("DEBUG")]
     /**
@@ -207,6 +223,18 @@ public class GameManager : MonoBehaviour
                 handManager.gameObject.SetActive(false);
             }
         }
+    }
+
+    //Open the Main menu scene
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("Main_Menu");
+    }
+
+    //Quit button
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     #endregion
@@ -667,9 +695,34 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //Open the Main menu scene
-    public void GoToMainMenu()
+    /**
+      * When game over , we show the end text while a fade appear
+      * then we go back to main menu or we quite
+      */
+    public void GameOver()
     {
-        SceneManager.LoadScene("Main_Menu");
+        looseText.SetActive(true);
+        StartCoroutine(FadeScreen());
+    }
+
+    public void Victory()
+    {
+        winText.SetActive(true);
+        StartCoroutine(FadeScreen());
+    }
+
+    public IEnumerator FadeScreen()
+    {
+        fadeImage.raycastTarget = true;
+        // loop over 1 second
+        for (float i = 0; i <= 1; i += Time.deltaTime * 0.7f)
+        {
+            // set color with i as alpha
+            fadeImage.color = new Color(1, 1, 1, i);
+            yield return null;
+        }
+
+        menuButton.SetActive(true);
+        quitButton.SetActive(true);
     }
 }
