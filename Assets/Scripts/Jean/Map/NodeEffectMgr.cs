@@ -196,6 +196,9 @@ public class NodeEffectMgr : MonoBehaviour
 
         //print("Node effect : CURSE");
 
+        //SFX cursed node
+        MusicManager.Instance.PlayFeedbackCursed();
+
         StartCoroutine(TimedNodeEffect());
     }
 
@@ -220,6 +223,9 @@ public class NodeEffectMgr : MonoBehaviour
 
         GameManager.Instance.DraftPanelActivation(true);
 
+        //SFX chest node
+        MusicManager.Instance.PlayFeedbackChest();
+
         StartCoroutine(TimedNodeEffect());
     }
 
@@ -233,6 +239,9 @@ public class NodeEffectMgr : MonoBehaviour
         if (null == playerNode) return;
 
         PlayerMgr.Instance.SetHealthToMax();
+
+        //SFX heal node
+        MusicManager.Instance.PlayFeedbackHeal();
 
         StartCoroutine(TimedNodeEffect());
     }

@@ -11,7 +11,10 @@ namespace GodMorgon.Sound
     {
         public AK.Wwise.Event Player_Hit;
         public AK.Wwise.Event Player_Move;
+
         public AK.Wwise.Event Feedback_Chest;
+        public AK.Wwise.Event Feedback_Heal;
+        public AK.Wwise.Event Feedback_Cursed;
 
         public AK.Wwise.Event Cards_Play;
         public AK.Wwise.Event Cards_Attack;
@@ -31,7 +34,9 @@ namespace GodMorgon.Sound
 
         public AK.Wwise.Event Fog_Clear;
 
-        public AK.Wwise.Event cursorEnd;
+        public AK.Wwise.Event Draft;
+
+        //public AK.Wwise.Event cursorEnd;
 
         //public AK.Wwise.Event PlayerTheme;
         //public AK.Wwise.State RingmasterState;
@@ -69,10 +74,10 @@ namespace GodMorgon.Sound
             //    RingmasterState.SetValue();
         }
 
-        public void PlayPlayerTurnTheme()
-        {
-            //PlayerTheme.Post(gameObject);
-        }
+        //public void PlayPlayerTurnTheme()
+        //{
+        //    //PlayerTheme.Post(gameObject);
+        //}
 
         //public void PlayRingmasterTurnTheme()
         //{
@@ -90,6 +95,16 @@ namespace GodMorgon.Sound
         }
 
         public void PlayFeedbackChest()
+        {
+            Feedback_Chest.Post(gameObject);
+        }
+
+        public void PlayFeedbackHeal()
+        {
+            Feedback_Chest.Post(gameObject);
+        }
+
+        public void PlayFeedbackCursed()
         {
             Feedback_Chest.Post(gameObject);
         }
@@ -159,9 +174,14 @@ namespace GodMorgon.Sound
             Enemy_Moving.Post(gameObject);
         }
 
-        public void PlayCursorEnd()
+        public void PlayDraft()
         {
-            cursorEnd.Post(gameObject);
+            Draft.Post(gameObject);
         }
+
+        //public void PlayCursorEnd()
+        //{
+        //    cursorEnd.Post(gameObject);
+        //}
     }
 }

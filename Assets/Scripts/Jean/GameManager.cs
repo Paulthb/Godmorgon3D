@@ -405,6 +405,9 @@ public class GameManager : MonoBehaviour
     {
         if (activate)
         {
+            //SFX draft
+            MusicManager.Instance.PlayDraft();
+
             if (!draftUpdated)  //Si on a toujours pas updated le draft
             {
                 draftPanel.UpdateDraft();   //On update le draft

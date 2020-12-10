@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2694926158367316338}
-  - component: {fileID: 2694926158367316337}
   m_Layer: 0
   m_Name: WwiseGlobal
   m_TagString: Untagged
@@ -31,33 +30,6 @@ Transform:
   m_Father: {fileID: 2694926160232478849}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2694926158367316337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2694926158367316336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80fa972b4f6f8c84c9e89608e8d39978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: 1f34b3b817b95a146b7af6e26cf9f793,
-    type: 2}
-  basePath: 
-  language: 
-  defaultPoolSize: 0
-  lowerPoolSize: 0
-  streamingPoolSize: 0
-  memoryCutoffThreshold: 0
-  monitorPoolSize: 0
-  monitorQueuePoolSize: 0
-  callbackManagerBufferSize: 0
-  spatialAudioPoolSize: 0
-  maxSoundPropagationDepth: 0
-  diffractionFlags: 11
-  engineLogging: 0
 --- !u!1 &2694926159688572044
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +89,16 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: d0beb6d8b55d9bc419ecfe2c2a8ee56a,
+      type: 2}
+  Feedback_Heal:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: bfd75bf2138df924c83ec302a258b3db,
+      type: 2}
+  Feedback_Cursed:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 60736849ef3d3ae4889d8bd089ac4f6b,
       type: 2}
   Cards_Play:
     idInternal: 0
@@ -183,10 +165,10 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: a6142a4f4d8c215429b5398af2424cb4,
       type: 2}
-  cursorEnd:
+  Draft:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 6cf6b8e92bd7bf34aab49cfe40fade43,
+    WwiseObjectReference: {fileID: 11400000, guid: 09ec1d6ec07dfc346b5a7fc6898e4557,
       type: 2}
 --- !u!114 &2694926159688572032
 MonoBehaviour:
