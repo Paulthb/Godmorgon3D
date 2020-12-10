@@ -237,15 +237,13 @@ public class EnemyMgr : MonoBehaviour
         }
 
         List<Transform> nodesAtSpecificRange = MapManager.Instance.GetNodesAtRangeFromPlayer(spawnRangeFromPlayer);
-        List<Transform> nodesToDel = MapManager.Instance.GetNodesAtRangeFromPlayer(spawnRangeFromPlayer);
+        List<Transform> nodesToDel = new List<Transform>();
 
         //Check if we have someone on nodes at range
         foreach (Transform node in nodesAtSpecificRange)
         {
             if(node.GetComponent<NodeScript>().node.enemiesOnNode.Count > 0)
-            {
                 nodesToDel.Add(node);
-            }
         }
 
         //Delete occupied nodes in list
@@ -264,8 +262,13 @@ public class EnemyMgr : MonoBehaviour
         //Create a list of enemies with a size = nbEnemiesToSpawn
         List<GameObject> randomEnemies = GetRandomItemsFromList(enemiesPrefabsList, nbEnemiesToSpawn);
 
+        //Security if there are more enmies to spawn than possible spawns
+        int limit = nbEnemiesToSpawn;
+        if (nbEnemiesToSpawn > nodesAtSpecificRange.Count)
+            limit = nodesAtSpecificRange.Count;
+
         //Spawn nbEnemiesToSpawn random enemies at nbEnemiesToSpawn random spawns in a range
-        for (int i = 0; i < nbEnemiesToSpawn; i++)
+        for (int i = 0; i < limit; i++)
         {
             SpawnEnemy(randomEnemies[i].GetComponent<EnemyScript>(), randomSpawns[i].GetComponent<NodeScript>().node.nodePosition);
         }
