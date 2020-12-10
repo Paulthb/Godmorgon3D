@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5580165803432386552}
   - component: {fileID: 5580165803432386553}
   m_Layer: 0
-  m_Name: E_Spawn_Projectile_Fall
+  m_Name: Enemi_Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
