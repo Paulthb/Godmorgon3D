@@ -232,12 +232,32 @@ public class EnemyMgr : MonoBehaviour
         //If no prefabs or spawn positions
         if (enemiesPrefabsList.Count == 0 /*|| spawnList.Count == 0*/)
         {
-            Debug.Log("Not enough prefabs or spawns");
+            Debug.Log("Not enough enemies prefabs");
             return;
         }
 
         List<Transform> nodesAtSpecificRange = MapManager.Instance.GetNodesAtRangeFromPlayer(spawnRangeFromPlayer);
+        List<Transform> nodesToDel = MapManager.Instance.GetNodesAtRangeFromPlayer(spawnRangeFromPlayer);
 
+        //Check if we have someone on nodes at range
+        foreach (Transform node in nodesAtSpecificRange)
+        {
+            if(node.GetComponent<NodeScript>().node.enemiesOnNode.Count > 0)
+            {
+                nodesToDel.Add(node);
+            }
+        }
+
+        //Delete occupied nodes in list
+        if(nodesToDel.Count > 0)
+        {
+            foreach (Transform node in nodesToDel)
+            {
+                if (nodesAtSpecificRange.Contains(node))
+                    nodesAtSpecificRange.Remove(node);
+            }
+        }
+        
         //Create a list of spawns with a size = nbEnemiesToSpawn
         List<Transform> randomSpawns = GetRandomItemsFromList(nodesAtSpecificRange, nbEnemiesToSpawn);
 
