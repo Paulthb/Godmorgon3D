@@ -10,22 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Spells_AdvantageT4
+  m_Name: Power_Scarification [a_tester] 2
   m_EditorClassIdentifier: 
-  cardType: 4
+  cardType: 3
   id: 0
-  name: Advantage
+  name: Scarification
   dropTarget: 1
-  description: '[KeyTrust] 4
-
-
-    Draw [nbCardToDraw] cards'
+  description: First time you take damages this turn, draw 2 cards
   actionCost: 1
   price: 0
-  template: {fileID: 21300000, guid: ac73118b6c3c32545b9ef5817595cb1a, type: 3}
-  artwork: {fileID: 21300000, guid: c372816b447ac3b42b34217758bdbd3f, type: 3}
+  template: {fileID: 21300000, guid: d130799b7e8210f41bf24082e411ab55, type: 3}
+  artwork: {fileID: 21300000, guid: 1b10f9e8f6934ff4785a8ebbaf9f4680, type: 3}
   effectsData:
-  - currentEffect: 4
+  - currentEffect: 3
     damagePoint: 0
     attackRange: 0
     BackAtYou: 0
@@ -42,14 +39,14 @@ MonoBehaviour:
     counterDamagePoint: 0
     KillerInstinct: 0
     FastShoes: 0
-    Scarification: 0
+    Scarification: 1
     Possibilities: 0
     HardHead: 0
     Sight: 0
     sightRange: 1
-    DrawCard: 1
+    DrawCard: 0
     recycling: 0
-    nbCardToDraw: 2
+    nbCardToDraw: 0
     Teleport: 0
     Overtake: 0
     DiscardCard: 0
@@ -58,12 +55,12 @@ MonoBehaviour:
     nbHeal: 0
     SecondChance: 0
     shiver: 0
-    trust: 1
-    trustNb: 4
+    trust: 0
+    trustNb: 0
     retain: 0
     rangeEffect: 0
     isDiscardHand: 0
     Goosebump: 0
     Explorer: 0
-    isUseless: 0
+    isUseless: 1
     StickyFinger: 0

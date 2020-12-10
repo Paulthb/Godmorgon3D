@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Spells_AdvantageT4
+  m_Name: Spells_AdvantageT6
   m_EditorClassIdentifier: 
   cardType: 4
   id: 0
   name: Advantage
   dropTarget: 1
-  description: '[KeyTrust] 4
+  description: '[KeyTrust] 2
 
 
     Draw [nbCardToDraw] cards'
@@ -59,7 +59,7 @@ MonoBehaviour:
     SecondChance: 0
     shiver: 0
     trust: 1
-    trustNb: 4
+    trustNb: 2
     retain: 0
     rangeEffect: 0
     isDiscardHand: 0

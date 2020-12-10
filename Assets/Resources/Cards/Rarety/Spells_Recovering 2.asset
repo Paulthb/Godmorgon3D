@@ -10,20 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Spells_AdvantageT4
+  m_Name: Spells_Recovering 2
   m_EditorClassIdentifier: 
   cardType: 4
   id: 0
-  name: Advantage
+  name: Recovering
   dropTarget: 1
-  description: '[KeyTrust] 4
+  description: 'Heals [nbHeal] HP.
 
-
-    Draw [nbCardToDraw] cards'
-  actionCost: 1
-  price: 0
+    Draw [nbCardToDraw] cards.'
+  actionCost: 2
+  price: 50
   template: {fileID: 21300000, guid: ac73118b6c3c32545b9ef5817595cb1a, type: 3}
-  artwork: {fileID: 21300000, guid: c372816b447ac3b42b34217758bdbd3f, type: 3}
+  artwork: {fileID: 21300000, guid: b4fb9b2824dbdd047b23af80584a4396, type: 3}
   effectsData:
   - currentEffect: 4
     damagePoint: 0
@@ -54,16 +53,16 @@ MonoBehaviour:
     Overtake: 0
     DiscardCard: 0
     nbDiscardCard: 0
-    isHeal: 0
-    nbHeal: 0
+    isHeal: 1
+    nbHeal: 10
     SecondChance: 0
     shiver: 0
-    trust: 1
-    trustNb: 4
+    trust: 0
+    trustNb: 0
     retain: 0
     rangeEffect: 0
     isDiscardHand: 0
     Goosebump: 0
     Explorer: 0
-    isUseless: 0
+    isUseless: 1
     StickyFinger: 0

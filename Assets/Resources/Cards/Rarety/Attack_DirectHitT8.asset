@@ -10,24 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Spells_AdvantageT4
+  m_Name: Attack_DirectHitT8
   m_EditorClassIdentifier: 
-  cardType: 4
-  id: 0
-  name: Advantage
-  dropTarget: 1
+  cardType: 1
+  id: 9
+  name: Direct Hit
+  dropTarget: 2
   description: '[KeyTrust] 4
 
+    Ranged 1.
 
-    Draw [nbCardToDraw] cards'
+
+    Inflict [nbDamage] damages.'
   actionCost: 1
   price: 0
-  template: {fileID: 21300000, guid: ac73118b6c3c32545b9ef5817595cb1a, type: 3}
-  artwork: {fileID: 21300000, guid: c372816b447ac3b42b34217758bdbd3f, type: 3}
+  template: {fileID: 21300000, guid: d914663f37f4d974aa4c14141b89f8c0, type: 3}
+  artwork: {fileID: 21300000, guid: 809f8ec10a8eeb748895029d9c5d8a5e, type: 3}
   effectsData:
-  - currentEffect: 4
-    damagePoint: 0
-    attackRange: 0
+  - currentEffect: 0
+    damagePoint: 8
+    attackRange: 1
     BackAtYou: 0
     Rush: 0
     PlayerDamage: 0
@@ -47,9 +49,9 @@ MonoBehaviour:
     HardHead: 0
     Sight: 0
     sightRange: 1
-    DrawCard: 1
+    DrawCard: 0
     recycling: 0
-    nbCardToDraw: 2
+    nbCardToDraw: 0
     Teleport: 0
     Overtake: 0
     DiscardCard: 0
