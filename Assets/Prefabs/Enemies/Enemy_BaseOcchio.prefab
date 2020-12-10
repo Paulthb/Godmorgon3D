@@ -105,7 +105,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   shakeDuration: 1
   playersNode: 0
-  healthBarPrefab: {fileID: 1552711000629716877, guid: 03d996f99742e6c4ebb5cb6433761ca0,
+  healthBarPrefab: {fileID: 8112126526978926348, guid: 0bb53c3ba6c242742ba99294776d63b3,
     type: 3}
   healthBarPos: {fileID: 8313733256646328067}
   enemyCanvas: {fileID: 350411251326830549}
