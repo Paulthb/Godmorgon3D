@@ -472,12 +472,21 @@ namespace GodMorgon.Enemy
             _healthBar.UpdateHealthBarDisplay(defense, health);
         }
 
+        //play damaged animation when is hit
+        public void LaunchDamagedAnim()
+        {
+            enemyAnimator.SetTrigger("damaged");
+        }
+
 
         /**
          * Kill enemy after his hit animation duration
          */
         public void KillEnemy(float hitAnimDuration)
         {
+            //launchDeath Animation
+            enemyAnimator.SetTrigger("dead");
+
             StartCoroutine(TimedDeath(hitAnimDuration));
             EnemyMgr.Instance.UpdateEnemiesList();
             //PlayerMgr.Instance.AddGold(15); //Add gold to player
