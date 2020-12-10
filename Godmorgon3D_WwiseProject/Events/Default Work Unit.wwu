@@ -204,6 +204,39 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="FeedBack_Heal" ID="{C4A37E35-63F9-4EA8-8DA1-AD55AAEB2B0F}">
+							<ChildrenList>
+								<Action Name="" ID="{BC4F7E20-F612-4FAA-AA1C-4928AE1A8E98}" ShortID="25179756">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SFX_Feedback_Heal" ID="{4B984F2E-30B0-4A16-84D7-34620E2193DE}" WorkUnitID="{9E30E5EB-F907-4D66-A66C-2C6207B78BED}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Feedback_Cursed" ID="{714764F1-53CA-4242-BFE0-9E080AEBD266}">
+							<ChildrenList>
+								<Action Name="" ID="{93067F48-DDC1-49F3-9097-2E26B42E7906}" ShortID="360628914">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="SFX_Feedback_Cursed" ID="{71D6896E-7BC5-483E-AC23-8B589E91D1E5}" WorkUnitID="{9E30E5EB-F907-4D66-A66C-2C6207B78BED}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="FeedBack_draft" ID="{C0600217-7C36-45E1-98A0-FFC6F948D80B}">
+							<ChildrenList>
+								<Action Name="" ID="{D0B6ED22-CB90-4F27-8242-2E2FA123009A}" ShortID="1041397189">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="VX_Draft" ID="{90F12104-72C2-46DE-9D1C-D3817D372357}" WorkUnitID="{9E30E5EB-F907-4D66-A66C-2C6207B78BED}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Player" ID="{7D0DA2F7-5493-47C5-9586-59EA48215D29}" ShortID="985409967">
