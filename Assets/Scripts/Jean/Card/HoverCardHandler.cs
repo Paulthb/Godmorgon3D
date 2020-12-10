@@ -154,7 +154,7 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
         //active l'info bulle
         if (cardDisplay)
         {
-            print("activeInfoBulle");
+            //print("activeInfoBulle");
             cardDisplay.ActiveInfoWindow();
         }
     }

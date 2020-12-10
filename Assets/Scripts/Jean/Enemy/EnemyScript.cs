@@ -308,7 +308,7 @@ namespace GodMorgon.Enemy
         }
 
         /**
-         * Return list of attackable entity, player or enemies
+         * Return attackable entity, player or enemies
          */
         public GameObject GetAttackableEntity(Node currentNode)
         {

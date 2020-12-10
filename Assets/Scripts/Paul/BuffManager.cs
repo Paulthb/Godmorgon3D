@@ -139,7 +139,6 @@ public class BuffManager
             newDamagePoint += PlayerMgr.Instance.GetTurnNbDrawCard();
         if (isKillerInstinct)
             newDamagePoint = newDamagePoint * 2;
-        
 
         return newDamagePoint;
     }
