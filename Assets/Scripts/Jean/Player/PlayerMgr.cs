@@ -92,6 +92,12 @@ namespace GodMorgon.Player
         public ParticleSystemScript playerCounter = null;
         public ParticleSystemScript playerFastShoes = null;
 
+        public ParticleSystemScript triggerChest = null;
+        public ParticleSystemScript triggerHeal = null;
+        public ParticleSystemScript triggerCursed = null;
+
+        public ParticleSystemScript moveParticle = null;
+
 
         //player Animator
         [SerializeField]
@@ -337,6 +343,9 @@ namespace GodMorgon.Player
         {
             isMoving = true;
 
+            //FX wheels particule
+            moveParticle.launchParticle();
+
             //The next tile position is  
             Vector3Int nextPos = new Vector3Int(playerPath[tileIndex].X, 0, playerPath[tileIndex].Y);
 
@@ -484,6 +493,9 @@ namespace GodMorgon.Player
             //    particule.stopParticle();
             //}
 
+            //FX wheels particule
+            moveParticle.stopParticle();
+
             playerHasMoved = false;
             return true;
         }
@@ -526,6 +538,7 @@ namespace GodMorgon.Player
             }
 
             MapManager.Instance.ignoreEnemies = true; //Clear fog even if there are enemies on path
+            
             FogMgr.Instance.ClearFogOnAccessibleNode(); // Clear the fog around the node we just arrived in
 
             while(!NodeEffectMgr.Instance.NodeEffectDone())
@@ -879,6 +892,31 @@ namespace GodMorgon.Player
             playerFastShoes.stopParticle();
             playerCounter.stopParticle();
         }
+
+        public void LaunchChestNodeTrigger()
+        {
+            triggerChest.launchParticle();
+        }
+
+        public void LaunchHealNodeTrigger()
+        {
+            triggerHeal.launchParticle();
+        }
+
+        public void LaunchCursedNodeTrigger()
+        {
+            triggerCursed.launchParticle();
+        }
+
+        public void StartMoveParticle()
+        {
+            moveParticle.launchParticle();
+        }
+        public void StopMoveParticle()
+        {
+            moveParticle.stopParticle();
+        }
+
         #endregion
 
         #region PLAYER ANIMATION

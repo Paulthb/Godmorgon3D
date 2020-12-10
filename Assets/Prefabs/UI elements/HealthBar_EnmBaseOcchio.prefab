@@ -488,8 +488,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f800b2ef7da1b45b6b6e79f56fddb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoText: 'Base ennemy that will follow you and hit you if you stay in the same
-    node
+  infoText: 'Base''Occhio
+
+    Base ennemy that will follow you and hit you if you
+    stay in the same node
 
     1 mov / 0 Range / 10 Atk / 5 movDamages'
   infoWindowGAO: {fileID: 7215559172253275995}

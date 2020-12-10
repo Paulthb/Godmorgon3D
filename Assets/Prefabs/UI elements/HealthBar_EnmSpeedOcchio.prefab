@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 1548962854453564716}
   - component: {fileID: 598075684259070884}
   m_Layer: 5
-  m_Name: HealthBar_SpeedOcchio
+  m_Name: HealthBar_EnmSpeedOcchio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -487,10 +487,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f800b2ef7da1b45b6b6e79f56fddb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoText: 'Fastest enemy that deal huge amount of damage if it enters your node
+  infoText: 'Speed''Occhio
 
-    2
-    mov / 0 Range / 5 Atk / 15 movDamages'
+    Fastest enemy that deal huge amount of damage if
+    it enters your node
+
+    2 mov / 0 Range / 5 Atk / 15 movDamages'
   infoWindowGAO: {fileID: 3658335944380651743}
 --- !u!1 &7508016878385704461
 GameObject:

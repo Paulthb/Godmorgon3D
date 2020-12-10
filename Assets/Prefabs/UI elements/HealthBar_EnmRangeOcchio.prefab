@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 3936380157437139086}
   - component: {fileID: 4521510132365099994}
   m_Layer: 5
-  m_Name: HealthBar_RangeOcchio
+  m_Name: HealthBar_EnmRangeOcchio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -488,10 +488,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f800b2ef7da1b45b6b6e79f56fddb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoText: 'An enmy that attack you at range
+  infoText: 'Range''Occhio
 
-    1 mov / 1 Range / 15 Atk / 0
-    movDamages'
+    An enmy that attack you at range
+
+    1 mov / 1 Range
+    / 15 Atk / 0 movDamages'
   infoWindowGAO: {fileID: 2910523307050749438}
 --- !u!1 &7305890917661676087
 GameObject:

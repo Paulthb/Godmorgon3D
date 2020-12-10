@@ -199,24 +199,23 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
      */
     IEnumerator ChooseTargetBeforePlayCard()
     {
-        Debug.Log("choose target");
-
         if (_card.dropTarget == BasicCard.DROP_TARGET.ENEMY)
         {
             PlayerMgr.Instance.LaunchEnemyChoice();
-            Debug.Log("has launch enemy choice");
+            
             yield return new WaitForSeconds(1f);
             while(!PlayerMgr.Instance.ChosenEnemy())
             {
-                Debug.Log("in while chosenenemy");
                 yield return null;  //Le yield return null empêche parfois la coroutine de se poursuivre
             }
-            Debug.Log("has chosen an enemy");
+            
             context.targets = PlayerMgr.Instance.GetChosenEnemyEntity();
             dropPosManager.HidePositionsToDrop(_card);
+            
             CardEffectManager.Instance.PlayCard(_card, context);
+            
             PlayerMgr.Instance.ResetChosenEnemy();
-            Debug.Log("choice done");
+            
             Destroy(gameObject);
         }
         else if(_card.dropTarget == BasicCard.DROP_TARGET.NODE)
@@ -255,9 +254,10 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             Debug.Log(gameObject.name + " : dicardpos null");
             Init();
         }
+        if (transform == null)
+            return true;
 
         return (transform.position - discardPilePos.position).magnitude > 0.01f;
-
     }
 
     public void PlayTypeCardSFX(BasicCard.CARDTYPE type)

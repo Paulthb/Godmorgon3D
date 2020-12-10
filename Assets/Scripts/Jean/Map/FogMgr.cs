@@ -154,6 +154,8 @@ public class FogMgr : MonoBehaviour
      */
     public void ClearFogOnAccessibleNode()
     {
+        Debug.Log("Nb fog to clear");
+
         foreach (Transform accessibleNode in MapManager.Instance.GetAccessibleNodesList())
         {
             if (!accessibleNode.GetComponent<NodeScript>().node.isNodeCleared)   //Si la tile n'est pas transparente
@@ -179,7 +181,7 @@ public class FogMgr : MonoBehaviour
         StartCoroutine(TimedAction(timeAfterAction));
 
         //SFX fog clear
-        //MusicManager.Instance.PlayFogClear();
+        MusicManager.Instance.PlayFogClear();
     }
 
 

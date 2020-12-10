@@ -581,7 +581,7 @@ public class MapManager : MonoBehaviour
                     new Vector2Int(targetTile.x, targetTile.z), 100);
 
                 //If the path is direct (less than 5 tiles)
-                if (roadPath != null && roadPath.Count < 5)
+                if (roadPath != null && roadPath.Count <= 5)
                 {
                     bool enemyOnPath = false;
 

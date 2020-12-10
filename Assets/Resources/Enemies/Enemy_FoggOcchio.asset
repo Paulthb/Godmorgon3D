@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Enemy_FoggOcchio
   m_EditorClassIdentifier: 
   enemyId: Fogg_Occhio
-  health: 15
+  health: 25
   skin: {fileID: 0}
   nbMoves: 1
   speed: 5
   attack: 10
   defense: 0
   attackRange: 0
-  isCursed: 0
+  doFog: 1
