@@ -197,7 +197,10 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         //Si la carte n'a pas de cible, on valide sa jouabilité
         if (_card.dropTarget == BasicCard.DROP_TARGET.PLAYER)
+        {
             context.isDropValidate = true;
+            context.targets = PlayerMgr.Instance.playerData;
+        }
         //Sinon on vérifie qu'on a un node accessible ou un ennemi attackable
         else if(_card.dropTarget == BasicCard.DROP_TARGET.ENEMY || _card.dropTarget == BasicCard.DROP_TARGET.NODE)
             dropPosManager.GetDropCardContext(_card, context);
