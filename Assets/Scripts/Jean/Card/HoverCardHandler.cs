@@ -114,6 +114,13 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
         Vector3 originalPosition = display.transform.localPosition;
         Vector3 destinationPosition;
 
+        //active l'info bulle pour le draft
+        if (inDraft && cardDisplay)
+        {
+            print("activeInfoBulle");
+            cardDisplay.ActiveInfoWindow();
+        }
+
         if (!isDrawBtn)
         {
             destinationScale = new Vector3(1.8f, 1.8f, 0);
@@ -145,8 +152,11 @@ public class HoverCardHandler : MonoBehaviour, IPointerEnterHandler, IPointerExi
             display.transform.localPosition = destinationPosition;
 
         //active l'info bulle
-        if(cardDisplay)
+        if (cardDisplay)
+        {
+            print("activeInfoBulle");
             cardDisplay.ActiveInfoWindow();
+        }
     }
 
     public IEnumerator ScaleCardOut()
