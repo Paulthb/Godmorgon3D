@@ -33,7 +33,7 @@ MonoBehaviour:
     nbMoves: 2
     rolling: 0
     swift: 0
-    noBrakes: 0
+    noBrakes: 1
     ForcedWalk: 0
     nbBlock: 0
     isCounter: 0
