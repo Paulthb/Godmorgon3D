@@ -631,7 +631,10 @@ public class GameManager : MonoBehaviour
         {
             //If an enemy is not on players node but his bool InPlayersNode is at true, there is a problem
             if (enemy.GetNodePosOfEnemy() != PlayerMgr.Instance.GetNodePosOfPlayer() && enemy.enemyData.inPlayersNode)
+            {
                 Debug.LogWarning(enemy.gameObject.name + " is set as inPlayersNode, but isn't.");
+                enemy.enemyData.inPlayersNode = false;
+            }
 
             //Avoid enemies to be at the same position
             foreach (EnemyScript otherEnemy in EnemyMgr.Instance.GetAllEnemies())
