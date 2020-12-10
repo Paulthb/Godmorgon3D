@@ -30,7 +30,7 @@ MonoBehaviour:
     Rush: 0
     PlayerDamage: 0
     isCircular: 0
-    nbMoves: 0
+    nbMoves: 2
     rolling: 0
     swift: 0
     noBrakes: 0
