@@ -370,34 +370,46 @@ public class EnemyMgr : MonoBehaviour
      */
     public void ShowAttackableEnemies()
     {
-        SkinnedMeshRenderer rend;
+        ParticleSystem ps;
 
         foreach (EnemyScript enemy in attackableEnemiesList)
         {
-            rend = enemy.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
-            float currentIntensity = rend.materials[rend.materials.Length - 1].GetFloat("_Intensity");
+            ps = enemy.transform.Find("Enemy_selection").GetChild(0).GetComponent<ParticleSystem>();
 
-            if (currentIntensity > 0.70f)
-                offset = -0.02f;
-            else if (currentIntensity <= 0)
-                offset = 0.02f;
+            if (ps == null)
+                Debug.Log("Particle system enemy selection not found");
 
-            rend.materials[rend.materials.Length - 1].SetFloat("_Intensity", currentIntensity + offset);
-        }        
+            ps.Play();
+        }
+
+        //SkinnedMeshRenderer rend;
+
+        //foreach (EnemyScript enemy in attackableEnemiesList)
+        //{
+        //    rend = enemy.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
+        //    float currentIntensity = rend.materials[rend.materials.Length - 1].GetFloat("_Intensity");
+
+        //    if (currentIntensity > 0.70f)
+        //        offset = -0.02f;
+        //    else if (currentIntensity <= 0)
+        //        offset = 0.02f;
+
+        //    rend.materials[rend.materials.Length - 1].SetFloat("_Intensity", currentIntensity + offset);
+        //}        
     }
 
     public void AllowAttackableEffect(int range)
     {
         UpdateAttackableEnemiesList(range);
 
-        SkinnedMeshRenderer rend;
+        //SkinnedMeshRenderer rend;
 
-        foreach (EnemyScript enemy in attackableEnemiesList)
-        {
-            rend = enemy.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
+        //foreach (EnemyScript enemy in attackableEnemiesList)
+        //{
+        //    rend = enemy.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
 
-            rend.materials[rend.materials.Length - 1].SetFloat("_Intensity", 1f);
-        }
+        //    rend.materials[rend.materials.Length - 1].SetFloat("_Intensity", 1f);
+        //}
 
         launchAttackableEffect = true;
     }
@@ -416,23 +428,35 @@ public class EnemyMgr : MonoBehaviour
     */
     public void HideAttackableEnemies()
     {
-        SkinnedMeshRenderer rend;
+        ParticleSystem ps;
 
         foreach (EnemyScript enemy in attackableEnemiesList)
         {
-            rend = enemy.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
-            float currentIntensity = rend.materials[rend.materials.Length - 1].GetFloat("_Intensity");
+            ps = enemy.transform.Find("Enemy_selection").GetChild(0).GetComponent<ParticleSystem>();
 
-            offset = 0.03f;
+            if (ps == null)
+                Debug.Log("Particle system enemy selection not found");
 
-            rend.materials[rend.materials.Length - 1].SetFloat("_Intensity", currentIntensity + offset);
-
-            if (rend.materials[rend.materials.Length - 1].GetFloat("_Intensity") >= 0.6f)
-            {
-                rend.materials[rend.materials.Length - 1].SetFloat("_Intensity", 5f);
-                resetAttackableEffect = false;
-            }
+            ps.Stop();
         }
+
+        //SkinnedMeshRenderer rend;
+
+        //foreach (EnemyScript enemy in attackableEnemiesList)
+        //{
+        //    rend = enemy.transform.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
+        //    float currentIntensity = rend.materials[rend.materials.Length - 1].GetFloat("_Intensity");
+
+        //    offset = 0.03f;
+
+        //    rend.materials[rend.materials.Length - 1].SetFloat("_Intensity", currentIntensity + offset);
+
+        //    if (rend.materials[rend.materials.Length - 1].GetFloat("_Intensity") >= 0.6f)
+        //    {
+        //        rend.materials[rend.materials.Length - 1].SetFloat("_Intensity", 5f);
+        //        resetAttackableEffect = false;
+        //    }
+        //}
     }
 
     private void UpdateAttackableEnemiesList(int range)
