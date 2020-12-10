@@ -10,22 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Spells_AdvantageT4
+  m_Name: Defense_Abnegation 3
   m_EditorClassIdentifier: 
-  cardType: 4
+  cardType: 2
   id: 0
-  name: Advantage
+  name: Abnegation
   dropTarget: 1
-  description: '[KeyTrust] 4
+  description: 'Discard all your cards, gain 3 block by card discarded ([nbBlock])
 
-
-    Draw [nbCardToDraw] cards'
+'
   actionCost: 1
-  price: 0
-  template: {fileID: 21300000, guid: ac73118b6c3c32545b9ef5817595cb1a, type: 3}
-  artwork: {fileID: 21300000, guid: c372816b447ac3b42b34217758bdbd3f, type: 3}
+  price: 72
+  template: {fileID: 21300000, guid: f44370d35cac10f4f805debd227b407b, type: 3}
+  artwork: {fileID: 21300000, guid: 47c3f3650abf10b43a4dec7c36d618bf, type: 3}
   effectsData:
-  - currentEffect: 4
+  - currentEffect: 2
     damagePoint: 0
     attackRange: 0
     BackAtYou: 0
@@ -37,7 +36,7 @@ MonoBehaviour:
     swift: 0
     noBrakes: 0
     ForcedWalk: 0
-    nbBlock: 0
+    nbBlock: 3
     isCounter: 0
     counterDamagePoint: 0
     KillerInstinct: 0
@@ -46,10 +45,10 @@ MonoBehaviour:
     Possibilities: 0
     HardHead: 0
     Sight: 0
-    sightRange: 1
-    DrawCard: 1
+    sightRange: 0
+    DrawCard: 0
     recycling: 0
-    nbCardToDraw: 2
+    nbCardToDraw: 0
     Teleport: 0
     Overtake: 0
     DiscardCard: 0
@@ -58,11 +57,11 @@ MonoBehaviour:
     nbHeal: 0
     SecondChance: 0
     shiver: 0
-    trust: 1
-    trustNb: 4
+    trust: 0
+    trustNb: 0
     retain: 0
     rangeEffect: 0
-    isDiscardHand: 0
+    isDiscardHand: 1
     Goosebump: 0
     Explorer: 0
     isUseless: 0

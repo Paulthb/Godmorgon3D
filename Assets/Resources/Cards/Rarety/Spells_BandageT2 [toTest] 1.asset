@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Spells_AdvantageT4
+  m_Name: Spells_BandageT2 [toTest] 1
   m_EditorClassIdentifier: 
   cardType: 4
   id: 0
-  name: Advantage
+  name: Bandage
   dropTarget: 1
-  description: '[KeyTrust] 4
+  description: '[KeyTrust] 2
 
 
-    Draw [nbCardToDraw] cards'
+
+    Heals [nbHeal] HP'
   actionCost: 1
-  price: 0
+  price: 50
   template: {fileID: 21300000, guid: ac73118b6c3c32545b9ef5817595cb1a, type: 3}
-  artwork: {fileID: 21300000, guid: c372816b447ac3b42b34217758bdbd3f, type: 3}
+  artwork: {fileID: 21300000, guid: 7885a19b24783374fbf1079d350cba80, type: 3}
   effectsData:
   - currentEffect: 4
     damagePoint: 0
@@ -47,19 +48,19 @@ MonoBehaviour:
     HardHead: 0
     Sight: 0
     sightRange: 1
-    DrawCard: 1
+    DrawCard: 0
     recycling: 0
-    nbCardToDraw: 2
+    nbCardToDraw: 0
     Teleport: 0
     Overtake: 0
     DiscardCard: 0
     nbDiscardCard: 0
-    isHeal: 0
-    nbHeal: 0
+    isHeal: 1
+    nbHeal: 8
     SecondChance: 0
     shiver: 0
     trust: 1
-    trustNb: 4
+    trustNb: 2
     retain: 0
     rangeEffect: 0
     isDiscardHand: 0

@@ -10,24 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Spells_AdvantageT4
+  m_Name: Attack_KaratePunch 5
   m_EditorClassIdentifier: 
-  cardType: 4
-  id: 0
-  name: Advantage
-  dropTarget: 1
-  description: '[KeyTrust] 4
-
-
-    Draw [nbCardToDraw] cards'
+  cardType: 1
+  id: 9
+  name: Karate Punch
+  dropTarget: 2
+  description: "[KeyRetain]\nRanged 1 \n\nInflict [nbDamage]"
   actionCost: 1
-  price: 0
-  template: {fileID: 21300000, guid: ac73118b6c3c32545b9ef5817595cb1a, type: 3}
-  artwork: {fileID: 21300000, guid: c372816b447ac3b42b34217758bdbd3f, type: 3}
+  price: 80
+  template: {fileID: 21300000, guid: d914663f37f4d974aa4c14141b89f8c0, type: 3}
+  artwork: {fileID: 21300000, guid: 1a556b3bfd668c54f833b9c4dd82c232, type: 3}
   effectsData:
-  - currentEffect: 4
-    damagePoint: 0
-    attackRange: 0
+  - currentEffect: 0
+    damagePoint: 5
+    attackRange: 1
     BackAtYou: 0
     Rush: 0
     PlayerDamage: 0
@@ -46,10 +43,10 @@ MonoBehaviour:
     Possibilities: 0
     HardHead: 0
     Sight: 0
-    sightRange: 1
-    DrawCard: 1
+    sightRange: 0
+    DrawCard: 0
     recycling: 0
-    nbCardToDraw: 2
+    nbCardToDraw: 0
     Teleport: 0
     Overtake: 0
     DiscardCard: 0
@@ -58,9 +55,9 @@ MonoBehaviour:
     nbHeal: 0
     SecondChance: 0
     shiver: 0
-    trust: 1
-    trustNb: 4
-    retain: 0
+    trust: 0
+    trustNb: 0
+    retain: 1
     rangeEffect: 0
     isDiscardHand: 0
     Goosebump: 0
