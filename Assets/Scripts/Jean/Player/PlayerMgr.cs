@@ -96,6 +96,8 @@ namespace GodMorgon.Player
         public ParticleSystemScript triggerHeal = null;
         public ParticleSystemScript triggerCursed = null;
 
+        public ParticleSystemScript moveParticle = null;
+
 
         //player Animator
         [SerializeField]
@@ -341,6 +343,9 @@ namespace GodMorgon.Player
         {
             isMoving = true;
 
+            //FX wheels particule
+            moveParticle.launchParticle();
+
             //The next tile position is  
             Vector3Int nextPos = new Vector3Int(playerPath[tileIndex].X, 0, playerPath[tileIndex].Y);
 
@@ -487,6 +492,9 @@ namespace GodMorgon.Player
             //{
             //    particule.stopParticle();
             //}
+
+            //FX wheels particule
+            moveParticle.stopParticle();
 
             playerHasMoved = false;
             return true;
@@ -897,6 +905,15 @@ namespace GodMorgon.Player
         public void LaunchCursedNodeTrigger()
         {
             triggerCursed.launchParticle();
+        }
+
+        public void StartMoveParticle()
+        {
+            moveParticle.launchParticle();
+        }
+        public void StopMoveParticle()
+        {
+            moveParticle.stopParticle();
         }
 
         #endregion
