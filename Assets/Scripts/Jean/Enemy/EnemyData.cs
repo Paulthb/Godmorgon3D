@@ -52,8 +52,11 @@ namespace GodMorgon.Enemy
                     killedByPlayer = true;
                     GameManager.Instance.draftPanelActivated = true;    //Met un booleen à true pour faire attendre le séquenceur
                 }
-                enemyScript.KillEnemy(duration);    //On le tue
+                enemyScript.KillEnemy(duration);    //On le tue (contient l'anim de mort)
             }
+            //si l'enemy ne meurt pas on play juste l'anim de damage
+            else
+                enemyScript.LaunchDamagedAnim();
         }
 
         //return the position of the enemy
