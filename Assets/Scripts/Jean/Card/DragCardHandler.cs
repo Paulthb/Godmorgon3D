@@ -162,18 +162,29 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                     mainCamera.ActiveCameraDrag(true);
 
                     return;
-                }                
-            }
-            
-            //La carte n'est pas posée sur la drop zone ou n'est pas validée : on la remet dans la main
-            transform.SetParent(hand);
+                }
+                //else if(result.gameObject.tag == "DropZoneBack")
+                //{
+                //    //La carte n'est pas posée sur la drop zone ou n'est pas validée : on la remet dans la main
+                //    transform.SetParent(hand);
 
-            transform.position = startPosition;    //Par défaut, la carte retourne dans la main
-            GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);  //La carte récupère sa taille normale
+                //    transform.position = startPosition;    //Par défaut, la carte retourne dans la main
+                //    GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);  //La carte récupère sa taille normale
 
-            //On désactive la dropZone pour les cartes
-            GameManager.Instance.ActiveDropZone(false);
+                //    //On désactive la dropZone pour les cartes
+                //    GameManager.Instance.ActiveDropZone(false);
+                //}
+            }            
         }
+
+        //La carte n'est pas posée sur la drop zone ou n'est pas validée : on la remet dans la main
+        transform.SetParent(hand);
+
+        transform.position = startPosition;    //Par défaut, la carte retourne dans la main
+        GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);  //La carte récupère sa taille normale
+
+        //On désactive la dropZone pour les cartes
+        GameManager.Instance.ActiveDropZone(false);
 
         //Réactive le drag de la caméra
         mainCamera.ActiveCameraDrag(true);
