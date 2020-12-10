@@ -16,7 +16,7 @@ MonoBehaviour:
   id: 9
   name: Assault
   dropTarget: 2
-  description: "Shivers\nRanged 1 \n\nInflict [nbDamage] damages"
+  description: "[KeyShiver]\nRanged 1 \n\nInflict [nbDamage] damages"
   actionCost: 1
   price: 0
   template: {fileID: 21300000, guid: d914663f37f4d974aa4c14141b89f8c0, type: 3}
