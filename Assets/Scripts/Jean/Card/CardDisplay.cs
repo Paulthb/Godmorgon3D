@@ -291,6 +291,8 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     //active l'info bulle si des keyword sont présent dans la description
     public void ActiveInfoWindow()
     {
+        print("info bulle search keyword");
+
         bool isKeyWordOn = false;
         string textInfo = "";
 

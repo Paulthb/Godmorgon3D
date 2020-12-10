@@ -232,20 +232,43 @@ public class EnemyMgr : MonoBehaviour
         //If no prefabs or spawn positions
         if (enemiesPrefabsList.Count == 0 /*|| spawnList.Count == 0*/)
         {
-            Debug.Log("Not enough prefabs or spawns");
+            Debug.Log("Not enough enemies prefabs");
             return;
         }
 
         List<Transform> nodesAtSpecificRange = MapManager.Instance.GetNodesAtRangeFromPlayer(spawnRangeFromPlayer);
+        List<Transform> nodesToDel = new List<Transform>();
 
+        //Check if we have someone on nodes at range
+        foreach (Transform node in nodesAtSpecificRange)
+        {
+            if(node.GetComponent<NodeScript>().node.enemiesOnNode.Count > 0)
+                nodesToDel.Add(node);
+        }
+
+        //Delete occupied nodes in list
+        if(nodesToDel.Count > 0)
+        {
+            foreach (Transform node in nodesToDel)
+            {
+                if (nodesAtSpecificRange.Contains(node))
+                    nodesAtSpecificRange.Remove(node);
+            }
+        }
+        
         //Create a list of spawns with a size = nbEnemiesToSpawn
         List<Transform> randomSpawns = GetRandomItemsFromList(nodesAtSpecificRange, nbEnemiesToSpawn);
 
         //Create a list of enemies with a size = nbEnemiesToSpawn
         List<GameObject> randomEnemies = GetRandomItemsFromList(enemiesPrefabsList, nbEnemiesToSpawn);
 
+        //Security if there are more enmies to spawn than possible spawns
+        int limit = nbEnemiesToSpawn;
+        if (nbEnemiesToSpawn > nodesAtSpecificRange.Count)
+            limit = nodesAtSpecificRange.Count;
+
         //Spawn nbEnemiesToSpawn random enemies at nbEnemiesToSpawn random spawns in a range
-        for (int i = 0; i < nbEnemiesToSpawn; i++)
+        for (int i = 0; i < limit; i++)
         {
             SpawnEnemy(randomEnemies[i].GetComponent<EnemyScript>(), randomSpawns[i].GetComponent<NodeScript>().node.nodePosition);
         }

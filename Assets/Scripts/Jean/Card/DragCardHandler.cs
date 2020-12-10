@@ -64,7 +64,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         hand = GameObject.Find("Hand").transform;
         effectsParent = GameObject.Find("EffectsParent").transform;
         discardPilePos = GameObject.Find("discarPilePos").transform;
-
+        _card = gameObject.GetComponent<CardDisplay>().card;
         mainCamera = Camera.main.GetComponent<CameraDrag>();
 
         isInit = true;
@@ -199,20 +199,25 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
      */
     IEnumerator ChooseTargetBeforePlayCard()
     {
+        Debug.Log("choose target");
+
         if (_card.dropTarget == BasicCard.DROP_TARGET.ENEMY)
         {
             PlayerMgr.Instance.LaunchEnemyChoice();
+            Debug.Log("has launch enemy choice");
             yield return new WaitForSeconds(1f);
             while(!PlayerMgr.Instance.ChosenEnemy())
             {
                 Debug.Log("in while chosenenemy");
-                yield return new WaitForSeconds(0.1f);  //Le yield return null empêche parfois la coroutine de se poursuivre
+                yield return null;  //Le yield return null empêche parfois la coroutine de se poursuivre
             }
             Debug.Log("has chosen an enemy");
             context.targets = PlayerMgr.Instance.GetChosenEnemyEntity();
             dropPosManager.HidePositionsToDrop(_card);
             CardEffectManager.Instance.PlayCard(_card, context);
             PlayerMgr.Instance.ResetChosenEnemy();
+            Debug.Log("choice done");
+            Destroy(gameObject);
         }
         else if(_card.dropTarget == BasicCard.DROP_TARGET.NODE)
             CardEffectManager.Instance.PlayCard(_card, context);
@@ -227,15 +232,20 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         gameObject.transform.SetParent(gameObject.transform.parent.parent);
         GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth / 3, cardHeight / 3);  //On réduit la taille de la carte lors du drag
 
-        
-
         while (CheckMagnitude())
         {
             transform.position = Vector3.Lerp(transform.position, discardPilePos.position, Time.deltaTime * speedCardDiscard);
             yield return null;
         }
         transform.position = discardPilePos.position;
-        Destroy(gameObject);
+
+        if (!_card)
+            Debug.Log("dropTarget null");
+
+        if (_card.dropTarget == BasicCard.DROP_TARGET.ENEMY)
+            transform.GetChild(0).gameObject.SetActive(false);
+        else
+            Destroy(gameObject);
     }
 
     public bool CheckMagnitude()

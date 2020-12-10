@@ -30,12 +30,18 @@ public class InfoHoverCard : MonoBehaviour
     public void ActiveWindow(string textInfo)
     {
         textMesh.text = textInfo;
-        StartCoroutine(ShowWindow());
+        if (currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
+        currentCoroutine = ShowWindow();
+        StartCoroutine(currentCoroutine);
     }
 
     public void DesactiveWindow()
     {
-        StartCoroutine(HideWindow());
+        if (currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
+        currentCoroutine = HideWindow();
+        StartCoroutine(currentCoroutine);
     }
 
     public IEnumerator ShowWindow()
