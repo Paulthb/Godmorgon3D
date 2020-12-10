@@ -668,12 +668,18 @@ namespace GodMorgon.Player
          */
         public bool ChosenEnemy()
         {
-            if (!enemyIsChosen) return false;
-            else
-            {
-                enemyIsChosen = false;
-                return true;
-            }
+            //if (!enemyIsChosen) return false;
+            //else
+            //{
+            //    enemyIsChosen = false;
+            //    return true;
+            //}
+            return enemyIsChosen;
+        }
+
+        public void ResetChosenEnemy()
+        {
+            enemyIsChosen = false;
         }
 
         /**

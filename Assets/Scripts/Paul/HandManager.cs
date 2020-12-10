@@ -34,6 +34,8 @@ public class HandManager : MonoBehaviour
     {
         CardDisplay cardDisplay = Instantiate(cardDisplayPrefab, this.transform).GetComponent<CardDisplay>();
 
+        cardDisplay.gameObject.name = cardDraw.cardType.ToString();
+
         //Set the display of the card
         cardDisplay.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);
         cardDisplay.UpdateCard(cardDraw);
@@ -80,16 +82,24 @@ public class HandManager : MonoBehaviour
                     CheckCurseCard(card.card, false);
                 }
             }
+            List<Transform> cardsInHand = new List<Transform>();
+            foreach (Transform child in transform)
+                cardsInHand.Add(child);
 
             if (cardsToDestroy.Count > 0)
             {
-                foreach (Transform card in transform)
+                foreach(CardDisplay card in cardsToDestroy)
                 {
-                    if (cardsToDestroy.Contains(card.GetComponent<CardDisplay>()))
-                    {
-                        GameManager.Instance.DiscardHandCard(card.GetComponent<CardDisplay>());
-                    }
+                    if(cardsInHand.Contains(card.transform))
+                        GameManager.Instance.DiscardHandCard(card);
                 }
+                //foreach (Transform card in transform)
+                //{
+                //    if (cardsToDestroy.Contains(card.GetComponent<CardDisplay>()))
+                //    {
+                //        GameManager.Instance.DiscardHandCard(card.GetComponent<CardDisplay>());
+                //    }
+                //}
             }
             CardDisplayList.Clear();
             CardDisplayList.AddRange(tempCardList);
