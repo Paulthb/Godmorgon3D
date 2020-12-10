@@ -73,7 +73,7 @@ namespace GodMorgon.Models
                 //back at you effect
                 if(effect.BackAtYou)
                 {
-                    for (int i = 0; i <= PlayerMgr.Instance.GetTurnDamage(); i++)
+                    for (int i = 0; i < PlayerMgr.Instance.GetTurnDamage(); i++)
                         damageData += effect.damagePoint;
                 }
 
