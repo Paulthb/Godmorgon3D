@@ -130,25 +130,25 @@ public class CameraDrag : MonoBehaviour
         if (Input.mousePosition.y >= Screen.height * 0.999)
         {
             p_Velocity += new Vector3(0, 1 * mainSpeed, 0);
-            print("TOP");
+            //print("TOP");
         }
         //Down
         if (Input.mousePosition.y <= Screen.height * 0.001)
         {
             p_Velocity += new Vector3(0, -1 * mainSpeed, 0);
-            print("DOWN");
+            //print("DOWN");
         }
         //Left
         if (Input.mousePosition.x <= Screen.width * 0.001)
         {
             p_Velocity += new Vector3(-1 * mainSpeed, 0, 0);
-            print("LEFT");
+            //print("LEFT");
         }
         //Right
         if (Input.mousePosition.x >= Screen.width * 0.999)
         {
             p_Velocity += new Vector3(1 * mainSpeed, 0, 0);
-            print("RIGHT");
+            //print("RIGHT");
         }
 
         return p_Velocity;
