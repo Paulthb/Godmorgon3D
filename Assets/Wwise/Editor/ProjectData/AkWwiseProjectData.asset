@@ -68,7 +68,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 18df17eb1a42a94fb2768ca9fbe003fe
     GuidInternal: 
-    m_lastTime: -8585954577289683256
+    m_lastTime: -8585940132025131498
     List:
     - name: Ambiances
       guid: 60263c82c526bc478ccdce9b6a484871
@@ -363,6 +363,48 @@ MonoBehaviour:
       - ElementName: Feedback_Chest
         ObjectType: 3
       Path: Default Work Unit\Feedback\Feedback_Chest
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: Feedback_Cursed
+      guid: f1644771ca534242bfe09e080aebd266
+      id: 3328411885
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Feedback
+        ObjectType: 4
+      - ElementName: Feedback_Cursed
+        ObjectType: 3
+      Path: Default Work Unit\Feedback\Feedback_Cursed
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: FeedBack_draft
+      guid: 170260c0367ce14598a0ffc6f948d80b
+      id: 3592270264
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Feedback
+        ObjectType: 4
+      - ElementName: FeedBack_draft
+        ObjectType: 3
+      Path: Default Work Unit\Feedback\FeedBack_draft
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: FeedBack_Heal
+      guid: 357ea3c4f963a84e8da1ad55aaeb2b0f
+      id: 3086109821
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Feedback
+        ObjectType: 4
+      - ElementName: FeedBack_Heal
+        ObjectType: 3
+      Path: Default Work Unit\Feedback\FeedBack_Heal
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -692,7 +734,7 @@ MonoBehaviour:
   ExpandedItems:
   - /Godmorgon3D_WwiseProject
   - /Godmorgon3D_WwiseProject/Events
-  - /Godmorgon3D_WwiseProject/SoundBanks
-  - /Godmorgon3D_WwiseProject/SoundBanks/Default Work Unit
+  - /Godmorgon3D_WwiseProject/Events/Default Work Unit
+  - /Godmorgon3D_WwiseProject/Events/Default Work Unit/Ambiances
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

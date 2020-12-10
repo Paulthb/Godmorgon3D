@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>T:\Projets IIM\A5\Godmorgon3D\Godmorgon3D\Godmorgon3D_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>T:\Projets IIM\A5\Godmorgon3D\Godmorgon3D\Godmorgon3D_WwiseProject\.cache\Mac\</SourceFilesRoot>
-		<SoundBanksRoot>T:\Projets IIM\A5\Godmorgon3D\Godmorgon3D\Godmorgon3D_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ProjectRoot>T:\Projets IIM\A5\Godmorgon3D_New\Godmorgon3D\Godmorgon3D_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>T:\Projets IIM\A5\Godmorgon3D_New\Godmorgon3D\Godmorgon3D_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>T:\Projets IIM\A5\Godmorgon3D_New\Godmorgon3D\Godmorgon3D_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>T:\Projets IIM\A5\Godmorgon3D\Godmorgon3D\Godmorgon3D_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>T:\Projets IIM\A5\Godmorgon3D_New\Godmorgon3D\Godmorgon3D_WwiseProject\GeneratedSoundBanks\Mac</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles>
@@ -214,19 +214,19 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="1010055213" Name="Enemy_Hit" ObjectPath="\Events\Default Work Unit\Enemy\Enemy_Hit" DurationType="OneShot" DurationMin="1.190649" DurationMax="1.683693">
+				<Event Id="1010055213" Name="Enemy_Hit" ObjectPath="\Events\Default Work Unit\Enemy\Enemy_Hit" DurationType="OneShot" DurationMin="0.462378" DurationMax="0.987767">
 					<IncludedMemoryFiles>
-						<File Id="222977405" Language="SFX">
-							<ShortName>ROBOT\SFX_Enemy_Hit_HP\SFX_Enemy_Hit_HP-003.wav</ShortName>
-							<Path>SFX\ROBOT\SFX_Enemy_Hit_HP\SFX_Enemy_Hit_HP-003_755F56E2.wem</Path>
+						<File Id="243081578" Language="SFX">
+							<ShortName>Enemy-getHit2.wav</ShortName>
+							<Path>SFX\Enemy-getHit2_755F56E2.wem</Path>
 						</File>
-						<File Id="539006255" Language="SFX">
-							<ShortName>ROBOT\SFX_Enemy_Hit_HP\SFX_Enemy_Hit_HP-001.wav</ShortName>
-							<Path>SFX\ROBOT\SFX_Enemy_Hit_HP\SFX_Enemy_Hit_HP-001_755F56E2.wem</Path>
+						<File Id="754597609" Language="SFX">
+							<ShortName>Enemy-getHit3.wav</ShortName>
+							<Path>SFX\Enemy-getHit3_755F56E2.wem</Path>
 						</File>
-						<File Id="975926970" Language="SFX">
-							<ShortName>ROBOT\SFX_Enemy_Hit_HP\SFX_Enemy_Hit_HP-002.wav</ShortName>
-							<Path>SFX\ROBOT\SFX_Enemy_Hit_HP\SFX_Enemy_Hit_HP-002_755F56E2.wem</Path>
+						<File Id="925965018" Language="SFX">
+							<ShortName>Enemy-getHit.wav</ShortName>
+							<Path>SFX\Enemy-getHit_755F56E2.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -246,27 +246,19 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3438446492" Name="Enemy_Moving" ObjectPath="\Events\Default Work Unit\Enemy\Enemy_Moving" DurationType="OneShot" DurationMin="0.927813" DurationMax="4.212333">
+				<Event Id="3438446492" Name="Enemy_Moving" ObjectPath="\Events\Default Work Unit\Enemy\Enemy_Moving" DurationType="OneShot" DurationMin="1.600000" DurationMax="2.301996">
 					<IncludedMemoryFiles>
-						<File Id="1526819" Language="SFX">
-							<ShortName>wetransfer-501fc2\SFX_Enemy_Cart_Move\SFX_Enemy_Cart_Move_22.wav</ShortName>
-							<Path>SFX\wetransfer-501fc2\SFX_Enemy_Cart_Move\SFX_Enemy_Cart_Move_22_755F56E2.wem</Path>
+						<File Id="889792797" Language="SFX">
+							<ShortName>Enemy_Moving2.wav</ShortName>
+							<Path>SFX\Enemy_Moving2_755F56E2.wem</Path>
 						</File>
-						<File Id="177462654" Language="SFX">
-							<ShortName>wetransfer-501fc2\SFX_Enemy_Cart_Move\SFX_Enemy_Cart_Move_23.wav</ShortName>
-							<Path>SFX\wetransfer-501fc2\SFX_Enemy_Cart_Move\SFX_Enemy_Cart_Move_23_755F56E2.wem</Path>
+						<File Id="922271475" Language="SFX">
+							<ShortName>Enemy_Moving.wav</ShortName>
+							<Path>SFX\Enemy_Moving_755F56E2.wem</Path>
 						</File>
-						<File Id="683361735" Language="SFX">
-							<ShortName>wetransfer-501fc2\SFX_Enemy_Cart_Move\SFX_Enemy_Cart_Move_24.wav</ShortName>
-							<Path>SFX\wetransfer-501fc2\SFX_Enemy_Cart_Move\SFX_Enemy_Cart_Move_24_755F56E2.wem</Path>
-						</File>
-						<File Id="861212459" Language="SFX">
-							<ShortName>wetransfer-501fc2\SFX_Enemy_Cart_Move\SFX_Enemy_Cart_Move_20.wav</ShortName>
-							<Path>SFX\wetransfer-501fc2\SFX_Enemy_Cart_Move\SFX_Enemy_Cart_Move_20_755F56E2.wem</Path>
-						</File>
-						<File Id="1035168204" Language="SFX">
-							<ShortName>wetransfer-501fc2\SFX_Enemy_Cart_Move\SFX_Enemy_Cart_Move_21.wav</ShortName>
-							<Path>SFX\wetransfer-501fc2\SFX_Enemy_Cart_Move\SFX_Enemy_Cart_Move_21_755F56E2.wem</Path>
+						<File Id="1062013373" Language="SFX">
+							<ShortName>Enemy_Moving3.wav</ShortName>
+							<Path>SFX\Enemy_Moving3_755F56E2.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -286,19 +278,43 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="365110558" Name="Feedback_Chest" ObjectPath="\Events\Default Work Unit\Feedback\Feedback_Chest" DurationType="OneShot" DurationMin="2.500000" DurationMax="3.000000">
+				<Event Id="365110558" Name="Feedback_Chest" ObjectPath="\Events\Default Work Unit\Feedback\Feedback_Chest" DurationType="OneShot" DurationMin="1.692993" DurationMax="1.692993">
 					<IncludedMemoryFiles>
-						<File Id="735988544" Language="SFX">
-							<ShortName>SFX_Feedback_Chest_1.wav</ShortName>
-							<Path>SFX\SFX_Feedback_Chest_1_755F56E2.wem</Path>
+						<File Id="312725664" Language="SFX">
+							<ShortName>Room-chest.wav</ShortName>
+							<Path>SFX\Room-chest_755F56E2.wem</Path>
 						</File>
-						<File Id="766909026" Language="SFX">
-							<ShortName>SFX_Feedback_Chest_3.wav</ShortName>
-							<Path>SFX\SFX_Feedback_Chest_3_755F56E2.wem</Path>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3328411885" Name="Feedback_Cursed" ObjectPath="\Events\Default Work Unit\Feedback\Feedback_Cursed" DurationType="OneShot" DurationMin="3.377007" DurationMax="3.377007">
+					<IncludedMemoryFiles>
+						<File Id="619394056" Language="SFX">
+							<ShortName>Room-cursed.wav</ShortName>
+							<Path>SFX\Room-cursed_755F56E2.wem</Path>
 						</File>
-						<File Id="859489350" Language="SFX">
-							<ShortName>SFX_Feedback_Chest_2.wav</ShortName>
-							<Path>SFX\SFX_Feedback_Chest_2_755F56E2.wem</Path>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3592270264" Name="FeedBack_draft" ObjectPath="\Events\Default Work Unit\Feedback\FeedBack_draft" DurationType="OneShot" DurationMin="0.742993" DurationMax="1.102993">
+					<IncludedMemoryFiles>
+						<File Id="315359062" Language="SFX">
+							<ShortName>Draft-Voice10.wav</ShortName>
+							<Path>SFX\Draft-Voice10_755F56E2.wem</Path>
+						</File>
+						<File Id="411834770" Language="SFX">
+							<ShortName>Draft-Voice5.wav</ShortName>
+							<Path>SFX\Draft-Voice5_755F56E2.wem</Path>
+						</File>
+						<File Id="713180837" Language="SFX">
+							<ShortName>Draft-Voice4.wav</ShortName>
+							<Path>SFX\Draft-Voice4_755F56E2.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3086109821" Name="FeedBack_Heal" ObjectPath="\Events\Default Work Unit\Feedback\FeedBack_Heal" DurationType="OneShot" DurationMin="1.990453" DurationMax="1.990453">
+					<IncludedMemoryFiles>
+						<File Id="832497714" Language="SFX">
+							<ShortName>Room-heal.wav</ShortName>
+							<Path>SFX\Room-heal_755F56E2.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -533,95 +549,67 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="871813740" Name="Player_Hit" ObjectPath="\Events\Default Work Unit\Player\Player_Hit" DurationType="OneShot" DurationMin="0.693479" DurationMax="3.165667">
+				<Event Id="871813740" Name="Player_Hit" ObjectPath="\Events\Default Work Unit\Player\Player_Hit" DurationType="OneShot" DurationMin="0.537000" DurationMax="0.695708">
 					<IncludedMemoryFiles>
-						<File Id="236488860" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-008.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-008_755F56E2.wem</Path>
+						<File Id="55337038" Language="SFX">
+							<ShortName>Player_getHit.wav</ShortName>
+							<Path>SFX\Player_getHit_755F56E2.wem</Path>
 						</File>
-						<File Id="295529488" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-001.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-001_755F56E2.wem</Path>
+						<File Id="192244818" Language="SFX">
+							<ShortName>Player_getHit2.wav</ShortName>
+							<Path>SFX\Player_getHit2_755F56E2.wem</Path>
 						</File>
-						<File Id="389774189" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-005.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-005_755F56E2.wem</Path>
-						</File>
-						<File Id="448724000" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-007.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-007_755F56E2.wem</Path>
-						</File>
-						<File Id="507955056" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-004.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-004_755F56E2.wem</Path>
-						</File>
-						<File Id="869228766" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-003.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-003_755F56E2.wem</Path>
-						</File>
-						<File Id="992998450" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-006.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-006_755F56E2.wem</Path>
-						</File>
-						<File Id="1010590247" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-002.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_HP\VX_Player_Hit_HP-002_755F56E2.wem</Path>
+						<File Id="504576926" Language="SFX">
+							<ShortName>Player_getHit3.wav</ShortName>
+							<Path>SFX\Player_getHit3_755F56E2.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2142322930" Name="Player_Hit_Block" ObjectPath="\Events\Default Work Unit\Player\Player_Hit_Block" DurationType="OneShot" DurationMin="0.516917" DurationMax="0.941750">
+				<Event Id="2142322930" Name="Player_Hit_Block" ObjectPath="\Events\Default Work Unit\Player\Player_Hit_Block" DurationType="OneShot" DurationMin="0.619000" DurationMax="1.618688">
 					<IncludedMemoryFiles>
-						<File Id="61827974" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-008.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-008_755F56E2.wem</Path>
+						<File Id="116414836" Language="SFX">
+							<ShortName>Enemy-Hit-Shield.wav</ShortName>
+							<Path>SFX\Enemy-Hit-Shield_755F56E2.wem</Path>
 						</File>
-						<File Id="62343996" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-002.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-002_755F56E2.wem</Path>
+						<File Id="340392278" Language="SFX">
+							<ShortName>Enemy-Hit-Shield3.wav</ShortName>
+							<Path>SFX\Enemy-Hit-Shield3_755F56E2.wem</Path>
 						</File>
-						<File Id="124473880" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-006.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-006_755F56E2.wem</Path>
-						</File>
-						<File Id="389242058" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-005.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-005_755F56E2.wem</Path>
-						</File>
-						<File Id="395644763" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-001.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-001_755F56E2.wem</Path>
-						</File>
-						<File Id="500400877" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-007.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-007_755F56E2.wem</Path>
-						</File>
-						<File Id="504966191" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-003.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-003_755F56E2.wem</Path>
-						</File>
-						<File Id="571930222" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-009.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-009_755F56E2.wem</Path>
-						</File>
-						<File Id="945140294" Language="SFX">
-							<ShortName>Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-004.wav</ShortName>
-							<Path>SFX\Player_Voice\VX_Player_Hit_Block\VX_Player_Hit_Block-004_755F56E2.wem</Path>
+						<File Id="503032635" Language="SFX">
+							<ShortName>Enemy-Hit-Shield2.wav</ShortName>
+							<Path>SFX\Enemy-Hit-Shield2_755F56E2.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2248092158" Name="Player_Move" ObjectPath="\Events\Default Work Unit\Player\Player_Move" DurationType="OneShot" DurationMin="3.500000" DurationMax="3.500000">
+				<Event Id="2248092158" Name="Player_Move" ObjectPath="\Events\Default Work Unit\Player\Player_Move" DurationType="OneShot" DurationMin="1.703220" DurationMax="1.868708">
 					<IncludedMemoryFiles>
-						<File Id="443993637" Language="SFX">
-							<ShortName>SFX_Player_Move_1.wav</ShortName>
-							<Path>SFX\SFX_Player_Move_1_755F56E2.wem</Path>
+						<File Id="144537263" Language="SFX">
+							<ShortName>Player_Moving3.wav</ShortName>
+							<Path>SFX\Player_Moving3_755F56E2.wem</Path>
 						</File>
-						<File Id="687752073" Language="SFX">
-							<ShortName>SFX_Player_Move_3.wav</ShortName>
-							<Path>SFX\SFX_Player_Move_3_755F56E2.wem</Path>
+						<File Id="387456728" Language="SFX">
+							<ShortName>Player_Moving2.wav</ShortName>
+							<Path>SFX\Player_Moving2_755F56E2.wem</Path>
 						</File>
-						<File Id="933345129" Language="SFX">
-							<ShortName>SFX_Player_Move_2.wav</ShortName>
-							<Path>SFX\SFX_Player_Move_2_755F56E2.wem</Path>
+						<File Id="392343407" Language="SFX">
+							<ShortName>Player_Moving7.wav</ShortName>
+							<Path>SFX\Player_Moving7_755F56E2.wem</Path>
+						</File>
+						<File Id="406444731" Language="SFX">
+							<ShortName>Player_Moving5.wav</ShortName>
+							<Path>SFX\Player_Moving5_755F56E2.wem</Path>
+						</File>
+						<File Id="542587716" Language="SFX">
+							<ShortName>Player_Moving.wav</ShortName>
+							<Path>SFX\Player_Moving_755F56E2.wem</Path>
+						</File>
+						<File Id="698788804" Language="SFX">
+							<ShortName>Player_Moving4.wav</ShortName>
+							<Path>SFX\Player_Moving4_755F56E2.wem</Path>
+						</File>
+						<File Id="885513229" Language="SFX">
+							<ShortName>Player_Moving6.wav</ShortName>
+							<Path>SFX\Player_Moving6_755F56E2.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
