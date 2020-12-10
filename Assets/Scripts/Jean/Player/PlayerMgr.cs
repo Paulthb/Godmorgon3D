@@ -760,6 +760,8 @@ namespace GodMorgon.Player
         public void TakeHeal(int heal)
         {
             playerData.AddHeal(heal);
+
+            UpdateHealth();
         }
 
         /**

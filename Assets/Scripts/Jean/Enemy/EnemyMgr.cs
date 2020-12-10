@@ -430,6 +430,9 @@ public class EnemyMgr : MonoBehaviour
     {
         ParticleSystem ps;
 
+        if (attackableEnemiesList.Count < 0)
+            return;
+
         foreach (EnemyScript enemy in attackableEnemiesList)
         {
             ps = enemy.transform.Find("Enemy_selection").GetChild(0).GetComponent<ParticleSystem>();

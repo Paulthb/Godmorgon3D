@@ -37,21 +37,13 @@ namespace GodMorgon.CardEffect
                     //    context.isDropValidate = true;
                     //}
                     break;
-                    /*
+                    
                 case BasicCard.CARDTYPE.DEFENSE:
-                    if (PlayerMgr.Instance.GetNodePosOfPlayer() == dropPosition)
-                    {
-                        context.isDropValidate = true;
-                        //Debug.Log("DEFENSE");
-                    }
+                    context.isDropValidate = true;
                     break;
                 case BasicCard.CARDTYPE.POWER_UP:
-                    if (PlayerMgr.Instance.GetNodePosOfPlayer() == dropPosition)
-                    {
-                        context.isDropValidate = true;
-                        //Debug.Log("POWER_UP");
-                    }
-                    break;*/
+                    context.isDropValidate = true;
+                    break;
                 case BasicCard.CARDTYPE.SPELL:
                     //s'il y a une porté spécifié et que la cible est à porté OU s'il n'y a pas de porté spécifié, alors le spell peut être joué
                     if (EnemyMgr.Instance.AttackableEnemiesAvailable(droppedCard.effectsData[0].attackRange))

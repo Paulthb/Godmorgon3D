@@ -58,8 +58,8 @@ MonoBehaviour:
     nbHeal: 0
     SecondChance: 0
     shiver: 0
-    trust: 1
-    trustNb: 4
+    trust: 0
+    trustNb: 0
     retain: 0
     rangeEffect: 0
     isDiscardHand: 0
