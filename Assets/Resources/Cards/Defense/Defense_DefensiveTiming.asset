@@ -15,7 +15,7 @@ MonoBehaviour:
   cardType: 2
   id: 0
   name: Defensive Timing
-  dropTarget: 0
+  dropTarget: 1
   description: '[KeyRetain]
 
 
