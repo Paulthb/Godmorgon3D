@@ -201,8 +201,11 @@ public class BuffManager
     //retourne true si le shiver est validé
     public bool IsShiverValidate()
     {
-        if (PlayerData.Instance.IsHealthAtHalf())
+        if (PlayerMgr.Instance.playerData.IsHealthAtHalf())
+        {
+            //Debug.Log("shiver est validé");
             return true;
+        }
         return false;
     }
 

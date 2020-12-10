@@ -228,6 +228,10 @@ namespace GodMorgon.Player
             //{
             //    PlayPlayerAnim("Attack");
             //}
+
+            //debug
+            if (Input.GetKey("b"))
+                TakeDamage(70);
         }
 
         #region MOVEMENT
