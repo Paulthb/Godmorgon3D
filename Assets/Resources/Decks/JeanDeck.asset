@@ -17,12 +17,12 @@ MonoBehaviour:
   description: Deck test
   artwork: {fileID: 0}
   cards:
-  - {fileID: 11400000, guid: c91ffa10c4282a1419efbbd422070d7c, type: 2}
+  - {fileID: 11400000, guid: 5544ee2d25306704ea80818478e64cb9, type: 2}
   - {fileID: 11400000, guid: 0b1877ef1d3b14d459b9f078c6ed018b, type: 2}
   - {fileID: 11400000, guid: 75178f42fe44c7440b94d55a4ea9aa41, type: 2}
   - {fileID: 11400000, guid: c4c8eee817dd1bb47bd35207fc0f32f8, type: 2}
   - {fileID: 11400000, guid: a8f6eda3d7c820243840e200c93c2706, type: 2}
-  - {fileID: 11400000, guid: a8f6eda3d7c820243840e200c93c2706, type: 2}
+  - {fileID: 11400000, guid: 75178f42fe44c7440b94d55a4ea9aa41, type: 2}
   - {fileID: 11400000, guid: a8f6eda3d7c820243840e200c93c2706, type: 2}
   - {fileID: 11400000, guid: 286b3142a38feb547be950b5c380097b, type: 2}
   - {fileID: 11400000, guid: b4c101fe1c881964581fc195d47d8e6a, type: 2}
