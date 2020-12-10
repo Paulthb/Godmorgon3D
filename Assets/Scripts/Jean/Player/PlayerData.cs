@@ -155,7 +155,10 @@ namespace GodMorgon.Player
         public bool IsHealthAtHalf()
         {
             if (health <= healthMax / 2)
+            {
+                //Debug.Log("health : " + health);
                 return true;
+            }
             else
                 return false;
         }
