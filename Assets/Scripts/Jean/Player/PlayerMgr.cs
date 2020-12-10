@@ -92,6 +92,10 @@ namespace GodMorgon.Player
         public ParticleSystemScript playerCounter = null;
         public ParticleSystemScript playerFastShoes = null;
 
+        public ParticleSystemScript triggerChest = null;
+        public ParticleSystemScript triggerHeal = null;
+        public ParticleSystemScript triggerCursed = null;
+
 
         //player Animator
         [SerializeField]
@@ -879,6 +883,22 @@ namespace GodMorgon.Player
             playerFastShoes.stopParticle();
             playerCounter.stopParticle();
         }
+
+        public void LaunchChestNodeTrigger()
+        {
+            triggerChest.launchParticle();
+        }
+
+        public void LaunchHealNodeTrigger()
+        {
+            triggerHeal.launchParticle();
+        }
+
+        public void LaunchCursedNodeTrigger()
+        {
+            triggerCursed.launchParticle();
+        }
+
         #endregion
 
         #region PLAYER ANIMATION
