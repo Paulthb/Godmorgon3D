@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardType: 0
   id: 0
-  name: Moving
+  name: Dash
   dropTarget: 0
   description: Move to [nbMove] Room.
   actionCost: 1
