@@ -27,7 +27,7 @@ MonoBehaviour:
   effectsData:
   - currentEffect: 0
     damagePoint: 20
-    attackRange: 4
+    attackRange: 3
     BackAtYou: 0
     Rush: 0
     PlayerDamage: 0
