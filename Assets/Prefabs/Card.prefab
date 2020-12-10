@@ -338,7 +338,7 @@ MonoBehaviour:
   m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 8
+  m_fontSizeMin: 0
   m_fontSizeMax: 12
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 8
+  m_fontSizeMin: 0
   m_fontSizeMax: 10
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -877,7 +877,7 @@ MonoBehaviour:
   m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 28
+  m_fontSizeMin: 0
   m_fontSizeMax: 32
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -1178,7 +1178,7 @@ MonoBehaviour:
   m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 6
+  m_fontSizeMin: 0
   m_fontSizeMax: 8
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -1277,6 +1277,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062514865304161847, guid: 055800926811acd4e859d0428281d16f,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 28.5
       objectReference: {fileID: 0}
     - target: {fileID: 7464985317659018974, guid: 055800926811acd4e859d0428281d16f,
         type: 3}
