@@ -70,6 +70,13 @@ namespace GodMorgon.Models
                 if (effect.Explorer)
                     damageData += MapManager.Instance.nbNodesCleared;
 
+                //back at you effect
+                if(effect.BackAtYou)
+                {
+                    for (int i = 0; i <= PlayerMgr.Instance.GetTurnDamage(); i++)
+                        damageData += effect.damagePoint;
+                }
+
                 //check pour les autres effets
                 if (effect.shiver && BuffManager.Instance.IsShiverValidate())
                     damageData = damageData * 2;

@@ -666,4 +666,10 @@ public class GameManager : MonoBehaviour
             Destroy(enemyToDelete.gameObject);
         }
     }
+
+    //Open the Main menu scene
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("Main_Menu");
+    }
 }
