@@ -38,7 +38,7 @@ MonoBehaviour:
     swift: 0
     noBrakes: 0
     ForcedWalk: 0
-    nbBlock: 12
+    nbBlock: 7
     isCounter: 0
     counterDamagePoint: 0
     KillerInstinct: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
     swift: 0
     noBrakes: 0
     ForcedWalk: 0
-    nbBlock: 12
+    nbBlock: 0
     isCounter: 0
     counterDamagePoint: 0
     KillerInstinct: 0

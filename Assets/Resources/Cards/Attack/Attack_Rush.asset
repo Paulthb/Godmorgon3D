@@ -27,11 +27,11 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: d70c263f4ff3c4f4ebe68f2a90384805, type: 3}
   effectsData:
   - currentEffect: 0
-    damagePoint: 6
+    damagePoint: 3
     attackRange: 1
     BackAtYou: 0
     Rush: 1
-    PlayerDamage: 3
+    PlayerDamage: 6
     isCircular: 0
     nbMoves: 0
     rolling: 0

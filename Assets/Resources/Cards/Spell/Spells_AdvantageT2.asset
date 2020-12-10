@@ -65,5 +65,5 @@ MonoBehaviour:
     isDiscardHand: 0
     Goosebump: 0
     Explorer: 0
-    isUseless: 1
+    isUseless: 0
     StickyFinger: 0

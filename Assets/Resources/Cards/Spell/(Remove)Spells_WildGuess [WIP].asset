@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Spells_RushedAwakening [WIP]
+  m_Name: (Remove)Spells_WildGuess [WIP]
   m_EditorClassIdentifier: 
   cardType: 4
   id: 0
-  name: Rushed Awakening
+  name: Wild Guess
   dropTarget: 1
-  description: "Time Out 4 \n\nReactivate every timed out cards"
+  description: Reveal one hidden timeline action
   actionCost: 1
   price: 0
   template: {fileID: 21300000, guid: ac73118b6c3c32545b9ef5817595cb1a, type: 3}
-  artwork: {fileID: 21300000, guid: d70c263f4ff3c4f4ebe68f2a90384805, type: 3}
+  artwork: {fileID: 21300000, guid: f7e4ba3bb5d11b9429462428f689d98d, type: 3}
   effectsData:
   - currentEffect: 4
     damagePoint: 0

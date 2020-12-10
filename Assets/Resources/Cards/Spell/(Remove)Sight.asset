@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae75bc8cd6c062e4eaa6498915338cdc, type: 3}
-  m_Name: Spells_WildGuess [WIP]
+  m_Name: (Remove)Sight
   m_EditorClassIdentifier: 
-  cardType: 4
-  id: 0
-  name: Wild Guess
-  dropTarget: 1
-  description: Reveal one hidden timeline action
+  cardType: 5
+  id: 10
+  name: Vision
+  dropTarget: 0
+  description: Remove the fog of war from nodes.
   actionCost: 1
-  price: 0
+  price: 90
   template: {fileID: 21300000, guid: ac73118b6c3c32545b9ef5817595cb1a, type: 3}
-  artwork: {fileID: 21300000, guid: f7e4ba3bb5d11b9429462428f689d98d, type: 3}
+  artwork: {fileID: 21300000, guid: 533434a33d337b24b8ecc89a3e633009, type: 3}
   effectsData:
   - currentEffect: 4
     damagePoint: 0
@@ -42,9 +42,9 @@ MonoBehaviour:
     Scarification: 0
     Possibilities: 0
     HardHead: 0
-    Sight: 0
+    Sight: 1
     sightRange: 1
-    DrawCard: 1
+    DrawCard: 0
     recycling: 0
     nbCardToDraw: 2
     Teleport: 0
