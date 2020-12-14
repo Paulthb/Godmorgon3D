@@ -32602,7 +32602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSettings: {fileID: 11400000, guid: 9e3253d90904af94f8266959a0600962, type: 2}
   gameSceneName: TEST_Tilemap
-  isHandRandom: 0
+  isHandRandom: 1
 --- !u!1001 &1884178478
 PrefabInstance:
   m_ObjectHideFlags: 0
