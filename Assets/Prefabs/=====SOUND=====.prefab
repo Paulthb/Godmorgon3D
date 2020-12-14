@@ -170,6 +170,21 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 09ec1d6ec07dfc346b5a7fc6898e4557,
       type: 2}
+  MainTheme:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: cb7a5089aeac04e43873b3e8bcc4e765,
+      type: 2}
+  Victory:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1b71c81ed575393479239c69813b1c28,
+      type: 2}
+  Loose:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: abe2843ac90349d469ec57d3b8518d34,
+      type: 2}
 --- !u!114 &2694926159688572032
 MonoBehaviour:
   m_ObjectHideFlags: 0

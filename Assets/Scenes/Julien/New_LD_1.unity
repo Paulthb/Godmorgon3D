@@ -26848,24 +26848,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2694926159688572045, guid: 446efac4f29131d46875612db9b4e5df,
-        type: 3}
-      propertyPath: MainTheme.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: cb7a5089aeac04e43873b3e8bcc4e765,
-        type: 2}
-    - target: {fileID: 2694926159688572045, guid: 446efac4f29131d46875612db9b4e5df,
-        type: 3}
-      propertyPath: Victory.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: 1b71c81ed575393479239c69813b1c28,
-        type: 2}
-    - target: {fileID: 2694926159688572045, guid: 446efac4f29131d46875612db9b4e5df,
-        type: 3}
-      propertyPath: Loose.WwiseObjectReference
-      value: 
-      objectReference: {fileID: 11400000, guid: abe2843ac90349d469ec57d3b8518d34,
-        type: 2}
     - target: {fileID: 2694926160232478848, guid: 446efac4f29131d46875612db9b4e5df,
         type: 3}
       propertyPath: m_Name
