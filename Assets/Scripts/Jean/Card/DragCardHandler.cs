@@ -71,7 +71,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         discardPilePos = GameObject.Find("discarPilePos").transform;
         _card = gameObject.GetComponent<CardDisplay>().card;
         mainCamera = Camera.main.GetComponentInParent<CameraDrag>();
-        myCanvasUI = GameObject.Find("Canvas_UI").transform;
+        myCanvasUI = GameObject.Find("CardDropEffect").transform;
 
         isInit = true;
     }
@@ -126,14 +126,20 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         List<RaycastResult> raycastResults = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, raycastResults);
 
+        RaycastHit hit;
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         if (raycastResults.Count > 0)
         {
             foreach (RaycastResult result in raycastResults)
             {
                 if (result.gameObject.tag == "DropZone" && ValidatePlayableCard())
                 {
-                    GameObject usedCardParticleObject = Instantiate(usedCardParticle.gameObject, transform.position, Quaternion.identity, myCanvasUI);
-                    usedCardParticleObject.GetComponent<ParticleSystemScript>().PlayNDestroy();
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        GameObject usedCardParticleObject = Instantiate(usedCardParticle.gameObject, hit.point, Quaternion.identity, myCanvasUI);
+                        usedCardParticleObject.GetComponent<ParticleSystemScript>().PlayNDestroy();
+                    }
 
                     //On montre les positions disponibles pour le drop de la carte
                     dropPosManager.ShowPositionsToDrop(_card);
@@ -225,8 +231,6 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             CardEffectManager.Instance.PlayCard(_card, context);
             
             PlayerMgr.Instance.ResetChosenEnemy();
-            
-            //Destroy(gameObject);
         }
         else if(_card.dropTarget == BasicCard.DROP_TARGET.NODE)
             CardEffectManager.Instance.PlayCard(_card, context);
