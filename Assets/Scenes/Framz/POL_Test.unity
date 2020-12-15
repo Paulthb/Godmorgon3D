@@ -36023,7 +36023,7 @@ ParticleSystem:
     startRotationX:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.7853981
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -40384,7 +40384,7 @@ ParticleSystemRenderer:
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
-  m_RenderAlignment: 0
+  m_RenderAlignment: 4
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
@@ -45571,7 +45571,7 @@ ParticleSystem:
     startRotationX:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.7853981
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -49950,7 +49950,7 @@ ParticleSystemRenderer:
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
-  m_RenderAlignment: 0
+  m_RenderAlignment: 4
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
@@ -50048,7 +50048,7 @@ ParticleSystemRenderer:
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
-  m_RenderAlignment: 0
+  m_RenderAlignment: 4
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
@@ -50488,7 +50488,7 @@ ParticleSystem:
     startRotationX:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.7853981
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -60110,7 +60110,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -0.7853981
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -69700,7 +69700,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -0.7853981
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -74399,7 +74399,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -0.7853981
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -78620,8 +78620,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4320608261341038507}
-  m_LocalRotation: {x: -0.6750059, y: 0.2106347, z: -0.21063472, w: 0.675006}
-  m_LocalPosition: {x: 0.6546209, y: -0.24406433, z: 1.237127}
+  m_LocalRotation: {x: -0.703208, y: 0.46092072, z: 0.07415198, w: 0.5362389}
+  m_LocalPosition: {x: 0.41, y: -0.01, z: 1.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4320608260417594093}
@@ -78629,7 +78629,7 @@ Transform:
   - {fileID: 4320608259463380756}
   m_Father: {fileID: 604774409}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: -55.339005, y: 90.00001, z: -90.00001}
+  m_LocalEulerAnglesHint: {x: -55.339005, y: 136.7, z: -90.00001}
 --- !u!1 &4320608261341038507
 GameObject:
   m_ObjectHideFlags: 0
