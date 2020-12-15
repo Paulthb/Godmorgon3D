@@ -226,7 +226,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             
             PlayerMgr.Instance.ResetChosenEnemy();
             
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
         else if(_card.dropTarget == BasicCard.DROP_TARGET.NODE)
             CardEffectManager.Instance.PlayCard(_card, context);
@@ -264,7 +264,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             Debug.Log(gameObject.name + " : dicardpos null");
             Init();
         }
-        if (transform == null)
+        if (!transform)
             return true;
 
         return (transform.position - discardPilePos.position).magnitude > 0.01f;
