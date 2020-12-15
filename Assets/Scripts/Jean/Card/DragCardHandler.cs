@@ -47,10 +47,17 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     private DropPositionManager dropPosManager = new DropPositionManager();
 
+    [SerializeField]
+    private ParticleSystemScript usedCardParticle = null;
+    [SerializeField]
+    private Transform myCanvasUI;
+
     // Start is called before the first frame update
     void Start()
     {
         Init();
+
+        myCanvasUI = GameObject.Find("Canvas_UI").transform;
     }
 
     public void Init()
@@ -126,6 +133,9 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             {
                 if (result.gameObject.tag == "DropZone" && ValidatePlayableCard())
                 {
+                    //GameObject usedCardParticleObject = Instantiate(usedCardParticle.gameObject, transform.localPosition, Quaternion.identity, myCanvasUI);
+                    //usedCardParticleObject.GetComponent<ParticleSystemScript>().PlayNDestroy();
+
                     //On montre les positions disponibles pour le drop de la carte
                     dropPosManager.ShowPositionsToDrop(_card);
 

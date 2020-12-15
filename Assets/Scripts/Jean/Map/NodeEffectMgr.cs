@@ -77,18 +77,6 @@ public class NodeEffectMgr : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     /**
      * Instantiate the particles of a non-launched node effect
      */
@@ -254,7 +242,8 @@ public class NodeEffectMgr : MonoBehaviour
      */
     public void LaunchExitScreen()
     {
-        StartCoroutine(GameManager.Instance.LaunchFinalFade());
+        GameManager.Instance.Victory();
+        //StartCoroutine(GameManager.Instance.LaunchFinalFade());
     }
 
 

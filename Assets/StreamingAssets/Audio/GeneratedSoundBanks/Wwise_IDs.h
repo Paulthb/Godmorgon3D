@@ -33,6 +33,8 @@ namespace AK
         static const AkUniqueID FEEDBACK_DRAFT = 3592270264U;
         static const AkUniqueID FEEDBACK_HEAL = 3086109821U;
         static const AkUniqueID FOG_CLEAR = 3349601745U;
+        static const AkUniqueID LOSE = 221232726U;
+        static const AkUniqueID MAINTHEME = 824317709U;
         static const AkUniqueID MECHANICAL = 192460720U;
         static const AkUniqueID MUS_MENU = 3149643052U;
         static const AkUniqueID MUS_NONE = 1825203175U;
@@ -47,6 +49,7 @@ namespace AK
         static const AkUniqueID RINGMASTER_ENDOFTURN = 4061952277U;
         static const AkUniqueID SFX_FEEDBACK_CURSOR_COMEBACK = 2677054925U;
         static const AkUniqueID TITLE_SCREEN = 3853285476U;
+        static const AkUniqueID VICTORY = 2716678721U;
     } // namespace EVENTS
 
     namespace STATES
