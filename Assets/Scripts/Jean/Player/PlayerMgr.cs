@@ -943,7 +943,8 @@ namespace GodMorgon.Player
             projectileScript.startPosition = cubetransform;
             projectileScript.endPosition = target;
 
-            projectileScript.StartProjectile();
+            //projectileScript.StartProjectile();
+            projectileScript.ShootProjectile();
         }
 
         #endregion

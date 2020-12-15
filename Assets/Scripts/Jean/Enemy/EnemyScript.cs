@@ -59,6 +59,13 @@ namespace GodMorgon.Enemy
         [System.NonSerialized]
         public Transform enemyTransform = null;
 
+        //projectile pour les enemy qui attaque à distance
+        [SerializeField]
+        public GameObject projectilePrefab = null;
+
+        //pour que les enemy qui attaque à distance lance un projectile
+        [SerializeField]
+        private bool hasHighRange = false;
 
         private Animator _animator;
         private HealthBar _healthBar;
@@ -380,6 +387,10 @@ namespace GodMorgon.Enemy
         {
             Debug.Log("Play enemy attack anim");
             enemyAnimator.SetTrigger("attacking");
+
+            if (hasHighRange)
+                LaunchProjectile();
+
             //Animation anim = this.transform.GetComponentInChildren<Animation>();
 
             //foreach (AnimationState state in anim)
@@ -389,6 +400,18 @@ namespace GodMorgon.Enemy
             //        anim.Play(state.name);
             //    }
             //}
+        }
+
+        public void LaunchProjectile()
+        {
+            GameObject projectileGAO = Instantiate(projectilePrefab, enemyTransform.position, Quaternion.identity);
+            Projectile projectileScript = projectileGAO.GetComponent<Projectile>();
+
+            projectileScript.startPosition = enemyTransform;
+            projectileScript.endPosition = PlayerMgr.Instance.cubetransform;
+
+            //projectileScript.StartProjectile();
+            projectileScript.ShootProjectile();
         }
 
         public bool IsAttackFinished()
