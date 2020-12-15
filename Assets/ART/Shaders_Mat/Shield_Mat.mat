@@ -75,12 +75,12 @@ Material:
     - _Float0: 0.7662148
     - _Float1: 5.66
     - _Float2: 0.1
-    - _FresnelPower: 3
-    - _FresnelScale: 0.172
+    - _FresnelPower: 2.51
+    - _FresnelScale: 0.043
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Intensity: -0.94
+    - _Intensity: -1.81
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -98,7 +98,7 @@ Material:
     - _power_intensity: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color0: {r: 3.8246977, g: 5.6629243, b: 5.366436, a: 0}
+    - _Color0: {r: 1.9123491, g: 2.8314626, b: 2.6832185, a: 0}
     - _Color1: {r: 5.4938245, g: 7.7131834, b: 6.7348676, a: 0}
     - _Color2: {r: 2.0603082, g: 2.0603082, b: 2.0603082, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
