@@ -19996,6 +19996,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6965676383764892841, guid: befb802f273720841b7d0981cc3dc664,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -44
+      objectReference: {fileID: 0}
     - target: {fileID: 7255051237723510831, guid: befb802f273720841b7d0981cc3dc664,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -32579,7 +32584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameSettings: {fileID: 11400000, guid: 9e3253d90904af94f8266959a0600962, type: 2}
   gameSceneName: TEST_Tilemap
-  isHandRandom: 0
+  isHandRandom: 1
 --- !u!1001 &1884178478
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -36,6 +36,10 @@ namespace GodMorgon.Sound
 
         public AK.Wwise.Event Draft;
 
+        public AK.Wwise.Event MainTheme;
+        public AK.Wwise.Event Victory;
+        public AK.Wwise.Event Loose;
+
         //public AK.Wwise.Event cursorEnd;
 
         //public AK.Wwise.Event PlayerTheme;
@@ -62,7 +66,7 @@ namespace GodMorgon.Sound
         // Start is called before the first frame update
         void Start()
         {
-            //MusicManager.Instance.PlayPlayerTurnTheme();
+            MainTheme.Post(gameObject);
         }
 
         // Update is called once per frame
@@ -83,6 +87,16 @@ namespace GodMorgon.Sound
         //{
         //    RingmasterState.SetValue();
         //}
+
+        public void PlayVictory()
+        {
+            Victory.Post(gameObject);
+        }
+
+        public void PlayLose()
+        {
+            Loose.Post(gameObject);
+        }
 
         public void PlayPlayerMove()
         {

@@ -141,10 +141,6 @@ public class GameManager : MonoBehaviour
     {
         //on sauvegarde l'alpha des images pour les animations, si on doit les stopper
         advertisingDefaultColor = playerTurnAnimation.gameObject.GetComponent<Image>().color;
-
-        MusicManager.Instance.PlayMechanical();
-        MusicManager.Instance.PlayParkTheme();
-        //MusicManager.Instance.PlayCardsPlay();
     }
 
     public void Update()
@@ -701,12 +697,14 @@ public class GameManager : MonoBehaviour
       */
     public void GameOver()
     {
+        MusicManager.Instance.PlayLose();
         looseText.SetActive(true);
         StartCoroutine(FadeScreen());
     }
 
     public void Victory()
     {
+        MusicManager.Instance.PlayVictory();
         winText.SetActive(true);
         StartCoroutine(FadeScreen());
     }

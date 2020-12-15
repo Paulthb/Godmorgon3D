@@ -1,5 +1,6 @@
 ﻿using GodMorgon.Models;
 using GodMorgon.Timeline;
+using GodMorgon.VisualEffect;
 using System;
 using System.Collections;
 using TMPro;
@@ -74,6 +75,7 @@ public class CardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [TextArea]
     [SerializeField]
     private string goosebumpInfo;
+
 
     /**
      * Load the data of the card in the gameObject at start, if the card exist.

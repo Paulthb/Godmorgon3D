@@ -237,6 +237,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Victory" ID="{B6140FD1-A99A-4E6B-87CC-C8CA9906502E}">
+							<ChildrenList>
+								<Action Name="" ID="{B6DF0453-F965-4DE0-8D94-B80EC740C194}" ShortID="172159703">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="VictorySFX" ID="{392AFE5F-F66E-4CFF-8ED1-553B6D7B4998}" WorkUnitID="{9E30E5EB-F907-4D66-A66C-2C6207B78BED}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Lose" ID="{BF0C7056-A545-4E46-BE2F-37AAC4A82FC1}">
+							<ChildrenList>
+								<Action Name="" ID="{3D118D8B-A260-48B7-98F9-B1DC259ED096}" ShortID="138882007">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="LoseVFX" ID="{113AC062-0A11-478D-B918-DD61493346C1}" WorkUnitID="{9E30E5EB-F907-4D66-A66C-2C6207B78BED}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Player" ID="{7D0DA2F7-5493-47C5-9586-59EA48215D29}" ShortID="985409967">
@@ -399,6 +421,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Player" ID="{BCFEC34A-32B5-4B83-B516-000D4E65B916}" WorkUnitID="{B91CA90F-AE0D-4DB1-BACE-E7B04132A4D2}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="MainTheme" ID="{2AB46140-A928-4303-8347-C2EC5F17C8BC}">
+							<ChildrenList>
+								<Action Name="" ID="{1742D999-3047-4316-A830-31B29E59B96F}" ShortID="370770028">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Main_Game_Theme" ID="{A8D68877-7755-4037-880D-A45C32A78E67}" WorkUnitID="{AA62AF53-4A91-412B-BCC4-F4EF6462B30E}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

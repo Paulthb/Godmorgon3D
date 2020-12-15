@@ -85,6 +85,9 @@ namespace GodMorgon.Player
                 damagePoint--;
             }
 
+            if (health <= 0)
+                GameManager.Instance.GameOver();
+
             //apply scarification at every damage taken
             BuffManager.Instance.ApplyScarification();
         }

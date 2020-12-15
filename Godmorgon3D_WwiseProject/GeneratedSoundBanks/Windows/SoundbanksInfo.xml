@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="135">
 	<RootPaths>
-		<ProjectRoot>T:\Projets IIM\A5\Godmorgon3D_New\Godmorgon3D\Godmorgon3D_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>T:\Projets IIM\A5\Godmorgon3D_New\Godmorgon3D\Godmorgon3D_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>T:\Projets IIM\A5\Godmorgon3D_New\Godmorgon3D\Godmorgon3D_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>C:\Users\Jean\Documents\Cours IIM\GODMORGON\Godmorgon_3D_v3\Godmorgon3D\Godmorgon3D_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\Jean\Documents\Cours IIM\GODMORGON\Godmorgon_3D_v3\Godmorgon3D\Godmorgon3D_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\Jean\Documents\Cours IIM\GODMORGON\Godmorgon_3D_v3\Godmorgon3D\Godmorgon3D_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>T:\Projets IIM\A5\Godmorgon3D_New\Godmorgon3D\Godmorgon3D_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>C:\Users\Jean\Documents\Cours IIM\GODMORGON\Godmorgon_3D_v3\Godmorgon3D\Godmorgon3D_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles>
@@ -16,12 +16,12 @@
 	</StreamedFiles>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3128107461">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="3161908922" Language="SFX">
+		<SoundBank Id="3161908922" Language="SFX" Hash="1330283001">
 			<ObjectPath>\SoundBanks\Default Work Unit\Main</ObjectPath>
 			<ShortName>Main</ShortName>
 			<Path>Main.bnk</Path>
@@ -294,8 +294,12 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3592270264" Name="FeedBack_draft" ObjectPath="\Events\Default Work Unit\Feedback\FeedBack_draft" DurationType="OneShot" DurationMin="0.742993" DurationMax="1.102993">
+				<Event Id="3592270264" Name="FeedBack_draft" ObjectPath="\Events\Default Work Unit\Feedback\FeedBack_draft" DurationType="OneShot" DurationMin="1.102993" DurationMax="1.614014">
 					<IncludedMemoryFiles>
+						<File Id="236490438" Language="SFX">
+							<ShortName>Draft-Voice1.wav</ShortName>
+							<Path>SFX\Draft-Voice1_755F56E2.wem</Path>
+						</File>
 						<File Id="315359062" Language="SFX">
 							<ShortName>Draft-Voice10.wav</ShortName>
 							<Path>SFX\Draft-Voice10_755F56E2.wem</Path>
@@ -304,9 +308,25 @@
 							<ShortName>Draft-Voice5.wav</ShortName>
 							<Path>SFX\Draft-Voice5_755F56E2.wem</Path>
 						</File>
+						<File Id="433955267" Language="SFX">
+							<ShortName>Draft-Voice2.wav</ShortName>
+							<Path>SFX\Draft-Voice2_755F56E2.wem</Path>
+						</File>
 						<File Id="713180837" Language="SFX">
 							<ShortName>Draft-Voice4.wav</ShortName>
 							<Path>SFX\Draft-Voice4_755F56E2.wem</Path>
+						</File>
+						<File Id="826406443" Language="SFX">
+							<ShortName>Draft-Voice.wav</ShortName>
+							<Path>SFX\Draft-Voice_755F56E2.wem</Path>
+						</File>
+						<File Id="900811556" Language="SFX">
+							<ShortName>Draft-Voice6.wav</ShortName>
+							<Path>SFX\Draft-Voice6_755F56E2.wem</Path>
+						</File>
+						<File Id="982249270" Language="SFX">
+							<ShortName>Draft-Voice3.wav</ShortName>
+							<Path>SFX\Draft-Voice3_755F56E2.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -335,6 +355,22 @@
 						<File Id="960005070" Language="SFX">
 							<ShortName>wetransfer-501fc2\AMB_RFX_Fog\AMB_RFX_Fog_16.wav</ShortName>
 							<Path>SFX\wetransfer-501fc2\AMB_RFX_Fog\AMB_RFX_Fog_16_755F56E2.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="221232726" Name="Lose" ObjectPath="\Events\Default Work Unit\Feedback\Lose" DurationType="OneShot" DurationMin="7.016000" DurationMax="7.016000">
+					<IncludedMemoryFiles>
+						<File Id="616319266" Language="SFX">
+							<ShortName>Player-Die.wav</ShortName>
+							<Path>SFX\Player-Die_755F56E2.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="824317709" Name="MainTheme" ObjectPath="\Events\Default Work Unit\Music\MainTheme" DurationType="Infinite">
+					<IncludedMemoryFiles>
+						<File Id="202168480" Language="SFX">
+							<ShortName>Main theme.wav</ShortName>
+							<Path>SFX\Main theme_073B4D0C.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -698,6 +734,14 @@
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
+				</Event>
+				<Event Id="2716678721" Name="Victory" ObjectPath="\Events\Default Work Unit\Feedback\Victory" DurationType="OneShot" DurationMin="7.636009" DurationMax="7.636009">
+					<IncludedMemoryFiles>
+						<File Id="245420578" Language="SFX">
+							<ShortName>Player-win.wav</ShortName>
+							<Path>SFX\Player-win_755F56E2.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
 				</Event>
 			</IncludedEvents>
 			<StateGroups>
