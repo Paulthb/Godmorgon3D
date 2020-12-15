@@ -56,8 +56,6 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     void Start()
     {
         Init();
-
-        myCanvasUI = GameObject.Find("Canvas_UI").transform;
     }
 
     public void Init()
@@ -73,6 +71,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         discardPilePos = GameObject.Find("discarPilePos").transform;
         _card = gameObject.GetComponent<CardDisplay>().card;
         mainCamera = Camera.main.GetComponent<CameraDrag>();
+        myCanvasUI = GameObject.Find("Canvas_UI").transform;
 
         isInit = true;
     }
@@ -133,8 +132,8 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             {
                 if (result.gameObject.tag == "DropZone" && ValidatePlayableCard())
                 {
-                    //GameObject usedCardParticleObject = Instantiate(usedCardParticle.gameObject, transform.localPosition, Quaternion.identity, myCanvasUI);
-                    //usedCardParticleObject.GetComponent<ParticleSystemScript>().PlayNDestroy();
+                    GameObject usedCardParticleObject = Instantiate(usedCardParticle.gameObject, transform.position, Quaternion.identity, myCanvasUI);
+                    usedCardParticleObject.GetComponent<ParticleSystemScript>().PlayNDestroy();
 
                     //On montre les positions disponibles pour le drop de la carte
                     dropPosManager.ShowPositionsToDrop(_card);
@@ -143,8 +142,6 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                     GameManager.Instance.UnlockDragCardHandler(false);
                     GameManager.Instance.DownPanelBlock(true);
 
-                    //Play the card
-                    //CardEffectManager.Instance.PlayCard(eventData.pointerDrag.GetComponent<CardDisplay>().card, context);
 
                     //======================sound=========================
                     MusicManager.Instance.PlayCardsPlay();
@@ -173,17 +170,6 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
                     return;
                 }
-                //else if(result.gameObject.tag == "DropZoneBack")
-                //{
-                //    //La carte n'est pas posée sur la drop zone ou n'est pas validée : on la remet dans la main
-                //    transform.SetParent(hand);
-
-                //    transform.position = startPosition;    //Par défaut, la carte retourne dans la main
-                //    GetComponent<RectTransform>().sizeDelta = new Vector2(cardWidth, cardHeight);  //La carte récupère sa taille normale
-
-                //    //On désactive la dropZone pour les cartes
-                //    GameManager.Instance.ActiveDropZone(false);
-                //}
             }            
         }
 

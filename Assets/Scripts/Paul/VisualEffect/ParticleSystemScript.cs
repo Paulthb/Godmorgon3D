@@ -57,7 +57,7 @@ namespace GodMorgon.VisualEffect
             }
             yield return new WaitForSeconds(GetDuration());
 
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
