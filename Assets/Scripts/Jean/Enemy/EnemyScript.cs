@@ -29,7 +29,7 @@ namespace GodMorgon.Enemy
         [Header("Attack Settings")]
         public float shakeDuration = 0.1f;
         private Camera mainCamera;
-        private CameraShaker shaker;     //Script of shaking on camera
+        private CameraShake shaker;     //Script of shaking on camera
 
 
         // ----- BOOL ------
@@ -85,7 +85,7 @@ namespace GodMorgon.Enemy
         {
             mainCamera = Camera.main;
             if (mainCamera)
-                shaker = mainCamera.GetComponent<CameraShaker>();
+                shaker = mainCamera.GetComponent<CameraShake>();
 
             if (healthBarPrefab != null)
                 InitializeHealthBar();

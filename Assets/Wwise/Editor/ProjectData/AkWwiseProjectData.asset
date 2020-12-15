@@ -20,7 +20,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: d220adce33713443b6353c1aa5503967
     GuidInternal: 
-    m_lastTime: -8585954577287382738
+    m_lastTime: -8585936668902385500
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -30,7 +30,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: b21c0c948f26d849a09dd53859f93695
     GuidInternal: 
-    m_lastTime: -8585954577289523221
+    m_lastTime: -8585936668927629069
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -49,7 +49,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 373ae5b7949aa14c9a49a81c65bfa4fb
     GuidInternal: 
-    m_lastTime: -8585954577287432748
+    m_lastTime: -8585936668902976188
     List:
     - name: Main
       guid: 6003b9fee289174ebe946e7b0909e0ba
@@ -68,7 +68,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 18df17eb1a42a94fb2768ca9fbe003fe
     GuidInternal: 
-    m_lastTime: -8585940132025131498
+    m_lastTime: -8585936668927719085
     List:
     - name: Ambiances
       guid: 60263c82c526bc478ccdce9b6a484871
@@ -662,7 +662,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: e8ed79a78084244ea3a2708de730abd5
     GuidInternal: 
-    m_lastTime: -8585954577289693255
+    m_lastTime: -8585936668927719085
     List: []
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
@@ -672,7 +672,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 0fa91cb90daeb14dbacee7b04132a4d2
     GuidInternal: 
-    m_lastTime: -8585954577287412746
+    m_lastTime: -8585936668902886169
     List:
     - name: TurnState
       guid: cb84467e0b6a94439f3081482398c12b
@@ -719,7 +719,7 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 983f95c515a2f44cb6ee7bf5aece0106
     GuidInternal: 
-    m_lastTime: -8585954577287392741
+    m_lastTime: -8585936668902715756
     List: []
   TriggerWwu:
   - PhysicalPath: Triggers\Default Work Unit.wwu
@@ -729,12 +729,8 @@ MonoBehaviour:
     ParentPath: Default Work Unit
     guid: 7c3990d46ce63044979e0355f208c74a
     GuidInternal: 
-    m_lastTime: -8585954577287382738
+    m_lastTime: -8585936668902725759
     List: []
-  ExpandedItems:
-  - /Godmorgon3D_WwiseProject
-  - /Godmorgon3D_WwiseProject/Events
-  - /Godmorgon3D_WwiseProject/Events/Default Work Unit
-  - /Godmorgon3D_WwiseProject/Events/Default Work Unit/Ambiances
+  ExpandedItems: []
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
