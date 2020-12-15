@@ -72,7 +72,7 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         effectsParent = GameObject.Find("EffectsParent").transform;
         discardPilePos = GameObject.Find("discarPilePos").transform;
         _card = gameObject.GetComponent<CardDisplay>().card;
-        mainCamera = Camera.main.GetComponent<CameraDrag>();
+        mainCamera = Camera.main.GetComponentInParent<CameraDrag>();
 
         isInit = true;
     }
