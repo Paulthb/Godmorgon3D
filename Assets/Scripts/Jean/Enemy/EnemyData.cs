@@ -109,5 +109,11 @@ namespace GodMorgon.Enemy
             defense = 0;
             enemyScript.UpdateHealthBar(health, defense);
         }
+
+        //return the transform of the object in space
+        public override Transform GetSpaceTransform()
+        {
+            return enemyScript.enemyTransform;
+        }
     }
 }

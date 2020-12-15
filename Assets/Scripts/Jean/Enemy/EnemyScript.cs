@@ -55,6 +55,11 @@ namespace GodMorgon.Enemy
         [SerializeField]
         private Animator enemyAnimator = null;
 
+        //transform position de l'enemy pur
+        [System.NonSerialized]
+        public Transform enemyTransform = null;
+
+
         private Animator _animator;
         private HealthBar _healthBar;
 
@@ -83,6 +88,9 @@ namespace GodMorgon.Enemy
         // Start is called before the first frame update
         void Start()
         {
+            //on récupère la transform de l'enemy en cherchant l'animator
+            enemyTransform = GetComponentInChildren<Animator>().transform;
+
             mainCamera = Camera.main;
             if (mainCamera)
                 shaker = mainCamera.GetComponent<CameraShake>();

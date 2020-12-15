@@ -198,5 +198,11 @@ namespace GodMorgon.Player
             
             return true;
         }
+
+        //return the transform of the object in space
+        public override Transform GetSpaceTransform()
+        {
+            return PlayerMgr.Instance.cubetransform;
+        }
     }
 }

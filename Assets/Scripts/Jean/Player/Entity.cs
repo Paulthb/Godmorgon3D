@@ -17,4 +17,6 @@ public abstract class Entity {
     public virtual int DoDamage(int damagePoint) { return damagePoint; }
 
     public virtual bool IsDead() { return false; }
+
+    public virtual Transform GetSpaceTransform() { return null; }
 }
