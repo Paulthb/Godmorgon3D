@@ -9,6 +9,8 @@ using GodMorgon.VisualEffect;
 using TMPro;
 using UnityEngine;
 
+using EZCameraShake;
+
 namespace GodMorgon.Player
 {
     public enum PlayerDir
@@ -863,6 +865,7 @@ namespace GodMorgon.Player
 
             //SFX player hit
             MusicManager.Instance.PlayPlayerHit();
+            CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 1f);
         }
 
         //launch player Shield effect

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GodMorgon.Sound;
+using EZCameraShake;
 
 namespace GodMorgon.Enemy
 {
@@ -76,6 +77,7 @@ namespace GodMorgon.Enemy
         {
             //SFX enemy hit
             MusicManager.Instance.PlayEnemyHit();
+            CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 1f);
         }
 
         /**

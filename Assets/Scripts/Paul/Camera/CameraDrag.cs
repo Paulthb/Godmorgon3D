@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+using EZCameraShake;
+
 public class CameraDrag : MonoBehaviour
 {
     private Vector3 DRAG_Y_VECTOR = new Vector3(0.5f, 0f, 0.5f);
@@ -34,7 +36,7 @@ public class CameraDrag : MonoBehaviour
 
     private void Start()
     {
-        gameCamera = GetComponent<Camera>();
+        gameCamera = GetComponentInChildren<Camera>();
     }
 
     void Update()
@@ -82,6 +84,9 @@ public class CameraDrag : MonoBehaviour
         p = p * Time.deltaTime;
         Vector3 newPosition = transform.position;
         transform.Translate(p);
+
+        if (Input.GetKeyDown("n"))
+            CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 1f);
     }
 
     Vector3 getProjectedPoint(Ray cameraRay)
