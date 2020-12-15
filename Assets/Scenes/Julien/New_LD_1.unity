@@ -15315,7 +15315,6 @@ GameObject:
   m_Component:
   - component: {fileID: 968065540}
   - component: {fileID: 968065539}
-  - component: {fileID: 968065538}
   - component: {fileID: 968065542}
   - component: {fileID: 968065541}
   - component: {fileID: 968065544}
@@ -15328,22 +15327,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &968065538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 968065537}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d46b76c8e40169a41b659f6a1271e943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minScroll: 2
-  maxScroll: 10
-  mainSpeed: 15
-  isMoveEdgeActive: 0
 --- !u!20 &968065539
 Camera:
   m_ObjectHideFlags: 0
@@ -29003,6 +28986,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6955694339998746813, guid: 2bd9d2eba2c0fe749bbb11e42cfd55b6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7078950512023755572, guid: 2bd9d2eba2c0fe749bbb11e42cfd55b6,
         type: 3}
