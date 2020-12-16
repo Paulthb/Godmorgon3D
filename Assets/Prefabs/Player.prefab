@@ -2186,7 +2186,7 @@ MonoBehaviour:
   clawAttackParticle: {fileID: 6652818961798745398}
   slashAttackParticle: {fileID: 7488687065287438507}
   playerAnimator: {fileID: 7033059804924032127}
-  projectilePrefab: {fileID: 4797686983420251470, guid: 0d3bc05773069d14a87dfdea3fd04447,
+  projectilePrefab: {fileID: 7070760672768378150, guid: 3cfa2ab66451f5b4e8dccbb14e15dd3a,
     type: 3}
 --- !u!1 &6795287613565108842
 GameObject:

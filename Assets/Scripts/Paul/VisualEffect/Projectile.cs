@@ -27,8 +27,14 @@ public class Projectile : MonoBehaviour
     {
         if (isProjectileShoot)
         {
+
+            Vector3 targetDirection = endPosition.position - transform.position;
+
             float step = projectileSpeed * Time.deltaTime; // calculate distance to move
             transform.position = Vector3.MoveTowards(transform.position, endPosition.position, step);
+
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, step, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newDirection);
 
             if (Vector3.Distance(transform.position, endPosition.position) < 0.001f)
             {

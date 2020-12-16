@@ -763,7 +763,7 @@ MonoBehaviour:
   healthBarPos: {fileID: 2545621196203179203}
   enemyCanvas: {fileID: 4039938613896032041}
   enemyAnimator: {fileID: 9052851114564003535}
-  projectilePrefab: {fileID: 4797686983420251470, guid: 0d3bc05773069d14a87dfdea3fd04447,
+  projectilePrefab: {fileID: 7070760672768378150, guid: 3cfa2ab66451f5b4e8dccbb14e15dd3a,
     type: 3}
   hasHighRange: 1
 --- !u!65 &4862380296108978889
