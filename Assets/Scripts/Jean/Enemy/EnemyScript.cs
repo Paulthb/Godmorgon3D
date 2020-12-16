@@ -323,7 +323,9 @@ namespace GodMorgon.Enemy
             print("ENEMY " + gameObject.name + " has attacked " + attackableEntity.name);
 
             //Take damage if counter activated
-            enemyData.TakeDamage(PlayerMgr.Instance.Counter(), false);
+            int counterValue = PlayerMgr.Instance.Counter();
+            if(counterValue != 0)
+                enemyData.TakeDamage(counterValue, false);
         }
 
         /**
