@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GodMorgon.Sound;
+using GodMorgon.VisualEffect;
 
 namespace GodMorgon.Enemy
 {
@@ -44,6 +45,7 @@ namespace GodMorgon.Enemy
         /**
          * la healthBar sera enfant du canvas de cette objet
          */
+        [Header("Visual Settings")]
         [SerializeField]
         private GameObject healthBarPrefab = null;
         [SerializeField]
@@ -62,6 +64,9 @@ namespace GodMorgon.Enemy
         //projectile pour les enemy qui attaque à distance
         [SerializeField]
         public GameObject projectilePrefab = null;
+
+        //gameobject containing hit particles
+        private GameObject enemyHitFx;
 
         //pour que les enemy qui attaque à distance lance un projectile
         [SerializeField]
@@ -97,6 +102,8 @@ namespace GodMorgon.Enemy
         {
             //on récupère la transform de l'enemy en cherchant l'animator
             enemyTransform = GetComponentInChildren<Animator>().transform;
+
+            enemyHitFx = transform.Find("Enemi_Hit").gameObject;
 
             mainCamera = Camera.main;
             if (mainCamera)
@@ -391,11 +398,10 @@ namespace GodMorgon.Enemy
          */
         public void ShowAttackEffect()
         {
-            Debug.Log("Play enemy attack anim");
+            //Debug.Log("Play enemy attack anim");
             enemyAnimator.SetTrigger("attacking");
 
             enemyAnimator.ResetTrigger("damaged");
-            Debug.Log("RESET ANIM !");
 
             if (hasHighRange)
                 LaunchProjectile();
@@ -515,8 +521,10 @@ namespace GodMorgon.Enemy
         //play damaged animation when is hit
         public void LaunchDamagedAnim()
         {
-            Debug.Log("DAMAGED ACTIVED !!!!!!!!!!");
+            //Debug.Log("DAMAGED ACTIVED !!!!!!!!!!");
             enemyAnimator.SetTrigger("damaged");
+
+            enemyHitFx.GetComponent<ParticleSystemScript>().launchParticle();
         }
 
 
