@@ -38137,10 +38137,20 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5107279003414883522, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5947998632158478532, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5947998632158478532, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6689561675992876977, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
