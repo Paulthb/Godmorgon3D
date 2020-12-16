@@ -3059,6 +3059,86 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032132, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.733
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: simulationSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: RotationModule.x.scalar
+      value: 1.5707963
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: RotationModule.y.scalar
+      value: -2.0943952
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087546678855032133, guid: 6522cda50e9f3684ba02a2710cdcdee4,
+        type: 3}
+      propertyPath: RotationModule.curve.scalar
+      value: 2.6179938
+      objectReference: {fileID: 0}
     - target: {fileID: 8138207959426972066, guid: 6522cda50e9f3684ba02a2710cdcdee4,
         type: 3}
       propertyPath: m_Name
@@ -4353,12 +4433,12 @@ PrefabInstance:
     - target: {fileID: 4320608259875871259, guid: a68330358b66463469de38825e369818,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -0.742
       objectReference: {fileID: 0}
     - target: {fileID: 4320608259875871259, guid: a68330358b66463469de38825e369818,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.143
+      value: -1.005
       objectReference: {fileID: 0}
     - target: {fileID: 4320608259875871259, guid: a68330358b66463469de38825e369818,
         type: 3}
