@@ -66,7 +66,8 @@ namespace GodMorgon.Enemy
         public GameObject projectilePrefab = null;
 
         //gameobject containing hit particles
-        private GameObject enemyHitFx;
+        [HideInInspector]
+        public GameObject enemyHitFx;
 
         //pour que les enemy qui attaque à distance lance un projectile
         [SerializeField]
@@ -526,8 +527,6 @@ namespace GodMorgon.Enemy
         {
             //Debug.Log("DAMAGED ACTIVED !!!!!!!!!!");
             enemyAnimator.SetTrigger("damaged");
-
-            enemyHitFx.GetComponent<ParticleSystemScript>().launchParticle();
         }
 
 

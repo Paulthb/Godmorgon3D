@@ -4,6 +4,7 @@ using UnityEngine;
 
 using GodMorgon.Sound;
 using EZCameraShake;
+using GodMorgon.VisualEffect;
 
 namespace GodMorgon.Enemy
 {
@@ -29,8 +30,10 @@ namespace GodMorgon.Enemy
          */
         public override void TakeDamage(int damagePoint, bool isPlayerAttacking)
         {
+            enemyScript.enemyHitFx.GetComponent<ParticleSystemScript>().launchParticle();
+
             //Debug.Log("enemy : " + enemyId + ", health before was : " + health + " and damage point : " + damagePoint);
-            while(damagePoint > 0 && defense > 0)
+            while (damagePoint > 0 && defense > 0)
             {
                 defense--;
                 damagePoint--;
