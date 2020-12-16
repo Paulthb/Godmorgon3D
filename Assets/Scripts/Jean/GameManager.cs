@@ -118,6 +118,11 @@ public class GameManager : MonoBehaviour
     public List<BasicCard> VisibleDiscardPile = new List<BasicCard>();
     public List<BasicCard> VisibleHand = new List<BasicCard>();
 
+    [Header("Cursor")]
+    //Cursor
+    public Texture2D cursorTexture;
+
+
 
     #region Singleton Pattern
     private static GameManager _instance;
@@ -141,6 +146,8 @@ public class GameManager : MonoBehaviour
     {
         //on sauvegarde l'alpha des images pour les animations, si on doit les stopper
         advertisingDefaultColor = playerTurnAnimation.gameObject.GetComponent<Image>().color;
+
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
     }
 
     public void Update()

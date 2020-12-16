@@ -100,10 +100,17 @@ namespace GodMorgon.Player
 
         public ParticleSystemScript moveParticle = null;
 
-
         //player Animator
         [SerializeField]
         private Animator playerAnimator = null;
+
+        //position of the player
+        [System.NonSerialized]
+        public Transform cubetransform = null;
+
+        //prefab du projectile d'attaque
+        [SerializeField]
+        public GameObject projectilePrefab = null;
 
         //Player attack
         private Entity enemyToAttack;
@@ -130,6 +137,8 @@ namespace GodMorgon.Player
         // Start is called before the first frame update
         void Start()
         {
+            cubetransform = transform.Find("Cube");
+
             nbMoveIterationCounter = 0;
 
             //création du playerData
@@ -924,6 +933,18 @@ namespace GodMorgon.Player
         public void StopMoveParticle()
         {
             moveParticle.stopParticle();
+        }
+
+        public void LaunchProjectile(Transform target)
+        {
+            GameObject projectileGAO = Instantiate(projectilePrefab, cubetransform.position, Quaternion.identity);
+            Projectile projectileScript = projectileGAO.GetComponent<Projectile>();
+
+            projectileScript.startPosition = cubetransform;
+            projectileScript.endPosition = target;
+
+            //projectileScript.StartProjectile();
+            projectileScript.ShootProjectile();
         }
 
         #endregion
