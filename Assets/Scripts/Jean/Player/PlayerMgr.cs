@@ -382,6 +382,8 @@ namespace GodMorgon.Player
                     playerCanMove = false;
                     isMoving = false;
                     tileIndex = 0;
+                    //FX wheels particule
+                    moveParticle.stopParticle();
                     StartCoroutine(LaunchActionsInNewNode());  //Attends avant de permettre un autre move (pour ralentir le rythme)
                 }
                 else if (tileIndex < playerPath.Count - 1)
@@ -515,9 +517,6 @@ namespace GodMorgon.Player
             //{
             //    particule.stopParticle();
             //}
-
-            //FX wheels particule
-            moveParticle.stopParticle();
 
             playerHasMoved = false;
             return true;

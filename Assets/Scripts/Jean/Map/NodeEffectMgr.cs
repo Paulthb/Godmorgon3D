@@ -151,10 +151,42 @@ public class NodeEffectMgr : MonoBehaviour
     {
         List<Transform> nodesAtRange = MapManager.Instance.GetNodesAtRangeFromPlayer(curseRange);
 
-        int randomNode = Random.Range(0, nodesAtRange.Count);
+        int randomNode;
 
-        //Pick a random node in list of node at range
-        Transform nodeToCurse = nodesAtRange[randomNode];
+        
+        Transform nodeToCurse = null;
+
+        bool nodePicked = false;
+
+        //Pick an empty random node in list of node at range
+        while (!nodePicked)
+        {
+            randomNode = Random.Range(0, nodesAtRange.Count);
+            
+            nodeToCurse = nodesAtRange[randomNode];
+
+            //Remove the node if it has already an effect
+            if(nodeToCurse.GetComponent<NodeScript>().node.nodeEffect != NodeEffect.EMPTY)
+            {
+                nodesAtRange.Remove(nodeToCurse);
+
+                //There are no more nodes in range that are empty
+                if(nodesAtRange.Count == 0)
+                {
+                    nodeToCurse = null;
+                    nodePicked = true;
+                }
+            }
+            // else we have an empty node ready to be cursed
+            else
+            {
+                nodePicked = true;
+            }
+        }
+
+        //If we didn't find a node to curse, get out of function
+        if (nodeToCurse == null)
+            return;
 
         //Set the node as Cursed
         nodeToCurse.GetComponent<NodeScript>().node.nodeEffect = NodeEffect.CURSE;
