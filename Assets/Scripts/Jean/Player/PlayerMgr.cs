@@ -975,17 +975,17 @@ namespace GodMorgon.Player
         #endregion
 
         //lance les particules de damage correspondants au type de l'enemy attaquant
-        public void LaunchAttackFromEnemyParticle(bool isAtRangeEnemy)
+        public void LaunchAttackFromEnemyParticle(bool hasClaw)
         {
-            if(isAtRangeEnemy)
+            if(hasClaw)
             {
-                //Debug.Log("launch Slash !");
-                //slashAttackParticle.launchParticle();
+                Debug.Log("launch Claw !");
+                clawAttackParticle.launchParticle();
             }
             else
             {
-                //Debug.Log("launch Claw !");
-                clawAttackParticle.launchParticle();
+                //Debug.Log("launch Slash !");
+                //slashAttackParticle.launchParticle();
             }
         }
     }
