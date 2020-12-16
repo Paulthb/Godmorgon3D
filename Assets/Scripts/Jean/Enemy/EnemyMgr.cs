@@ -21,6 +21,9 @@ public class EnemyMgr : MonoBehaviour
     [Header("Curse Settings")]
     public int curseRangeFromPlayer = 2;
 
+    [Header("Visual Settings")]
+    public GameObject targetFXObject;
+
     private bool enemiesHaveMoved;
     private bool enemiesHaveAttacked = false;
     private bool launchAttackableEffect = false;
@@ -374,12 +377,17 @@ public class EnemyMgr : MonoBehaviour
 
         foreach (EnemyScript enemy in attackableEnemiesList)
         {
-            ps = enemy.transform.Find("Enemy_selection").GetChild(0).GetComponent<ParticleSystem>();
+            ps = enemy.transform.Find(targetFXObject.name).GetComponent<ParticleSystem>();
 
             if (ps == null)
-                Debug.Log("Particle system enemy selection not found");
-
+            {
+                ps = enemy.transform.Find(targetFXObject.name).GetChild(0).GetComponent<ParticleSystem>();
+                if (ps == null)
+                    Debug.Log("Particle system enemy selection not found");
+            }
             ps.Play();
+
+            launchAttackableEffect = false;
         }
 
         //SkinnedMeshRenderer rend;
@@ -435,12 +443,18 @@ public class EnemyMgr : MonoBehaviour
 
         foreach (EnemyScript enemy in attackableEnemiesList)
         {
-            ps = enemy.transform.Find("Enemy_selection").GetChild(0).GetComponent<ParticleSystem>();
+            ps = enemy.transform.Find(targetFXObject.name).GetComponent<ParticleSystem>();
 
             if (ps == null)
-                Debug.Log("Particle system enemy selection not found");
+            {
+                ps = enemy.transform.Find(targetFXObject.name).GetChild(0).GetComponent<ParticleSystem>();
+                if (ps == null)
+                    Debug.Log("Particle system enemy selection not found");
+            }
 
             ps.Stop();
+
+            resetAttackableEffect = false;
         }
 
         //SkinnedMeshRenderer rend;
