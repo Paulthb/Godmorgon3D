@@ -312,7 +312,11 @@ namespace GodMorgon.Enemy
             StartCoroutine(AttackEffect());
 
             if (attackableEntity == PlayerMgr.Instance.gameObject)
+            {
                 PlayerMgr.Instance.TakeDamage(enemyData.attack);
+                //particule de damage sur le player en fonction de l'enemy qui attaque
+                PlayerMgr.Instance.LaunchAttackFromEnemyParticle(hasHighRange);
+            }
             else
                 attackableEntity.GetComponent<EnemyScript>().enemyData.TakeDamage(enemyData.attack, false);
 
