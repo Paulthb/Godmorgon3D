@@ -794,7 +794,10 @@ namespace GodMorgon.Player
         */
         public int Counter()
         {
-            return BuffManager.Instance.counterDamage;
+            if (BuffManager.Instance.isCounterActive)
+                return BuffManager.Instance.counterDamage;
+            else
+                return 0;
         }
 
         /**
@@ -976,12 +979,12 @@ namespace GodMorgon.Player
         {
             if(isAtRangeEnemy)
             {
-                Debug.Log("launch Slash !");
+                //Debug.Log("launch Slash !");
                 //slashAttackParticle.launchParticle();
             }
             else
             {
-                Debug.Log("launch Claw !");
+                //Debug.Log("launch Claw !");
                 clawAttackParticle.launchParticle();
             }
         }

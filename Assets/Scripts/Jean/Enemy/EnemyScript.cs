@@ -392,6 +392,9 @@ namespace GodMorgon.Enemy
             Debug.Log("Play enemy attack anim");
             enemyAnimator.SetTrigger("attacking");
 
+            enemyAnimator.ResetTrigger("damaged");
+            Debug.Log("RESET ANIM !");
+
             if (hasHighRange)
                 LaunchProjectile();
 
@@ -510,6 +513,7 @@ namespace GodMorgon.Enemy
         //play damaged animation when is hit
         public void LaunchDamagedAnim()
         {
+            Debug.Log("DAMAGED ACTIVED !!!!!!!!!!");
             enemyAnimator.SetTrigger("damaged");
         }
 
