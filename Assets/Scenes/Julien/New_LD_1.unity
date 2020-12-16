@@ -15720,7 +15720,7 @@ MonoBehaviour:
     nodePrefab: {fileID: 1342960658508235010, guid: d19c07597a9485c4c879e5d75fbb836a,
       type: 3}
     roadType: 15
-    nodeEffect: 2
+    nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
     coveredAtStart: 1
@@ -38117,19 +38117,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1052953696}
     m_Modifications:
-    - target: {fileID: 760198845338651728, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1949488490676098671, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3686634644782998830, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
-        type: 3}
-      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4828216360103412507, guid: 1f0f946f968c6ac4e844f63a0cfd8775,
