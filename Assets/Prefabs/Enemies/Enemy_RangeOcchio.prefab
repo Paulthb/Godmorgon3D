@@ -1311,6 +1311,7 @@ MonoBehaviour:
   enemyAnimator: {fileID: 423828064593936845}
   projectilePrefab: {fileID: 0}
   hasHighRange: 0
+  hasClaws: 1
 --- !u!65 &5813749571202574481
 BoxCollider:
   m_ObjectHideFlags: 0

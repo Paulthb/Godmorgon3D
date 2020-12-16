@@ -66,6 +66,9 @@ namespace GodMorgon.Enemy
         //pour que les enemy qui attaque à distance lance un projectile
         [SerializeField]
         private bool hasHighRange = false;
+        //pour que les enemy à griffe active les claw particle
+        [SerializeField]
+        private bool hasClaws = false;
 
         private Animator _animator;
         private HealthBar _healthBar;
@@ -315,7 +318,7 @@ namespace GodMorgon.Enemy
             {
                 PlayerMgr.Instance.TakeDamage(enemyData.attack);
                 //particule de damage sur le player en fonction de l'enemy qui attaque
-                PlayerMgr.Instance.LaunchAttackFromEnemyParticle(hasHighRange);
+                PlayerMgr.Instance.LaunchAttackFromEnemyParticle(hasClaws);
             }
             else
                 attackableEntity.GetComponent<EnemyScript>().enemyData.TakeDamage(enemyData.attack, false);
