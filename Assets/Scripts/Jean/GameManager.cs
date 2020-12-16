@@ -474,6 +474,12 @@ public class GameManager : MonoBehaviour
         //remet tout les gears à leur place
         TimelineManager.Instance.HideNextAction(4);
 
+        //Desactive le drag card handler pour qu'on ne puisse pas prendre la carte en main
+        foreach(CardDisplay card in handManager.GetCardsInHand())
+        {
+            card.gameObject.GetComponent<DragCardHandler>().enabled = false;
+        }
+
         //on désactive le block pour pouvoir reselectionné les cartes à discard...
         DownPanelBlock(false);
         //Mais on lock les buttons in game pendant la sélection
@@ -488,6 +494,12 @@ public class GameManager : MonoBehaviour
      */
     public void DesactivateDiscardOnCard()
     {
+        //Desactive le drag card handler pour qu'on ne puisse pas prendre la carte en main
+        foreach (CardDisplay card in handManager.GetCardsInHand())
+        {
+            card.gameObject.GetComponent<DragCardHandler>().enabled = true;
+        }
+
         print("DesactivateDiscardOnCard");
         isDiscardCardSelectionOn = false;
         handManager.DesactivateCardDiscard();

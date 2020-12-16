@@ -18,7 +18,7 @@ MonoBehaviour:
   dropTarget: 2
   description: '[KeyTrust] 3
 
-    Ranged 1.
+    Ranged 1
 
 
     Inflict [nbDamage] damages.'
