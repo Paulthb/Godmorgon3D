@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public Texture2D cursorTexture;
+
+    private void Start()
+    {
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.ForceSoftware);
+    }
+
     //launch the first game scene of the game
     public void PlayButton()
     {
