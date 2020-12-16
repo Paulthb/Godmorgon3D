@@ -100,6 +100,9 @@ namespace GodMorgon.Player
 
         public ParticleSystemScript moveParticle = null;
 
+        public ParticleSystemScript clawAttackParticle = null;
+        public ParticleSystemScript slashAttackParticle = null;
+
         //player Animator
         [SerializeField]
         private Animator playerAnimator = null;
@@ -240,9 +243,14 @@ namespace GodMorgon.Player
             //    PlayPlayerAnim("Attack");
             //}
 
-            //debug
-            if (Input.GetKey("b"))
-                TakeDamage(70);
+            ///////////////////////////////////////////////////////debug
+            //if (Input.GetKey("b"))
+            //    TakeDamage(70);
+
+            //if (Input.GetKey("l"))
+            //    clawAttackParticle.launchParticle();
+            //if (Input.GetKey("m"))
+            //    slashAttackParticle.launchParticle();
         }
 
         #region MOVEMENT
@@ -736,6 +744,8 @@ namespace GodMorgon.Player
 
             //launch player take damage animation
             PlayPlayerAnim("TakeDamage");
+
+
         }
 
         //return les dégats reçu à ce tour
@@ -960,5 +970,20 @@ namespace GodMorgon.Player
         }
 
         #endregion
+
+        //lance les particules de damage correspondants au type de l'enemy attaquant
+        public void LaunchAttackFromEnemyParticle(bool isAtRangeEnemy)
+        {
+            if(isAtRangeEnemy)
+            {
+                Debug.Log("launch Slash !");
+                //slashAttackParticle.launchParticle();
+            }
+            else
+            {
+                Debug.Log("launch Claw !");
+                clawAttackParticle.launchParticle();
+            }
+        }
     }
 }

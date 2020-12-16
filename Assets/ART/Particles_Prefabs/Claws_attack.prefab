@@ -4772,6 +4772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4320608259875871259}
+  - component: {fileID: 2641124752928527414}
   m_Layer: 0
   m_Name: Claws_attack
   m_TagString: Untagged
@@ -4796,6 +4797,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -55.339005, y: 90.00001, z: -90.00001}
+--- !u!114 &2641124752928527414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4320608259875871258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659981fe6e398684880a5ecedcf5827d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystemList:
+  - {fileID: 4320608260799594334}
+  - {fileID: 4320608260992619766}
+  - {fileID: 4320608260152953532}
+  - {fileID: 4320608260928036512}
+  - {fileID: 4320608260310523555}
+  - {fileID: 4320608259772759943}
+  - {fileID: 4320608261220999847}
+  - {fileID: 4320608259962258533}
+  - {fileID: 4320608259989869181}
 --- !u!1 &4320608259962258530
 GameObject:
   m_ObjectHideFlags: 0
