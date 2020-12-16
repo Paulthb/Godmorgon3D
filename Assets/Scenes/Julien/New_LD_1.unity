@@ -26959,7 +26959,7 @@ PrefabInstance:
     - target: {fileID: 2694926160232478849, guid: 446efac4f29131d46875612db9b4e5df,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2694926160232478849, guid: 446efac4f29131d46875612db9b4e5df,
         type: 3}
@@ -32798,6 +32798,7 @@ MonoBehaviour:
   VisibleDeck: []
   VisibleDiscardPile: []
   VisibleHand: []
+  cursorTexture: {fileID: 2800000, guid: d39ee5be0fccdcc4fad64abe863dc56d, type: 3}
 --- !u!1001 &1887391978
 PrefabInstance:
   m_ObjectHideFlags: 0
