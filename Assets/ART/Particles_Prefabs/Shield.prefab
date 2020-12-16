@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6766159567076046199}
   - component: {fileID: 6766159567076046198}
+  - component: {fileID: -1179423781351284699}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -52,6 +53,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1179423781351284699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766159567076046200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659981fe6e398684880a5ecedcf5827d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystemList:
+  - {fileID: 6766159568807235199}
+  - {fileID: 5299892659368206969}
 --- !u!1 &6766159568807235169
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +735,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 5, y: 5, z: 5}
+    m_Scale: {x: 2, y: 2, z: 2}
     placementMode: 1
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -5482,7 +5498,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 0.5, y: 0.5, z: 0.5}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
