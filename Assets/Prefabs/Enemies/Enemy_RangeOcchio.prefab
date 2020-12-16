@@ -1276,7 +1276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9577af298008ca449b769e7c039b8fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy: {fileID: 11400000, guid: ff67af8d33284154693dba4be7b31dde, type: 2}
+  _enemy: {fileID: 11400000, guid: 84fc44bfe1d70234a9ec5edefee8dec6, type: 2}
   moveSpeed: 5
   moveCurve:
     serializedVersion: 2

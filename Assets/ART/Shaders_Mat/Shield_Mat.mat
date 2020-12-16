@@ -76,7 +76,7 @@ Material:
     - _Float1: 5.66
     - _Float2: 0.1
     - _FresnelPower: 2.51
-    - _FresnelScale: 0.043
+    - _FresnelScale: 0.405
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
