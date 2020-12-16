@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gears_Mat
-  m_Shader: {fileID: 4800000, guid: e9139893135752842abe9302f85aa8d4, type: 3}
+  m_Name: Blade
+  m_Shader: {fileID: 4800000, guid: 334925cd59fb2ac4a8e755e0702f5f18, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -81,7 +81,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Emissive_Intensity: 0
+    - _Emissive_Intensity: 20
     - _Float1: -0.992
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -89,12 +89,13 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _Opcaity: 1
     - _Parallax: 0.02
-    - _RimOffset: 0.1
-    - _Rimpower: 0
+    - _RimOffset: 17.47
+    - _Rimpower: 1
     - _SmoothnessTextureChannel: 0
-    - _Specintensity: 0
-    - _Specsmth: 0
+    - _Specintensity: 1
+    - _Specsmth: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
@@ -103,11 +104,12 @@ Material:
     - _max: 1
     - _min: 0
     m_Colors:
-    - _ASEOutlineColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0}
+    - _ASEOutlineColor: {r: 0.20784314, g: 0.20784314, b: 0.20784314, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Coloralbedo: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Emissive: {r: 0.6603774, g: 0.38791147, b: 0, a: 1}
-    - _GlobalTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _RimTint: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
-    - _Speccolor: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+    - _Emissive: {r: 0.102831416, g: 0.0141509175, b: 1, a: 1}
+    - _GlobalTint: {r: 0.38655472, g: 0, b: 1, a: 1}
+    - _RimTint: {r: 0.084453516, g: 0.035733357, b: 0.103773594, a: 1}
+    - _Speccolor: {r: 0.35684776, g: 0, b: 1, a: 1}
     - _Tint: {r: 0.9811321, g: 0.47640994, b: 0, a: 1}
