@@ -76,6 +76,10 @@ namespace GodMorgon.Enemy
         [SerializeField]
         private bool hasClaws = false;
 
+        //time before the impact of the anim of an enemy
+        [SerializeField]
+        private float timeBeforeImpact = 0.8f;
+
         private Animator _animator;
         private HealthBar _healthBar;
 
@@ -323,6 +327,7 @@ namespace GodMorgon.Enemy
 
             StartCoroutine(AttackEffect());
 
+            //attaque le player
             if (attackableEntity == PlayerMgr.Instance.gameObject)
             {
                 PlayerMgr.Instance.TakeDamage(enemyData.attack);
@@ -333,6 +338,7 @@ namespace GodMorgon.Enemy
                 if (hasHighRange)
                     LaunchProjectile(PlayerMgr.Instance.cubetransform);
             }
+            //attaque un enemy
             else
             {
                 attackableEntity.GetComponent<EnemyScript>().enemyData.TakeDamage(enemyData.attack, false);
@@ -521,12 +527,27 @@ namespace GodMorgon.Enemy
         }
 
         //play damaged animation when is hit
-        public void LaunchDamagedAnim()
+        public void LaunchDamagedAnim(bool isPlayerAttacking)
         {
-            //Debug.Log("DAMAGED ACTIVED !!!!!!!!!!");
-            enemyAnimator.SetTrigger("damaged");
+            //si le player attack on lance l'anim tout de suite
+            if (isPlayerAttacking)
+            {
+                //Debug.Log("DAMAGED ACTIVED !!!!!!!!!!");
+                enemyAnimator.SetTrigger("damaged");
+                enemyHitFx.GetComponent<ParticleSystemScript>().launchParticle();
+            }
+            //sinon on attend le temps de l'anim de l'enemy.
+            else
+                StartCoroutine(DamageAnimCoroutine());
         }
 
+        //time impact on enemy animation
+        public IEnumerator DamageAnimCoroutine()
+        {
+            yield return new WaitForSeconds(timeBeforeImpact);
+            enemyAnimator.SetTrigger("damaged");
+            enemyHitFx.GetComponent<ParticleSystemScript>().launchParticle();
+        }
 
         /**
          * Kill enemy after his hit animation duration

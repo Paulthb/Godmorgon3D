@@ -66,7 +66,8 @@ namespace GodMorgon.Sound
         // Start is called before the first frame update
         void Start()
         {
-            MainTheme.Post(gameObject);
+            //no sound
+            //MainTheme.Post(gameObject);
         }
 
         // Update is called once per frame

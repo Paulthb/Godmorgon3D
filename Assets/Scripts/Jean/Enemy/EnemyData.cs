@@ -30,7 +30,7 @@ namespace GodMorgon.Enemy
          */
         public override void TakeDamage(int damagePoint, bool isPlayerAttacking)
         {
-            enemyScript.enemyHitFx.GetComponent<ParticleSystemScript>().launchParticle();
+            //enemyScript.enemyHitFx.GetComponent<ParticleSystemScript>().launchParticle();
 
             //Debug.Log("enemy : " + enemyId + ", health before was : " + health + " and damage point : " + damagePoint);
             while (damagePoint > 0 && defense > 0)
@@ -60,7 +60,7 @@ namespace GodMorgon.Enemy
             }
             //si l'enemy ne meurt pas on play juste l'anim de damage
             else
-                enemyScript.LaunchDamagedAnim();
+                enemyScript.LaunchDamagedAnim(isPlayerAttacking);
         }
 
         //return the position of the enemy

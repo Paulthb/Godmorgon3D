@@ -22,6 +22,12 @@ public class Projectile : MonoBehaviour
 
     private bool isProjectileShoot = false;
 
+    private void Start()
+    {
+        Vector3 direction = endPosition.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = rotation;
+    }
 
     private void Update()
     {
