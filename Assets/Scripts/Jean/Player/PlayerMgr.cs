@@ -115,6 +115,10 @@ namespace GodMorgon.Player
         [SerializeField]
         public GameObject projectilePrefab = null;
 
+        //timer sur le player damage anim
+        [SerializeField]
+        public float timeBeforeImpact = 0.7f;
+
         //Player attack
         private Entity enemyToAttack;
         private EnemyScript clickedEnemy;
@@ -731,6 +735,29 @@ namespace GodMorgon.Player
         */
         public void TakeDamage(int damage)
         {
+            ////considérer le shield du player
+            //playerData.TakeDamage(damage, false);
+
+            //UpdateHealth();
+
+            //turnDamage++;
+
+            ////launch player hit effect
+            //OnDamage();
+
+            ////launch player take damage animation
+            //PlayPlayerAnim("TakeDamage");
+
+            StartCoroutine(PlayerTakeDamageCoroutine(damage));
+        }
+
+        /**
+         * Coroutine pour timer l'effet damage du player sur l'animes d'attaque de l'enemy (fix au scotch)
+         */
+        public IEnumerator PlayerTakeDamageCoroutine(int damage)
+        {
+            yield return new WaitForSeconds(timeBeforeImpact);
+
             //considérer le shield du player
             playerData.TakeDamage(damage, false);
 
@@ -743,8 +770,6 @@ namespace GodMorgon.Player
 
             //launch player take damage animation
             PlayPlayerAnim("TakeDamage");
-
-
         }
 
         //return les dégats reçu à ce tour
@@ -976,7 +1001,28 @@ namespace GodMorgon.Player
         //lance les particules de damage correspondants au type de l'enemy attaquant
         public void LaunchAttackFromEnemyParticle(bool hasClaw)
         {
-            if(hasClaw)
+            //if(hasClaw)
+            //{
+            //    Debug.Log("launch Claw !");
+            //    clawAttackParticle.launchParticle();
+            //}
+            //else
+            //{
+            //    //Debug.Log("launch Slash !");
+            //    //slashAttackParticle.launchParticle();
+            //}
+
+            StartCoroutine(AttackFromEnemyParticleCoroutine(hasClaw));
+        }
+
+        /**
+         * Coroutine pour timer l'effet damage du player sur l'animes d'attaque de l'enemy (fix au scotch)
+         */
+        public IEnumerator AttackFromEnemyParticleCoroutine(bool hasClaw)
+        {
+            yield return new WaitForSeconds(timeBeforeImpact);
+
+            if (hasClaw)
             {
                 Debug.Log("launch Claw !");
                 clawAttackParticle.launchParticle();

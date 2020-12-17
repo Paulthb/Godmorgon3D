@@ -439,7 +439,6 @@ namespace GodMorgon.Enemy
                 isAttackFinished = false;
                 return true;
             }
-
             return false;
         }
 
