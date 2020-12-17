@@ -31,8 +31,6 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     private float speedCardDiscard = 5f;
     private Vector3 mousePos;
 
-    private bool isInit = false;
-
     //=================================
     private CameraDrag mainCamera;
     //=================================
@@ -74,8 +72,6 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         _card = gameObject.GetComponent<CardDisplay>().card;
         mainCamera = Camera.main.GetComponentInParent<CameraDrag>();
         myCanvasUI = GameObject.Find("CardDropEffect").transform;
-
-        isInit = true;
     }
 
     //fonction lancée au drag d'une carte

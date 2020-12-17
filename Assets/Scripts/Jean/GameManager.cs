@@ -310,8 +310,9 @@ public class GameManager : MonoBehaviour
         {
             nbCardToDiscard--;
             Debug.Log("card to discard : " + nbCardToDiscard);
+
             //si il n'y a pu de carte à restart on arrête la selection
-            if (nbCardToDiscard <= 0)
+            if (nbCardToDiscard <= 0 || handManager.GetCardsInHand().Count <= 0)
                 DesactivateDiscardOnCard();
         }
     }
