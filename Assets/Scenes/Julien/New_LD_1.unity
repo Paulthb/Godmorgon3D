@@ -12371,7 +12371,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnFXObject
       value: 
-      objectReference: {fileID: 5580165803432386554, guid: e3f980b1ca4948e42972704c9da7fc91,
+      objectReference: {fileID: 2614768107033287814, guid: 3721b1ed70ac1614bbbc9a003e2646ba,
         type: 3}
     - target: {fileID: 7347671793765871052, guid: 653085ed10243b14cb2eae8835328137,
         type: 3}

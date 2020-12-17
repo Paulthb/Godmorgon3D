@@ -290,7 +290,7 @@ public class EnemyMgr : MonoBehaviour
         GameObject spawnFX = Instantiate(spawnFXObject, spawnPos, Quaternion.identity);    //Instantiate spawn effect
         spawnFX.GetComponent<ParticleSystemScript>().PlayNDestroy();
 
-        yield return new WaitForSeconds(spawnFX.GetComponent<ParticleSystemScript>().GetDuration());
+        yield return new WaitForSeconds(0.1f);
 
         EnemyScript createdEnemy = Instantiate(enemy, spawnPos, Quaternion.identity, transform);  //Instantiate an enemy at spawn node, as a child of EnemyMgr
 
