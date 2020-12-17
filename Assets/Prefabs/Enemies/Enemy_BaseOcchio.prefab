@@ -672,7 +672,11 @@ MonoBehaviour:
   enemyCanvas: {fileID: 350411251326830549}
   enemyAnimator: {fileID: 3066604099381156432}
   projectilePrefab: {fileID: 0}
+  enemyHitFx: {fileID: 0}
+  enemySpawnFx: {fileID: 0}
   hasHighRange: 0
+  hasClaws: 0
+  timeBeforeImpact: 0.8
 --- !u!65 &5813749571202574481
 BoxCollider:
   m_ObjectHideFlags: 0

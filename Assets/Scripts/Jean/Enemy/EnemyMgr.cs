@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using GodMorgon.Enemy;
 using GodMorgon.Player;
+using GodMorgon.VisualEffect;
 using UnityEngine;
 
 public class EnemyMgr : MonoBehaviour
@@ -23,6 +24,7 @@ public class EnemyMgr : MonoBehaviour
 
     [Header("Visual Settings")]
     public GameObject targetFXObject;
+    public GameObject spawnFXObject;
 
     private bool enemiesHaveMoved;
     private bool enemiesHaveAttacked = false;
@@ -273,19 +275,24 @@ public class EnemyMgr : MonoBehaviour
         //Spawn nbEnemiesToSpawn random enemies at nbEnemiesToSpawn random spawns in a range
         for (int i = 0; i < limit; i++)
         {
-            SpawnEnemy(randomEnemies[i].GetComponent<EnemyScript>(), randomSpawns[i].GetComponent<NodeScript>().node.nodePosition);
+            StartCoroutine(SpawnEnemy(randomEnemies[i].GetComponent<EnemyScript>(), randomSpawns[i].GetComponent<NodeScript>().node.nodePosition));
         }
     }
 
     /**
      * Spawn an enemy at a precise node
      */
-    public void SpawnEnemy(EnemyScript enemy, Vector3Int spawnNodePos)
+    IEnumerator SpawnEnemy(EnemyScript enemy, Vector3Int spawnNodePos)
     {
         Vector3 spawnPos = new Vector3(spawnNodePos.x + 1, spawnNodePos.y, spawnNodePos.z + 1);     // + 1 to place the enemy at the center of a node
 
+        //Launch spawn effect
+        GameObject spawnFX = Instantiate(spawnFXObject, spawnPos, Quaternion.identity);    //Instantiate spawn effect
+        spawnFX.GetComponent<ParticleSystemScript>().PlayNDestroy();
+
+        yield return new WaitForSeconds(spawnFX.GetComponent<ParticleSystemScript>().GetDuration());
+
         EnemyScript createdEnemy = Instantiate(enemy, spawnPos, Quaternion.identity, transform);  //Instantiate an enemy at spawn node, as a child of EnemyMgr
-        //Instantiate(enemy.spawnParticule, spawnPos, Quaternion.identity, effectParent);    //Instantiate spawn effect
 
         // Add created enemy to entities list of node
         Node spawnNode = MapManager.Instance.GetNodeFromPos(spawnNodePos).GetComponent<NodeScript>().node;
