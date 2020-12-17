@@ -67,7 +67,7 @@ namespace GodMorgon.Sound
         void Start()
         {
             //no sound
-            //MainTheme.Post(gameObject);
+            MainTheme.Post(gameObject);
         }
 
         // Update is called once per frame
