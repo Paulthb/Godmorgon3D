@@ -52,6 +52,8 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     [SerializeField]
     private Transform myCanvasUI;
 
+    private bool cardArrived = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -231,6 +233,12 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             CardEffectManager.Instance.PlayCard(_card, context);
             
             PlayerMgr.Instance.ResetChosenEnemy();
+
+            //Wait for card to arrive at discard (cardArrived is set to true)
+            while (!cardArrived)
+                yield return null;
+
+            Destroy(gameObject);
         }
         else if(_card.dropTarget == BasicCard.DROP_TARGET.NODE)
             CardEffectManager.Instance.PlayCard(_card, context);
@@ -252,6 +260,9 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         }
         transform.position = discardPilePos.position;
 
+        //For attack cards
+        cardArrived = true;
+
         if (!_card)
             Debug.Log("dropTarget null");
 
@@ -268,8 +279,9 @@ public class DragCardHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             Debug.Log(gameObject.name + " : dicardpos null");
             Init();
         }
+
         if (!transform)
-            return true;
+            return false;
 
         return (transform.position - discardPilePos.position).magnitude > 0.01f;
     }
