@@ -23,16 +23,19 @@ public class BootStrapGameScene : MonoBehaviour
     //initialize data at start and launch first game function
     public void Start()
     {
+        //Debug.Log("game boot Start");
         //DEBUG
         GameEngine.Instance.isDrawCardRandom = isHandRandom;
 
-        if (GameEngine.Instance.gameLaunched == false)
-        {
+        //if (GameEngine.Instance.gameLaunched == false)
+        //{
+            Debug.Log("game boot Start");
+
             GameEngine.Instance.SetSettings(gameSettings);
             GameEngine.Instance.SetStartingGame();
             GameEngine.Instance.SetCurrentGameScene(gameSceneName);
 
             GameEngine.Instance.SetState(StateMachine.STATE.INITIALIZATION_MAZE);
-        }
+        //}
     }
 }
