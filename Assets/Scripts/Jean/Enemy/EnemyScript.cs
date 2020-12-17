@@ -611,6 +611,12 @@ namespace GodMorgon.Enemy
             else enemyCanvas.gameObject.SetActive(false);
         }
 
+
+        public void PlayShieldParticle()
+        {
+            transform.Find("ShieldEnemy").GetComponent<ParticleSystemScript>().launchParticle();
+        }
+
         #region ENEMY POSITIONS
 
         /**

@@ -20,7 +20,10 @@ namespace GodMorgon.Timeline
             List<EnemyScript> enemyInScene = EnemyMgr.Instance.GetAllEnemies();
             if(enemyInScene.Count > 0)
                 foreach(EnemyScript enemy in enemyInScene)
+                {
                     enemy.enemyData.AddBlock(TimelineManager.Instance.nbBlockGain);
+                    enemy.PlayShieldParticle();
+                }
 
             Debug.Log("ACTION defend");
 

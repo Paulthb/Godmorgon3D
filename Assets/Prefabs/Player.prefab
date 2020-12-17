@@ -2474,6 +2474,7 @@ MonoBehaviour:
   playerAnimator: {fileID: 7033059804924032127}
   projectilePrefab: {fileID: 7070760672768378150, guid: 3cfa2ab66451f5b4e8dccbb14e15dd3a,
     type: 3}
+  timeBeforeImpact: 0.7
 --- !u!1 &6795287613565108842
 GameObject:
   m_ObjectHideFlags: 0
@@ -3794,31 +3795,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8085443554357354302}
     m_Modifications:
-    - target: {fileID: 5299892659368206969, guid: 12cde914461dd0e4c822b4e150e44261,
-        type: 3}
-      propertyPath: ShapeModule.m_Scale.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5299892659368206969, guid: 12cde914461dd0e4c822b4e150e44261,
-        type: 3}
-      propertyPath: ShapeModule.m_Scale.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5299892659368206969, guid: 12cde914461dd0e4c822b4e150e44261,
-        type: 3}
-      propertyPath: ShapeModule.m_Scale.z
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5299892659368206969, guid: 12cde914461dd0e4c822b4e150e44261,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5299892659368206969, guid: 12cde914461dd0e4c822b4e150e44261,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6766159567076046199, guid: 12cde914461dd0e4c822b4e150e44261,
         type: 3}
       propertyPath: m_LocalPosition.x
