@@ -66,7 +66,6 @@ namespace GodMorgon.Sound
         // Start is called before the first frame update
         void Start()
         {
-            //no sound
             MainTheme.Post(gameObject);
         }
 
@@ -88,6 +87,11 @@ namespace GodMorgon.Sound
         //{
         //    RingmasterState.SetValue();
         //}
+
+        public void StopMusic()
+        {
+            MainTheme.Stop(gameObject);
+        }
 
         public void PlayVictory()
         {

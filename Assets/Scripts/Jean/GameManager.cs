@@ -152,10 +152,10 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown("w"))
-        {
-            Victory();
-        }
+        //if (Input.GetKeyDown("w"))
+        //{
+        //    Victory();
+        //}
         UpdateNbCardText();
         UpdateVisibleDeck();
     }
@@ -232,6 +232,7 @@ public class GameManager : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("Main_Menu");
+        MusicManager.Instance.StopMusic();
     }
 
     //Quit button
