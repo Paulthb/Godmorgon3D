@@ -13014,7 +13014,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
-    coveredAtStart: 0
+    coveredAtStart: 1
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &826211778
@@ -38107,7 +38107,7 @@ MonoBehaviour:
     nodeEffect: 0
     effectLaunched: 0
     isNodeCleared: 0
-    coveredAtStart: 0
+    coveredAtStart: 1
     enemiesOnNode: []
     enemyOnCenter: {fileID: 0}
 --- !u!1001 &6689561676831582981
