@@ -18,7 +18,7 @@ namespace GodMorgon.GameSequencerSpace
             PlayerMgr.Instance.PlayPlayerAnim("Attack");
 
             //Launch projectile de player à enemy
-            PlayerMgr.Instance.LaunchProjectile(context.targets.GetSpaceTransform());
+            //PlayerMgr.Instance.LaunchProjectile(context.targets.GetSpaceTransform());
 
             if (!context.targets.IsDead())
                 yield return new WaitForSeconds(context.targets.GetDamageHitDuration());    //wait the time of the hit particle effect

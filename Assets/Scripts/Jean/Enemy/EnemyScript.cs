@@ -320,6 +320,7 @@ namespace GodMorgon.Enemy
             }
 
             ShowAttackEffect(); //Décommenter qd on aura l'anim d'attaque
+
             StartCoroutine(AttackEffect());
 
             if (attackableEntity == PlayerMgr.Instance.gameObject)
@@ -327,10 +328,19 @@ namespace GodMorgon.Enemy
                 PlayerMgr.Instance.TakeDamage(enemyData.attack);
                 //particule de damage sur le player en fonction de l'enemy qui attaque
                 PlayerMgr.Instance.LaunchAttackFromEnemyParticle(hasClaws);
+                
+                //launch Projectile on target if doorOcchio
+                if (hasHighRange)
+                    LaunchProjectile(PlayerMgr.Instance.cubetransform);
             }
             else
+            {
                 attackableEntity.GetComponent<EnemyScript>().enemyData.TakeDamage(enemyData.attack, false);
 
+                //launch Projectile on target if doorOcchio
+                if (hasHighRange)
+                    LaunchProjectile(attackableEntity.GetComponent<EnemyScript>().enemyTransform);
+            }
             print("ENEMY " + gameObject.name + " has attacked " + attackableEntity.name);
 
             //Take damage if counter activated
@@ -407,27 +417,16 @@ namespace GodMorgon.Enemy
 
             enemyAnimator.ResetTrigger("damaged");
 
-            if (hasHighRange)
-                LaunchProjectile();
 
-            //Animation anim = this.transform.GetComponentInChildren<Animation>();
-
-            //foreach (AnimationState state in anim)
-            //{
-            //    if (state.name == "Enemy_Attack")
-            //    {
-            //        anim.Play(state.name);
-            //    }
-            //}
         }
 
-        public void LaunchProjectile()
+        public void LaunchProjectile(Transform targetTransform)
         {
             GameObject projectileGAO = Instantiate(projectilePrefab, enemyTransform.position, Quaternion.identity);
             Projectile projectileScript = projectileGAO.GetComponent<Projectile>();
 
             projectileScript.startPosition = enemyTransform;
-            projectileScript.endPosition = PlayerMgr.Instance.cubetransform;
+            projectileScript.endPosition = targetTransform;
 
             //projectileScript.StartProjectile();
             projectileScript.ShootProjectile();
