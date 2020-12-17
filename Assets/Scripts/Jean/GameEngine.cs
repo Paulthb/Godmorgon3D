@@ -144,6 +144,8 @@ public class GameEngine
         playerDeck = tempDeck;
         //Debug.Log(playerDeck.GetCards().Count);
 
+        hand = new Hand();
+
         gameLaunched = true;
     }
 

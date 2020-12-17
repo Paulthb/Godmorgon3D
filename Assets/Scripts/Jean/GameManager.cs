@@ -152,9 +152,9 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown("n"))
+        if (Input.GetKeyDown("w"))
         {
-            //StartCoroutine(LaunchFinalFade());
+            Victory();
         }
         UpdateNbCardText();
         UpdateVisibleDeck();
